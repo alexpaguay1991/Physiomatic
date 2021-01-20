@@ -11,8 +11,7 @@ package ec.edu.espe.physiomatic.view;
  */
 public class CoverPage {
     public static void present(){
-        //try{
-            //Runtime.getRuntime().exec("cls");
+        
             System.out.println("--------------------------------------");
             System.out.println("-           PHYSIOMATIC SYSTEM       -");       
             System.out.println("-                                    -");
@@ -33,15 +32,10 @@ public class CoverPage {
                 x=1500;
                 Thread.sleep(x);
             } catch(Exception ex ) { 
-                //System.out.println(“Thread Interrupted”);
+                
             }
 
-            //}catch(Exception ex){
             
-            
-            
-        //}
-        
         
     }
     

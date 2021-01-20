@@ -6,6 +6,7 @@
 package ec.edu.espe.physiomatic.controller;
 
 
+import ec.edu.espe.filemanager.utils.Student;
 import ec.edu.espe.physiomatic.model.Physioterapist;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -149,6 +150,10 @@ public class PhysiomaticController {
             view.display();
         }
         
+    }
+
+    private Student createStudent() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
