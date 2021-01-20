@@ -18,7 +18,7 @@ public class RegistrationPhysiotepaist {
     Gson gson=new Gson();
     PhysiomaticController controller=new PhysiomaticController();
     public  void register(){
-        //System.out.println(""+controller.createPhsyioterapist().toString());
+        
         FileManager.save("physioterapist.json",gson.toJson(controller.createPhsyioterapist()));
     }
     
