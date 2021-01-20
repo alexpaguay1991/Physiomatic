@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/D:/DOCUMENTOS/Downloads/Physiomatic/src/ec/edu/espe/physiomatic/view/PatientManagment.java</file>
             <file>file:/D:/DOCUMENTOS/Downloads/Physiomatic/src/ec/edu/espe/physiomatic/model/Bill.java</file>
@@ -18,5 +19,8 @@
             <file>file:/D:/DOCUMENTOS/Downloads/Physiomatic/src/ec/edu/espe/physiomatic/view/CoverPage.java</file>
             <file>file:/D:/DOCUMENTOS/Downloads/Physiomatic/src/ec/edu/espe/physiomatic/controller/PhysiomaticController.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> 19f97713cabfe13f4a3c609fb0440266fef7eede
     </open-files>
 </project-private>
