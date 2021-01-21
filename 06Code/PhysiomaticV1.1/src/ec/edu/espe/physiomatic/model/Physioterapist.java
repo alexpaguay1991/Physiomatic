@@ -7,6 +7,7 @@ package ec.edu.espe.physiomatic.model;
 
 import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.FileManager;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -26,17 +27,17 @@ public class Physioterapist {
 
     public static Patient generatePatient() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Entry the patient's id");
+        System.out.println("Ingrece la cédula del paciente");
         Long idPatient = scanner.nextLong();
         scanner.nextLine();
 
-        System.out.println("Entry the Patient's first name");
+        System.out.println("Ingrese el nombre del paciente");
         String namePatient = scanner.nextLine();
 
-        System.out.println("Entry the Patient's last name");
+        System.out.println("Ingrese el apellido del paciente");
         String lastNamePatient = scanner.nextLine();
 
-        System.out.println("Entry the Patient's contact");
+        System.out.println("Ingrese el número telefónico del paciente");
         String contactPatient = scanner.nextLine();
         scanner.nextLine();
 
@@ -55,21 +56,39 @@ public class Physioterapist {
 
     }
 
-    /*public Patient retrievePatient(long idPatient){
-        Gson gson =new Gson();
-        String dataFile;
-        dataFile=FileManager.find("students.json", idPatient+"");
-        Patient patient;
-        patient=gson.fromJson(dataFile, Patient.class);;
-        return patient;
-        
-    }*/
-    public ClinicalHistory createClinicalHistory(long idPatient) {
+    public ClinicalHistory createClinicalHistory(Patient patient, Diagnostic diagnostic) {
         Scanner scanner = new Scanner(System.in);
-        Patient patient;
-        //patient=retrievePatient(idPatient);
-        return null;
+       /*
+        String pathology;
+        String treatment;
+        String symptoms;
+        String familyBackground;
+        String allergies;
+        */
+        ClinicalHistory clinicalHistory;
+        
+        clinicalHistory = new ClinicalHistory(patient);
 
+        System.out.println("Ingrese la patología que presenta");
+        String pathology = scanner.nextLine();
+        System.out.println("Ingrese el tratamiento a seguir");
+        String treatment = scanner.nextLine();
+        System.out.println("Ingrese los síntomas que presenta");
+        String symptoms = scanner.nextLine();
+        System.out.println("Ingrese los antecedentes familiares");
+        String familyBackground = scanner.nextLine();
+        System.out.println("Ingrese las alergias");
+        String allergies = scanner.nextLine();
+        
+        /*
+                 pathology;
+    private String treatment;
+    private String symptoms;
+    private String familyBackground;
+    private String allergies;
+    private Date dateOfDiagnostic;*/
+
+        return clinicalHistory;
     }
 
     /**

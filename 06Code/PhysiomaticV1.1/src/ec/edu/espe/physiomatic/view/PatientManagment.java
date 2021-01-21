@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.FileManager;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.physiomatic.model.Physioterapist;
+import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -58,7 +59,22 @@ public class PatientManagment {
                     }
                     break;
                 case 3:
-                    //
+                    System.out.println("Ingrese el ID del paciente:");
+
+                    scanner.nextLine();
+                    String dataToFind = scanner.nextLine();
+                    String dataOfFile;
+                    try {
+
+                        dataOfFile = FileManager.find("patients.json", dataToFind);
+                        Patient patient;
+                        patient = gson.fromJson(dataOfFile, Patient.class);
+                        SystemView2 view = new SystemView2(patient);
+                        view.displayPatient();
+
+                    } catch (Exception ex) {
+                        System.out.println("Paciente no encontrado");
+                    }
 
                     break;
                 case 4:
@@ -82,12 +98,43 @@ public class PatientManagment {
                     FileManager.save("patients.json", gson.toJson(Physioterapist.generateAppointment(idPatient, dateAppointment, hourOfAppointment)));
                     break;
                 case 5:
-                    System.exit(0);
+                    System.out.println("Por favor ingrese el número de cédula del paciente: ");
 
+                    scanner.nextLine();
+                    String idForBill = scanner.nextLine();
+
+                    //if(dataOfFile=FileManager.find("patients.json", idForBill)){
+                    System.out.println("Ingrese el precio: ");
+                    scanner.nextFloat();
+                    float price = scanner.nextFloat();
+                    float iva = price * (12 / 100);
+                    price += iva;
+
+                    //}else{
+                    // System.out.println(">>>> Paciente no encontrado <<<<");
+                    //}
                     break;
                 case 6:
-                    System.exit(0);
+                    System.out.println("Ingrese el número de cédula del paciente");
+                    scanner.nextLine();
+                    String idMedicalHistory;
 
+                    idMedicalHistory = scanner.nextLine();
+                    
+                    try {
+
+                        dataOfFile = FileManager.find("patients.json", idMedicalHistory);
+                        Patient patient;
+                        
+                        patient = gson.fromJson(dataOfFile, Patient.class);
+                        SystemView2 view = new SystemView2(patient);
+                        view.displayPatient();
+                        
+                        
+
+                    } catch (Exception ex) {
+                        System.out.println("Paciente no encontrado");
+                    }
                     break;
                 case 7:
                     System.exit(0);
