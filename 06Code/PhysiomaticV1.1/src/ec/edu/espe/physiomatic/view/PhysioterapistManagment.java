@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Acer
+ * @author Santiago Risueño ESPE-DCCO
  */
 public class PhysioterapistManagment {
     public static void main(String[] args) {

@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author Acer
+ * @author Santiago Risueño ESPE-DCCO
  */
 public class Patient {
 

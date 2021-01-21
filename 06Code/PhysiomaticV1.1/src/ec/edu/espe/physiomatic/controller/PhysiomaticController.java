@@ -19,7 +19,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Acer
+ * @author Santiago Risueño ESPE-DCCO
  */
 public class PhysiomaticController {
 
