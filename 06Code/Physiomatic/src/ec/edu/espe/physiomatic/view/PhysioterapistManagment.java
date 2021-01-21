@@ -18,23 +18,25 @@ import java.util.InputMismatchException;
  * @author Acer
  */
 public class PhysioterapistManagment {
+
     public static void main(String[] args) throws IOException, InterruptedException, ParseException {
         CoverPage.present();
-        new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         System.out.println("");
-        Scanner scanner=new Scanner(System.in);
-        PhysiomaticController controller=new PhysiomaticController();
-        RegistrationPhysiotepaist registration=new RegistrationPhysiotepaist();
+        Scanner scanner = new Scanner(System.in);
+        PhysiomaticController controller = new PhysiomaticController();
+        RegistrationPhysiotepaist registration = new RegistrationPhysiotepaist();
+        System.out.println("-----PHYSIOMATIC------");
+        System.out.println("1: Iniciar Sesión");
+        System.out.println("2: Registrarse");
+        System.out.println("3: Salir");
+        System.out.println("Elije una opción: ");
+        
         boolean exit = false;
-        int option = scanner.nextInt();
+        int option;
         while (!exit) {
-            System.out.println("-----PHYSIOMATIC------");
-            System.out.println("1: Iniciar Sesión");
-            System.out.println("2: Registrarse");
-            System.out.println("3: Salir");
-
             try {
-                System.out.println("Elije una opción: ");
+                option = scanner.nextInt();
                 switch (option) {
                     case 1:
 
@@ -47,18 +49,18 @@ public class PhysioterapistManagment {
                     case 3:
                         exit = true;
                         break;
-                        
+
                     default:
                         System.out.println("Sólo números entre 1 y 3");
 
                 }
-            }catch (InputMismatchException e) {
-                System.out.println(3);
+            } catch (InputMismatchException e) {
+                System.out.println("Elija una opción correcta");
                 scanner.next();
             }
 
         }
-        
+
     }
-    
+
 }
