@@ -33,8 +33,6 @@ public class PhysioterapistManagment {
         while (option < 5 || option > 0) {
             switch (option) {
                 case 1:
-
-                    //FileManager.save("students.csv", gson.toJson(controller.createStudent()));
                     LoginPhysioterapist.login();
 
                     break;
@@ -44,10 +42,9 @@ public class PhysioterapistManagment {
                     break;
                 case 3:
                     System.exit(0);
-
                     break;
-
             }
+
             System.out.println("-----PHYSIOMATIC------");
             System.out.println("-----PHYSIOMATIC------");
             System.out.println("1: Iniciar Sesión");

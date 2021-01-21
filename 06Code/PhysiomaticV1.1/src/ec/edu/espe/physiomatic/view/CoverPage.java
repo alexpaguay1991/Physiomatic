@@ -10,5 +10,9 @@ package ec.edu.espe.physiomatic.view;
  * @author Acer
  */
 public class CoverPage {
+
+    static void present() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

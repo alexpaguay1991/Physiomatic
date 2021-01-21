@@ -16,6 +16,9 @@ import java.util.Scanner;
  */
 public class PhysioterapistManagment {
     public static void main(String[] args) {
+        CoverPage.present();
+        new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
+        System.out.println("");
         Scanner scanner=new Scanner(System.in);
         PhysiomaticController controller=new PhysiomaticController();
         RegistrationPhysiotepaist registration=new RegistrationPhysiotepaist();
