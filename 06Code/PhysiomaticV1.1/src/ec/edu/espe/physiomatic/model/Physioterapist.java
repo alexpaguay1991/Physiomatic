@@ -5,17 +5,72 @@
  */
 package ec.edu.espe.physiomatic.model;
 
+import com.google.gson.Gson;
+import ec.edu.espe.filemanager.utils.FileManager;
+import java.util.Scanner;
+
 /**
  *
  * @author Acer
  */
 public class Physioterapist {
+
+    private static Patient retrievePatient(long idPatient) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     private String name;
     private String lastName;
     private String userName;
     private String password;
 
-   
+    public static Patient generatePatient() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Entry the patient's id");
+        Long idPatient = scanner.nextLong();
+        scanner.nextLine();
+
+        System.out.println("Entry the Patient's first name");
+        String namePatient = scanner.nextLine();
+
+        System.out.println("Entry the Patient's last name");
+        String lastNamePatient = scanner.nextLine();
+
+        System.out.println("Entry the Patient's contact");
+        String contactPatient = scanner.nextLine();
+        scanner.nextLine();
+
+        Patient patient = new Patient(idPatient, namePatient, lastNamePatient, contactPatient);
+        return patient;
+
+    }
+
+    public static Appointment generateAppointment(long idPatient, String dateAppointment, String hourOfAppointment) {
+
+        Patient patient;
+        patient = retrievePatient(idPatient);
+        Appointment appointment = new Appointment(dateAppointment, hourOfAppointment, patient.getName());
+
+        return appointment;
+
+    }
+
+    /*public Patient retrievePatient(long idPatient){
+        Gson gson =new Gson();
+        String dataFile;
+        dataFile=FileManager.find("students.json", idPatient+"");
+        Patient patient;
+        patient=gson.fromJson(dataFile, Patient.class);;
+        return patient;
+        
+    }*/
+    public ClinicalHistory createClinicalHistory(long idPatient) {
+        Scanner scanner = new Scanner(System.in);
+        Patient patient;
+        //patient=retrievePatient(idPatient);
+        return null;
+
+    }
 
     /**
      * @return the name
@@ -79,12 +134,10 @@ public class Physioterapist {
         this.userName = userName;
         this.password = password;
     }
-    
 
     @Override
     public String toString() {
-        return   name + ";" + lastName + ";" + userName + ";" + password ;
+        return name + ";" + lastName + ";" + userName + ";" + password;
     }
-    
-    
+
 }

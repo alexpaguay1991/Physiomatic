@@ -12,6 +12,7 @@ import java.util.Date;
  * @author Acer
  */
 public class Diagnostic {
+
     private Patient patient;
     private String pathology;
     private String treatment;
@@ -132,9 +133,5 @@ public class Diagnostic {
     public String toString() {
         return "Diagnostic{" + "patient=" + patient + ", pathology=" + pathology + ", treatment=" + treatment + ", symptoms=" + symptoms + ", familyBackground=" + familyBackground + ", allergies=" + allergies + ", dateOfDiagnostic=" + dateOfDiagnostic + '}';
     }
-    
 
-    
-    
-    
 }

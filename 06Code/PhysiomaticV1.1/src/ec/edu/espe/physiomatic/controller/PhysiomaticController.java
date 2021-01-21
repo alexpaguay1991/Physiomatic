@@ -5,8 +5,8 @@
  */
 package ec.edu.espe.physiomatic.controller;
 
-
 import ec.edu.espe.filemanager.utils.Student;
+import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.physiomatic.model.Physioterapist;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -22,53 +22,52 @@ import java.util.Scanner;
  * @author Acer
  */
 public class PhysiomaticController {
-    public Physioterapist createPhsyioterapist(){
-        Scanner scanner=new Scanner(System.in);
-        
-        System.out.println("Entry the Physioterapist's name");
+
+    public Physioterapist createPhsyioterapist() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese el nombre del fisioterapista");
         String name = scanner.nextLine();
-        
-        System.out.println("Entry the Physioterapist's Last name");
+
+        System.out.println("Ingrese el apellido del fisioterapista");
         String lastName = scanner.nextLine();
-        
-        System.out.println("Entry the Physioterapist's username");
+
+        System.out.println("Ingrese un usuario para el fisioterapista");
         String username = scanner.nextLine();
-        
-        System.out.println("Entry the Physioterapist's password");
+
+        System.out.println("Ingrese una contraseña para el fisioterapista");
         String password = scanner.nextLine();
-        
-        Physioterapist physiotherapist= new Physioterapist(name,lastName,username,password);
+
+        Physioterapist physiotherapist = new Physioterapist(name, lastName, username, password);
         return physiotherapist;
     }
-    public List<Student> retrieveList(){
-        
-        ArrayList<Student> students = new ArrayList<>();
-        try{
-            FileReader f= new FileReader("students.csv");
+
+    public List<Patient> retrieveList() {
+
+        ArrayList<Patient> patients = new ArrayList<>();
+        try {
+            FileReader f = new FileReader("patients.csv");
             BufferedReader b = new BufferedReader(f);
-            
+
             Student eachStudent;
             String lineFile;
-            
-            while(( lineFile=b.readLine())!=null){
+
+            /*while(( lineFile=b.readLine())!=null){
                 String student[]=lineFile.split(";");
                 
                 eachStudent=new Student(student[0], student[1],student[2], Integer.valueOf(student[3]), student[4],Float.parseFloat(student[5]), Float.parseFloat(student[6]),Float.parseFloat(student[7]),Float.parseFloat(student[8]));
                 
                 students.add(eachStudent);
                 
-            }
-            
-            
-        }catch (IOException exception){
-            
+            }*/
+        } catch (IOException exception) {
+
         }
-        return students;
-        
+        return patients;
+
     }
-    
-    
-    
+
+    /*
     public boolean saveStudent(Student student){
         List<Student> students = retrieveList();
         try{
@@ -156,5 +155,5 @@ public class PhysiomaticController {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    
+     */
 }

@@ -5,19 +5,20 @@
  */
 package ec.edu.espe.physiomatic.view;
 
-
 import ec.edu.espe.filemanager.utils.FileManager;
 import ec.edu.espe.physiomatic.controller.PhysiomaticController;
 
 /**
  *
- * @author Acer
+ * @author Santiago Risueño ESPE-DCCO
  */
 public class RegistrationPhysiotepaist {
-    PhysiomaticController controller=new PhysiomaticController();
-    public  void register(){
-        System.out.println(""+controller.createPhsyioterapist().toString());
-        FileManager.save("physioterapist.csv",controller.createPhsyioterapist().toString());
+
+    PhysiomaticController controller = new PhysiomaticController();
+
+    public void register() {
+        System.out.println("" + controller.createPhsyioterapist().toString());
+        FileManager.save("physioterapist.csv", controller.createPhsyioterapist().toString());
     }
-    
+
 }

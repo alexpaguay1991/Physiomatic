@@ -11,7 +11,8 @@ import java.util.Date;
  *
  * @author Acer
  */
-class Patient {
+public class Patient {
+
     private long idPatient;
     private String name;
     private String lastName;
@@ -21,6 +22,10 @@ class Patient {
     private String addressPatient;
     private double height;
     private double weight;
+
+    Patient(Long idPatient, String namePatient, String lastNamePatient, String contactPatient) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     /**
      * @return the idPatient
@@ -162,8 +167,7 @@ class Patient {
 
     @Override
     public String toString() {
-        return  idPatient + ";" + name + ";" + lastName + ";" + birthDate + ";" + email + ";" + contactPatient + ";" + addressPatient + ";" + height + ";" + weight;
+        return idPatient + ";" + name + ";" + lastName + ";" + birthDate + ";" + email + ";" + contactPatient + ";" + addressPatient + ";" + height + ";" + weight;
     }
-    
-    
+
 }

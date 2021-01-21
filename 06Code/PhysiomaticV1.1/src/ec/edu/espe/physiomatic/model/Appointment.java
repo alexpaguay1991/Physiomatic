@@ -15,11 +15,17 @@ import java.util.Date;
  * @author Acer
  */
 public class Appointment {
+
     private Date dateOfAppointment;
     private Time hour;
     private String nameOfPatien;
-    public void run(){
-        
+
+    Appointment(String dateAppointment, String hourOfAppointment, String name) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void run() {
+
     }
 
     /**
@@ -74,5 +80,5 @@ public class Appointment {
     public String toString() {
         return "Appointment{" + "dateOfAppointment=" + dateOfAppointment + ", hour=" + hour + ", nameOfPatien=" + nameOfPatien + '}';
     }
-    
+
 }

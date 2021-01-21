@@ -10,11 +10,12 @@ import java.util.List;
 
 /**
  *
- * @author Acer
+ * @author Santiago Risueño ESPE-DCCO
  */
 public class ClinicalHistory {
+
     private Patient patient;
-    private List<Diagnostic> dataDiagnostic=new ArrayList<>();
+    private List<Diagnostic> dataDiagnostic = new ArrayList<>();
 
     /**
      * @return the patient
@@ -52,5 +53,5 @@ public class ClinicalHistory {
     public String toString() {
         return "ClinicalHistory{" + "patient=" + patient + ", dataDiagnostic=" + dataDiagnostic + '}';
     }
-    
+
 }
