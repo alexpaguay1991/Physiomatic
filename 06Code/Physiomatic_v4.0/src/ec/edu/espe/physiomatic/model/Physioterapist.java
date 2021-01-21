@@ -106,7 +106,7 @@ public class Physioterapist {
         return patient;
         
     }
-    public ClinicalHistory createClinicalHistory(){
+    public static ClinicalHistory createClinicalHistory(){
         Scanner scanner=new Scanner(System.in);
         System.out.println("Ingrese el ID del paciente");
         long idPatient = scanner.nextLong();

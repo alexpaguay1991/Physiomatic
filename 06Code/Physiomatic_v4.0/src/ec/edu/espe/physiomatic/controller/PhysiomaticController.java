@@ -6,6 +6,7 @@
 package ec.edu.espe.physiomatic.controller;
 
 
+import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Physioterapist;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -39,6 +40,7 @@ public class PhysiomaticController {
         Physioterapist physiotherapist= new Physioterapist(name,lastName,username,password);
         return physiotherapist;
     }
+    
     
     
 }

@@ -1,0 +1,85 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ec.edu.espe.physiomatic.view;
+
+import com.google.gson.Gson;
+import ec.edu.espe.filemanager.utils.FileManager;
+import ec.edu.espe.physiomatic.model.Patient;
+import ec.edu.espe.physiomatic.model.Physioterapist;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Acer
+ */
+public class ClinicalHistoryView {
+    public static void manageClinicalHistory() throws ParseException {
+        Scanner scanner = new Scanner(System.in);
+        
+        Gson gson = new Gson();
+        System.out.println("----------------------------------------------------");
+        System.out.println("-     HISTORIALES MEDICOS                          -");
+        System.out.println("-                                                  -");
+        System.out.println("- 1. CREAR UN NUEVO HISTORIAL MÉRDICO              -");
+        System.out.println("- 2. DESPLEGAR UN HISTORIAL MÉDICO                 -");
+        System.out.println("- 3. AÑADIR UN DIAGNÓSTICO AL HISTORIAL MÉDICO     -");
+        System.out.println("-----------------------------------------");
+        System.out.println("Elije una opción: ");
+        int option=1;
+        
+        while (option<4 || option>0) {
+            try {
+                option = scanner.nextInt();
+                
+            } catch (InputMismatchException e) {
+                System.out.println("Elija una opción correcta");
+                scanner.next();
+            }
+            
+            
+            switch (option) {
+                case 1:
+                    FileManager.save("ClinicalHistory.json", gson.toJson(Physioterapist.createClinicalHistory()));
+                    
+                    break;
+                case 2:
+
+                    registration.register();
+
+                    break;
+                case 3:
+                    System.exit(0);
+                    break;
+
+                default:
+                    System.out.println("Sólo números entre 1 y 3");
+
+            }
+           
+            System.out.println("----------------------------------------------------");
+            System.out.println("-     HISTORIALES MEDICOS                          -");
+            System.out.println("-                                                  -");
+            System.out.println("- 1. CREAR UN NUEVO HISTORIAL MÉRDICO              -");
+            System.out.println("- 2. DESPLEGAR UN HISTORIAL MÉDICO                 -");
+            System.out.println("- 3. AÑADIR UN DIAGNÓSTICO AL HISTORIAL MÉDICO     -");
+            System.out.println("-----------------------------------------");
+            System.out.println("Elije una opción: ");
+            try {
+                option = scanner.nextInt();
+                
+            } catch (InputMismatchException e) {
+                System.out.println("Elija una opción correcta");
+                scanner.next();
+            }
+
+        }
+    }
+    
+}
