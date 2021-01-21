@@ -30,7 +30,7 @@ public class PhysioterapistManagment {
         System.out.println("1: Iniciar Sesión");
         System.out.println("2: Registrarse");
         System.out.println("3: Salir");
-        System.out.println("Elije una opción: ");
+        System.out.println("Elija una opción: ");
         
         boolean exit = false;
         int option;
