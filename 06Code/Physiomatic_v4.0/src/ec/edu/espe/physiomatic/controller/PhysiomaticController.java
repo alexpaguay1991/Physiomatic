@@ -24,16 +24,16 @@ public class PhysiomaticController {
     public Physioterapist createPhsyioterapist(){
         Scanner scanner=new Scanner(System.in);
         
-        System.out.println("Entry the Physioterapist's name");
+        System.out.println("Ingrese el nombre del Fisioterapista");
         String name = scanner.nextLine();
         
-        System.out.println("Entry the Physioterapist's Last name");
+        System.out.println("Ingrese el apellido de un fisioterapista");
         String lastName = scanner.nextLine();
         
-        System.out.println("Entry the Physioterapist's username");
+        System.out.println("Ingrese el nombre de usuario del Fisioterapista");
         String username = scanner.nextLine();
         
-        System.out.println("Entry the Physioterapist's password");
+        System.out.println("Ingrese una contraseña");
         String password = scanner.nextLine();
         
         Physioterapist physiotherapist= new Physioterapist(name,lastName,username,password);
