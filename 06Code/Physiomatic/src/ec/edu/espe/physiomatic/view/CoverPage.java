@@ -18,7 +18,7 @@ public class CoverPage {
             System.out.println("- AUTHORS:                           -");
             System.out.println("-           PAEZ ADRIAN              -");
             System.out.println("-           PAGUAY ALEX              -");
-            System.out.println("-           PATINO BRAYAN            -");
+            System.out.println("-           PATIÑO JUAN              -");
             System.out.println("-           RISUEÑO SANTIAGO         -");
             System.out.println("-                                    -");
             System.out.println("-                                    -");

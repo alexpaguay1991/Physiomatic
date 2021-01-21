@@ -28,7 +28,7 @@ public class PatientManagment {
         Physioterapist controller;
         Gson gson = new Gson();
         System.out.println("-----------------------------------------");
-        System.out.println("-             PHYSIOMATIC               -");
+        System.out.println("-           PHYSIOMATIC                 -");
         System.out.println("-                                       -");
         System.out.println("- 1. NUEVO PACIENTE                     -");
         System.out.println("- 2. MOSTRAR PACIENTES REGISTRADOS      -");
@@ -36,7 +36,7 @@ public class PatientManagment {
         System.out.println("- 4. GENERAR CITA                       -");
         System.out.println("- 5. GENERAR FACTURA                    -");
         System.out.println("- 6. HISTORIALES MÉDICOS                -");
-        System.out.println("- 7. EXIT                               -");
+        System.out.println("  7. EXIT                               -");
         System.out.println("-----------------------------------------");
         int option = scanner.nextInt();
         while (option < 7 || option > 0) {
