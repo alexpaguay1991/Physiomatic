@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author Acer
  */
-class Patient {
+public class Patient {
     private long idPatient;
     private String name;
     private String lastName;
