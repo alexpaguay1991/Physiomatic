@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.InputMismatchException;
 
 /**
  *
@@ -24,38 +25,40 @@ public class PhysioterapistManagment {
         Scanner scanner=new Scanner(System.in);
         PhysiomaticController controller=new PhysiomaticController();
         RegistrationPhysiotepaist registration=new RegistrationPhysiotepaist();
-        System.out.println("-----PHYSIOMATIC------"); 
-        System.out.println("1: LOGIN");
-        System.out.println("2: REGISTER");
-        System.out.println("3: EXIT");
-        System.out.println("ENTER AN OPTION: ");
+        boolean exit = false;
         int option = scanner.nextInt();
-        while(option<5 || option>0){
-             switch (option){
-                case 1:
-                                        
-                    LoginPhysioterapist.login();
-                    
-                    
-                    break;
-                case 2:
-                    
-                    registration.register();
-                    break;
-                case 3:
-                    System.exit(0);
-                   
-                    break;
-                
-                    
+        while (!exit) {
+            System.out.println("-----PHYSIOMATIC------");
+            System.out.println("1: Iniciar Sesión");
+            System.out.println("2: Registrarse");
+            System.out.println("3: Salir");
+
+            try {
+                System.out.println("Elije una opción: ");
+                switch (option) {
+                    case 1:
+
+                        LoginPhysioterapist.login();
+                        break;
+                    case 2:
+
+                        registration.register();
+                        break;
+                    case 3:
+                        exit = true;
+                        break;
+                        
+                    default:
+                        System.out.println("Sólo números entre 1 y 3");
+
+                }
+            }catch (InputMismatchException e) {
+                System.out.println(3);
+                scanner.next();
             }
-           System.out.println("-----PHYSIOMATIC------"); 
-            System.out.println("1: LOGIN");
-            System.out.println("2: REGISTER");
-            System.out.println("3: EXIT");
-            System.out.println("ENTER AN OPTION: ");
-            option = scanner.nextInt();
+
         }
+        
     }
     
 }
