@@ -18,14 +18,11 @@ public class CoverPage {
             System.out.println("- AUTHORS:                           -");
             System.out.println("-           PAEZ ADRIAN              -");
             System.out.println("-           PAGUAY ALEX              -");
-            System.out.println("-           PATIÑO BRAYAN             -");
+            System.out.println("-           PATIÑO BRAYAN            -");
             System.out.println("-           RISUEÑO SANTIAGO         -");
             System.out.println("-                                    -");
             System.out.println("-                                    -");
-            System.out.println("-                                    -");
-            System.out.println("-                                    -");
-            System.out.println("-                                    -");
-            System.out.println("-   VERSION 0.1 COPYRIGHT            -");
+            System.out.println("-         VERSION 1.0 COPYRIGHT      -");
             System.out.println("--------------------------------------");
             try{ 
                 int x;
