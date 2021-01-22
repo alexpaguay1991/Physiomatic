@@ -7,6 +7,7 @@ package ec.edu.espe.physiomatic.view;
 
 import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.FileManager;
+import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Physioterapist;
 import ec.edu.espe.physiomatic.model.Patient;
 import java.sql.Time;
@@ -41,9 +42,18 @@ public class PatientManagment {
         System.out.println("-----------------------------------------");
         System.out.println("Elije una opción: ");
         boolean exit = false;
-        int option = scanner.nextInt();
-        while (!exit) {
+        
+        int option=1;
+        while (option<8 || option>0) {
             try {
+                option = scanner.nextInt();
+                
+            } catch (InputMismatchException e) {
+                System.out.println("Elija una opción correcta");
+                scanner.next();
+            }
+       
+            
                 switch (option) {
                     case 1:
 
@@ -97,7 +107,7 @@ public class PatientManagment {
                         break;
 
                     case 6:
-                        System.exit(0);
+                        ClinicalHistoryView.manageClinicalHistory();
                         break;
 
                     case 7:
@@ -107,11 +117,27 @@ public class PatientManagment {
                     default:
                         System.out.println("Sólo números entre 1 y 7");
                 }
+            System.out.println("-----------------------------------------");
+            System.out.println("-           PHYSIOMATIC                 -");
+            System.out.println("-                                       -");
+            System.out.println("- 1. NUEVO PACIENTE                     -");
+            System.out.println("- 2. MOSTRAR PACIENTES REGISTRADOS      -");
+            System.out.println("- 3. BUSCAR UN PACIENTE                 -");
+            System.out.println("- 4. GENERAR CITA                       -");
+            System.out.println("- 5. GENERAR FACTURA                    -");
+            System.out.println("- 6. HISTORIALES MÉDICOS                -");
+            System.out.println("  7. SALIR                               -");
+            System.out.println("-----------------------------------------");
+            System.out.println("Elije una opción: ");
+            try {
+                option = scanner.nextInt();
+                
             } catch (InputMismatchException e) {
                 System.out.println("Elija una opción correcta");
                 scanner.next();
             }
-        }
+               
+        }   
     }
 }
 

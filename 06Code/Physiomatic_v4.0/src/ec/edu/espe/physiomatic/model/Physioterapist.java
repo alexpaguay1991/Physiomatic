@@ -29,118 +29,153 @@ public class Physioterapist {
     String username;
     String password;
 
-      
-    public static Patient generatePatient( ){
-        Scanner scanner=new Scanner(System.in);
+    public static Patient generatePatient() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Entry the patient's id");
         Long idPatient = scanner.nextLong();
         scanner.nextLine();
-        
+
         System.out.println("Entry the Patient's first name");
         String namePatient = scanner.nextLine();
-        
+
         System.out.println("Entry the Patient's last name");
         String lastNamePatient = scanner.nextLine();
-        
+
         System.out.println("Entry the Patient's contact");
         String contactPatient = scanner.nextLine();
         scanner.nextLine();
-        
-        Patient patient = new Patient(idPatient,namePatient, lastNamePatient,contactPatient);
+
+        Patient patient = new Patient(idPatient, namePatient, lastNamePatient, contactPatient);
         return patient;
-        
+
     }
-    public void modifyPatient(Patient patient){
-        
+
+    public void modifyPatient(Patient patient) {
+
     }
-    public void deletePatient(Patient patient){
-        
+
+    public void deletePatient(Patient patient) {
+
     }
-    public static Appointment generateAppointment( ){
-        Scanner scanner=new Scanner(System.in);
+
+    public static Appointment generateAppointment() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Entry the patient's id");
         long idPatient = scanner.nextLong();
         scanner.nextLine();
-        
+
         System.out.println("Entry the date of Appointment");
         String dateAppointment = scanner.nextLine();
-        
+
         System.out.println("Entry the hour of appointment");
         String hourAppointment = scanner.nextLine();
-        
+
         Patient patient;
         patient = retrievePatient(idPatient);
-        Appointment appointment=new Appointment(dateAppointment,hourAppointment,patient.getName());
-        
+        Appointment appointment = new Appointment(dateAppointment, hourAppointment, patient.getName());
+
         return appointment;
-        
+
     }
-    public static Bill generateBill( ){
-        Scanner scanner=new Scanner(System.in);
+
+    public static Bill generateBill() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Entry the patient's id");
         long idPatient = scanner.nextLong();
         scanner.nextLine();
-        
+
         System.out.println("Entry the price of Bill");
         float price = scanner.nextFloat();
         scanner.nextLine();
-        
-           
+
         Patient patient;
         patient = retrievePatient(idPatient);
-        Bill bill=new Bill(price,patient);
-        
+        Bill bill = new Bill(price, patient);
+
         return bill;
-        
+
     }
-    
-    public void deployAppointment(Appointment appointment){
-        
+
+    public void deployAppointment(Appointment appointment) {
+
     }
-    public static Patient retrievePatient(long idPatient){
-        Gson gson =new Gson();
+
+    public static Patient retrievePatient(long idPatient) {
+        Gson gson = new Gson();
         String dataFile;
-        dataFile=FileManager.find("patients.json", idPatient+"");
+        dataFile = FileManager.find("patients.json", idPatient + "");
         Patient patient;
-        patient=gson.fromJson(dataFile, Patient.class);;
+        patient = gson.fromJson(dataFile, Patient.class);;
         return patient;
-        
+
     }
-    public ClinicalHistory createClinicalHistory(){
-        Scanner scanner=new Scanner(System.in);
+
+    public static ClinicalHistory retrieveClinicalHistory(long idPatient) {
+        Gson gson = new Gson();
+        String dataFile;
+        dataFile = FileManager.find("ClinicalHistory.json", idPatient + "");
+        ClinicalHistory clinicalHistory;
+        clinicalHistory = gson.fromJson(dataFile, ClinicalHistory.class);;
+        return clinicalHistory;
+
+    }
+
+    public static ClinicalHistory createClinicalHistory() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el ID del paciente");
         long idPatient = scanner.nextLong();
         scanner.nextLine();
-        
+
         Patient patient;
-        patient=retrievePatient(idPatient);
-        
+        patient = retrievePatient(idPatient);
+
         System.out.println("Ingrese la fecha de nacimiento");
         String birthDate = scanner.nextLine();
-        
+
         System.out.println("Ingrese el peso");
         float weight = scanner.nextFloat();
         scanner.nextLine();
-        
+
         System.out.println("Ingrese la altura");
         float height = scanner.nextFloat();
         scanner.nextLine();
-        
+
         System.out.println("Ingrese la dirección domiciliaria");
         String addressPatient = scanner.nextLine();
-       
+
         System.out.println("Ingrese el correo electrónico");
         String emailPatient = scanner.nextLine();
-        
-        ArrayList<Diagnostic> diagnostics=new ArrayList<>();
-        
+
+        ArrayList<Diagnostic> diagnostics = new ArrayList<>();
+
         System.out.println("Ingrese los antecedentes familiares");
         String familyBackground = scanner.nextLine();
-        
-               
-        ClinicalHistory clinicalHistory= new ClinicalHistory(patient,birthDate,weight,height,addressPatient,emailPatient,diagnostics,familyBackground);   
-    
-    
+
+        ClinicalHistory clinicalHistory = new ClinicalHistory(patient, birthDate, weight, height, addressPatient, emailPatient, diagnostics, familyBackground);
+
         return clinicalHistory;
+    }
+
+    public static Diagnostic createDiagnostic() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("INGRESE LA PATOLOGÍA DEL PACIENTE ");
+        String pathology = scanner.nextLine();
+
+        System.out.println("INGRESE LOS SÍNTOMAS DEL PACIENTE ");
+        String symptoms = scanner.nextLine();
+
+        System.out.println("INGRESA LAS ALERGIAS DEL PACIENTE: ");
+        String allergies = scanner.nextLine();
+
+        System.out.println("INGRESE LA FECHA DEL DIAGNÓSTICO: ");
+        String dateOfDiagnostic = scanner.nextLine();
+
+        System.out.println("INGRESE EL TRATAMIENTO DEL PACIENTE: ");
+        String treatment = scanner.nextLine();
+
+        Diagnostic diagnostic = new Diagnostic(pathology, treatment, symptoms, allergies, dateOfDiagnostic);
+
+        return diagnostic;
     }
 }

@@ -23,6 +23,7 @@ public class ClinicalHistory {
     private String emailPatient;
     private ArrayList<Diagnostic> diagnostics=new ArrayList<>();
     private String familiyBackground;
+    
 
     /**
      * @return the patient
