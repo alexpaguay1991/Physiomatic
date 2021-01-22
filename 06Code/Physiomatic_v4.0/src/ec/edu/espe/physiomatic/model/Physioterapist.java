@@ -106,6 +106,15 @@ public class Physioterapist {
         return patient;
         
     }
+    public static ClinicalHistory retrieveClinicalHistory(long idPatient){
+        Gson gson =new Gson();
+        String dataFile;
+        dataFile=FileManager.find("ClinicalHistory.json", idPatient+"");
+        ClinicalHistory clinicalHistory;
+        clinicalHistory=gson.fromJson(dataFile, ClinicalHistory.class);;
+        return clinicalHistory;
+        
+    }
     public static ClinicalHistory createClinicalHistory(){
         Scanner scanner=new Scanner(System.in);
         System.out.println("Ingrese el ID del paciente");

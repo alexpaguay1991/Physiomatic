@@ -14,7 +14,6 @@ import ec.edu.espe.physiomatic.model.Patient;
 public class SystemView2 {
     
     Patient patient;
-
     public SystemView2(Patient patient) {
         this.patient = patient;
     }
@@ -28,6 +27,14 @@ public class SystemView2 {
        
     }
     public void displayBill(){
+        System.out.println("----------");
+        System.out.println("ID DEL PACIENTE      : "+ patient.getIdPatient());
+        System.out.println("NOMBRE DEL PACIENTE  : "+ patient.getName());
+        System.out.println("APELLIDO DEL PACIENTE: "+ patient.getLastName());
+        System.out.println("CONTACTO             : "+ patient.getContactPatient());
+       
+    }
+    public void displayClinicalHistory(){
         System.out.println("----------");
         System.out.println("ID DEL PACIENTE      : "+ patient.getIdPatient());
         System.out.println("NOMBRE DEL PACIENTE  : "+ patient.getName());

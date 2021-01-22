@@ -7,6 +7,7 @@ package ec.edu.espe.physiomatic.view;
 
 import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.FileManager;
+import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.physiomatic.model.Physioterapist;
 import java.text.ParseException;
@@ -20,6 +21,10 @@ import java.util.Scanner;
  * @author Acer
  */
 public class ClinicalHistoryView {
+    long idPatient;
+
+    
+    
     public static void manageClinicalHistory() throws ParseException {
         Scanner scanner = new Scanner(System.in);
         
@@ -27,7 +32,7 @@ public class ClinicalHistoryView {
         System.out.println("----------------------------------------------------");
         System.out.println("-     HISTORIALES MEDICOS                          -");
         System.out.println("-                                                  -");
-        System.out.println("- 1. CREAR UN NUEVO HISTORIAL MÉRDICO              -");
+        System.out.println("- 1. CREAR UN NUEVO HISTORIAL MÉDICO              -");
         System.out.println("- 2. DESPLEGAR UN HISTORIAL MÉDICO                 -");
         System.out.println("- 3. AÑADIR UN DIAGNÓSTICO AL HISTORIAL MÉDICO     -");
         System.out.println("-----------------------------------------");
@@ -50,8 +55,12 @@ public class ClinicalHistoryView {
                     
                     break;
                 case 2:
-
-                    registration.register();
+                    
+                    System.out.println("INGRESE EL ID DEL PACIENTE");
+                    long idPatient=scanner.nextLong();
+                    scanner.nextLine();
+                    PrinterClinicalHistory clinicalHistory=new PrinterClinicalHistory(idPatient);
+                    clinicalHistory.displayClinicalHistory();
 
                     break;
                 case 3:
@@ -66,7 +75,7 @@ public class ClinicalHistoryView {
             System.out.println("----------------------------------------------------");
             System.out.println("-     HISTORIALES MEDICOS                          -");
             System.out.println("-                                                  -");
-            System.out.println("- 1. CREAR UN NUEVO HISTORIAL MÉRDICO              -");
+            System.out.println("- 1. CREAR UN NUEVO HISTORIAL MÉDICO              -");
             System.out.println("- 2. DESPLEGAR UN HISTORIAL MÉDICO                 -");
             System.out.println("- 3. AÑADIR UN DIAGNÓSTICO AL HISTORIAL MÉDICO     -");
             System.out.println("-----------------------------------------");
@@ -81,5 +90,10 @@ public class ClinicalHistoryView {
 
         }
     }
+
+    public ClinicalHistoryView(long idPatient) {
+        this.idPatient = idPatient;
+    }
+    
     
 }
