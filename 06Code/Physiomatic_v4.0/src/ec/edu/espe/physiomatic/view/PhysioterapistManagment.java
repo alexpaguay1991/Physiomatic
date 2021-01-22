@@ -6,8 +6,6 @@
 package ec.edu.espe.physiomatic.view;
 
 import ec.edu.espe.physiomatic.controller.PhysiomaticController;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.io.IOException;
 import java.text.ParseException;
