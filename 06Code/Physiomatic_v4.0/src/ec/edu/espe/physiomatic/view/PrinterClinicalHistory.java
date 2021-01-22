@@ -6,6 +6,7 @@
 package ec.edu.espe.physiomatic.view;
 
 import ec.edu.espe.physiomatic.model.ClinicalHistory;
+import ec.edu.espe.physiomatic.model.Diagnostic;
 import ec.edu.espe.physiomatic.model.Physioterapist;
 
 /**
@@ -34,7 +35,11 @@ public class PrinterClinicalHistory {
         System.out.println(" ANTECEDENTES FAMILIARES :");
         System.out.println("  "+clinicalHistory.getFamiliyBackground());
         System.out.println("  DIAGNÓSTICOS:");
-        for (Diagnostic diagnostic:clinicalHistory.)
+        int counter=1;
+        for (Diagnostic diagnostic:clinicalHistory.getDiagnostics()){
+            System.out.println(counter+".-"+diagnostic);
+            counter=counter+1;
+        }
         
         
        
