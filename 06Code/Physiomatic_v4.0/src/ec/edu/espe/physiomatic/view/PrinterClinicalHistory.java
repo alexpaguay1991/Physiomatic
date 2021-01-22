@@ -22,10 +22,19 @@ public class PrinterClinicalHistory {
     public void displayClinicalHistory(){
         ClinicalHistory clinicalHistory;
         clinicalHistory=Physioterapist.retrieveClinicalHistory(idPatient);
-        System.out.println("----------");
-        System.out.println("ID DEL PACIENTE      : "+ clinicalHistory.getPatient().getIdPatient());
-        System.out.println("NOMBRE DEL PACIENTE  : "+ clinicalHistory.getPatient().getName()+ " APELLIDO DEL PACIENTE: "+clinicalHistory.getPatient().getName());
-        
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println(" ID DEL PACIENTE        : "+ clinicalHistory.getPatient().getIdPatient());
+        System.out.println(" NOMBRE DEL PACIENTE    : "+ clinicalHistory.getPatient().getName()+ " APELLIDO DEL PACIENTE: "+clinicalHistory.getPatient().getName());
+        System.out.println(" NÚMERO DE CONTACTO     : "+clinicalHistory.getPatient().getContactPatient());
+        System.out.println(" DIRECCIÓN DOMICILIARIA :"+clinicalHistory.getAddressPatient());
+        System.out.println(" FECHA DE NACIMIENTO    :"+clinicalHistory.getBirthDate());
+        System.out.println(" CORREO ELECTRÓNICO     :"+clinicalHistory.getEmailPatient());
+        System.out.println(" ----------------DATOS CLÍNICOS--------------------------------------");
+        System.out.println(" PESO :"+clinicalHistory.getWeight()+" ESTATURA : "+clinicalHistory.getHeight());
+        System.out.println(" ANTECEDENTES FAMILIARES :");
+        System.out.println("  "+clinicalHistory.getFamiliyBackground());
+        System.out.println("  DIAGNÓSTICOS:");
+        for (Diagnostic diagnostic:clinicalHistory.)
         
         
        

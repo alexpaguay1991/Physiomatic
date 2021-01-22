@@ -35,6 +35,7 @@ public class PhysioterapistManagment {
         boolean exit = false;
         int option=1;
         
+        
         while (option<4 || option>0) {
             try {
                 option = scanner.nextInt();
