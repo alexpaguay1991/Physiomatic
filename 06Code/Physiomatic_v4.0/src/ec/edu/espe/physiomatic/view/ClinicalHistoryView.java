@@ -64,7 +64,19 @@ public class ClinicalHistoryView {
 
                     break;
                 case 3:
-                    System.exit(0);
+                    System.out.println("INGRESE LA ID DEL PACIENTE: ");
+                    idPatient = scanner.nextLong();
+                    scanner.nextLine();
+
+                    ClinicalHistory clinical;
+                    clinical = Physioterapist.retrieveClinicalHistory(idPatient);
+                    clinical.getDiagnostics().add(Physioterapist.createDiagnostic());
+                    
+            
+                    break;
+                case 4:
+                    PatientManagment.charge();
+     
                     break;
 
                 default:

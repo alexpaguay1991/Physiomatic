@@ -6,42 +6,31 @@
 package ec.edu.espe.physiomatic.model;
 
 import java.util.Date;
+import java.util.Scanner;
 
 /**
  *
  * @author Acer
  */
 public class Diagnostic {
-    private Patient patient;
+
     private String pathology;
     private String treatment;
     private String symptoms;
-    private String familyBackground;
     private String allergies;
-    private Date dateOfDiagnostic;
+    private String dateOfDiagnostic;
 
-    public Diagnostic(Patient patient, String pathology, String treatment, String symptoms, String familyBackground, String allergies, Date dateOfDiagnostic) {
-        this.patient = patient;
+    @Override
+    public String toString() {
+        return "Diagnostic{" + "pathology=" + pathology + ", treatment=" + treatment + ", symptoms=" + symptoms + ", allergies=" + allergies + ", dateOfDiagnostic=" + dateOfDiagnostic + '}';
+    }
+
+    public Diagnostic(String pathology, String treatment, String symptoms, String allergies, String dateOfDiagnostic) {
         this.pathology = pathology;
         this.treatment = treatment;
         this.symptoms = symptoms;
-        this.familyBackground = familyBackground;
         this.allergies = allergies;
         this.dateOfDiagnostic = dateOfDiagnostic;
-    }
-
-    /**
-     * @return the patient
-     */
-    public Patient getPatient() {
-        return patient;
-    }
-
-    /**
-     * @param patient the patient to set
-     */
-    public void setPatient(Patient patient) {
-        this.patient = patient;
     }
 
     /**
@@ -87,20 +76,6 @@ public class Diagnostic {
     }
 
     /**
-     * @return the familyBackground
-     */
-    public String getFamilyBackground() {
-        return familyBackground;
-    }
-
-    /**
-     * @param familyBackground the familyBackground to set
-     */
-    public void setFamilyBackground(String familyBackground) {
-        this.familyBackground = familyBackground;
-    }
-
-    /**
      * @return the allergies
      */
     public String getAllergies() {
@@ -117,16 +92,15 @@ public class Diagnostic {
     /**
      * @return the dateOfDiagnostic
      */
-    public Date getDateOfDiagnostic() {
+    public String getDateOfDiagnostic() {
         return dateOfDiagnostic;
     }
 
     /**
      * @param dateOfDiagnostic the dateOfDiagnostic to set
      */
-    public void setDateOfDiagnostic(Date dateOfDiagnostic) {
+    public void setDateOfDiagnostic(String dateOfDiagnostic) {
         this.dateOfDiagnostic = dateOfDiagnostic;
     }
-
-    
+   
 }
