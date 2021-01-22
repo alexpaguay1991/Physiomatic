@@ -16,9 +16,9 @@ import java.util.Scanner;
 public class LoginPhysioterapist {
     public static void login() throws ParseException{
         Scanner scanner= new Scanner(System.in);
-        System.out.println("Ingresa el nombre de usuario");      
+        System.out.println("NOMBRE DE USUARIO: ");      
         String username=scanner.nextLine();
-        System.out.println("Ingresa la contraseña");      
+        System.out.println("CONTRASEÑA: ");      
         String password=scanner.nextLine();
         String dataToFind=scanner.nextLine();
         String dataOfFile;
