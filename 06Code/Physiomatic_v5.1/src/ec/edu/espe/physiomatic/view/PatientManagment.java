@@ -44,14 +44,15 @@ public class PatientManagment {
         boolean exit = false;
         
         int option=1;
-        while (option<8 || option>0) {
-            try {
+        try {
                 option = scanner.nextInt();
                 
-            } catch (InputMismatchException e) {
-                System.out.println("ELIJA UNA OPCIÓN VÁLIDA: ");
-                scanner.next();
-            }
+        } catch (InputMismatchException e) {
+            System.out.println("ELIJA UNA OPCIÓN VÁLIDA: ");
+            scanner.next();
+        }
+        while (option<8 || option>0) {
+            
        
             
                 switch (option) {

@@ -39,15 +39,16 @@ public class ClinicalHistoryView {
         System.out.println("-----------------------------------------");
         System.out.println("ELIJA UNA OPCIÓN:  ");
         int option = 1;
-
-        while (option < 5 || option > 0) {
-            try {
+        try {
                 option = scanner.nextInt();
 
-            } catch (InputMismatchException e) {
-                System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
-                scanner.next();
-            }
+        } catch (InputMismatchException e) {
+            System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
+            scanner.next();
+        }
+
+        while (option < 5 || option > 0) {
+            
 
             switch (option) {
                 case 1:
@@ -68,10 +69,13 @@ public class ClinicalHistoryView {
                     idPatient = scanner.nextLong();
                     scanner.nextLine();
 
-                    ClinicalHistory clinical;
+                    ClinicalHistory clinical,clinicalToChange;
                     clinical = Physioterapist.retrieveClinicalHistory(idPatient);
+                    clinicalToChange = Physioterapist.retrieveClinicalHistory(idPatient);
                     clinical.getDiagnostics().add(Physioterapist.createDiagnostic());
-                    
+                    System.out.println(""+gson.toJson(clinicalToChange));
+                    System.out.println(""+gson.toJson(clinical));
+                    FileManager.update("ClinicalHistory.json", gson.toJson(clinicalToChange), gson.toJson(clinical));
             
                     break;
                 case 4:
@@ -90,8 +94,10 @@ public class ClinicalHistoryView {
             System.out.println("- 1. CREAR UN NUEVO HISTORIAL MÉDICO               -");
             System.out.println("- 2. DESPLEGAR UN HISTORIAL MÉDICO                 -");
             System.out.println("- 3. AÑADIR UN DIAGNÓSTICO AL HISTORIAL MÉDICO     -");
+            System.out.println("- 4. REGRESAR.                                     -");
             System.out.println("-----------------------------------------");
             System.out.println("ELIJA UNA OPCIÓN: ");
+            
             try {
                 option = scanner.nextInt();
 
@@ -99,6 +105,7 @@ public class ClinicalHistoryView {
                 System.out.println("ELIJA UNA OPCIÓN VÁLIDA: ");
                 scanner.next();
             }
+            
 
         }
     }
