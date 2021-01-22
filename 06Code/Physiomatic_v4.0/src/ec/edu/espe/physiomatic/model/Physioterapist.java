@@ -32,17 +32,17 @@ public class Physioterapist {
       
     public static Patient generatePatient( ){
         Scanner scanner=new Scanner(System.in);
-        System.out.println("Entry the patient's id");
+        System.out.println("Ingrese el No. de Cédula del paciente:");
         Long idPatient = scanner.nextLong();
         scanner.nextLine();
         
-        System.out.println("Entry the Patient's first name");
+        System.out.println("Ingrese el nombre del paciente:");
         String namePatient = scanner.nextLine();
         
-        System.out.println("Entry the Patient's last name");
+        System.out.println("Ingrese el apellido del paciente:");
         String lastNamePatient = scanner.nextLine();
         
-        System.out.println("Entry the Patient's contact");
+        System.out.println("Ingrese el No. de contacto del paciente:");
         String contactPatient = scanner.nextLine();
         scanner.nextLine();
         
@@ -58,14 +58,14 @@ public class Physioterapist {
     }
     public static Appointment generateAppointment( ){
         Scanner scanner=new Scanner(System.in);
-        System.out.println("Entry the patient's id");
+        System.out.println("Ingrese el No. de Cédula del paciente: ");
         long idPatient = scanner.nextLong();
         scanner.nextLine();
         
-        System.out.println("Entry the date of Appointment");
+        System.out.println("Ingrese la fecha de la cita: ");
         String dateAppointment = scanner.nextLine();
         
-        System.out.println("Entry the hour of appointment");
+        System.out.println("INgrese la hora de la cita: ");
         String hourAppointment = scanner.nextLine();
         
         Patient patient;
@@ -77,11 +77,11 @@ public class Physioterapist {
     }
     public static Bill generateBill( ){
         Scanner scanner=new Scanner(System.in);
-        System.out.println("Entry the patient's id");
+        System.out.println("Ingrese el No. de Cédula del paciente: ");
         long idPatient = scanner.nextLong();
         scanner.nextLine();
         
-        System.out.println("Entry the price of Bill");
+        System.out.println("Ingrese el monto del valor a pagar: ");
         float price = scanner.nextFloat();
         scanner.nextLine();
         
@@ -117,33 +117,33 @@ public class Physioterapist {
     }
     public static ClinicalHistory createClinicalHistory(){
         Scanner scanner=new Scanner(System.in);
-        System.out.println("Ingrese el ID del paciente");
+        System.out.println("Ingrese el No. de Cédula del paciente: ");
         long idPatient = scanner.nextLong();
         scanner.nextLine();
         
         Patient patient;
         patient=retrievePatient(idPatient);
         
-        System.out.println("Ingrese la fecha de nacimiento");
+        System.out.println("Ingrese la fecha de nacimiento: ");
         String birthDate = scanner.nextLine();
         
-        System.out.println("Ingrese el peso");
+        System.out.println("Ingrese el peso: ");
         float weight = scanner.nextFloat();
         scanner.nextLine();
         
-        System.out.println("Ingrese la altura");
+        System.out.println("Ingrese la altura: ");
         float height = scanner.nextFloat();
         scanner.nextLine();
         
-        System.out.println("Ingrese la dirección domiciliaria");
+        System.out.println("Ingrese la dirección del domicilio: ");
         String addressPatient = scanner.nextLine();
        
-        System.out.println("Ingrese el correo electrónico");
+        System.out.println("Ingrese el correo electrónico: ");
         String emailPatient = scanner.nextLine();
         
         ArrayList<Diagnostic> diagnostics=new ArrayList<>();
         
-        System.out.println("Ingrese los antecedentes familiares");
+        System.out.println("Ingrese los antecedentes familiares: ");
         String familyBackground = scanner.nextLine();
         
                
