@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.physiomatic.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Acer
@@ -12,6 +14,7 @@ package ec.edu.espe.physiomatic.model;
 public class Bill {
     private float price;
     private Patient patient;
+    private ArrayList<Product> products;
 
     /**
      * @return the price
@@ -41,10 +44,26 @@ public class Bill {
         this.patient = patient;
     }
 
-    public Bill(float price, Patient patient) {
+    public Bill(float price, Patient patient, ArrayList<Product> products) {
         this.price = price;
         this.patient = patient;
+        this.products = products;
     }
+
+    /**
+     * @return the products
+     */
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
+    /**
+     * @param products the products to set
+     */
+    public void setProducts(ArrayList<Product> products) {
+        this.products = products;
+    }
+
     
     
     

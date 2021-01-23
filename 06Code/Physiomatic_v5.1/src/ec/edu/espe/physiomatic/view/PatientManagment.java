@@ -36,9 +36,11 @@ public class PatientManagment {
         System.out.println("- 2. MOSTRAR PACIENTES REGISTRADOS      -");
         System.out.println("- 3. BUSCAR UN PACIENTE                 -");
         System.out.println("- 4. GENERAR CITA                       -");
-        System.out.println("- 5. GENERAR FACTURA                    -");
+        System.out.println("- 5. MOSTRAR CITA                       -");
         System.out.println("- 6. HISTORIALES MÉDICOS                -");
-        System.out.println("  7. SALIR                               -");
+        System.out.println("- 7. GENERAR FACTURA                    -");
+        System.out.println("  8. DESPLEGAR FACTURA                   -");
+        System.out.println("  9. SALIR                               -");
         System.out.println("-----------------------------------------");
         System.out.println("ELIJA UNA OPCIÓN: ");
         boolean exit = false;
@@ -61,7 +63,7 @@ public class PatientManagment {
             System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
             scanner.next();
         }
-        while (option < 8 || option > 0) {
+        while (option < 10 || option > 0) {
 
             switch (option) {
                 case 1:
@@ -69,7 +71,7 @@ public class PatientManagment {
                     FileManager.save("patients.json", gson.toJson(Physioterapist.generatePatient()));
                     break;
                 case 2:
-                    scanner.nextLine();
+
                     List<Patient> patients1;
                     patients1 = new ArrayList();
                     String[] patients;
@@ -85,11 +87,15 @@ public class PatientManagment {
                     }
                     break;
                 case 3:
-                    scanner.nextLine();
+
                     System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
 
-                    scanner.nextLine();
                     String dataToFind = scanner.nextLine();
+                    while (!Physioterapist.isNumeric(dataToFind)) {
+                        System.out.println("INGRESE UN DATO NUMÉRICO:  ");
+                        dataToFind = scanner.nextLine();
+                    }
+                    dataToFind = "\"idPatient\":" + dataToFind;
                     String dataOfFile;
                     try {
 
@@ -105,22 +111,71 @@ public class PatientManagment {
                     break;
 
                 case 4:
-                    scanner.nextLine();
+                    try {
+                        FileManager.save("appointments.json", gson.toJson(Physioterapist.generateAppointment()));
 
-                    FileManager.save("appointments.json", gson.toJson(Physioterapist.generateAppointment()));
+                    } catch (Exception e) {
+                        System.out.println("PACIENTE NO REGISTRADO ");
+                    }
 
                     break;
-
                 case 5:
-                    scanner.nextLine();
-                    FileManager.save("bills.json", gson.toJson(Physioterapist.generateBill()));
-                    break;
+                    try {
+                        System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE");
+                        long idPatient = 1;
+                        String idPatient1 = scanner.nextLine();
+                        while (!Physioterapist.isNumeric(idPatient1)) {
+                            System.out.println("INGRESE UN DATO NUMÉRICO:  ");
+                            idPatient1 = scanner.nextLine();
+                        }
+                        try {
+                            idPatient = Integer.valueOf(idPatient1);
+                        } catch (Exception e) {
+                            System.out.println("NO SE PUEDE TRANSFORMAR");
+                        }
+                        Patient patient;
+                        patient = Physioterapist.retrievePatient(idPatient);
+                        SystemView2 appointment = new SystemView2(patient);
+                        appointment.displayAppointment();
 
+                    } catch (Exception e) {
+                        System.out.println("NO EXISTE CITA REGISTRADA PARA EL PACIENTE");
+                    }
+                    break;
                 case 6:
                     ClinicalHistoryView.manageClinicalHistory();
                     break;
 
                 case 7:
+                    scanner.nextLine();
+                    FileManager.save("bills.json", gson.toJson(Physioterapist.generateBill()));
+                    break;
+
+                case 8:
+                    try {
+                        System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE");
+                        long idPatient = 1;
+                        String idPatient1 = scanner.nextLine();
+                        while (!Physioterapist.isNumeric(idPatient1)) {
+                            System.out.println("INGRESE UN DATO NUMÉRICO:  ");
+                            idPatient1 = scanner.nextLine();
+                        }
+                        try {
+                            idPatient = Integer.valueOf(idPatient1);
+                        } catch (Exception e) {
+                            System.out.println("NO SE PUEDE TRANSFORMAR");
+                        }
+                        Patient patient;
+                        patient = Physioterapist.retrievePatient(idPatient);
+                        SystemView2 bill = new SystemView2(patient);
+                        bill.displayBill();
+
+                    } catch (Exception e) {
+                        System.out.println("NO EXISTE CITA REGISTRADA PARA EL PACIENTE");
+                    }
+                    break;
+
+                case 9:
                     System.exit(0);
                     break;
 
@@ -134,9 +189,11 @@ public class PatientManagment {
             System.out.println("- 2. MOSTRAR PACIENTES REGISTRADOS      -");
             System.out.println("- 3. BUSCAR UN PACIENTE                 -");
             System.out.println("- 4. GENERAR CITA                       -");
-            System.out.println("- 5. GENERAR FACTURA                    -");
+            System.out.println("- 5. MOSTRAR CITA                       -");
             System.out.println("- 6. HISTORIALES MÉDICOS                -");
-            System.out.println("  7. SALIR                               -");
+            System.out.println("- 7. GENERAR FACTURA                    -");
+            System.out.println("  8. DESPLEGAR FACTURA                   -");
+            System.out.println("  9. SALIR                               -");
             System.out.println("-----------------------------------------");
             System.out.println("ELIJA UNA OPCIÓN: ");
             try {

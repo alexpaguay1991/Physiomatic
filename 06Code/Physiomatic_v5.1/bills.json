@@ -1,2 +1,5 @@
 {"price":22.3,"patient":{"idPatient":0}}
 {"price":23.0,"patient":{"idPatient":741,"name":"Paciente2","lastName":"Apellido2","contactPatient":"0123456"}}
+{"price":21.0}
+{"price":20.0,"patient":{"idPatient":1718605155,"name":"Alex","lastName":"Paguay","contactPatient":"3034740"},"products":[{"description":"atencion medica","quantity":1,"unitPrice":20.0}]}
+{"price":60.0,"patient":{"idPatient":1718605155,"name":"Alex","lastName":"Paguay","contactPatient":"3034740"},"products":[{"description":"control","quantity":1,"unitPrice":30.0},{"description":"fisioterapia","quantity":1,"unitPrice":30.0}]}

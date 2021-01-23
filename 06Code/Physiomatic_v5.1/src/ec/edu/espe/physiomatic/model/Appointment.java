@@ -16,6 +16,11 @@ import java.util.Date;
  */
 public class Appointment {
 
+   
+    private String dateOfAppointment;
+    private String hour;
+    private Patient patient;
+
     /**
      * @return the dateOfAppointment
      */
@@ -45,28 +50,27 @@ public class Appointment {
     }
 
     /**
-     * @return the nameOfPatient
+     * @return the patient
      */
-    public String getNameOfPatient() {
-        return nameOfPatient;
+    public Patient getPatient() {
+        return patient;
     }
 
     /**
-     * @param nameOfPatient the nameOfPatient to set
+     * @param patient the patient to set
      */
-    public void setNameOfPatient(String nameOfPatient) {
-        this.nameOfPatient = nameOfPatient;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
-    private String dateOfAppointment;
-    private String hour;
-    private String nameOfPatient;
 
-    public Appointment(String dateOfAppointment, String hour, String nameOfPatient) {
+    public Appointment(String dateOfAppointment, String hour, Patient patient) {
         this.dateOfAppointment = dateOfAppointment;
         this.hour = hour;
-        this.nameOfPatient = nameOfPatient;
+        this.patient = patient;
     }
+    
 
+    
     
 
     

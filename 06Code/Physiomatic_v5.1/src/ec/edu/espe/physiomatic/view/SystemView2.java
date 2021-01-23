@@ -6,11 +6,12 @@
 package ec.edu.espe.physiomatic.view;
 
 import ec.edu.espe.physiomatic.model.Appointment;
+import ec.edu.espe.physiomatic.model.Bill;
 import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Diagnostic;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.physiomatic.model.Physioterapist;
-
+import ec.edu.espe.physiomatic.model.Product;
 /**
  *
  * @author Santiago Risueño ESPE-DCCO
@@ -36,6 +37,14 @@ public class SystemView2 {
         System.out.println("NOMBRE DEL PACIENTE: " + patient.getName());
         System.out.println("APELLIDO DEL PACIENTE: " + patient.getLastName());
         System.out.println("CONTACTO: " + patient.getContactPatient());
+        
+        Bill bill=Physioterapist.retrieveBill(patient.getIdPatient());
+        int counter=1;
+        System.out.println("ORD. \t"+"DESCRIPTION\t\t"+ "CANT\t"+" V.UNIT\t"+  "V.TOTAL");
+        for(Product product1:bill.getProducts()){
+            System.out.println(counter+".-\t"+product1.getDescription()+" \t\t"+product1.getQuantity()+" \t"+product1.getUnitPrice()+" \t"+product1.getQuantity()*product1.getUnitPrice());
+        }
+        System.out.println("EL VALOR TOTAL A PAGAR ES: "+bill.getPrice());
        
     }
     

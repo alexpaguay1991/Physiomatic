@@ -32,8 +32,19 @@ public class Physioterapist {
     public static Patient generatePatient() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
-        Long idPatient = scanner.nextLong();
-        scanner.nextLine();
+        String idPatient1 = scanner.nextLine();
+        long idPatient=1;
+        while (!Physioterapist.isNumeric(idPatient1)) {
+            System.out.println("INGRESE UN DATO NUMÉRICO:  ");
+            idPatient1 = scanner.nextLine();
+        }
+        try {
+            idPatient = Integer.valueOf(idPatient1);
+        } catch (Exception e) {
+            System.out.println("NO SE PUEDE TRANSFORMAR");
+        }
+        
+        
 
         System.out.println("INGRESE EL NOMBRE DEL PACIENTE: ");
         String namePatient = scanner.nextLine();
@@ -43,8 +54,11 @@ public class Physioterapist {
 
         System.out.println("INGRESE EL No. DE CONTACTO DEL PACIENTE: ");
         String contactPatient = scanner.nextLine();
-        scanner.nextLine();
-
+        while (!Physioterapist.isNumeric(contactPatient)) {
+            System.out.println("INGRESE UN DATO NUMÉRICO:  ");
+            idPatient1 = scanner.nextLine();
+        }
+        
         Patient patient = new Patient(idPatient, namePatient, lastNamePatient, contactPatient);
         return patient;
 
@@ -61,9 +75,18 @@ public class Physioterapist {
     public static Appointment generateAppointment() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
-        long idPatient = scanner.nextLong();
-        scanner.nextLine();
-
+        long idPatient=1;
+        String idPatient1=scanner.nextLine();
+        while (!Physioterapist.isNumeric(idPatient1)) {
+            System.out.println("INGRESE UN DATO NUMÉRICO:  ");
+            idPatient1 = scanner.nextLine();
+        }
+        try {
+            idPatient = Integer.valueOf(idPatient1);
+        } catch (Exception e) {
+            System.out.println("NO SE PUEDE TRANSFORMAR");
+        }
+        
         System.out.println("INGRESE LA FECHA DE LA CITA");
         String dateAppointment = scanner.nextLine();
 
@@ -72,8 +95,8 @@ public class Physioterapist {
 
         Patient patient;
         patient = retrievePatient(idPatient);
-        Appointment appointment = new Appointment(dateAppointment, hourAppointment, patient.getName());
-
+        Appointment appointment = new Appointment(dateAppointment, hourAppointment, patient);
+        
         return appointment;
 
     }
@@ -81,21 +104,83 @@ public class Physioterapist {
     public static Bill generateBill() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
-        long idPatient = scanner.nextLong();
-        scanner.nextLine();
+        long idPatient=1;
+        String idPatient1=scanner.nextLine();
+        while (!Physioterapist.isNumeric(idPatient1)) {
+            System.out.println("INGRESE UN DATO NUMÉRICO:  ");
+            idPatient1 = scanner.nextLine();
+        }
+        try {
+            idPatient = Integer.valueOf(idPatient1);
+        } catch (Exception e) {
+            System.out.println("NO SE PUEDE TRANSFORMAR");
+        }
 
-        System.out.println("INGRESE EL MONTO DEL VALOR A PAGAR: ");
-        float price = scanner.nextFloat();
-        scanner.nextLine();
+        
 
         Patient patient;
         patient = retrievePatient(idPatient);
-        Bill bill = new Bill(price, patient);
+        ArrayList<Product> products=new ArrayList<>() ;
+        
+        String optionToAddAProduct="y";
+        
+        while(optionToAddAProduct.contentEquals("y")){
+            Product product=Physioterapist.generateProduct();
+            products.add(product);
+            System.out.println("DESEA AGREGAR OTRO PRODUCTO PRESIONE y");
+            optionToAddAProduct=scanner.nextLine();
+        }
+        float price=0;
+        for(Product eachProductOfBill:products){
+            price=price+eachProductOfBill.getQuantity()*eachProductOfBill.getUnitPrice();
+            
+        }
+        
+        
+        Bill bill = new Bill(price,patient,products);
 
         return bill;
 
     }
+    public static Product generateProduct() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("INGRESE EL DETALLE DEL PRODUCTO O SERVICIO: ");
+        String description=scanner.nextLine();
+        
+        System.out.println("INGRESE LA CANTIDAD: ");
+        
+        int quantity=1;
+        String quantity1=scanner.nextLine();
+        while (!Physioterapist.isNumeric(quantity1)) {
+            System.out.println("INGRESE UN DATO NUMÉRICO:  ");
+            quantity1 = scanner.nextLine();
+        }
+        try {
+            quantity = Integer.valueOf(quantity1);
+        } catch (Exception e) {
+            System.out.println("NO SE PUEDE TRANSFORMAR");
+        }
+        System.out.println("INGRESE EL VALOR UNITARIO: ");
+        
+        float unitPrice=1;
+        String unitPrice1=scanner.nextLine();
+        while (!Physioterapist.isFloat(unitPrice1)) {
+            System.out.println("INGRESE UN DATO NUMÉRICO:  ");
+            unitPrice1 = scanner.nextLine();
+        }
+        try {
+            unitPrice = Float.valueOf(unitPrice1);
+        } catch (Exception e) {
+            System.out.println("NO SE PUEDE TRANSFORMAR");
+        }
 
+        
+        
+        Product product = new Product(description,quantity,unitPrice);
+
+        return product;
+
+    }
     public void deployAppointment(Appointment appointment) {
 
     }
@@ -109,9 +194,22 @@ public class Physioterapist {
         return patient;
 
     }
+    public static Bill retrieveBill(long idPatient) {
+        Gson gson = new Gson();
+        String dataFile;
+        
+        dataFile = FileManager.find("bills.json", idPatient + "");
+        Bill bill;
+        bill = gson.fromJson(dataFile, Bill.class);;
+        return bill;
+
+    }
+
+
     public static Appointment retrieveAppointment(long idPatient) {
         Gson gson = new Gson();
         String dataFile;
+        
         dataFile = FileManager.find("appointments.json", idPatient + "");
         Appointment appointment;
         appointment = gson.fromJson(dataFile, Appointment.class);;
@@ -132,8 +230,18 @@ public class Physioterapist {
     public static ClinicalHistory createClinicalHistory() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
-        long idPatient = scanner.nextLong();
-        scanner.nextLine();
+        long idPatient=1;
+        String idPatient1=scanner.nextLine();
+        while (!Physioterapist.isNumeric(idPatient1)) {
+            System.out.println("INGRESE UN DATO NUMÉRICO:  ");
+            idPatient1 = scanner.nextLine();
+        }
+        try {
+            idPatient = Integer.valueOf(idPatient1);
+        } catch (Exception e) {
+            System.out.println("NO SE PUEDE TRANSFORMAR");
+        }
+
 
         Patient patient;
         patient = retrievePatient(idPatient);
@@ -187,12 +295,21 @@ public class Physioterapist {
 
         return diagnostic;
     }
-    public static boolean isNumeric(String cadena){
+
+    public static boolean isNumeric(String cadena) {
         try {
-                Integer.parseInt(cadena);
-                return true;
-        } catch (NumberFormatException nfe){
-                return false;
+            Integer.parseInt(cadena);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+    public static boolean isFloat(String cadena) {
+        try {
+            Float.parseFloat(cadena);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
         }
     }
 }
