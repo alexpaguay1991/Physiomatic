@@ -109,6 +109,15 @@ public class Physioterapist {
         return patient;
 
     }
+    public static Appointment retrieveAppointment(long idPatient) {
+        Gson gson = new Gson();
+        String dataFile;
+        dataFile = FileManager.find("appointments.json", idPatient + "");
+        Appointment appointment;
+        appointment = gson.fromJson(dataFile, Appointment.class);;
+        return appointment;
+
+    }
 
     public static ClinicalHistory retrieveClinicalHistory(long idPatient) {
         Gson gson = new Gson();
@@ -177,5 +186,13 @@ public class Physioterapist {
         Diagnostic diagnostic = new Diagnostic(pathology, treatment, symptoms, allergies, dateOfDiagnostic);
 
         return diagnostic;
+    }
+    public static boolean isNumeric(String cadena){
+        try {
+                Integer.parseInt(cadena);
+                return true;
+        } catch (NumberFormatException nfe){
+                return false;
+        }
     }
 }

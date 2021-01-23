@@ -6,6 +6,7 @@
 package ec.edu.espe.physiomatic.view;
 
 import ec.edu.espe.physiomatic.controller.PhysiomaticController;
+import ec.edu.espe.physiomatic.model.Physioterapist;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -34,16 +35,27 @@ public class PhysioterapistManagment {
         
         boolean exit = false;
         int option=1;
-        
+        String option1;
+        try {
+                option1 = scanner.nextLine();
+                while(!Physioterapist.isNumeric(option1)){
+                    System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
+                    option1 = scanner.nextLine();
+                }
+                try{
+                    option=Integer.valueOf(option1);
+                }catch(Exception e){
+                    System.out.println("NO SE PUEDE TRANSFORMAR");
+                }
+                
+
+        } catch (InputMismatchException e) {
+            System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
+            scanner.next();
+        }
         
         while (option<4 || option>0) {
-            try {
-                option = scanner.nextInt();
-                
-            } catch (InputMismatchException e) {
-                System.out.println("ELIJA UNA OPCIÓN VÁLIDA: ");
-                scanner.next();
-            }
+            
             
             
             switch (option) {
@@ -71,12 +83,22 @@ public class PhysioterapistManagment {
             System.out.println("3: SALIR");
             System.out.println("ELIJA UNA OPCIÓN: ");
             try {
-                option = scanner.nextInt();
+                option1 = scanner.nextLine();
+                while(!Physioterapist.isNumeric(option1)){
+                    System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
+                    option1 = scanner.nextLine();
+                }
+                try{
+                    option=Integer.valueOf(option1);
+                }catch(Exception e){
+                    System.out.println("NO SE PUEDE TRANSFORMAR");
+                }
                 
-            } catch (InputMismatchException e) {
-                System.out.println("ELIJA UNA OPCIÓN VÁLIDA: ");
-                scanner.next();
-            }
+
+        } catch (InputMismatchException e) {
+            System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
+            scanner.next();
+        }
 
         }
 

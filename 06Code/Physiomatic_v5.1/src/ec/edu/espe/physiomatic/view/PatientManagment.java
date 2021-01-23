@@ -42,82 +42,91 @@ public class PatientManagment {
         System.out.println("-----------------------------------------");
         System.out.println("ELIJA UNA OPCIÓN: ");
         boolean exit = false;
-        
-        int option=1;
+
+        int option = 1;
+        String option1;
         try {
-                option = scanner.nextInt();
-                
+            option1 = scanner.nextLine();
+            while (!Physioterapist.isNumeric(option1)) {
+                System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
+                option1 = scanner.nextLine();
+            }
+            try {
+                option = Integer.valueOf(option1);
+            } catch (Exception e) {
+                System.out.println("NO SE PUEDE TRANSFORMAR");
+            }
+
         } catch (InputMismatchException e) {
-            System.out.println("ELIJA UNA OPCIÓN VÁLIDA: ");
+            System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
             scanner.next();
         }
-        while (option<8 || option>0) {
-            
-       
-            
-                switch (option) {
-                    case 1:
+        while (option < 8 || option > 0) {
 
-                        FileManager.save("patients.json", gson.toJson(Physioterapist.generatePatient()));
-                        break;
-                    case 2:
-                        scanner.nextLine();
-                        List<Patient> patients1;
-                        patients1 = new ArrayList();
-                        String[] patients;
-                        patients = FileManager.findAll("patients.json");
-                        Patient eachPatient;
-                        for (String line : patients) {
-                            eachPatient = gson.fromJson(line, Patient.class);
-                            patients1.add(eachPatient);
-                        }
-                        for (Patient patient : patients1) {
-                            SystemView2 view = new SystemView2(patient);
-                            view.displayPatient();
-                        }
-                        break;
-                    case 3:
-                        scanner.nextLine();
-                        System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
+            switch (option) {
+                case 1:
 
-                        scanner.nextLine();
-                        String dataToFind = scanner.nextLine();
-                        String dataOfFile;
-                        try {
+                    FileManager.save("patients.json", gson.toJson(Physioterapist.generatePatient()));
+                    break;
+                case 2:
+                    scanner.nextLine();
+                    List<Patient> patients1;
+                    patients1 = new ArrayList();
+                    String[] patients;
+                    patients = FileManager.findAll("patients.json");
+                    Patient eachPatient;
+                    for (String line : patients) {
+                        eachPatient = gson.fromJson(line, Patient.class);
+                        patients1.add(eachPatient);
+                    }
+                    for (Patient patient : patients1) {
+                        SystemView2 view = new SystemView2(patient);
+                        view.displayPatient();
+                    }
+                    break;
+                case 3:
+                    scanner.nextLine();
+                    System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
 
-                            dataOfFile = FileManager.find("patients.json", dataToFind);
-                            Patient patient;
-                            patient = gson.fromJson(dataOfFile, Patient.class);
-                            SystemView2 view = new SystemView2(patient);
-                            view.displayPatient();
+                    scanner.nextLine();
+                    String dataToFind = scanner.nextLine();
+                    String dataOfFile;
+                    try {
 
-                        } catch (Exception ex) {
-                            System.out.println("PACIENTE NO ENCONTRADO...");
-                        }
-                        break;
+                        dataOfFile = FileManager.find("patients.json", dataToFind);
+                        Patient patient;
+                        patient = gson.fromJson(dataOfFile, Patient.class);
+                        SystemView2 view = new SystemView2(patient);
+                        view.displayPatient();
 
-                    case 4:
-                        scanner.nextLine();
+                    } catch (Exception ex) {
+                        System.out.println("PACIENTE NO ENCONTRADO...");
+                    }
+                    break;
 
-                        FileManager.save("appointments.json", gson.toJson(Physioterapist.generateAppointment()));
-                        break;
+                case 4:
+                    scanner.nextLine();
 
-                    case 5:
-                        scanner.nextLine();
-                        FileManager.save("bills.json", gson.toJson(Physioterapist.generateBill()));
-                        break;
+                    FileManager.save("appointments.json", gson.toJson(Physioterapist.generateAppointment()));
 
-                    case 6:
-                        ClinicalHistoryView.manageClinicalHistory();
-                        break;
+                    break;
 
-                    case 7:
-                        System.exit(0);
-                        break;
+                case 5:
+                    scanner.nextLine();
+                    FileManager.save("bills.json", gson.toJson(Physioterapist.generateBill()));
+                    break;
 
-                    default:
-                        System.out.println("SOLO SE PERMITEN OPCIONES DE LA 1 A LA 7");
-                }
+                case 6:
+                    ClinicalHistoryView.manageClinicalHistory();
+                    break;
+
+                case 7:
+                    System.exit(0);
+                    break;
+
+                default:
+                    System.out.println("SOLO SE PERMITEN OPCIONES DE LA 1 A LA 7");
+            }
             System.out.println("-----------------------------------------");
             System.out.println("-           PHYSIOMATIC                 -");
             System.out.println("-                                       -");
@@ -131,14 +140,22 @@ public class PatientManagment {
             System.out.println("-----------------------------------------");
             System.out.println("ELIJA UNA OPCIÓN: ");
             try {
-                option = scanner.nextInt();
-                
+                option1 = scanner.nextLine();
+                while (!Physioterapist.isNumeric(option1)) {
+                    System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
+                    option1 = scanner.nextLine();
+                }
+                try {
+                    option = Integer.valueOf(option1);
+                } catch (Exception e) {
+                    System.out.println("NO SE PUEDE TRANSFORMAR");
+                }
+
             } catch (InputMismatchException e) {
-                System.out.println("ELIJA UNA OPCIÓN VÁLIDA: ");
+                System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
                 scanner.next();
             }
-               
-        }   
+
+        }
     }
 }
-
