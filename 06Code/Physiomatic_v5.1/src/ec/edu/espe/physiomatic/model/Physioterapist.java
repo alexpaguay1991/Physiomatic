@@ -64,13 +64,7 @@ public class Physioterapist {
 
     }
 
-    public void modifyPatient(Patient patient) {
-
-    }
-
-    public void deletePatient(Patient patient) {
-
-    }
+    
 
     public static Appointment generateAppointment() {
         Scanner scanner = new Scanner(System.in);
@@ -181,9 +175,7 @@ public class Physioterapist {
         return product;
 
     }
-    public void deployAppointment(Appointment appointment) {
-
-    }
+    
 
     public static Patient retrievePatient(long idPatient) {
         Gson gson = new Gson();
@@ -295,18 +287,18 @@ public class Physioterapist {
 
         return diagnostic;
     }
-
-    public static boolean isNumeric(String cadena) {
+    //basado en algoritmo de http://lineadecodigo.com/java/validar-si-un-dato-es-numerico-en-java
+    public static boolean isNumeric(String string) {
         try {
-            Integer.parseInt(cadena);
+            Integer.parseInt(string);
             return true;
         } catch (NumberFormatException nfe) {
             return false;
         }
     }
-    public static boolean isFloat(String cadena) {
+    public static boolean isFloat(String string) {
         try {
-            Float.parseFloat(cadena);
+            Float.parseFloat(string);
             return true;
         } catch (NumberFormatException nfe) {
             return false;
