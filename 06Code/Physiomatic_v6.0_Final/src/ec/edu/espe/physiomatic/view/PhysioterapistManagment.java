@@ -62,6 +62,8 @@ public class PhysioterapistManagment {
                 case 1:
 
                     LoginPhysioterapist.login();
+                        
+                    
                     break;
                 case 2:
 

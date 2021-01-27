@@ -27,12 +27,14 @@ public class LoginPhysioterapist {
         int control = 0;
         dataOfFile = FileManager.find("physioterapist.json", username);
         dataOfFile1 = FileManager.find("physioterapist.json", password);
-
+        if (dataOfFile1.contentEquals("") && dataOfFile.contentEquals("")){
+            System.out.println("EL USUARIO NO ESTA REGISTRADO");
+        }else{
         if (dataOfFile1.contentEquals(dataOfFile)) {
             PatientManagment.charge();
         }else{
             System.out.println("EL USUARIO Y LA CONTRASEÑA NO COINCIDEN");
-        }
+        }}
 
     }
 }
