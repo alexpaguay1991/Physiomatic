@@ -1,6 +1,6 @@
-"# Physiomatic by SDC Team #"\n
-"## Adrian Páez ##"\n
-"## Alex Paguay ##"\n
-"## Daniel Patiño ##"\n
-"## Yulliana Román ##"\n
-"## Santiago Risueño ##"\n
+"# Physiomatic by SDC Team #"  
+"## Adrian Páez ##"  
+"## Alex Paguay ##"  
+"## Daniel Patiño ##"  
+"## Yulliana Román ##"  
+"## Santiago Risueño ##"  
