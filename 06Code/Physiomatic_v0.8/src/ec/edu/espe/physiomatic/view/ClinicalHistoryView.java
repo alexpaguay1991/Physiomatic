@@ -88,10 +88,10 @@ public class ClinicalHistoryView {
                         long idPatient = scanner.nextLong();
                         scanner.nextLine();
 
-                        ClinicalHistory clinical,clinicalToChange;
+                        ClinicalHistory clinical, clinicalToChange;
                         clinical = Physioterapist.retrieveClinicalHistory(idPatient);
                         clinicalToChange = Physioterapist.retrieveClinicalHistory(idPatient);
-                        clinical.getDiagnostics().add(Physioterapist.createDiagnostic());
+                        clinical.getDiagnostics().add(ClinicalHistory.createDiagnostic());
                         System.out.println(""+gson.toJson(clinicalToChange));
                         System.out.println(""+gson.toJson(clinical));
                         FileManager.update("ClinicalHistory.json", gson.toJson(clinicalToChange), gson.toJson(clinical));

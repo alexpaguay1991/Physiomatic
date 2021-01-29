@@ -68,7 +68,7 @@ public class PatientManagment {
             switch (option) {
                 case 1:
 
-                    FileManager.save("patients.json", gson.toJson(Physioterapist.generatePatient()));
+                    FileManager.save("patients.json", gson.toJson(Patient.generatePatient()));
                     break;
                 case 2:
 

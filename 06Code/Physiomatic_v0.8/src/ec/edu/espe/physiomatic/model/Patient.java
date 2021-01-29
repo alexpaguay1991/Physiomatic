@@ -6,6 +6,7 @@
 package ec.edu.espe.physiomatic.model;
 
 import java.util.Date;
+import java.util.Scanner;
 
 /**
  *
@@ -90,7 +91,36 @@ public class Patient {
         return "PACIENTE {" + "No. DE CÉDULA = " + idPatient + ", NOMBRE = " + name + ", APELLIDO = " + lastName + ", No. DE CONTACTO = " + contactPatient + '}';
     }
     
+    public static Patient generatePatient() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
+        String idPatient1 = scanner.nextLine();
+        long idPatient=1;
+        while (!Physioterapist.isNumeric(idPatient1)) {
+            System.out.println("INGRESE UN DATO NUMÉRICO:  ");
+            idPatient1 = scanner.nextLine();
+        }
+        try {
+            idPatient = Integer.valueOf(idPatient1);
+        } catch (Exception e) {
+            System.out.println("NO SE PUEDE TRANSFORMAR");
+        }
+        
+        
 
+        System.out.println("INGRESE EL NOMBRE DEL PACIENTE: ");
+        String namePatient = scanner.nextLine();
+
+        System.out.println("INGRESE EL APELLIDO DEL PACIENTE: ");
+        String lastNamePatient = scanner.nextLine();
+
+        System.out.println("INGRESE EL No. DE CONTACTO DEL PACIENTE: ");
+        String contactPatient = scanner.nextLine();
+     
+        Patient patient = new Patient(idPatient, namePatient, lastNamePatient, contactPatient);
+        return patient;
+
+    }
     
     
     
