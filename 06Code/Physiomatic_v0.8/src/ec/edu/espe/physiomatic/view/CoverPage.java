@@ -10,30 +10,28 @@ package ec.edu.espe.physiomatic.view;
  * @author Acer
  */
 public class CoverPage {
-    public static void present(){
-        
-            System.out.println("--------------------------------------");
-            System.out.println("-   <<<<<<< PHYSIOMATIC >>>>>>>      -");       
-            System.out.println("-                                    -");
-            System.out.println("-           AUTHORS:                           -");
-            System.out.println("-           PAEZ ADRIAN              -");
-            System.out.println("-           PAGUAY ALEX              -");
-            System.out.println("-           PATIÑO BRAYAN            -");
-            System.out.println("-           RISUEÑO SANTIAGO         -");
-            System.out.println("-                                    -");
-            System.out.println("-                                    -");
-            System.out.println("-           VERSION 0.1 COPYRIGHT    -");
-            System.out.println("--------------------------------------");
-            try{ 
-                int x;
-                x=1500;
-                Thread.sleep(x);
-            } catch(Exception ex ) { 
-                
-            }
 
-            
-        
+    public static void present() {
+
+        System.out.println("--------------------------------------");
+        System.out.println("-   <<<<<<< PHYSIOMATIC >>>>>>>      -");
+        System.out.println("-                                    -");
+        System.out.println("-           AUTHORS:                 -");
+        System.out.println("-           PAEZ ADRIAN              -");
+        System.out.println("-           PAGUAY ALEX              -");
+        System.out.println("-           PATIÑO BRAYAN            -");
+        System.out.println("-           RISUEÑO SANTIAGO         -");
+        System.out.println("-                                    -");
+        System.out.println("-                                    -");
+        System.out.println("-           VERSION 0.1 COPYRIGHT    -");
+        System.out.println("--------------------------------------");
+        try {
+            int x;
+            x = 1500;
+            Thread.sleep(x);
+        } catch (Exception ex) {
+
+        }
     }
-    
+
 }
