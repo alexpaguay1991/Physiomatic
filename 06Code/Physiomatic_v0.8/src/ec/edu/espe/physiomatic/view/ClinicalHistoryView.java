@@ -33,25 +33,25 @@ public class ClinicalHistoryView {
         System.out.println("- HISTORIALES MÉDICOS                              -");
         System.out.println("-                                                  -");
         System.out.println("- 1. CREAR NUEVO HISTORIAL MÉDICO                  -");
-        System.out.println("- 2. DESPLEGAR UN HISTORIAL MÉDICO                 -");
-        System.out.println("- 3. AÑADIR UN DIAGNÓSTICO AL HISTORIAL MÉDICO     -");
-        System.out.println("- 4. REGRESAR.                                     -");
-        System.out.println("-----------------------------------------");
+        System.out.println("- 2. MODIFICAR HISTORIAL MÉDICO                    -");
+        System.out.println("- 3. DESPLEGAR UN HISTORIAL MÉDICO                 -");
+        System.out.println("- 4. AÑADIR UN DIAGNÓSTICO AL HISTORIAL MÉDICO     -");
+        System.out.println("- 5. REGRESAR.                                     -");
+        System.out.println("----------------------------------------------------");
         System.out.println("ELIJA UNA OPCIÓN:  ");
         String option1;
-        int option=1;
+        int option = 1;
         try {
+            option1 = scanner.nextLine();
+            while (!Physioterapist.isNumeric(option1)) {
+                System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
                 option1 = scanner.nextLine();
-                while(!Physioterapist.isNumeric(option1)){
-                    System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
-                    option1 = scanner.nextLine();
-                }
-                try{
-                    option=Integer.valueOf(option1);
-                }catch(Exception e){
-                    System.out.println("NO SE PUEDE TRANSFORMAR");
-                }
-                
+            }
+            try {
+                option = Integer.valueOf(option1);
+            } catch (Exception e) {
+                System.out.println("NO SE PUEDE TRANSFORMAR");
+            }
 
         } catch (InputMismatchException e) {
             System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
@@ -59,7 +59,6 @@ public class ClinicalHistoryView {
         }
 
         while (option < 5 || option > 0) {
-            
 
             switch (option) {
                 case 1:
@@ -67,23 +66,34 @@ public class ClinicalHistoryView {
 
                     break;
                 case 2:
-                    try{
-                        System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE");
+                    try {
+                        System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
+                        long idPatient = scanner.nextLong();
+                        scanner.nextLine();
+
+                        Patient.updateClinicalHistory(idPatient);
+
+                    } catch (Exception e) {
+                        System.out.println("NO SE ENCUENTRA CREADA LA HISTORIA CLÍNICA CON ESE NÚEMRO DE CÉDULA");
+                    }
+                    break;
+                case 3:
+                    try {
+                        System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
                         long idPatient = scanner.nextLong();
                         scanner.nextLine();
                         Patient patient;
-                        patient=Physioterapist.retrievePatient(idPatient);
+                        patient = Physioterapist.retrievePatient(idPatient);
                         SystemView2 clinicalHistory = new SystemView2(patient);
                         clinicalHistory.displayClinicalHistory();
-                        
-                    }catch(Exception e){
+
+                    } catch (Exception e) {
                         System.out.println("NO SE ENCUENTRA CREADA LA HISTORIA CLÍNICA CON ESE NÚEMRO DE CÉDULA");
                     }
-                    
 
                     break;
-                case 3:
-                    try{
+                case 4:
+                    try {
                         System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
                         long idPatient = scanner.nextLong();
                         scanner.nextLine();
@@ -92,20 +102,19 @@ public class ClinicalHistoryView {
                         clinical = Physioterapist.retrieveClinicalHistory(idPatient);
                         clinicalToChange = Physioterapist.retrieveClinicalHistory(idPatient);
                         clinical.getDiagnostics().add(ClinicalHistory.createDiagnostic());
-                        System.out.println(""+gson.toJson(clinicalToChange));
-                        System.out.println(""+gson.toJson(clinical));
+                        System.out.println("" + gson.toJson(clinicalToChange));
+                        System.out.println("" + gson.toJson(clinical));
                         FileManager.update("ClinicalHistory.json", gson.toJson(clinicalToChange), gson.toJson(clinical));
 
-                    }catch(Exception e){
-                         System.out.println("NO SE ENCUENTRA CREADA LA HISTORIA CLÍNICA CON ESE NÚEMRO DE CÉDULA");
-                    
+                    } catch (Exception e) {
+                        System.out.println("NO SE ENCUENTRA CREADA LA HISTORIA CLÍNICA CON ESE NÚEMRO DE CÉDULA");
+
                     }
-                    
-            
+
                     break;
-                case 4:
+                case 5:
                     PatientManagment.charge();
-     
+
                     break;
 
                 default:
@@ -117,30 +126,29 @@ public class ClinicalHistoryView {
             System.out.println("- HISTORIALES MEDICOS                              -");
             System.out.println("-                                                  -");
             System.out.println("- 1. CREAR UN NUEVO HISTORIAL MÉDICO               -");
-            System.out.println("- 2. DESPLEGAR UN HISTORIAL MÉDICO                 -");
-            System.out.println("- 3. AÑADIR UN DIAGNÓSTICO AL HISTORIAL MÉDICO     -");
-            System.out.println("- 4. REGRESAR.                                     -");
-            System.out.println("-----------------------------------------");
+            System.out.println("- 2. MODIFICAR HISTORIAL MÉDICO                    -");
+            System.out.println("- 3. DESPLEGAR UN HISTORIAL MÉDICO                 -");            
+            System.out.println("- 4. AÑADIR UN DIAGNÓSTICO AL HISTORIAL MÉDICO     -");
+            System.out.println("- 5. REGRESAR.                                     -");
+            System.out.println("----------------------------------------------------");
             System.out.println("ELIJA UNA OPCIÓN: ");
-            
+
             try {
                 option1 = scanner.nextLine();
-                while(!Physioterapist.isNumeric(option1)){
+                while (!Physioterapist.isNumeric(option1)) {
                     System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
                     option1 = scanner.nextLine();
                 }
-                try{
-                    option=Integer.valueOf(option1);
-                }catch(Exception e){
+                try {
+                    option = Integer.valueOf(option1);
+                } catch (Exception e) {
                     System.out.println("NO SE PUEDE TRANSFORMAR");
                 }
-                
 
-        } catch (InputMismatchException e) {
-            System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
-            scanner.next();
-        }
-            
+            } catch (InputMismatchException e) {
+                System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
+                scanner.next();
+            }
 
         }
     }
