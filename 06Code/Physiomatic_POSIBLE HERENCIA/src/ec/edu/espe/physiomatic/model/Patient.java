@@ -16,16 +16,15 @@ import java.util.Scanner;
  *
  * @author Acer
  */
-public class Patient {
-    private long idPatient;
-    private String name;
-    private String lastName;
-    private String contactPatient;
+    public class Patient extends Person{
+        private long idPatient;
+        private String contactPatient;
 
-    
-
-   
-    
+    public Patient(long idPatient, String contactPatient, String name, String lastName) {
+        super(name, lastName);
+        this.idPatient = idPatient;
+        this.contactPatient = contactPatient;
+    }
 
     /**
      * @return the idPatient
@@ -42,34 +41,6 @@ public class Patient {
     }
 
     /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * @return the lastName
-     */
-    public String getLastName() {
-        return lastName;
-    }
-
-    /**
-     * @param lastName the lastName to set
-     */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    /**
      * @return the contactPatient
      */
     public String getContactPatient() {
@@ -83,17 +54,13 @@ public class Patient {
         this.contactPatient = contactPatient;
     }
 
-    public Patient(long idPatient, String name, String lastName, String contactPatient) {
-        this.idPatient = idPatient;
-        this.name = name;
-        this.lastName = lastName;
-        this.contactPatient = contactPatient;
-    }
-
     @Override
     public String toString() {
-        return "PACIENTE {" + "No. DE CÉDULA = " + idPatient + ", NOMBRE = " + name + ", APELLIDO = " + lastName + ", No. DE CONTACTO = " + contactPatient + '}';
+        return "Patient{" + "idPatient=" + idPatient + ", contactPatient=" + contactPatient + '}';
     }
+   
+    
+
     
     public static Patient generatePatient() {
         Scanner scanner = new Scanner(System.in);
@@ -227,5 +194,6 @@ public static ClinicalHistory createClinicalHistory() {
                 break;
         }
     }    
+
     
 }
