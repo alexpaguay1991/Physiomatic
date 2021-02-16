@@ -22,6 +22,7 @@ import java.util.Scanner;
  * @author Acer
  */
 public class PhysiomaticController {
+   
     public Physioterapist createPhsyioterapist(){
         Scanner scanner=new Scanner(System.in);
         

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 /**
  *
  * @author pzeadrian
+ * @author Santiago Risueño ESPE-DCCO
  *
  **/
 public class Bill {
@@ -44,7 +45,13 @@ public class Bill {
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
-
+    
+    /**
+     * 
+     * @param price, save the cost of the application.
+     * @param patient, receive a patient Patient.
+     * @param products, receive an ArrayList of products.
+     */
     public Bill(float price, Patient patient, ArrayList<Product> products) {
         this.price = price;
         this.patient = patient;

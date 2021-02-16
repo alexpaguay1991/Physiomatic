@@ -13,6 +13,7 @@ import java.util.Date;
 /**
  *
  * @author Acer
+ * @author Santiago Risueño ESPE-DCCO
  */
 public class Appointment {
 
@@ -62,18 +63,15 @@ public class Appointment {
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
-
+    /**
+     * 
+     * @param dateOfAppointment, save the date of the medical appointment.
+     * @param hour, save the appointment time.
+     * @param patient, recieve a Patient patient.
+     */
     public Appointment(String dateOfAppointment, String hour, Patient patient) {
         this.dateOfAppointment = dateOfAppointment;
         this.hour = hour;
         this.patient = patient;
     }
-    
-
-    
-    
-
-    
-    
-    
 }

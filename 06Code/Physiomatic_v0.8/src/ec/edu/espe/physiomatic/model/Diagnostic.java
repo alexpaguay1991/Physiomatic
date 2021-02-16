@@ -11,6 +11,8 @@ import java.util.Scanner;
 /**
  *
  * @author Acer
+ * @author Santiago Risueño ESPE-DCCO
+ * 
  */
 public class Diagnostic {
 
@@ -25,6 +27,14 @@ public class Diagnostic {
         return "DIAGNÓSTICO {" + "PATOLOGÍA = " + pathology + ", TRATAMIENTO = " + treatment + ", SÍNTOMAS = " + symptoms + ", ALERGIAS = " + allergies + ", FECHA DEL DIAGNÓSTICO = " + dateOfDiagnostic + '}';
     }
 
+    /**
+     * 
+     * @param pathology, save patient evaluations during appointment.
+     * @param treatment, saves the treatment to be followed by the patient.
+     * @param symptoms, save the symptoms before the appointment.
+     * @param allergies, save allergies to account for in diagnosis.
+     * @param dateOfDiagnostic, save the date of appointment.
+     */
     public Diagnostic(String pathology, String treatment, String symptoms, String allergies, String dateOfDiagnostic) {
         this.pathology = pathology;
         this.treatment = treatment;
