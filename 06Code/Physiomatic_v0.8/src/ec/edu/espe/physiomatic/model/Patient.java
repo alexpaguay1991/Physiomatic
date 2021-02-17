@@ -8,6 +8,7 @@ package ec.edu.espe.physiomatic.model;
 import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.FileManager;
 import static ec.edu.espe.physiomatic.model.Physioterapist.retrievePatient;
+import ec.edu.espe.utils.Validation;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -134,7 +135,7 @@ public class Patient {
         System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
         long idPatient = 1;
         String idPatient1 = scanner.nextLine();
-        while (!Physioterapist.isNumeric(idPatient1)) {
+        while (!Validation.isNumeric(idPatient1)) {
             System.out.println("INGRESE UN DATO NUMÉRICO:  ");
             idPatient1 = scanner.nextLine();
         }

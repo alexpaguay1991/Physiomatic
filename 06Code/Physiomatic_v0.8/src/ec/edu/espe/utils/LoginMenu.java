@@ -32,4 +32,17 @@ public class LoginMenu {
             System.out.println("  9. SALIR                               -");
             System.out.println("-----------------------------------------");
     }
+     public static void logClinicalHistoryMenu() {
+        System.out.println("----------------------------------------------------");
+        System.out.println("- HISTORIALES MÉDICOS                              -");
+        System.out.println("-                                                  -");
+        System.out.println("- 1. CREAR NUEVO HISTORIAL MÉDICO                  -");
+        System.out.println("- 2. MODIFICAR HISTORIAL MÉDICO                    -");
+        System.out.println("- 3. DESPLEGAR UN HISTORIAL MÉDICO                 -");
+        System.out.println("- 4. AÑADIR UN DIAGNÓSTICO AL HISTORIAL MÉDICO     -");
+        System.out.println("- 5. REGRESAR.                                     -");
+        System.out.println("----------------------------------------------------");
+        System.out.println("ELIJA UNA OPCIÓN:  ");
+    }
+     
 }

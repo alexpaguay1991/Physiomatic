@@ -300,22 +300,7 @@ public class Physioterapist {
     }
     //basado en algoritmo de http://lineadecodigo.com/java/validar-si-un-dato-es-numerico-en-java
    
-    public static boolean isNumeric(String string) {
-        try {
-            Integer.parseInt(string);
-            return true;
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-    }
-    public static boolean isFloat(String string) {
-        try {
-            Float.parseFloat(string);
-            return true;
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-    }
+    
     public static void printAllPatients() {
         Gson gson = new Gson();
         Scanner scanner = new Scanner(System.in);

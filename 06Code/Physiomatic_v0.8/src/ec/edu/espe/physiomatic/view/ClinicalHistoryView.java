@@ -11,6 +11,8 @@ import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Diagnostic;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.physiomatic.model.Physioterapist;
+import ec.edu.espe.utils.LoginMenu;
+import ec.edu.espe.utils.Validation;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -31,21 +33,12 @@ public class ClinicalHistoryView {
         Scanner scanner = new Scanner(System.in);
 
         Gson gson = new Gson();
-        System.out.println("----------------------------------------------------");
-        System.out.println("- HISTORIALES MÉDICOS                              -");
-        System.out.println("-                                                  -");
-        System.out.println("- 1. CREAR NUEVO HISTORIAL MÉDICO                  -");
-        System.out.println("- 2. MODIFICAR HISTORIAL MÉDICO                    -");
-        System.out.println("- 3. DESPLEGAR UN HISTORIAL MÉDICO                 -");
-        System.out.println("- 4. AÑADIR UN DIAGNÓSTICO AL HISTORIAL MÉDICO     -");
-        System.out.println("- 5. REGRESAR.                                     -");
-        System.out.println("----------------------------------------------------");
-        System.out.println("ELIJA UNA OPCIÓN:  ");
+        LoginMenu.logClinicalHistoryMenu();
         String option1;
         int option = 1;
         try {
             option1 = scanner.nextLine();
-            while (!Physioterapist.isNumeric(option1)) {
+            while (!Validation.isNumeric(option1)) {
                 System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
                 option1 = scanner.nextLine();
             }
@@ -124,20 +117,12 @@ public class ClinicalHistoryView {
 
             }
 
-            System.out.println("----------------------------------------------------");
-            System.out.println("- HISTORIALES MEDICOS                              -");
-            System.out.println("-                                                  -");
-            System.out.println("- 1. CREAR UN NUEVO HISTORIAL MÉDICO               -");
-            System.out.println("- 2. MODIFICAR HISTORIAL MÉDICO                    -");
-            System.out.println("- 3. DESPLEGAR UN HISTORIAL MÉDICO                 -");            
-            System.out.println("- 4. AÑADIR UN DIAGNÓSTICO AL HISTORIAL MÉDICO     -");
-            System.out.println("- 5. REGRESAR.                                     -");
-            System.out.println("----------------------------------------------------");
-            System.out.println("ELIJA UNA OPCIÓN: ");
+            
+            LoginMenu.logClinicalHistoryMenu();
 
             try {
                 option1 = scanner.nextLine();
-                while (!Physioterapist.isNumeric(option1)) {
+                while (!Validation.isNumeric(option1)) {
                     System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
                     option1 = scanner.nextLine();
                 }
