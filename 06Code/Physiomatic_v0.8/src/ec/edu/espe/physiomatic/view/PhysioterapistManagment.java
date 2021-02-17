@@ -34,15 +34,7 @@ public class PhysioterapistManagment {
 
         boolean exit = false;
         int option = 1;
-        
-        try {
-            option = LoginMenu.validateOption();
-
-        } catch (InputMismatchException e) {
-            System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
-            scanner.next();
-        }
-
+        option = LoginMenu.validateOption();
         while (option < 4 || option > 0) {
             switch (option) {
                 case 1:
@@ -58,12 +50,8 @@ public class PhysioterapistManagment {
                     System.out.println("SOLO SE PERMITEN OPCIONES DE LA 1 A LA 3...");
             }
             LoginMenu.logLoginMenu();
-            try {
-                option = LoginMenu.validateOption();
-            } catch (InputMismatchException e) {
-                System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
-                scanner.next();
-            }
+            option = LoginMenu.validateOption();
+            
 
         }
 

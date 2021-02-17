@@ -71,4 +71,20 @@ public class LoginMenu {
 
     }
 
+    public static long validateIdPatient() {
+        
+        String idPatient1;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE");
+        long idPatient=1 ;
+        idPatient1 = scanner.nextLine();
+        while (!Validation.isLong(idPatient1)) {
+            System.out.println("INGRESE UN DATO NUMÉRICO:  ");
+            idPatient1 = scanner.nextLine();
+        }
+        idPatient = Long.valueOf(idPatient1);      
+        return idPatient;
+
+    }
+
 }

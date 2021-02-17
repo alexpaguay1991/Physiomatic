@@ -24,7 +24,6 @@ public class LoginPhysioterapist {
         String dataToFind ;
         String dataOfFile;
         String dataOfFile1;
-        int control = 0;
         dataOfFile = FileManager.find("physioterapist.json", username);
         dataOfFile1 = FileManager.find("physioterapist.json", password);
         if (dataOfFile1.contentEquals("") && dataOfFile.contentEquals("")){

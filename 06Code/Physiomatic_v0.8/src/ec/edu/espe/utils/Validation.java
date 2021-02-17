@@ -56,6 +56,14 @@ public class Validation {
             return false;
         }
     }
+     public static boolean isLong(String string) {
+        try {
+            Long.parseLong(string);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
     public static boolean isFloat(String string) {
         try {
             Float.parseFloat(string);

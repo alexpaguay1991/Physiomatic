@@ -29,17 +29,16 @@ public class PatientManagment {
 
     public static void charge() throws ParseException {
         Scanner scanner = new Scanner(System.in);
-        Physioterapist controller;
         Gson gson = new Gson();
-        int option = 1;
-        String option1;
+        long idPatient;
+        Patient patient;
+        int option;
         boolean exit = false;
         while (!exit) {
             LoginMenu.logPatientMenu();
           
             try {
-               
-                
+                           
                 option=LoginMenu.validateOption();
                 switch (option) {
                     case 1:
@@ -63,7 +62,6 @@ public class PatientManagment {
                         try {
 
                             dataOfFile = FileManager.find("patients.json", dataToFind);
-                            Patient patient;
                             patient = gson.fromJson(dataOfFile, Patient.class);
                             SystemView2 view = new SystemView2(patient);
                             view.displayPatient();
@@ -85,20 +83,7 @@ public class PatientManagment {
                     case 5:
                         String idPatient1;
                         try {
-                            System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE");
-
-                            long idPatient = 1;
-                            idPatient1 = scanner.nextLine();
-                            while (Validation.validateNumbers(idPatient1)) {
-                                System.out.println("INGRESE UN DATO NUMÉRICO:  ");
-                                idPatient1 = scanner.nextLine();
-                            }
-                            try {
-                                idPatient = Integer.valueOf(idPatient1);
-                            } catch (Exception e) {
-                                System.out.println("NO SE PUEDE TRANSFORMAR");
-                            }
-                            Patient patient;
+                            idPatient = LoginMenu.validateIdPatient();
                             patient = Physioterapist.retrievePatient(idPatient);
                             SystemView2 appointment = new SystemView2(patient);
                             appointment.displayAppointment();
@@ -118,25 +103,14 @@ public class PatientManagment {
 
                     case 8:
                         try {
-                            System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE");
-                            long idPatient = 1;
-                            idPatient1 = scanner.nextLine();
-                            while (Validation.validateNumbers(idPatient1)) {
-                                System.out.println("INGRESE UN DATO NUMÉRICO:  ");
-                                idPatient1 = scanner.nextLine();
-                            }
-                            try {
-                                idPatient = Integer.valueOf(idPatient1);
-                            } catch (Exception e) {
-                                System.out.println("NO SE PUEDE TRANSFORMAR");
-                            }
-                            Patient patient;
+                                                       
+                            idPatient = LoginMenu.validateIdPatient();
                             patient = Physioterapist.retrievePatient(idPatient);
                             SystemView2 bill = new SystemView2(patient);
                             bill.displayBill();
 
                         } catch (Exception e) {
-                            System.out.println("NO EXISTE CITA REGISTRADA PARA EL PACIENTE");
+                            System.out.println("NO EXISTE FACTURA REGISTRADA PARA EL PACIENTE");
                         }
                         break;
 
