@@ -10,6 +10,7 @@ import ec.edu.espe.filemanager.utils.FileManager;
 import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Physioterapist;
 import ec.edu.espe.physiomatic.model.Patient;
+import ec.edu.espe.utils.LoginMenu;
 import ec.edu.espe.utils.Validation;
 import java.sql.Time;
 import java.text.ParseException;
@@ -34,19 +35,7 @@ public class PatientManagment {
         String option1;
         boolean exit = false;
         while (!exit) {
-            System.out.println("-----------------------------------------");
-            System.out.println("-           PHYSIOMATIC                 -");
-            System.out.println("-                                       -");
-            System.out.println("- 1. NUEVO PACIENTE                     -");
-            System.out.println("- 2. MOSTRAR PACIENTES REGISTRADOS      -");
-            System.out.println("- 3. BUSCAR UN PACIENTE                 -");
-            System.out.println("- 4. GENERAR CITA                       -");
-            System.out.println("- 5. MOSTRAR CITA                       -");
-            System.out.println("- 6. HISTORIALES MÉDICOS                -");
-            System.out.println("- 7. GENERAR FACTURA                    -");
-            System.out.println("  8. DESPLEGAR FACTURA                   -");
-            System.out.println("  9. SALIR                               -");
-            System.out.println("-----------------------------------------");
+            LoginMenu.logPatientMenu();
           
             try {
                 System.out.println("ELIJA UNA OPCIÓN: ");
@@ -66,20 +55,8 @@ public class PatientManagment {
                         FileManager.save("patients.json", gson.toJson(Physioterapist.generatePatient()));
                         break;
                     case 2:
-
-                        List<Patient> patients1;
-                        patients1 = new ArrayList();
-                        String[] patients;
-                        patients = FileManager.findAll("patients.json");
-                        Patient eachPatient;
-                        for (String line : patients) {
-                            eachPatient = gson.fromJson(line, Patient.class);
-                            patients1.add(eachPatient);
-                        }
-                        for (Patient patient : patients1) {
-                            SystemView2 view = new SystemView2(patient);
-                            view.displayPatient();
-                        }
+                     
+                        Physioterapist.printAllPatients();
                         break;
                     case 3:
                         String dataToFind;
@@ -173,7 +150,8 @@ public class PatientManagment {
                         break;
 
                     case 9:
-                        exit = true;
+                        
+                        System.exit(0);
                         break;
 
                     default:

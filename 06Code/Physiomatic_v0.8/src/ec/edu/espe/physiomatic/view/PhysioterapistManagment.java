@@ -7,6 +7,8 @@ package ec.edu.espe.physiomatic.view;
 
 import ec.edu.espe.physiomatic.controller.PhysiomaticController;
 import ec.edu.espe.physiomatic.model.Physioterapist;
+import ec.edu.espe.utils.LoginMenu;
+import ec.edu.espe.utils.Validation;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -27,18 +29,14 @@ public class PhysioterapistManagment {
         Scanner scanner = new Scanner(System.in);
         PhysiomaticController controller = new PhysiomaticController();
         RegistrationPhysiotepaist registration = new RegistrationPhysiotepaist();
-        System.out.println(" <<< PHYSIOMATIC >>>");
-        System.out.println("1: INICIAR SESIÓN");
-        System.out.println("2: REGISTRARSE");
-        System.out.println("3: SALIR");
-        System.out.println("ELIJA UNA OPCIÓN: ");
+        LoginMenu.logLoginMenu();
         
         boolean exit = false;
         int option=1;
         String option1;
         try {
                 option1 = scanner.nextLine();
-                while(!Physioterapist.isNumeric(option1)){
+                while(!Validation.isNumeric(option1)){
                     System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
                     option1 = scanner.nextLine();
                 }
@@ -78,15 +76,10 @@ public class PhysioterapistManagment {
                     System.out.println("SOLO SE PERMITEN OPCIONES DE LA 1 A LA 3...");
 
             }
-           
-            System.out.println(" <<< PHYSIOMATIC >>> ");
-            System.out.println("1: INICIAR SESIÓN");
-            System.out.println("2: REGISTRARSE");
-            System.out.println("3: SALIR");
-            System.out.println("ELIJA UNA OPCIÓN: ");
+            LoginMenu.logLoginMenu();
             try {
                 option1 = scanner.nextLine();
-                while(!Physioterapist.isNumeric(option1)){
+                while(!Validation.isNumeric(option1)){
                     System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
                     option1 = scanner.nextLine();
                 }

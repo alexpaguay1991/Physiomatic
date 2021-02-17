@@ -15,17 +15,14 @@ import java.util.Scanner;
 /**
  *
  * @author Acer
+ * @author Santiago Risueño ESPE-DCCO
  */
 public class Patient {
+
     private long idPatient;
     private String name;
     private String lastName;
     private String contactPatient;
-
-    
-
-   
-    
 
     /**
      * @return the idPatient
@@ -83,6 +80,13 @@ public class Patient {
         this.contactPatient = contactPatient;
     }
 
+    /**
+     * 
+     * @param idPatient, saves the patient id.
+     * @param name, saves the name of patient.
+     * @param lastName, saves the last name of patient.
+     * @param contactPatient , saves the contact number of patient.
+     */
     public Patient(long idPatient, String name, String lastName, String contactPatient) {
         this.idPatient = idPatient;
         this.name = name;
@@ -94,12 +98,12 @@ public class Patient {
     public String toString() {
         return "PACIENTE {" + "No. DE CÉDULA = " + idPatient + ", NOMBRE = " + name + ", APELLIDO = " + lastName + ", No. DE CONTACTO = " + contactPatient + '}';
     }
-    
+
     public static Patient generatePatient() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
         String idPatient1 = scanner.nextLine();
-        long idPatient=1;
+        long idPatient = 1;
         while (!Physioterapist.isNumeric(idPatient1)) {
             System.out.println("INGRESE UN DATO NUMÉRICO:  ");
             idPatient1 = scanner.nextLine();
@@ -118,13 +122,14 @@ public class Patient {
 
         System.out.println("INGRESE EL No. DE CONTACTO DEL PACIENTE: ");
         String contactPatient = scanner.nextLine();
-     
+
         Patient patient = new Patient(idPatient, namePatient, lastNamePatient, contactPatient);
         return patient;
 
     }
     
-public static ClinicalHistory createClinicalHistory() {
+    
+    public static ClinicalHistory createClinicalHistory() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
         long idPatient = 1;
@@ -186,7 +191,7 @@ public static ClinicalHistory createClinicalHistory() {
         switch (opt) {
 
             case 1:
-                
+
                 System.out.println("INGRESE LA ALTURA: ");
                 scanner.nextLine();
 
@@ -206,26 +211,26 @@ public static ClinicalHistory createClinicalHistory() {
 
                 break;
             case 3:
-                
+
                 System.out.println("INGRESE LA DIRECCIÓN DEL DOMICILIO: ");
                 scanner.nextLine();
-                
+
                 String adress = scanner.nextLine();
                 clinicalToChange.setAddressPatient(adress);
                 FileManager.update("ClinicalHistory.json", gson.toJson(clinical), gson.toJson(clinicalToChange));
-               
+
                 break;
             case 4:
-                
+
                 System.out.println("INGRESE EL CORREO ELECTRÓNICO: ");
                 scanner.nextLine();
-                
+
                 String email = scanner.nextLine();
                 clinicalToChange.setEmailPatient(email);
                 FileManager.update("ClinicalHistory.json", gson.toJson(clinical), gson.toJson(clinicalToChange));
-                
+
                 break;
         }
-    }    
-    
+    }
+
 }
