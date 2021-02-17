@@ -55,21 +55,8 @@ public class PatientManagment {
                         FileManager.save("patients.json", gson.toJson(Physioterapist.generatePatient()));
                         break;
                     case 2:
-
-                        List<Patient> patients1;
-                        patients1 = new ArrayList();
-                        String[] patients;
-                        patients = FileManager.findAll("patients.json");
-                        Patient eachPatient;
-                        for (String line : patients) {
-                            eachPatient = gson.fromJson(line, Patient.class);
-                            patients1.add(eachPatient);
-                        }
-                        for (Patient patient : patients1) {
-                            SystemView2 view = new SystemView2(patient);
-                            view.displayPatient();
-                        }
-                        scanner.nextLine();
+                     
+                        Physioterapist.printAllPatients();
                         break;
                     case 3:
                         String dataToFind;

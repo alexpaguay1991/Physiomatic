@@ -7,9 +7,12 @@ package ec.edu.espe.physiomatic.model;
 
 import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.FileManager;
+import ec.edu.espe.physiomatic.view.SystemView2;
+import ec.edu.espe.utils.Validation;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -42,7 +45,7 @@ public class Physioterapist {
         System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
         String idPatient1 = scanner.nextLine();
         long idPatient=1;
-        while (!Physioterapist.isNumeric(idPatient1)) {
+        while (!Validation.isNumeric(idPatient1)) {
             System.out.println("INGRESE UN DATO NUMÉRICO:  ");
             idPatient1 = scanner.nextLine();
         }
@@ -62,7 +65,7 @@ public class Physioterapist {
 
         System.out.println("INGRESE EL No. DE CONTACTO DEL PACIENTE: ");
         String contactPatient = scanner.nextLine();
-        while (!Physioterapist.isNumeric(contactPatient)) {
+        while (!Validation.isNumeric(contactPatient)) {
             System.out.println("INGRESE UN DATO NUMÉRICO:  ");
             idPatient1 = scanner.nextLine();
         }
@@ -313,4 +316,23 @@ public class Physioterapist {
             return false;
         }
     }
+    public static void printAllPatients() {
+        Gson gson = new Gson();
+        Scanner scanner = new Scanner(System.in);
+        List<Patient> patients1;
+        patients1 = new ArrayList();
+        String[] patients;
+        patients = FileManager.findAll("patients.json");
+        Patient eachPatient;
+        for (String line : patients) {
+            eachPatient = gson.fromJson(line, Patient.class);
+            patients1.add(eachPatient);
+        }
+        for (Patient patient : patients1) {
+            SystemView2 view = new SystemView2(patient);
+            view.displayPatient();
+        }
+        scanner.nextLine();
+    }
+    
 }
