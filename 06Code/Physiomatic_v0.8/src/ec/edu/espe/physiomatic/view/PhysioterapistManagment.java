@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.physiomatic.view;
 
+import ec.edu.espe.utils.CoverPage;
 import ec.edu.espe.physiomatic.controller.PhysiomaticController;
 import ec.edu.espe.physiomatic.model.Physioterapist;
 import ec.edu.espe.utils.LoginMenu;
@@ -30,70 +31,39 @@ public class PhysioterapistManagment {
         PhysiomaticController controller = new PhysiomaticController();
         RegistrationPhysiotepaist registration = new RegistrationPhysiotepaist();
         LoginMenu.logLoginMenu();
-        
+
         boolean exit = false;
-        int option=1;
-        String option1;
+        int option = 1;
+        
         try {
-                option1 = scanner.nextLine();
-                while(!Validation.isNumeric(option1)){
-                    System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
-                    option1 = scanner.nextLine();
-                }
-                try{
-                    option=Integer.valueOf(option1);
-                }catch(Exception e){
-                    System.out.println("NO SE PUEDE TRANSFORMAR");
-                }
-                
+            option = LoginMenu.validateOption();
 
         } catch (InputMismatchException e) {
             System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
             scanner.next();
         }
-        
-        while (option<4 || option>0) {
-            
-            
-            
+
+        while (option < 4 || option > 0) {
             switch (option) {
                 case 1:
-
                     LoginPhysioterapist.login();
-                        
-                    
                     break;
                 case 2:
-
                     registration.register();
-
                     break;
                 case 3:
                     System.exit(0);
                     break;
-
                 default:
                     System.out.println("SOLO SE PERMITEN OPCIONES DE LA 1 A LA 3...");
-
             }
             LoginMenu.logLoginMenu();
             try {
-                option1 = scanner.nextLine();
-                while(!Validation.isNumeric(option1)){
-                    System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
-                    option1 = scanner.nextLine();
-                }
-                try{
-                    option=Integer.valueOf(option1);
-                }catch(Exception e){
-                    System.out.println("NO SE PUEDE TRANSFORMAR");
-                }
-                
-
-        } catch (InputMismatchException e) {
-            System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
-            scanner.next();
-        }
+                option = LoginMenu.validateOption();
+            } catch (InputMismatchException e) {
+                System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
+                scanner.next();
+            }
 
         }
 

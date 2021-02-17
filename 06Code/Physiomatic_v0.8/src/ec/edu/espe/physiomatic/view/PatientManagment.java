@@ -38,18 +38,9 @@ public class PatientManagment {
             LoginMenu.logPatientMenu();
           
             try {
-                System.out.println("ELIJA UNA OPCIÓN: ");
-                option1 = scanner.nextLine();
-
-                while (Validation.validateNumbers(option1) == false) {
-                    System.out.println("INGRESE UN DATO NUMÉRICO:  ");
-                    option1 = scanner.nextLine();
-                }
-                try {
-                    option = Integer.valueOf(option1);
-                } catch (Exception e) {
-                    System.out.println("NO SE PUEDE TRANSFORMAR");
-                }
+               
+                
+                option=LoginMenu.validateOption();
                 switch (option) {
                     case 1:
                         FileManager.save("patients.json", gson.toJson(Physioterapist.generatePatient()));
@@ -155,7 +146,7 @@ public class PatientManagment {
                         break;
 
                     default:
-                        System.out.println("SOLO SE PERMITEN OPCIONES DEL 1 AL 7");
+                        System.out.println("SOLO SE PERMITEN OPCIONES DEL 1 AL 9");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
