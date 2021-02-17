@@ -56,6 +56,12 @@ public class Product {
         this.unitPrice = unitPrice;
     }
 
+    /**
+     * 
+     * @param description, saves the product catacteristics.
+     * @param quantity, saves the number of products stock.
+     * @param unitPrice , save the cost per unit of each product.
+     */
     public Product(String description, int quantity, float unitPrice) {
         this.description = description;
         this.quantity = quantity;

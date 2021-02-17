@@ -48,7 +48,7 @@ public class Bill {
     
     /**
      * 
-     * @param price, save the cost of the application.
+     * @param price, saves the cost of the application.
      * @param patient, receive a patient Patient.
      * @param products, receive an ArrayList of products.
      */

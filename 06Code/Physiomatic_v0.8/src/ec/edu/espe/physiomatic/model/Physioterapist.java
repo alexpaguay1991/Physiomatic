@@ -15,9 +15,17 @@ import java.util.Scanner;
 /**
  *
  * @author Acer
+ * @author Santiago Risueño ESPE-DCCO
  */
 public class Physioterapist {
 
+    /**
+     * 
+     * @param name, saves the name of physioterapist.
+     * @param lastName, saves the last name of physioterapist.
+     * @param username, saves the username of physioterapist.
+     * @param password, saves the password of physioterapist. 
+     */
     public Physioterapist(String name, String lastName, String username, String password) {
         this.name = name;
         this.lastName = lastName;
@@ -288,6 +296,7 @@ public class Physioterapist {
         return diagnostic;
     }
     //basado en algoritmo de http://lineadecodigo.com/java/validar-si-un-dato-es-numerico-en-java
+   
     public static boolean isNumeric(String string) {
         try {
             Integer.parseInt(string);

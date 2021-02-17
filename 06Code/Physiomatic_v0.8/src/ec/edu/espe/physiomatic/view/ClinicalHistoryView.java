@@ -20,11 +20,13 @@ import java.util.Scanner;
 /**
  *
  * @author Acer
+ * 
  */
 public class ClinicalHistoryView {
 
     long idPatient;
 
+    
     public static void manageClinicalHistory() throws ParseException {
         Scanner scanner = new Scanner(System.in);
 
