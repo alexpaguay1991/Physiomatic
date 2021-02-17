@@ -172,4 +172,6 @@ public class ClinicalHistory {
         return diagnostic;
     }
     
+    
+    
 }

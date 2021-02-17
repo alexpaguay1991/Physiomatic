@@ -51,6 +51,13 @@ public class LoginMenu {
         System.out.println("----------------------------------------------------");
         System.out.println("ELIJA UNA OPCIÓN:  ");
     }
+    public static void updateClinicalHistoryMenu() {
+        System.out.println("1. ALTURA");
+        System.out.println("2. PESO");
+        System.out.println("3. LA DIRECCIÓN DEL DOMICILIO");
+        System.out.println("4. CORREO ELECTRÓNICO");
+        System.out.println("INGRESE EL DATO QUE DESEA MODIFICAR: ");
+    }
 
     public static int validateOption() {
         int option = 1;

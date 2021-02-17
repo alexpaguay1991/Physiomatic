@@ -5,10 +5,13 @@
  */
 package ec.edu.espe.physiomatic.controller;
 
+import com.google.gson.Gson;
+import ec.edu.espe.filemanager.utils.FileManager;
 import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Diagnostic;
 import ec.edu.espe.physiomatic.model.Patient;
 import static ec.edu.espe.physiomatic.model.Physioterapist.retrievePatient;
+import ec.edu.espe.utils.LoginMenu;
 import ec.edu.espe.utils.Validation;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -20,18 +23,7 @@ import java.util.Scanner;
 public class PatientController {
     public static ClinicalHistory createClinicalHistory() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
-        long idPatient=1;
-        String idPatient1=scanner.nextLine();
-        while (!Validation.isNumeric(idPatient1)) {
-            System.out.println("INGRESE UN DATO NUMÉRICO:  ");
-            idPatient1 = scanner.nextLine();
-        }
-        try {
-            idPatient = Integer.valueOf(idPatient1);
-        } catch (Exception e) {
-            System.out.println("NO SE PUEDE TRANSFORMAR");
-        }
+        long idPatient=LoginMenu.validateIdPatient();
 
 
         Patient patient;
@@ -62,5 +54,14 @@ public class PatientController {
         ClinicalHistory clinicalHistory = new ClinicalHistory(patient, birthDate, weight, height, addressPatient, emailPatient, diagnostics, familyBackground);
 
         return clinicalHistory;
+    }
+    public static ClinicalHistory retrieveClinicalHistory(long idPatient) {
+        Gson gson = new Gson();
+        String dataFile;
+        dataFile = FileManager.find("ClinicalHistory.json", idPatient + "");
+        ClinicalHistory clinicalHistory;
+        clinicalHistory = gson.fromJson(dataFile, ClinicalHistory.class);;
+        return clinicalHistory;
+
     }
 }

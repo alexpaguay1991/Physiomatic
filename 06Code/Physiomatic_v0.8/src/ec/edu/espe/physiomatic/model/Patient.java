@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.FileManager;
 import ec.edu.espe.physiomatic.controller.PatientController;
 import static ec.edu.espe.physiomatic.model.Physioterapist.retrievePatient;
+import ec.edu.espe.utils.LoginMenu;
 import ec.edu.espe.utils.Validation;
 import java.util.ArrayList;
 import java.util.Date;
@@ -116,11 +117,7 @@ public class Patient {
         ClinicalHistory clinical, clinicalToChange;
         clinical = Patient.retrieveClinicalHistory(idPatient);
         clinicalToChange = Patient.retrieveClinicalHistory(idPatient);
-        System.out.println("1.PESO");
-        System.out.println("2. ALTURA");
-        System.out.println("3. LA DIRECCIÓN DEL DOMICILIO");
-        System.out.println("4. CORREO ELECTRÓNICO");
-        System.out.println("INGRESE EL DATO QUE DESEA MODIFICAR: ");
+        LoginMenu.logClinicalHistoryMenu();
         int opt = scanner.nextInt();
 
         switch (opt) {
@@ -168,11 +165,9 @@ public class Patient {
         }
     }
     public static ClinicalHistory retrieveClinicalHistory(long idPatient) {
-        Gson gson = new Gson();
-        String dataFile;
-        dataFile = FileManager.find("ClinicalHistory.json", idPatient + "");
+       
         ClinicalHistory clinicalHistory;
-        clinicalHistory = gson.fromJson(dataFile, ClinicalHistory.class);;
+        clinicalHistory=PatientController.retrieveClinicalHistory(idPatient);
         return clinicalHistory;
 
     }

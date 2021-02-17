@@ -109,7 +109,7 @@ public class PhysiomaticController {
         String optionToAddAProduct="y";
         
         while(optionToAddAProduct.contentEquals("y")){
-            Product product=Physioterapist.generateProduct();
+            Product product=Bill.generateProduct();
             products.add(product);
             System.out.println("DESEA AGREGAR OTRO PRODUCTO PRESIONE y");
             optionToAddAProduct=scanner.nextLine();
