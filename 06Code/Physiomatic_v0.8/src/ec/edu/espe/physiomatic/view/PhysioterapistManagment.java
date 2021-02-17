@@ -32,9 +32,8 @@ public class PhysioterapistManagment {
         RegistrationPhysiotepaist registration = new RegistrationPhysiotepaist();
         LoginMenu.logLoginMenu();
 
-        boolean exit = false;
-        int option = 1;
-        option = LoginMenu.validateOption();
+        
+        int option = LoginMenu.validateOption();
         while (option < 4 || option > 0) {
             switch (option) {
                 case 1:

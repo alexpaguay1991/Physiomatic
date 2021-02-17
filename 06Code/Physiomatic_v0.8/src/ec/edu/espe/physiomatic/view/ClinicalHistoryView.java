@@ -22,42 +22,23 @@ import java.util.Scanner;
 /**
  *
  * @author Acer
- * 
+ *
  */
 public class ClinicalHistoryView {
 
     long idPatient;
 
-    
     public static void manageClinicalHistory() throws ParseException {
         Scanner scanner = new Scanner(System.in);
-
         Gson gson = new Gson();
-        LoginMenu.logClinicalHistoryMenu();
-        String option1;
-        int option = 1;
-        try {
-            option1 = scanner.nextLine();
-            while (!Validation.isNumeric(option1)) {
-                System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
-                option1 = scanner.nextLine();
-            }
-            try {
-                option = Integer.valueOf(option1);
-            } catch (Exception e) {
-                System.out.println("NO SE PUEDE TRANSFORMAR");
-            }
-
-        } catch (InputMismatchException e) {
-            System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
-            scanner.next();
-        }
+        LoginMenu.logClinicalHistoryMenu();   
+        int option = LoginMenu.validateOption();
 
         while (option < 5 || option > 0) {
 
             switch (option) {
                 case 1:
-                    FileManager.save("ClinicalHistory.json", gson.toJson(Physioterapist.createClinicalHistory()));
+                    FileManager.save("ClinicalHistory.json", gson.toJson(Patient.createClinicalHistory()));
 
                     break;
                 case 2:
@@ -94,8 +75,8 @@ public class ClinicalHistoryView {
                         scanner.nextLine();
 
                         ClinicalHistory clinical, clinicalToChange;
-                        clinical = Physioterapist.retrieveClinicalHistory(idPatient);
-                        clinicalToChange = Physioterapist.retrieveClinicalHistory(idPatient);
+                        clinical = Patient.retrieveClinicalHistory(idPatient);
+                        clinicalToChange = Patient.retrieveClinicalHistory(idPatient);
                         clinical.getDiagnostics().add(ClinicalHistory.createDiagnostic());
                         System.out.println("" + gson.toJson(clinicalToChange));
                         System.out.println("" + gson.toJson(clinical));
@@ -117,26 +98,9 @@ public class ClinicalHistoryView {
 
             }
 
-            
             LoginMenu.logClinicalHistoryMenu();
 
-            try {
-                option1 = scanner.nextLine();
-                while (!Validation.isNumeric(option1)) {
-                    System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
-                    option1 = scanner.nextLine();
-                }
-                try {
-                    option = Integer.valueOf(option1);
-                } catch (Exception e) {
-                    System.out.println("NO SE PUEDE TRANSFORMAR");
-                }
-
-            } catch (InputMismatchException e) {
-                System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
-                scanner.next();
-            }
-
+            option = LoginMenu.validateOption();
         }
     }
 
