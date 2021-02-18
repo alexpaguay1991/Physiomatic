@@ -5,7 +5,11 @@
         <group>
             <file>file:/C:/Users/Acer/physiomatic/06Code/Physiomatic_v0.8/src/ec/edu/espe/physiomatic/model/Patient.java</file>
             <file>file:/C:/Users/Acer/physiomatic/06Code/Physiomatic_v0.8/src/ec/edu/espe/physiomatic/model/ClinicalHistory.java</file>
+            <file>file:/C:/Users/Acer/physiomatic/06Code/Physiomatic_v0.8/src/ec/edu/espe/physiomatic/model/Appointment.java</file>
+            <file>file:/C:/Users/Acer/physiomatic/06Code/Physiomatic_v0.8/src/ec/edu/espe/physiomatic/model/Physioterapist.java</file>
             <file>file:/C:/Users/Acer/physiomatic/06Code/Physiomatic_v0.8/src/ec/edu/espe/utils/LoginMenu.java</file>
+            <file>file:/C:/Users/Acer/physiomatic/06Code/Physiomatic_v0.8/src/ec/edu/espe/physiomatic/controller/ClinicalHistoryController.java</file>
+            <file>file:/C:/Users/Acer/physiomatic/06Code/Physiomatic_v0.8/src/ec/edu/espe/physiomatic/model/Diagnostic.java</file>
             <file>file:/C:/Users/Acer/physiomatic/06Code/Physiomatic_v0.8/src/ec/edu/espe/physiomatic/controller/PhysiomaticController.java</file>
             <file>file:/C:/Users/Acer/physiomatic/06Code/Physiomatic_v0.8/src/ec/edu/espe/physiomatic/controller/PatientController.java</file>
         </group>

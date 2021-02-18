@@ -98,13 +98,4 @@ public class Physioterapist {
         }
         scanner.nextLine();
     }
-    
-    
-
-    
-
-    
-   
-    
-    
 }
