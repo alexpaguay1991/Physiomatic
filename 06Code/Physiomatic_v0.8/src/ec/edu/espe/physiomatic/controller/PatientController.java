@@ -64,4 +64,58 @@ public class PatientController {
         return clinicalHistory;
 
     }
+    public static void updateClinicalHistory(long idPatient) {
+
+        Gson gson = new Gson();
+        Scanner scanner = new Scanner(System.in);
+        ClinicalHistory clinical, clinicalToChange;
+        clinical = Patient.retrieveClinicalHistory(idPatient);
+        clinicalToChange = Patient.retrieveClinicalHistory(idPatient);
+        LoginMenu.logClinicalHistoryMenu();
+        int opt = scanner.nextInt();
+
+        switch (opt) {
+
+            case 1:
+
+                System.out.println("INGRESE LA ALTURA: ");
+                scanner.nextLine();
+
+                String height = scanner.nextLine();
+                clinicalToChange.setHeight(Float.parseFloat(height));
+                FileManager.update("ClinicalHistory.json", gson.toJson(clinical), gson.toJson(clinicalToChange));
+
+                break;
+            case 2:
+
+                System.out.println("INGRESE EL PESO: ");
+                scanner.nextLine();
+
+                String weight = scanner.nextLine();
+                clinicalToChange.setWeight(Float.parseFloat(weight));
+                FileManager.update("ClinicalHistory.json", gson.toJson(clinical), gson.toJson(clinicalToChange));
+
+                break;
+            case 3:
+
+                System.out.println("INGRESE LA DIRECCIÓN DEL DOMICILIO: ");
+                scanner.nextLine();
+
+                String adress = scanner.nextLine();
+                clinicalToChange.setAddressPatient(adress);
+                FileManager.update("ClinicalHistory.json", gson.toJson(clinical), gson.toJson(clinicalToChange));
+
+                break;
+            case 4:
+
+                System.out.println("INGRESE EL CORREO ELECTRÓNICO: ");
+                scanner.nextLine();
+
+                String email = scanner.nextLine();
+                clinicalToChange.setEmailPatient(email);
+                FileManager.update("ClinicalHistory.json", gson.toJson(clinical), gson.toJson(clinicalToChange));
+
+                break;
+        }
+    }
 }

@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.physiomatic.model;
 
+import ec.edu.espe.physiomatic.controller.ClinicalHistoryController;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -150,25 +151,7 @@ public class ClinicalHistory {
     }
 
     public static Diagnostic createDiagnostic() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("INGRESE LA PATOLOGÍA DEL PACIENTE: ");
-        String pathology = scanner.nextLine();
-
-        System.out.println("INGRESE LOS SÍNTOMAS DEL PACIENTE: ");
-        String symptoms = scanner.nextLine();
-
-        System.out.println("INGRESA LAS ALERGIAS DEL PACIENTE: ");
-        String allergies = scanner.nextLine();
-
-        System.out.println("INGRESE LA FECHA DEL DIAGNÓSTICO: ");
-        String dateOfDiagnostic = scanner.nextLine();
-
-        System.out.println("INGRESE EL TRATAMIENTO DEL PACIENTE: ");
-        String treatment = scanner.nextLine();
-
-        Diagnostic diagnostic = new Diagnostic(pathology, treatment, symptoms, allergies, dateOfDiagnostic);
-
+        Diagnostic diagnostic = ClinicalHistoryController.createDiagnostic();
         return diagnostic;
     }
     
