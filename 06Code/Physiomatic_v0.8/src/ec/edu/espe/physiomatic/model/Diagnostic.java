@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.physiomatic.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -21,6 +22,7 @@ public class Diagnostic {
     private String symptoms;
     private String allergies;
     private String dateOfDiagnostic;
+    LocalDate dateOfDianosticc;
 
     @Override
     public String toString() {

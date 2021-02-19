@@ -11,6 +11,8 @@ import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Diagnostic;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.physiomatic.model.Physioterapist;
+import ec.edu.espe.utils.LoginMenu;
+import ec.edu.espe.utils.Validation;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -20,51 +22,23 @@ import java.util.Scanner;
 /**
  *
  * @author Acer
- * 
+ *
  */
 public class ClinicalHistoryView {
 
     long idPatient;
 
-    
     public static void manageClinicalHistory() throws ParseException {
         Scanner scanner = new Scanner(System.in);
-
         Gson gson = new Gson();
-        System.out.println("----------------------------------------------------");
-        System.out.println("- HISTORIALES MÉDICOS                              -");
-        System.out.println("-                                                  -");
-        System.out.println("- 1. CREAR NUEVO HISTORIAL MÉDICO                  -");
-        System.out.println("- 2. MODIFICAR HISTORIAL MÉDICO                    -");
-        System.out.println("- 3. DESPLEGAR UN HISTORIAL MÉDICO                 -");
-        System.out.println("- 4. AÑADIR UN DIAGNÓSTICO AL HISTORIAL MÉDICO     -");
-        System.out.println("- 5. REGRESAR.                                     -");
-        System.out.println("----------------------------------------------------");
-        System.out.println("ELIJA UNA OPCIÓN:  ");
-        String option1;
-        int option = 1;
-        try {
-            option1 = scanner.nextLine();
-            while (!Physioterapist.isNumeric(option1)) {
-                System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
-                option1 = scanner.nextLine();
-            }
-            try {
-                option = Integer.valueOf(option1);
-            } catch (Exception e) {
-                System.out.println("NO SE PUEDE TRANSFORMAR");
-            }
-
-        } catch (InputMismatchException e) {
-            System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
-            scanner.next();
-        }
+        LoginMenu.logClinicalHistoryMenu();   
+        int option = LoginMenu.validateOption();
 
         while (option < 5 || option > 0) {
 
             switch (option) {
                 case 1:
-                    FileManager.save("ClinicalHistory.json", gson.toJson(Physioterapist.createClinicalHistory()));
+                    FileManager.save("ClinicalHistory.json", gson.toJson(Patient.createClinicalHistory()));
 
                     break;
                 case 2:
@@ -101,8 +75,8 @@ public class ClinicalHistoryView {
                         scanner.nextLine();
 
                         ClinicalHistory clinical, clinicalToChange;
-                        clinical = Physioterapist.retrieveClinicalHistory(idPatient);
-                        clinicalToChange = Physioterapist.retrieveClinicalHistory(idPatient);
+                        clinical = Patient.retrieveClinicalHistory(idPatient);
+                        clinicalToChange = Patient.retrieveClinicalHistory(idPatient);
                         clinical.getDiagnostics().add(ClinicalHistory.createDiagnostic());
                         System.out.println("" + gson.toJson(clinicalToChange));
                         System.out.println("" + gson.toJson(clinical));
@@ -124,34 +98,9 @@ public class ClinicalHistoryView {
 
             }
 
-            System.out.println("----------------------------------------------------");
-            System.out.println("- HISTORIALES MEDICOS                              -");
-            System.out.println("-                                                  -");
-            System.out.println("- 1. CREAR UN NUEVO HISTORIAL MÉDICO               -");
-            System.out.println("- 2. MODIFICAR HISTORIAL MÉDICO                    -");
-            System.out.println("- 3. DESPLEGAR UN HISTORIAL MÉDICO                 -");            
-            System.out.println("- 4. AÑADIR UN DIAGNÓSTICO AL HISTORIAL MÉDICO     -");
-            System.out.println("- 5. REGRESAR.                                     -");
-            System.out.println("----------------------------------------------------");
-            System.out.println("ELIJA UNA OPCIÓN: ");
+            LoginMenu.logClinicalHistoryMenu();
 
-            try {
-                option1 = scanner.nextLine();
-                while (!Physioterapist.isNumeric(option1)) {
-                    System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
-                    option1 = scanner.nextLine();
-                }
-                try {
-                    option = Integer.valueOf(option1);
-                } catch (Exception e) {
-                    System.out.println("NO SE PUEDE TRANSFORMAR");
-                }
-
-            } catch (InputMismatchException e) {
-                System.out.println("POR FAVOR ELIJA UNA OPCIÓN VÁLIDA: ");
-                scanner.next();
-            }
-
+            option = LoginMenu.validateOption();
         }
     }
 

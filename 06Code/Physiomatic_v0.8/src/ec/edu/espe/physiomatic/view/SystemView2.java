@@ -50,7 +50,7 @@ public class SystemView2 {
     
     public void displayClinicalHistory(){
         ClinicalHistory clinicalHistory;
-        clinicalHistory=Physioterapist.retrieveClinicalHistory(patient.getIdPatient());
+        clinicalHistory=Patient.retrieveClinicalHistory(patient.getIdPatient());
         System.out.println("-----------------------------------------------------------------------------");
         System.out.println(" No. DE CÉDULA DEL PACIENTE: " + clinicalHistory.getPatient().getIdPatient());
         System.out.println(" NOMBRE DEL PACIENTE: " + clinicalHistory.getPatient().getName()+ " APELLIDO DEL PACIENTE: "+clinicalHistory.getPatient().getName());
