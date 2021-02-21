@@ -46,7 +46,6 @@ public class ClinicalHistoryView {
                         System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
                         long idPatient = scanner.nextLong();
                         scanner.nextLine();
-
                         Patient.updateClinicalHistory(idPatient);
 
                     } catch (Exception e) {
