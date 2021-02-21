@@ -71,7 +71,7 @@ public class PatientController {
         ClinicalHistory clinical, clinicalToChange;
         clinical = Patient.retrieveClinicalHistory(idPatient);
         clinicalToChange = Patient.retrieveClinicalHistory(idPatient);
-        LoginMenu.logClinicalHistoryMenu();
+        LoginMenu.updateClinicalHistoryMenu();
         int opt = scanner.nextInt();
 
         switch (opt) {

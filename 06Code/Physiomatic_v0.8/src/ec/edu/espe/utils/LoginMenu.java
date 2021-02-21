@@ -8,6 +8,7 @@ package ec.edu.espe.utils;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
 /**
  *
  * @author Acer
@@ -60,12 +61,15 @@ public class LoginMenu {
     }
 
     public static int validateOption() {
+         
         int option = 1;
         String option1;
         Scanner scanner = new Scanner(System.in);
-
+        
         option1 = scanner.nextLine();
-        while (!Validation.isNumeric(option1)) {
+        
+        
+        while (!Validation.validateNumbers(option1)) {
             System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
             option1 = scanner.nextLine();
         }

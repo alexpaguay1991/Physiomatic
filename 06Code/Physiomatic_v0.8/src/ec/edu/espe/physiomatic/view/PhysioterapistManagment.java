@@ -33,7 +33,8 @@ public class PhysioterapistManagment {
         LoginMenu.logLoginMenu();
 
         
-        int option = LoginMenu.validateOption();
+            int option = LoginMenu.validateOption();
+        
         while (option < 4 || option > 0) {
             switch (option) {
                 case 1:
