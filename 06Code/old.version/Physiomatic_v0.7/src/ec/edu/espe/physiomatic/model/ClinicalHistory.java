@@ -147,7 +147,7 @@ public class ClinicalHistory {
         this.diagnostics= diagnostics;
         this.familiyBackground = familiyBackground;
     }
-
+    // colocar el methodos crear diagnosticos
     
     
 }

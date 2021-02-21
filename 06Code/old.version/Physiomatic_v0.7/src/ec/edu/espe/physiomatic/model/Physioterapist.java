@@ -288,6 +288,7 @@ public class Physioterapist {
         return diagnostic;
     }
     //basado en algoritmo de http://lineadecodigo.com/java/validar-si-un-dato-es-numerico-en-java
+    // Class validation en utils
     public static boolean isNumeric(String string) {
         try {
             Integer.parseInt(string);
