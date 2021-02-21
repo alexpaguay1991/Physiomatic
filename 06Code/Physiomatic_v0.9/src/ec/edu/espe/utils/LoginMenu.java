@@ -66,7 +66,7 @@ public class LoginMenu {
 
         option1 = scanner.nextLine();
         while (!Validation.isNumeric(option1)) {
-            System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
+            System.out.println("INGRESE ÚNICAMENTE NÚMEROS ");
             option1 = scanner.nextLine();
         }
         try {
