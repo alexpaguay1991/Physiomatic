@@ -39,13 +39,15 @@ public class PhysiomaticController {
         System.out.println("INGRESE EL NOMBRE DEL FISIOTERAPEUTA: ");
         String name = scanner.nextLine();
         while (!Validation.validateLetters(name)){
-            System.out.println("INGRESE ÚNICAMENTE LETRAS");
+            System.out.println("EXISTEN DATOS INCORRECTOS, INGRESE ÚNICAMENTE LETRAS");
+            name = scanner.nextLine();
         }
         
         System.out.println("INGRESE EL APELLIDO DEL FISIOTERAPEUTA: ");
         String lastName = scanner.nextLine();
         while (!Validation.validateLetters(lastName)){
             System.out.println("INGRESE ÚNICAMENTE LETRAS");
+            lastName = scanner.nextLine();
         }
         System.out.println("INGRESE EL NOMBRE DE USUARIO DEL FISIOTERAPEUTA: ");
         String username = scanner.nextLine();
@@ -66,6 +68,7 @@ public class PhysiomaticController {
         String namePatient = scanner.nextLine();
         while (!Validation.validateLetters(namePatient)){
             System.out.println("INGRESE ÚNICAMENTE LETRAS");
+            namePatient = scanner.nextLine();
         }
         
 
@@ -73,6 +76,7 @@ public class PhysiomaticController {
         String lastNamePatient = scanner.nextLine();
         while (!Validation.validateLetters(lastNamePatient)){
             System.out.println("INGRESE ÚNICAMENTE LETRAS");
+            lastNamePatient = scanner.nextLine();
         }
 
         System.out.println("INGRESE EL No. DE CONTACTO DEL PACIENTE: ");
