@@ -42,7 +42,11 @@ public class PatientController {
 
         System.out.println("INGRESE LA DIRECCIÓN DEL DOMICILIO: ");
         String addressPatient = scanner.nextLine();
-
+        while (!Validation.validateLetters(addressPatient)) {
+            System.out.println("INGRESE ÚNICAMENTE LETRAS:  ");
+            addressPatient = scanner.nextLine();
+        }
+        
         System.out.println("INGRESE EL CORREO ELECTRÓNICO: ");
         String emailPatient = scanner.nextLine();
 
@@ -50,6 +54,10 @@ public class PatientController {
 
         System.out.println("INGRESE LOS ANTECEDENTES FAMILIARES: ");
         String familyBackground = scanner.nextLine();
+        while (!Validation.validateLetters(familyBackground)) {
+            System.out.println("INGRESE ÚNICAMENTE LETRAS:  ");
+            familyBackground = scanner.nextLine();
+        }
 
         ClinicalHistory clinicalHistory = new ClinicalHistory(patient, birthDate, weight, height, addressPatient, emailPatient, diagnostics, familyBackground);
 

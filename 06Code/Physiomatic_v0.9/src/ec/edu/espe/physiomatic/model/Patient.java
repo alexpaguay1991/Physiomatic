@@ -101,8 +101,6 @@ public class Patient {
     public String toString() {
         return "PACIENTE {" + "No. DE CÉDULA = " + idPatient + ", NOMBRE = " + name + ", APELLIDO = " + lastName + ", No. DE CONTACTO = " + contactPatient + '}';
     }
-
-    
     
     public static ClinicalHistory createClinicalHistory() {
         
