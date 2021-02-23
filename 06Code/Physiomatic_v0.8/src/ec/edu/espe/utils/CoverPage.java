@@ -21,6 +21,7 @@ public class CoverPage {
         System.out.println("-           PAGUAY ALEX              -");
         System.out.println("-           PATIÑO BRAYAN            -");
         System.out.println("-           RISUEÑO SANTIAGO         -");
+        System.out.println("-           ROMAN YULLIANA           -");
         System.out.println("-                                    -");
         System.out.println("-                                    -");
         System.out.println("-           VERSION 0.1 COPYRIGHT    -");

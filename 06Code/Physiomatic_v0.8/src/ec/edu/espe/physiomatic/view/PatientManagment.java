@@ -7,18 +7,12 @@ package ec.edu.espe.physiomatic.view;
 
 import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.FileManager;
-import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Physioterapist;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.utils.LoginMenu;
 import ec.edu.espe.utils.Validation;
-import java.sql.Time;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
-import java.text.SimpleDateFormat;
 import java.util.InputMismatchException;
 
 /**
@@ -31,21 +25,21 @@ public class PatientManagment {
         Scanner scanner = new Scanner(System.in);
         Gson gson = new Gson();
         long idPatient;
-        Patient patient;
+        Patient patient = new Patient(0, "", "", "", "", "");
         int option;
         boolean exit = false;
         while (!exit) {
             LoginMenu.logPatientMenu();
-          
+
             try {
-                           
-                option=LoginMenu.validateOption();
+
+                option = LoginMenu.validateOption();
                 switch (option) {
                     case 1:
-                        FileManager.save("patients.json", gson.toJson(Physioterapist.generatePatient()));
+                        FileManager.save("patients.json", gson.toJson(patient.resgiter()));
                         break;
                     case 2:
-                     
+
                         Physioterapist.printAllPatients();
                         break;
                     case 3:
@@ -83,7 +77,7 @@ public class PatientManagment {
                     case 5:
                         String idPatient1;
                         try {
-                            idPatient = LoginMenu.validateIdPatient();
+                            idPatient = LoginMenu.validateId("PACIENTE");
                             patient = Physioterapist.retrievePatient(idPatient);
                             SystemView2 appointment = new SystemView2(patient);
                             appointment.displayAppointment();
@@ -103,8 +97,8 @@ public class PatientManagment {
 
                     case 8:
                         try {
-                                                       
-                            idPatient = LoginMenu.validateIdPatient();
+
+                            idPatient = LoginMenu.validateId("PACIENTE");
                             patient = Physioterapist.retrievePatient(idPatient);
                             SystemView2 bill = new SystemView2(patient);
                             bill.displayBill();
@@ -115,7 +109,7 @@ public class PatientManagment {
                         break;
 
                     case 9:
-                        
+
                         System.exit(0);
                         break;
 

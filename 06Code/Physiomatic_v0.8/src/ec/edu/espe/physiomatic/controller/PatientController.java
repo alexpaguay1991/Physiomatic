@@ -12,7 +12,6 @@ import ec.edu.espe.physiomatic.model.Diagnostic;
 import ec.edu.espe.physiomatic.model.Patient;
 import static ec.edu.espe.physiomatic.model.Physioterapist.retrievePatient;
 import ec.edu.espe.utils.LoginMenu;
-import ec.edu.espe.utils.Validation;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -23,8 +22,7 @@ import java.util.Scanner;
 public class PatientController {
     public static ClinicalHistory createClinicalHistory() {
         Scanner scanner = new Scanner(System.in);
-        long idPatient=LoginMenu.validateIdPatient();
-
+        long idPatient=LoginMenu.validateId("PACIENTE");
 
         Patient patient;
         patient = retrievePatient(idPatient);
@@ -38,20 +36,14 @@ public class PatientController {
 
         System.out.println("INGRESE LA ALTURA (cm): ");
         float height = scanner.nextFloat();
-        scanner.nextLine();
-
-        System.out.println("INGRESE LA DIRECCIÓN DEL DOMICILIO: ");
-        String addressPatient = scanner.nextLine();
-
-        System.out.println("INGRESE EL CORREO ELECTRÓNICO: ");
-        String emailPatient = scanner.nextLine();
+        scanner.nextLine();        
 
         ArrayList<Diagnostic> diagnostics = new ArrayList<>();
 
         System.out.println("INGRESE LOS ANTECEDENTES FAMILIARES: ");
         String familyBackground = scanner.nextLine();
 
-        ClinicalHistory clinicalHistory = new ClinicalHistory(patient, birthDate, weight, height, addressPatient, emailPatient, diagnostics, familyBackground);
+        ClinicalHistory clinicalHistory = new ClinicalHistory(patient, birthDate, weight, height, diagnostics, familyBackground);
 
         return clinicalHistory;
     }
@@ -102,7 +94,7 @@ public class PatientController {
                 scanner.nextLine();
 
                 String adress = scanner.nextLine();
-                clinicalToChange.setAddressPatient(adress);
+                clinicalToChange.getPatient().setAddress(adress);
                 FileManager.update("ClinicalHistory.json", gson.toJson(clinical), gson.toJson(clinicalToChange));
 
                 break;
@@ -112,7 +104,7 @@ public class PatientController {
                 scanner.nextLine();
 
                 String email = scanner.nextLine();
-                clinicalToChange.setEmailPatient(email);
+                clinicalToChange.getPatient().setEmail(email);
                 FileManager.update("ClinicalHistory.json", gson.toJson(clinical), gson.toJson(clinicalToChange));
 
                 break;

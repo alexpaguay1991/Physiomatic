@@ -9,10 +9,7 @@ import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.FileManager;
 import ec.edu.espe.physiomatic.controller.PhysiomaticController;
 import ec.edu.espe.physiomatic.view.SystemView2;
-import ec.edu.espe.utils.Validation;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,32 +17,24 @@ import java.util.Scanner;
  *
  * @author Acer
  * @author Santiago Risueño ESPE-DCCO
+ * @author Yulliana Roman ESPE-DCCO
  */
-public class Physioterapist {
+public class Physioterapist extends Person{
 
     /**
      * 
-     * @param name, saves the name of physioterapist.
-     * @param lastName, saves the last name of physioterapist.
      * @param username, saves the username of physioterapist.
      * @param password, saves the password of physioterapist. 
      */
-    public Physioterapist(String name, String lastName, String username, String password) {
-        this.name = name;
-        this.lastName = lastName;
-        this.username = username;
-        this.password = password;
-    }
-    String name;
-    String lastName;
-    String username;
-    String password;
+    
+    private String userName;
+    private String password;
 
-    public static Patient generatePatient() {
-        Patient patient = PhysiomaticController.createPatient();
-        return patient;
-
+    @Override
+    public Person resgiter() {        
+        return PhysiomaticController.createPhsyioterapist();
     }
+    
      public static Patient retrievePatient(long idPatient) {
         Patient patient = PhysiomaticController.retrievePatient(idPatient);
         return patient;
@@ -98,4 +87,44 @@ public class Physioterapist {
         }
         scanner.nextLine();
     }
+
+    public Physioterapist(String userName, String password, long id, String address, String name, String lastname, String email, String phoneNumber) {
+        super(id, address, name, lastname, email, phoneNumber);
+        this.userName = userName;
+        this.password = password;
+    }
+    
+    @Override
+    public String toString() {
+        return "FISIOTERAPEUTA'{'" + ", ID:" + super.getId() + "USUARIO:" + getUserName() + ", CONTRASEÑA:" + getPassword() + ", NOMBRE:" + super.getName() + ", APELLIDO:" + super.getLastname() + ", EMAIL:" + super.getEmail() + ", CONTACTO:" + super.getPhoneNumber() + ", DIRECCION:" + super.getAddress() + '}';
+    }
+
+    /**
+     * @return the userName
+     */
+    public String getUserName() {
+        return userName;
+    }
+
+    /**
+     * @param userName the userName to set
+     */
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
 }

@@ -7,9 +7,6 @@ package ec.edu.espe.physiomatic.model;
 
 import ec.edu.espe.physiomatic.controller.ClinicalHistoryController;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
 
 /**
  *
@@ -20,9 +17,7 @@ public class ClinicalHistory {
     private Patient patient;
     private String birthDate;
     private float weight;
-    private float height;
-    private String addressPatient;
-    private String emailPatient;
+    private float height;  
     private ArrayList<Diagnostic> diagnostics=new ArrayList<>();
     private String familiyBackground;
     
@@ -84,34 +79,6 @@ public class ClinicalHistory {
     }
 
     /**
-     * @return the addressPatient
-     */
-    public String getAddressPatient() {
-        return addressPatient;
-    }
-
-    /**
-     * @param addressPatient the addressPatient to set
-     */
-    public void setAddressPatient(String addressPatient) {
-        this.addressPatient = addressPatient;
-    }
-
-    /**
-     * @return the emailPatient
-     */
-    public String getEmailPatient() {
-        return emailPatient;
-    }
-
-    /**
-     * @param emailPatient the emailPatient to set
-     */
-    public void setEmailPatient(String emailPatient) {
-        this.emailPatient = emailPatient;
-    }
-
-    /**
      * @return the diagnostics
      */
     public ArrayList<Diagnostic> getDiagnostics() {
@@ -139,13 +106,11 @@ public class ClinicalHistory {
         this.familiyBackground = familiyBackground;
     }
 
-    public ClinicalHistory(Patient patient, String birthDate, float weight, float height, String addressPatient, String emailPatient,ArrayList<Diagnostic> diagnostics, String familiyBackground) {
+    public ClinicalHistory(Patient patient, String birthDate, float weight, float height, ArrayList<Diagnostic> diagnostics, String familiyBackground) {
         this.patient = patient;
         this.birthDate = birthDate;
         this.weight = weight;
         this.height = height;
-        this.addressPatient = addressPatient;
-        this.emailPatient = emailPatient;
         this.diagnostics= diagnostics;
         this.familiyBackground = familiyBackground;
     }

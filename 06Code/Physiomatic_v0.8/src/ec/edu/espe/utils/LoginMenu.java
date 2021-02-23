@@ -8,7 +8,6 @@ package ec.edu.espe.utils;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
 /**
  *
  * @author Acer
@@ -52,6 +51,7 @@ public class LoginMenu {
         System.out.println("----------------------------------------------------");
         System.out.println("ELIJA UNA OPCIÓN:  ");
     }
+
     public static void updateClinicalHistoryMenu() {
         System.out.println("1. ALTURA");
         System.out.println("2. PESO");
@@ -61,14 +61,13 @@ public class LoginMenu {
     }
 
     public static int validateOption() {
-         
+
         int option = 1;
         String option1;
         Scanner scanner = new Scanner(System.in);
-        
+
         option1 = scanner.nextLine();
-        
-        
+
         while (!Validation.validateNumbers(option1)) {
             System.out.println("ELIJA UNA OPCIÓN CORRECTA:  ");
             option1 = scanner.nextLine();
@@ -82,11 +81,11 @@ public class LoginMenu {
 
     }
 
-    public static long validateIdPatient() {
+    public static long validateId(String user) {
         
         String idPatient1;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE");
+        System.out.println("INGRESE EL No. DE CÉDULA DEL "+ user);
         long idPatient=1 ;
         idPatient1 = scanner.nextLine();
         while (!Validation.isLong(idPatient1)) {
@@ -95,7 +94,6 @@ public class LoginMenu {
         }
         idPatient = Long.valueOf(idPatient1);      
         return idPatient;
-
     }
-
+    
 }

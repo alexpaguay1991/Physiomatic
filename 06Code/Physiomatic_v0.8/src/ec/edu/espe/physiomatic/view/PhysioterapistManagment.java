@@ -7,15 +7,10 @@ package ec.edu.espe.physiomatic.view;
 
 import ec.edu.espe.utils.CoverPage;
 import ec.edu.espe.physiomatic.controller.PhysiomaticController;
-import ec.edu.espe.physiomatic.model.Physioterapist;
 import ec.edu.espe.utils.LoginMenu;
-import ec.edu.espe.utils.Validation;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.InputMismatchException;
 
 /**
  *
