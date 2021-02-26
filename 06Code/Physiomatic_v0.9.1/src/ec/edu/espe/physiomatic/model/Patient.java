@@ -19,13 +19,35 @@ import java.util.Scanner;
  *
  * @author Acer
  * @author Santiago Risueño ESPE-DCCO
+ * @author pzeadrian
  */
 public class Patient {
 
     private long idPatient;
     private String name;
     private String lastName;
-    private String contactPatient;
+    private String email;
+    private String address;
+    private String phoneNumber;
+
+    
+    public static ClinicalHistory createClinicalHistory() {
+        
+        ClinicalHistory clinicalHistory = PatientController.createClinicalHistory();
+        return clinicalHistory;
+    }
+
+    public static void updateClinicalHistory(long idPatient) {
+
+        PatientController.updateClinicalHistory(idPatient);
+    }
+    public static ClinicalHistory retrieveClinicalHistory(long idPatient) {
+       
+        ClinicalHistory clinicalHistory;
+        clinicalHistory=PatientController.retrieveClinicalHistory(idPatient);
+        return clinicalHistory;
+
+    }
 
     /**
      * @return the idPatient
@@ -70,54 +92,60 @@ public class Patient {
     }
 
     /**
-     * @return the contactPatient
+     * @return the email
      */
-    public String getContactPatient() {
-        return contactPatient;
+    public String getEmail() {
+        return email;
     }
 
     /**
-     * @param contactPatient the contactPatient to set
+     * @param email the email to set
      */
-    public void setContactPatient(String contactPatient) {
-        this.contactPatient = contactPatient;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     /**
-     * 
-     * @param idPatient, saves the patient id.
-     * @param name, saves the name of patient.
-     * @param lastName, saves the last name of patient.
-     * @param contactPatient , saves the contact number of patient.
+     * @return the address
      */
-    public Patient(long idPatient, String name, String lastName, String contactPatient) {
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * @param address the address to set
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    /**
+     * @return the phoneNumber
+     */
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    /**
+     * @param phoneNumber the phoneNumber to set
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Patient(long idPatient, String name, String lastName, String email, String address, String phoneNumber) {
         this.idPatient = idPatient;
         this.name = name;
         this.lastName = lastName;
-        this.contactPatient = contactPatient;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
     }
 
     @Override
     public String toString() {
-        return "PACIENTE {" + "No. DE CÉDULA = " + idPatient + ", NOMBRE = " + name + ", APELLIDO = " + lastName + ", No. DE CONTACTO = " + contactPatient + '}';
+        return "Patient{" + "idPatient=" + idPatient + ", name=" + name + ", lastName=" + lastName + ", email=" + email + ", address=" + address + ", phoneNumber=" + phoneNumber + '}';
     }
     
-    public static ClinicalHistory createClinicalHistory() {
-        
-        ClinicalHistory clinicalHistory = PatientController.createClinicalHistory();
-        return clinicalHistory;
-    }
-
-    public static void updateClinicalHistory(long idPatient) {
-
-        PatientController.updateClinicalHistory(idPatient);
-    }
-    public static ClinicalHistory retrieveClinicalHistory(long idPatient) {
-       
-        ClinicalHistory clinicalHistory;
-        clinicalHistory=PatientController.retrieveClinicalHistory(idPatient);
-        return clinicalHistory;
-
-    }
 
 }

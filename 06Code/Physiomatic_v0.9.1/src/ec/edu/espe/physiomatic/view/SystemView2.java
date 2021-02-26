@@ -16,6 +16,7 @@ import ec.edu.espe.physiomatic.model.Physioterapist;
  *
  * @author Santiago Risueño ESPE-DCCO
  * @author Yulliana Roman ESPE-DCCO
+ * @author pzeadrian
  */
 public class SystemView2 {
 
@@ -27,9 +28,9 @@ public class SystemView2 {
 
     public void displayPatient() {
         System.out.println("----------");
-        System.out.println("No. DE CÉDULA DEL PACIENTE: " + patient.getId());
+        System.out.println("No. DE CÉDULA DEL PACIENTE: " + patient.getIdPatient());
         System.out.println("NOMBRE DEL PACIENTE: " + patient.getName());
-        System.out.println("APELLIDO DEL PACIENTE: " + patient.getLastname());
+        System.out.println("APELLIDO DEL PACIENTE: " + patient.getLastName());
         System.out.println("EMAIL DEL PACIENTE: " + patient.getEmail());
         System.out.println("DIRECCION DEL PACIENTE: " + patient.getAddress());
         System.out.println("CONTACTO: " + patient.getPhoneNumber());
