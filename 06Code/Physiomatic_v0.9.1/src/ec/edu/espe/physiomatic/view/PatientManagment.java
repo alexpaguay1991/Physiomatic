@@ -43,7 +43,7 @@ public class PatientManagment {
                 option=LoginMenu.validateOption();
                 switch (option) {
                     case 1:
-                        FileManager.save("patients.json", gson.toJson(Physioterapist.generatePatient()));
+                        FileManager.save("patients.json", gson.toJson(Physioterapist.registerPatient()));
                         break;
                     case 2:
                      

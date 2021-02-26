@@ -31,9 +31,13 @@ public class Physioterapist extends Person{
     private String userName;
     private String password;
 
-    @Override
-    public Person register() {        
-        return PhysiomaticController.createPatient()
+    /**
+     *
+     * @return
+     */
+
+    public static Patient registerPatient() {        
+        return PhysiomaticController.createPatient();
     }
     
      public static Patient retrievePatient(long idPatient) {
