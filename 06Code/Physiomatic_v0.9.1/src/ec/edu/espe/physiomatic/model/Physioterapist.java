@@ -98,6 +98,10 @@ public class Physioterapist extends Person{
         this.userName = userName;
         this.password = password;
     }
+
+    public Physioterapist(String name, String lastName, String username, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     @Override
     public String toString() {
