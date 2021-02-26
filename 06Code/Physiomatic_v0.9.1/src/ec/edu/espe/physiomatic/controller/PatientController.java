@@ -23,7 +23,7 @@ import java.util.Scanner;
 public class PatientController {
     public static ClinicalHistory createClinicalHistory() {
         Scanner scanner = new Scanner(System.in);
-        long idPatient=LoginMenu.validateIdPatient();
+        long idPatient=LoginMenu.validateId();
 
 
         Patient patient;
