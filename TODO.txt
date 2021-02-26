@@ -1,0 +1,11 @@
+--> Agregada la clase Service y eliminada Product en el Diagrama de Clases...
+	>> Pendiente generar el PDF
+	>> Corregir en el diagrama de casos de uso
+	>> Generar PDF de casos de uso
+	>> Corregir en el codigo
+	>> Corregir el documento de especificacion de requisitos
+
+--> Corregidos la mayor parte de errores del codigo pero sin implementar la clase Service.
+	>> Pendiente generar validaciones
+	>> Pendiente implementar Service
+	>> Pendiente eliminar Product
