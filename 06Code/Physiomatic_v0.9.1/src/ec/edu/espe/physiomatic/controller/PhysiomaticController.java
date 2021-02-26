@@ -121,7 +121,9 @@ public class PhysiomaticController {
         long idPatient=LoginMenu.validateId();
         Patient patient;
         patient = retrievePatient(idPatient);
+        return null;
      }
+    @SuppressWarnings("empty-statement")
      public static Bill retrieveBill(long idPatient) {
         Gson gson = new Gson();
         String dataFile;
@@ -132,6 +134,7 @@ public class PhysiomaticController {
         return bill;
 
     }
+    @SuppressWarnings("empty-statement")
      public static Appointment retrieveAppointment(long idPatient) {
         Gson gson = new Gson();
         String dataFile;
