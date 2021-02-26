@@ -20,6 +20,10 @@ public class ClinicalHistory {
     private float height;  
     private ArrayList<Diagnostic> diagnostics=new ArrayList<>();
     private String familiyBackground;
+
+    public ClinicalHistory(Patient patient, String birthDate, float weight, float height, String addressPatient, String emailPatient, ArrayList<Diagnostic> diagnostics, String familyBackground) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 
     /**
@@ -118,6 +122,14 @@ public class ClinicalHistory {
     public static Diagnostic createDiagnostic() {
         Diagnostic diagnostic = ClinicalHistoryController.createDiagnostic();
         return diagnostic;
+    }
+
+    public void setEmailPatient(String email) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setAddressPatient(String adress) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
