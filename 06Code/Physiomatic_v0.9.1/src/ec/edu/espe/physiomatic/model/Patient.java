@@ -23,7 +23,7 @@ import java.util.Scanner;
  */
 public class Patient {
 
-    private long idPatient;
+    private long id;
     private String name;
     private String lastName;
     private String email;
@@ -47,20 +47,6 @@ public class Patient {
         clinicalHistory=PatientController.retrieveClinicalHistory(idPatient);
         return clinicalHistory;
 
-    }
-
-    /**
-     * @return the idPatient
-     */
-    public long getIdPatient() {
-        return idPatient;
-    }
-
-    /**
-     * @param idPatient the idPatient to set
-     */
-    public void setIdPatient(long idPatient) {
-        this.idPatient = idPatient;
     }
 
     /**
@@ -133,19 +119,34 @@ public class Patient {
         this.phoneNumber = phoneNumber;
     }
 
-    public Patient(long idPatient, String name, String lastName, String email, String address, String phoneNumber) {
-        this.idPatient = idPatient;
+    /**
+     * @return the id
+     */
+    public long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Patient(String name, String lastName, String email, String address, String phoneNumber, long id) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.id = id;
     }
 
     @Override
     public String toString() {
-        return "Patient{" + "idPatient=" + idPatient + ", name=" + name + ", lastName=" + lastName + ", email=" + email + ", address=" + address + ", phoneNumber=" + phoneNumber + '}';
+        return "Patient{" + "name=" + name + ", lastName=" + lastName + ", email=" + email + ", address=" + address + ", phoneNumber=" + phoneNumber + ", id=" + id + '}';
     }
     
+
 
 }
