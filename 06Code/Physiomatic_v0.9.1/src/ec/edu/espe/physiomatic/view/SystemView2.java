@@ -28,7 +28,7 @@ public class SystemView2 {
 
     public void displayPatient() {
         System.out.println("----------");
-        System.out.println("No. DE CÉDULA DEL PACIENTE: " + patient.getIdPatient());
+        System.out.println("No. DE CÉDULA DEL PACIENTE: " + patient.getId());
         System.out.println("NOMBRE DEL PACIENTE: " + patient.getName());
         System.out.println("APELLIDO DEL PACIENTE: " + patient.getLastName());
         System.out.println("EMAIL DEL PACIENTE: " + patient.getEmail());
@@ -41,7 +41,7 @@ public class SystemView2 {
         System.out.println("----------");
         System.out.println("No. DE CÉDULA DEL PACIENTE: " + patient.getId());
         System.out.println("NOMBRE DEL PACIENTE: " + patient.getName());
-        System.out.println("APELLIDO DEL PACIENTE: " + patient.getLastname());
+        System.out.println("APELLIDO DEL PACIENTE: " + patient.getLastName());
         System.out.println("CONTACTO: " + patient.getPhoneNumber());
 
         Bill bill = Physioterapist.retrieveBill(patient.getId());
@@ -81,7 +81,7 @@ public class SystemView2 {
         System.out.println("----------");
         System.out.println("ID DEL PACIENTE: " + patient.getId());
         System.out.println("NOMBRE DEL PACIENTE: " + patient.getName());
-        System.out.println("APELLIDO DEL PACIENTE: " + patient.getLastname());
+        System.out.println("APELLIDO DEL PACIENTE: " + patient.getLastName());
         System.out.println("CONTACTO: " + patient.getPhoneNumber());
         System.out.println(" FECHA:" + appointment.getDateOfAppointment());
         System.out.println(" HORA :" + appointment.getHour());
