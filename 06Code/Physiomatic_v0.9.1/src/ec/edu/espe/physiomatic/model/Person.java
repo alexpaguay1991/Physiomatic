@@ -34,7 +34,7 @@ public class Person {
      * @return Person 
      * @
      */
-    public Person register() {
+    public Patient register() {
         return PhysiomaticController.createPatient();
     }
 
