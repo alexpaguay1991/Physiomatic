@@ -75,7 +75,7 @@ public class Bill {
         this.products = products;
     }
     public static Product generateProduct() {      
-        Product product = BillController.generateProduct();
+        Product product = BillController.generateProduct;
         return product;
 
     }

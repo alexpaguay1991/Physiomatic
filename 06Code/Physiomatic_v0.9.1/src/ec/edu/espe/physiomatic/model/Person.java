@@ -10,6 +10,7 @@ import ec.edu.espe.physiomatic.controller.PhysiomaticController;
 /**
  *
  * @author Yulliana Roman ESPE-DCCO
+ * @author pzeadrian
  */
 public class Person {
 
@@ -33,7 +34,7 @@ public class Person {
      * @return Person 
      * @
      */
-    public Person resgiter() {
+    public Person register() {
         return PhysiomaticController.createPatient();
     }
 

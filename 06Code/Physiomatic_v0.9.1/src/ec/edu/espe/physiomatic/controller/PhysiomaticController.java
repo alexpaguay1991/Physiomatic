@@ -29,6 +29,7 @@ import java.util.Scanner;
  *
  * @author Acer
  * @author Santiago Risueño ESPE-DCCO
+ * @author pzeadrian
  */
 public class PhysiomaticController {
    //long idpatient;
@@ -59,7 +60,7 @@ public class PhysiomaticController {
     }
      public static Patient createPatient() {
         Scanner scanner = new Scanner(System.in);
-        long idPatient=LoginMenu.validateIdPatient();
+        long id = LoginMenu.validateId();
         
         
 
@@ -85,7 +86,7 @@ public class PhysiomaticController {
             contactPatient = scanner.nextLine();
         }
         
-        Patient patient = new Patient(idPatient, namePatient, lastNamePatient, contactPatient);
+        Patient patient = new Patient(id, namePatient, lastNamePatient, contactPatient);
         return patient;
 
     }
@@ -100,7 +101,7 @@ public class PhysiomaticController {
     }
      public static Appointment generateAppointment() {
         Scanner scanner = new Scanner(System.in);
-        long idPatient=LoginMenu.validateIdPatient();
+        long idPatient=LoginMenu.validateId();
         
         System.out.println("INGRESE LA FECHA DE LA CITA");
         String dateAppointment = scanner.nextLine();
@@ -117,7 +118,7 @@ public class PhysiomaticController {
     }
      public static Bill generateBill() {
         Scanner scanner = new Scanner(System.in);
-        long idPatient=LoginMenu.validateIdPatient();
+        long idPatient=LoginMenu.validateId();
         Patient patient;
         patient = retrievePatient(idPatient);
      }

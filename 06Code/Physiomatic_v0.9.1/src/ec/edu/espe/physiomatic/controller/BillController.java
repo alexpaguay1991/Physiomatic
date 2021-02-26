@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.physiomatic.controller;
 
+import ec.edu.espe.physiomatic.model.Product;
 import ec.edu.espe.utils.Validation;
 import java.util.Scanner;
 

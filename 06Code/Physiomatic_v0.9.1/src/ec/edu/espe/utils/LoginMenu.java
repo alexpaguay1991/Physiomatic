@@ -11,6 +11,7 @@ import java.util.Scanner;
 /**
  *
  * @author Acer
+ * @author pzeadrian
  */
 public class LoginMenu {
 
@@ -78,19 +79,19 @@ public class LoginMenu {
 
     }
 
-    public static long validateIdPatient() {
+    public static long validateId() {
         
-        String idPatient1;
+        String id1;
         Scanner scanner = new Scanner(System.in);
         System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE");
-        long idPatient=1 ;
-        idPatient1 = scanner.nextLine();
-        while (!Validation.isLong(idPatient1)) {
+        long id=1 ;
+        id1 = scanner.nextLine();
+        while (!Validation.isLong(id1)) {
             System.out.println("INGRESE UN DATO NUMÉRICO:  ");
-            idPatient1 = scanner.nextLine();
+            id1 = scanner.nextLine();
         }
-        idPatient = Long.valueOf(idPatient1);      
-        return idPatient;
+        id = Long.valueOf(id1);      
+        return id;
 
     }
 

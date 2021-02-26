@@ -18,6 +18,7 @@ import java.util.Scanner;
  * @author Acer
  * @author Santiago Risueño ESPE-DCCO
  * @author Yulliana Roman ESPE-DCCO
+ * @author pzeadrian
  */
 public class Physioterapist extends Person{
 
@@ -31,8 +32,8 @@ public class Physioterapist extends Person{
     private String password;
 
     @Override
-    public Person resgiter() {        
-        return PhysiomaticController.createPhsyioterapist();
+    public Person register() {        
+        return PhysiomaticController.createPatient()
     }
     
      public static Patient retrievePatient(long idPatient) {

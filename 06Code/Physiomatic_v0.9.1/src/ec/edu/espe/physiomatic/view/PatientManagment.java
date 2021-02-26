@@ -24,6 +24,7 @@ import java.util.InputMismatchException;
 /**
  *
  * @author Acer
+ * @author pzeadrian
  */
 public class PatientManagment {
 

@@ -49,6 +49,10 @@ public class Patient {
 
     }
 
+    public Patient(long id, String namePatient, String lastNamePatient, String contactPatient) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * @return the name
      */
