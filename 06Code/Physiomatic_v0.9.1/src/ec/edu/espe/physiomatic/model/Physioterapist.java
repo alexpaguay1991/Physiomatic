@@ -99,10 +99,6 @@ public class Physioterapist extends Person{
         this.password = password;
     }
 
-    public Physioterapist(String name, String lastName, String username, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     @Override
     public String toString() {
         return "FISIOTERAPEUTA'{'" + ", ID:" + super.getId() + "USUARIO:" + getUserName() + ", CONTRASEÑA:" + getPassword() + ", NOMBRE:" + super.getName() + ", APELLIDO:" + super.getLastname() + ", EMAIL:" + super.getEmail() + ", CONTACTO:" + super.getPhoneNumber() + ", DIRECCION:" + super.getAddress() + '}';

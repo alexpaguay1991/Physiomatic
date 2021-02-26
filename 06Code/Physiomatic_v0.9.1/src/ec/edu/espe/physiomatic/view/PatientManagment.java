@@ -84,7 +84,7 @@ public class PatientManagment {
                     case 5:
                         String idPatient1;
                         try {
-                            idPatient = LoginMenu.validateIdPatient();
+                            idPatient = LoginMenu.validateId();
                             patient = Physioterapist.retrievePatient(idPatient);
                             SystemView2 appointment = new SystemView2(patient);
                             appointment.displayAppointment();
@@ -105,7 +105,7 @@ public class PatientManagment {
                     case 8:
                         try {
                                                        
-                            idPatient = LoginMenu.validateIdPatient();
+                            idPatient = LoginMenu.validateId();
                             patient = Physioterapist.retrievePatient(idPatient);
                             SystemView2 bill = new SystemView2(patient);
                             bill.displayBill();

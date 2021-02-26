@@ -36,6 +36,9 @@ public class PhysiomaticController {
     public Physioterapist createPhsyioterapist(){
         Scanner scanner=new Scanner(System.in);
         
+        System.out.println("INGRESE EL NUMERO DE CEUDULA DEL FISIOTERAPEUTA: ");
+        long id = scanner.nextLong();
+        
         System.out.println("INGRESE EL NOMBRE DEL FISIOTERAPEUTA: ");
         String name = scanner.nextLine();
         while (!Validation.validateLetters(name)){
@@ -49,13 +52,22 @@ public class PhysiomaticController {
             System.out.println("INGRESE ÚNICAMENTE LETRAS");
             lastName = scanner.nextLine();
         }
+        System.out.println("INGRESE LA DIRECCION DEL FISIOTERAPEUTA: ");
+        String address = scanner.nextLine();
+        
+        System.out.println("INGRESE EL EMAIL DEL FISIOTERAPEUTA: ");
+        String email = scanner.nextLine();
+        
+        System.out.println("INGRESE EL NUMERO DE TELEFONO DEL FISIOTERAPEUTA: ");
+        String phoneNumber = scanner.nextLine();
+        
         System.out.println("INGRESE EL NOMBRE DE USUARIO DEL FISIOTERAPEUTA: ");
         String username = scanner.nextLine();
         
         System.out.println("INGRESE UNA CONTRASEÑA: ");
         String password = scanner.nextLine();
         
-        Physioterapist physiotherapist= new Physioterapist(name,lastName,username,password);
+        Physioterapist physiotherapist = new Physioterapist(username,password,id,address,name,lastName,email,phoneNumber);
         return physiotherapist;
     }
      public static Patient createPatient() {
