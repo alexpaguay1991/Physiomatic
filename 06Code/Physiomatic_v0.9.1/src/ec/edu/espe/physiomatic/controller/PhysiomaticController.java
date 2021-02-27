@@ -32,12 +32,12 @@ import java.util.Scanner;
  * @author pzeadrian
  */
 public class PhysiomaticController {
-   //long idpatient;
     public Physioterapist createPhsyioterapist(){
         Scanner scanner=new Scanner(System.in);
         
-        System.out.println("INGRESE EL NUMERO DE CEUDULA DEL FISIOTERAPEUTA: ");
+        System.out.println("INGRESE EL NUMERO DE CEDULA DEL FISIOTERAPEUTA: ");
         long id = scanner.nextLong();
+        scanner.nextLine();
         
         System.out.println("INGRESE EL NOMBRE DEL FISIOTERAPEUTA: ");
         String name = scanner.nextLine();
@@ -77,18 +77,18 @@ public class PhysiomaticController {
         
 
         System.out.println("INGRESE EL NOMBRE DEL PACIENTE: ");
-        String namePatient = scanner.nextLine();
-        while (!Validation.validateLetters(namePatient)){
+        String name = scanner.nextLine();
+        while (!Validation.validateLetters(name)){
             System.out.println("INGRESE ÚNICAMENTE LETRAS");
-            namePatient = scanner.nextLine();
+            name = scanner.nextLine();
         }
         
 
         System.out.println("INGRESE EL APELLIDO DEL PACIENTE: ");
-        String lastNamePatient = scanner.nextLine();
-        while (!Validation.validateLetters(lastNamePatient)){
+        String lastName = scanner.nextLine();
+        while (!Validation.validateLetters(lastName)){
             System.out.println("INGRESE ÚNICAMENTE LETRAS");
-            lastNamePatient = scanner.nextLine();
+            lastName = scanner.nextLine();
         }
         
          System.out.println("INGRESE EL EMAIL DEL PACIENTE: ");
@@ -101,16 +101,6 @@ public class PhysiomaticController {
             address = scanner.nextLine();
         }
 
-<<<<<<< HEAD
-        System.out.println("INGRESE EL No. DE CONTACTO DEL PACIENTE: ");
-        String contactPatient = scanner.nextLine();
-        while (!Validation.isNumeric(contactPatient)) {
-            System.out.println("INGRESE UN DATO NUMÉRICO:  ");
-            contactPatient = scanner.nextLine();
-        }
-        
-        Patient patient = new Patient(id, namePatient, lastNamePatient, contactPatient);
-=======
         System.out.println("INGRESE EL No. DE TELEFONO DEL PACIENTE: ");
         String phoneNumber = scanner.nextLine();
         while (!Validation.isNumeric(phoneNumber)) {
@@ -119,7 +109,6 @@ public class PhysiomaticController {
         }
         
         Patient patient = new Patient(name, lastName, email, address, phoneNumber, id);
->>>>>>> 07442a585c1d5ec612cda5762f06f09f7cafaf0d
         return patient;
 
     }
