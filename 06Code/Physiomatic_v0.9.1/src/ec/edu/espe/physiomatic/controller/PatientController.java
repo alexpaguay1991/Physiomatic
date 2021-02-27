@@ -70,7 +70,7 @@ public class PatientController {
         ClinicalHistory clinical, clinicalToChange;
         clinical = Patient.retrieveClinicalHistory(idPatient);
         clinicalToChange = Patient.retrieveClinicalHistory(idPatient);
-        LoginMenu.logClinicalHistoryMenu();
+        LoginMenu.updateClinicalHistoryMenu();
         int opt = scanner.nextInt();
 
         switch (opt) {
@@ -114,6 +114,8 @@ public class PatientController {
                 clinicalToChange.getPatient().setEmail(email);
                 FileManager.update("ClinicalHistory.json", gson.toJson(clinical), gson.toJson(clinicalToChange));
                 break;
+            case 5:
+                LoginMenu.logClinicalHistoryMenu();
         }
     }
 }

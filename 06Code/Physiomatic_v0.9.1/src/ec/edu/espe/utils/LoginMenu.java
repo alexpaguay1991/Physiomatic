@@ -57,6 +57,7 @@ public class LoginMenu {
         System.out.println("2. PESO");
         System.out.println("3. LA DIRECCIÓN DEL DOMICILIO");
         System.out.println("4. CORREO ELECTRÓNICO");
+        System.out.println("5. CANCELAR MODIFICACION");
         System.out.println("INGRESE EL DATO QUE DESEA MODIFICAR: ");
     }
 
