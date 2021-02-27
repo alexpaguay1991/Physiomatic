@@ -49,7 +49,7 @@ public class Patient {
 
     }
 
-    public Patient(long id, String namePatient, String lastNamePatient, String contactPatient) {
+    public Patient(long id, String name, String lastName, String email, String address, String phoneNumber) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -90,7 +90,18 @@ public class PhysiomaticController {
             System.out.println("INGRESE ÚNICAMENTE LETRAS");
             lastNamePatient = scanner.nextLine();
         }
+        
+         System.out.println("INGRESE EL EMAIL DEL PACIENTE: ");
+         String email = scanner.nextLine();
+         
+         System.out.println("INGRESE LA DIRECCION DEL PACIENTE: ");
+         String address = scanner.nextLine();
+         while (!Validation.validateLetters(address)){
+            System.out.println("INGRESE ÚNICAMENTE LETRAS");
+            address = scanner.nextLine();
+        }
 
+<<<<<<< HEAD
         System.out.println("INGRESE EL No. DE CONTACTO DEL PACIENTE: ");
         String contactPatient = scanner.nextLine();
         while (!Validation.isNumeric(contactPatient)) {
@@ -99,6 +110,16 @@ public class PhysiomaticController {
         }
         
         Patient patient = new Patient(id, namePatient, lastNamePatient, contactPatient);
+=======
+        System.out.println("INGRESE EL No. DE TELEFONO DEL PACIENTE: ");
+        String phoneNumber = scanner.nextLine();
+        while (!Validation.isNumeric(phoneNumber)) {
+            System.out.println("INGRESE UN DATO NUMÉRICO:  ");
+            phoneNumber = scanner.nextLine();
+        }
+        
+        Patient patient = new Patient(name, lastName, email, address, phoneNumber, id);
+>>>>>>> 07442a585c1d5ec612cda5762f06f09f7cafaf0d
         return patient;
 
     }
