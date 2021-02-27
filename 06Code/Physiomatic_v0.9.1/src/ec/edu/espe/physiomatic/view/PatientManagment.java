@@ -53,12 +53,12 @@ public class PatientManagment {
                         String dataToFind;
                         System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
                         dataToFind = scanner.nextLine();
-                        while (!Validation.validateNumbers(dataToFind)) {
+                        while (!Validation.isLong(dataToFind)) {
                             System.out.println("INGRESE UN DATO NUMÉRICO:  ");
                             dataToFind = scanner.nextLine();
                         }
 
-                        dataToFind = "\"idPatient\":" + dataToFind;
+                        dataToFind = "\"id\":" + dataToFind;
                         String dataOfFile;
                         try {
 
