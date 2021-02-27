@@ -25,7 +25,7 @@ public class PhysioterapistManagment {
 
     public static void main(String[] args) throws IOException, InterruptedException, ParseException {
         CoverPage.present();
-        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+//        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         System.out.println("");
         Scanner scanner = new Scanner(System.in);
         PhysiomaticController controller = new PhysiomaticController();
