@@ -116,5 +116,8 @@ public class ClinicalHistory {
         this.familiyBackground = familiyBackground;
     }
     
-    
+    public static Diagnostic createDiagnostic() {
+        Diagnostic diagnostic = ClinicalHistoryController.createDiagnostic();
+        return diagnostic;
+    }    
 }

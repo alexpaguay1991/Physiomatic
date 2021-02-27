@@ -101,7 +101,7 @@ public class PatientController {
                 scanner.nextLine();
 
                 String adress = scanner.nextLine();
-                clinicalToChange.setAddressPatient(adress);
+                clinicalToChange.getPatient().setAddress(adress);
                 FileManager.update("ClinicalHistory.json", gson.toJson(clinical), gson.toJson(clinicalToChange));
 
                 break;
@@ -111,9 +111,8 @@ public class PatientController {
                 scanner.nextLine();
 
                 String email = scanner.nextLine();
-                clinicalToChange.setEmailPatient(email);
+                clinicalToChange.getPatient().setEmail(email);
                 FileManager.update("ClinicalHistory.json", gson.toJson(clinical), gson.toJson(clinicalToChange));
-
                 break;
         }
     }
