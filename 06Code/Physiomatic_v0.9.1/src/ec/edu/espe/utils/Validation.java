@@ -29,11 +29,11 @@ public class Validation {
      * @return, return a boolean type value.
      */
     public static boolean validateLetters(String letters) {
-        if(letters.matches("^[A-Za-z]*$")){
+        if(letters.matches("^[a-zA-z]+")){
             return true;
         } else {
-            return false;
         }
+        return false;
 
     }
 

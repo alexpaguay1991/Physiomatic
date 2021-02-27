@@ -74,11 +74,11 @@ public class Bill {
     public void setProducts(ArrayList<Product> products) {
         this.products = products;
     }
-    public static Product generateProduct() {      
-        Product product = BillController.generateProduct;
-        return product;
-
-    }
+//    public static Product generateProduct() {      
+//        Product product = BillController.generateProduct;
+//        return product;
+//
+//    }
     
     
     

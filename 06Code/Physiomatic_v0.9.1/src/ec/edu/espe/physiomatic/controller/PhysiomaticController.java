@@ -32,12 +32,12 @@ import java.util.Scanner;
  * @author pzeadrian
  */
 public class PhysiomaticController {
+   //long idpatient;
     public Physioterapist createPhsyioterapist(){
         Scanner scanner=new Scanner(System.in);
         
-        System.out.println("INGRESE EL NUMERO DE CEDULA DEL FISIOTERAPEUTA: ");
+        System.out.println("INGRESE EL NUMERO DE CEUDULA DEL FISIOTERAPEUTA: ");
         long id = scanner.nextLong();
-        scanner.nextLine();
         
         System.out.println("INGRESE EL NOMBRE DEL FISIOTERAPEUTA: ");
         String name = scanner.nextLine();
@@ -77,28 +77,28 @@ public class PhysiomaticController {
         
 
         System.out.println("INGRESE EL NOMBRE DEL PACIENTE: ");
-        String name = scanner.nextLine();
-        while (!Validation.validateLetters(name)){
+        String namePatient = scanner.nextLine();
+        while (!Validation.validateLetters(namePatient)){
             System.out.println("INGRESE ÚNICAMENTE LETRAS");
-            name = scanner.nextLine();
+            namePatient = scanner.nextLine();
         }
         
 
         System.out.println("INGRESE EL APELLIDO DEL PACIENTE: ");
-        String lastName = scanner.nextLine();
-        while (!Validation.validateLetters(lastName)){
+        String lastNamePatient = scanner.nextLine();
+        while (!Validation.validateLetters(lastNamePatient)){
             System.out.println("INGRESE ÚNICAMENTE LETRAS");
-            lastName = scanner.nextLine();
+            lastNamePatient = scanner.nextLine();
         }
 
         System.out.println("INGRESE EL No. DE CONTACTO DEL PACIENTE: ");
-        String contact = scanner.nextLine();
-        while (!Validation.isNumeric(contact)) {
+        String contactPatient = scanner.nextLine();
+        while (!Validation.isNumeric(contactPatient)) {
             System.out.println("INGRESE UN DATO NUMÉRICO:  ");
-            contact = scanner.nextLine();
+            contactPatient = scanner.nextLine();
         }
         
-        Patient patient = new Patient(id, name, lastName, contact);
+        Patient patient = new Patient(id, namePatient, lastNamePatient, contactPatient);
         return patient;
 
     }
