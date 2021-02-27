@@ -37,6 +37,7 @@ public class PhysiomaticController {
         
         System.out.println("INGRESE EL NUMERO DE CEDULA DEL FISIOTERAPEUTA: ");
         long id = scanner.nextLong();
+        scanner.nextLine();
         
         System.out.println("INGRESE EL NOMBRE DEL FISIOTERAPEUTA: ");
         String name = scanner.nextLine();
