@@ -19,6 +19,7 @@ import java.util.Scanner;
 /**
  *
  * @author Acer
+ * @author pzeadrian
  */
 public class PatientController {
     public static ClinicalHistory createClinicalHistory() {
@@ -39,17 +40,7 @@ public class PatientController {
         System.out.println("INGRESE LA ALTURA (cm): ");
         float height = scanner.nextFloat();
         scanner.nextLine();
-
-        System.out.println("INGRESE LA DIRECCIÓN DEL DOMICILIO: ");
-        String addressPatient = scanner.nextLine();
-        while (!Validation.validateLetters(addressPatient)) {
-            System.out.println("INGRESE ÚNICAMENTE LETRAS:  ");
-            addressPatient = scanner.nextLine();
-        }
         
-        System.out.println("INGRESE EL CORREO ELECTRÓNICO: ");
-        String emailPatient = scanner.nextLine();
-
         ArrayList<Diagnostic> diagnostics = new ArrayList<>();
 
         System.out.println("INGRESE LOS ANTECEDENTES FAMILIARES: ");
@@ -59,7 +50,7 @@ public class PatientController {
             familyBackground = scanner.nextLine();
         }
 
-        ClinicalHistory clinicalHistory = new ClinicalHistory(patient, birthDate, weight, height, addressPatient, emailPatient, diagnostics, familyBackground);
+        ClinicalHistory clinicalHistory = new ClinicalHistory(patient, birthDate, weight, height, diagnostics, familyBackground);
 
         return clinicalHistory;
     }

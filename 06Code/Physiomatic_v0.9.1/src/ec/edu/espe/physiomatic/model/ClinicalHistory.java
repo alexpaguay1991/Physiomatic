@@ -11,6 +11,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Acer
+ * @author pzeadrian
  */
 public class ClinicalHistory {
     
@@ -21,10 +22,15 @@ public class ClinicalHistory {
     private ArrayList<Diagnostic> diagnostics=new ArrayList<>();
     private String familiyBackground;
 
-    public ClinicalHistory(Patient patient, String birthDate, float weight, float height, String addressPatient, String emailPatient, ArrayList<Diagnostic> diagnostics, String familyBackground) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
+    public ClinicalHistory(Patient patient, String birthDate, float weight, float height, ArrayList<Diagnostic> diagnostics, String familiyBackground) {
+        this.patient = patient;
+        this.birthDate = birthDate;
+        this.weight = weight;
+        this.height = height;
+        this.diagnostics = diagnostics;
+        this.familiyBackground = familiyBackground;
+    }
 
     /**
      * @return the patient
@@ -109,29 +115,6 @@ public class ClinicalHistory {
     public void setFamiliyBackground(String familiyBackground) {
         this.familiyBackground = familiyBackground;
     }
-
-    public ClinicalHistory(Patient patient, String birthDate, float weight, float height, ArrayList<Diagnostic> diagnostics, String familiyBackground) {
-        this.patient = patient;
-        this.birthDate = birthDate;
-        this.weight = weight;
-        this.height = height;
-        this.diagnostics= diagnostics;
-        this.familiyBackground = familiyBackground;
-    }
-
-    public static Diagnostic createDiagnostic() {
-        Diagnostic diagnostic = ClinicalHistoryController.createDiagnostic();
-        return diagnostic;
-    }
-
-    public void setEmailPatient(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setAddressPatient(String adress) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     
     
 }
