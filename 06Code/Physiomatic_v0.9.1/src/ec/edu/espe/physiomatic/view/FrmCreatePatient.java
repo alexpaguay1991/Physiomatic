@@ -102,6 +102,7 @@ public class FrmCreatePatient extends javax.swing.JFrame {
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 11)); // NOI18N
         jLabel1.setText("NUEVO PACIENTE");
 
         buttonSaved.setText("GUARDAR");
