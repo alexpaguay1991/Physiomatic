@@ -90,15 +90,25 @@ public class PhysiomaticController {
             System.out.println("INGRESE ÚNICAMENTE LETRAS");
             lastName = scanner.nextLine();
         }
+        
+         System.out.println("INGRESE EL EMAIL DEL PACIENTE: ");
+         String email = scanner.nextLine();
+         
+         System.out.println("INGRESE LA DIRECCION DEL PACIENTE: ");
+         String address = scanner.nextLine();
+         while (!Validation.validateLetters(address)){
+            System.out.println("INGRESE ÚNICAMENTE LETRAS");
+            address = scanner.nextLine();
+        }
 
-        System.out.println("INGRESE EL No. DE CONTACTO DEL PACIENTE: ");
-        String contact = scanner.nextLine();
-        while (!Validation.isNumeric(contact)) {
+        System.out.println("INGRESE EL No. DE TELEFONO DEL PACIENTE: ");
+        String phoneNumber = scanner.nextLine();
+        while (!Validation.isNumeric(phoneNumber)) {
             System.out.println("INGRESE UN DATO NUMÉRICO:  ");
-            contact = scanner.nextLine();
+            phoneNumber = scanner.nextLine();
         }
         
-        Patient patient = new Patient(id, name, lastName, contact);
+        Patient patient = new Patient(name, lastName, email, address, phoneNumber, id);
         return patient;
 
     }
