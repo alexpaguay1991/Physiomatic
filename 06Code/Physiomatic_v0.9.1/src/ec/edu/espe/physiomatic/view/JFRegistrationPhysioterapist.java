@@ -63,7 +63,7 @@ public class JFRegistrationPhysioterapist extends javax.swing.JFrame {
 
         jLabel6.setText("CONFIRMAR CONTRASEÑA:");
 
-        btnRegister.setText("Resgistrar");
+        btnRegister.setText("Registrar");
 
         btnCancel.setText("Cancelar");
 
