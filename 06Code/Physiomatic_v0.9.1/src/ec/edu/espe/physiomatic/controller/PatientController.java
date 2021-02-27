@@ -114,6 +114,8 @@ public class PatientController {
                 clinicalToChange.getPatient().setEmail(email);
                 FileManager.update("ClinicalHistory.json", gson.toJson(clinical), gson.toJson(clinicalToChange));
                 break;
+            case 5:
+                LoginMenu.logClinicalHistoryMenu();
         }
     }
 }
