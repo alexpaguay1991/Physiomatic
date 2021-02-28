@@ -34,8 +34,8 @@ public class LoginMenu {
         System.out.println("- 5. MOSTRAR CITA                       -");
         System.out.println("- 6. HISTORIALES MÉDICOS                -");
         System.out.println("- 7. GENERAR FACTURA                    -");
-        System.out.println("  8. DESPLEGAR FACTURA                   -");
-        System.out.println("  9. SALIR                               -");
+        System.out.println("  8. DESPLEGAR FACTURA                  -");
+        System.out.println("  9. SALIR                              -");
         System.out.println("-----------------------------------------");
         System.out.println("ELIJA UNA OPCIÓN: ");
     }
