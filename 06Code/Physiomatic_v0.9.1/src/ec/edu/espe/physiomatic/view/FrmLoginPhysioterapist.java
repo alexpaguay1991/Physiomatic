@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 /**
  *
  * @author Acer
+ * @author Yulliana Roman ESPE-DCCO
  */
 public class FrmLoginPhysioterapist extends javax.swing.JFrame {
 
@@ -50,39 +51,48 @@ public class FrmLoginPhysioterapist extends javax.swing.JFrame {
         jLabel1.setText("INICIAR SESIÓN");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("USUARIO:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 74, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 120, 30));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("CONTRASEÑA:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
 
+        tfUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tfUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfUserActionPerformed(evt);
             }
         });
-        getContentPane().add(tfUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 160, 20));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 120, 20));
+        getContentPane().add(tfUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 180, 30));
 
+        jPasswordField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 150, 30));
+
+        btnAccept.setBackground(new java.awt.Color(0, 51, 51));
+        btnAccept.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAccept.setForeground(new java.awt.Color(255, 255, 255));
         btnAccept.setText("Atrás");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcceptActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 91, -1));
+        getContentPane().add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 100, 30));
 
+        btnNext.setBackground(new java.awt.Color(0, 51, 51));
+        btnNext.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnNext.setForeground(new java.awt.Color(255, 255, 255));
         btnNext.setText("Siguiente");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 440, 91, -1));
+        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 440, 120, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/userIcon.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
@@ -104,11 +114,7 @@ public class FrmLoginPhysioterapist extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAcceptActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        try {
-            LoginPhysioterapist.login();
-        } catch (ParseException ex) {
-            Logger.getLogger(FrmLoginPhysioterapist.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_btnNextActionPerformed
 
     /**

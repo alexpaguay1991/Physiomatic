@@ -29,7 +29,7 @@ public class Validation {
      * @return, return a boolean type value.
      */
     public static boolean validateLetters(String letters) {
-        if(letters.matches("^[A-Za-z]*$"0) || letters.matches(" ")){
+        if(letters.matches("^[A-Za-z]*$") || letters.matches(" ")){
             return true;
         } else {
             return false;
