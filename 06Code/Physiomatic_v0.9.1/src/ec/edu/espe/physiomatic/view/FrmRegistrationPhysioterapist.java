@@ -34,20 +34,20 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lbTitle = new javax.swing.JLabel();
+        lbName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        lbLastName = new javax.swing.JLabel();
         txtLastName = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        lbUserName = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        lbPassword = new javax.swing.JLabel();
         pwdConfirmPassword = new javax.swing.JPasswordField();
-        jLabel6 = new javax.swing.JLabel();
-        pwdPassword2 = new javax.swing.JPasswordField();
+        lbConfirmPassword = new javax.swing.JLabel();
+        pwdPassword = new javax.swing.JPasswordField();
         btnNext = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
+        lbId = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
         lbEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
@@ -60,16 +60,16 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("REGISTRO DEL FISIOTERAPISTA");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 600, 50));
+        lbTitle.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        lbTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lbTitle.setText("REGISTRO DEL FISIOTERAPISTA");
+        getContentPane().add(lbTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 600, 50));
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Nombre:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 150, 30));
+        lbName.setBackground(new java.awt.Color(255, 255, 255));
+        lbName.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbName.setForeground(new java.awt.Color(255, 255, 255));
+        lbName.setText("Nombre:");
+        getContentPane().add(lbName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 150, 30));
 
         txtName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtName.setForeground(new java.awt.Color(0, 51, 51));
@@ -80,10 +80,10 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         });
         getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 410, 30));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Apellido:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 150, 30));
+        lbLastName.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbLastName.setForeground(new java.awt.Color(255, 255, 255));
+        lbLastName.setText("Apellido:");
+        getContentPane().add(lbLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 150, 30));
 
         txtLastName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtLastName.setForeground(new java.awt.Color(0, 51, 51));
@@ -94,10 +94,10 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         });
         getContentPane().add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 410, 30));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Usuario:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, -1));
+        lbUserName.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbUserName.setForeground(new java.awt.Color(255, 255, 255));
+        lbUserName.setText("Usuario:");
+        getContentPane().add(lbUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, -1));
 
         txtUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtUser.setForeground(new java.awt.Color(0, 51, 51));
@@ -108,28 +108,28 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         });
         getContentPane().add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 410, 30));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Contraseña:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, -1, -1));
+        lbPassword.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lbPassword.setText("Contraseña:");
+        getContentPane().add(lbPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, -1, -1));
 
         pwdConfirmPassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pwdConfirmPassword.setForeground(new java.awt.Color(0, 51, 51));
         getContentPane().add(pwdConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, 320, 30));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Confirmar contraseña:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, -1, 30));
+        lbConfirmPassword.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbConfirmPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lbConfirmPassword.setText("Confirmar contraseña:");
+        getContentPane().add(lbConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, -1, 30));
 
-        pwdPassword2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        pwdPassword2.setForeground(new java.awt.Color(0, 51, 51));
-        pwdPassword2.addActionListener(new java.awt.event.ActionListener() {
+        pwdPassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        pwdPassword.setForeground(new java.awt.Color(0, 51, 51));
+        pwdPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pwdPassword2ActionPerformed(evt);
+                pwdPasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(pwdPassword2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 380, 30));
+        getContentPane().add(pwdPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 380, 30));
 
         btnNext.setBackground(new java.awt.Color(0, 51, 51));
         btnNext.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -153,11 +153,11 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 110, 40));
 
-        jLabel8.setBackground(new java.awt.Color(0, 51, 51));
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("C.I:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
+        lbId.setBackground(new java.awt.Color(0, 51, 51));
+        lbId.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbId.setForeground(new java.awt.Color(255, 255, 255));
+        lbId.setText("C.I:");
+        getContentPane().add(lbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
         txtId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtId.setForeground(new java.awt.Color(0, 51, 51));
@@ -207,16 +207,16 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLastNameActionPerformed
 
-    private void pwdPassword2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdPassword2ActionPerformed
+    private void pwdPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pwdPassword2ActionPerformed
+    }//GEN-LAST:event_pwdPasswordActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        String dataToSave = "Desea guardar esta información?\n" + txtName.getText() + "\n" + txtLastName.getText() + "\n" + txtUser.getText() + "\n" + pwdPassword2.getText();
+        String dataToSave = "Desea guardar esta información?\n" + txtName.getText() + "\n" + txtLastName.getText() + "\n" + txtUser.getText() + "\n" + pwdPassword.getText();
         int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Registro de Fisioterapista", JOptionPane.YES_NO_CANCEL_OPTION);
         if (selection == 0) {
             JOptionPane.showConfirmDialog(null, "Se guardó la información", "Registro de Fisioterapista" + "\nGuardado", JOptionPane.INFORMATION_MESSAGE);
@@ -255,7 +255,7 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         txtLastName.setText("");
         txtName.setText("");
         txtUser.setText("");
-        pwdPassword2.setText("");
+        pwdPassword.setText("");
         pwdConfirmPassword.setText("");
         txtAddress.setText("");
         txtEmail.setText("");
@@ -275,7 +275,8 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         String phoneNumber = txtPhoneNumber.getText();
         String email= txtEmail.getText();
         String address=txtAddress.getText();
-        Physioterapist physiotherapist = new Physioterapist(userName, password, 0, address, name, lastName, email, phoneNumber);
+        long id = Long.parseLong(txtId.getText());
+        Physioterapist physiotherapist = new Physioterapist(userName, password, id, address, name, lastName, email, phoneNumber);
         return physiotherapist;
     }
 
@@ -318,19 +319,19 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnNext;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lbAddress;
     private javax.swing.JLabel lbBackground;
+    private javax.swing.JLabel lbConfirmPassword;
     private javax.swing.JLabel lbEmail;
+    private javax.swing.JLabel lbId;
+    private javax.swing.JLabel lbLastName;
+    private javax.swing.JLabel lbName;
+    private javax.swing.JLabel lbPassword;
     private javax.swing.JLabel lbPhoneNumber;
+    private javax.swing.JLabel lbTitle;
+    private javax.swing.JLabel lbUserName;
     private javax.swing.JPasswordField pwdConfirmPassword;
-    private javax.swing.JPasswordField pwdPassword2;
+    private javax.swing.JPasswordField pwdPassword;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtId;

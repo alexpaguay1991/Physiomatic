@@ -31,12 +31,12 @@ public class FrmPhysioterapistManagment extends javax.swing.JFrame {
 
         jLabel5 = new javax.swing.JLabel();
         LBTitle = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        lbName = new javax.swing.JLabel();
+        lbName2 = new javax.swing.JLabel();
+        lbName3 = new javax.swing.JLabel();
+        lbName4 = new javax.swing.JLabel();
+        lbName5 = new javax.swing.JLabel();
+        btnExit = new javax.swing.JButton();
         lbBackground = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         mnuLogin = new javax.swing.JMenu();
@@ -56,40 +56,40 @@ public class FrmPhysioterapistManagment extends javax.swing.JFrame {
         LBTitle.setText("PHYSIOMATIC");
         getContentPane().add(LBTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 350, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("PAEZ ADRIAN");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, -1, -1));
+        lbName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbName.setForeground(new java.awt.Color(255, 255, 255));
+        lbName.setText("PAEZ ADRIAN");
+        getContentPane().add(lbName, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("PAGUAY ALEX");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, -1, -1));
+        lbName2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbName2.setForeground(new java.awt.Color(255, 255, 255));
+        lbName2.setText("PAGUAY ALEX");
+        getContentPane().add(lbName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("PATIÑO BRAYAN");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, -1));
+        lbName3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbName3.setForeground(new java.awt.Color(255, 255, 255));
+        lbName3.setText("PATIÑO BRAYAN");
+        getContentPane().add(lbName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("RISUEÑO SANTIAGO");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, -1, -1));
+        lbName4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbName4.setForeground(new java.awt.Color(255, 255, 255));
+        lbName4.setText("RISUEÑO SANTIAGO");
+        getContentPane().add(lbName4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("ROMAN YULLIANA");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
+        lbName5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbName5.setForeground(new java.awt.Color(255, 255, 255));
+        lbName5.setText("ROMAN YULLIANA");
+        getContentPane().add(lbName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 102, 102));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton1.setText("SALIR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnExit.setBackground(new java.awt.Color(0, 102, 102));
+        btnExit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnExit.setText("SALIR");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, -1, -1));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, -1, -1));
 
         lbBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
         getContentPane().add(lbBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 731, 558));
@@ -147,9 +147,9 @@ public class FrmPhysioterapistManagment extends javax.swing.JFrame {
         frmCreatePatient.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnExitActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
        FrmRegistrationPhysioterapist frmRegisterPhysioterapist = new FrmRegistrationPhysioterapist();
@@ -195,17 +195,17 @@ public class FrmPhysioterapistManagment extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LBTitle;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton btnExit;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JLabel lbBackground;
+    private javax.swing.JLabel lbName;
+    private javax.swing.JLabel lbName2;
+    private javax.swing.JLabel lbName3;
+    private javax.swing.JLabel lbName4;
+    private javax.swing.JLabel lbName5;
     private javax.swing.JMenuItem minLoginPhyisioterapist;
     private javax.swing.JMenu mnuLogin;
     private javax.swing.JMenu mnuRegister;
