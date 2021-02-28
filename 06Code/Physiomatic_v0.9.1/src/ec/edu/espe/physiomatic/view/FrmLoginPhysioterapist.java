@@ -5,10 +5,6 @@
  */
 package ec.edu.espe.physiomatic.view;
 
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Acer
@@ -114,7 +110,9 @@ public class FrmLoginPhysioterapist extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAcceptActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        
+        FrmMenuPhysioterapist frmMenuPhyisioterapist = new FrmMenuPhysioterapist();
+        this.setVisible(false);
+        frmMenuPhyisioterapist.setVisible(true);
     }//GEN-LAST:event_btnNextActionPerformed
 
     /**

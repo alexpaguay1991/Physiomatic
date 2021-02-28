@@ -71,9 +71,8 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         jLabel2.setText("Nombre:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 150, 30));
 
-        txtName.setBackground(new java.awt.Color(0, 51, 51));
         txtName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtName.setForeground(new java.awt.Color(255, 255, 255));
+        txtName.setForeground(new java.awt.Color(0, 51, 51));
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
@@ -86,9 +85,8 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         jLabel3.setText("Apellido:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 150, 30));
 
-        txtLastName.setBackground(new java.awt.Color(0, 51, 51));
         txtLastName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtLastName.setForeground(new java.awt.Color(255, 255, 255));
+        txtLastName.setForeground(new java.awt.Color(0, 51, 51));
         txtLastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLastNameActionPerformed(evt);
@@ -101,9 +99,8 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         jLabel4.setText("Usuario:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, -1));
 
-        txtUser.setBackground(new java.awt.Color(0, 51, 51));
         txtUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtUser.setForeground(new java.awt.Color(255, 255, 255));
+        txtUser.setForeground(new java.awt.Color(0, 51, 51));
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUserActionPerformed(evt);
@@ -116,9 +113,8 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         jLabel5.setText("Contraseña:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, -1, -1));
 
-        pwdConfirmPassword.setBackground(new java.awt.Color(0, 51, 51));
         pwdConfirmPassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        pwdConfirmPassword.setForeground(new java.awt.Color(255, 255, 255));
+        pwdConfirmPassword.setForeground(new java.awt.Color(0, 51, 51));
         getContentPane().add(pwdConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, 320, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -126,9 +122,8 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         jLabel6.setText("Confirmar contraseña:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, -1, 30));
 
-        pwdPassword2.setBackground(new java.awt.Color(0, 51, 51));
         pwdPassword2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        pwdPassword2.setForeground(new java.awt.Color(255, 255, 255));
+        pwdPassword2.setForeground(new java.awt.Color(0, 51, 51));
         pwdPassword2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pwdPassword2ActionPerformed(evt);
@@ -158,14 +153,14 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 110, 40));
 
+        jLabel8.setBackground(new java.awt.Color(0, 51, 51));
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("C.I:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
-        txtId.setBackground(new java.awt.Color(0, 51, 51));
         txtId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtId.setForeground(new java.awt.Color(255, 255, 255));
+        txtId.setForeground(new java.awt.Color(0, 51, 51));
         getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 470, 30));
 
         lbEmail.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -173,9 +168,8 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         lbEmail.setText("Email:");
         getContentPane().add(lbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
 
-        txtEmail.setBackground(new java.awt.Color(0, 51, 51));
         txtEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtEmail.setForeground(new java.awt.Color(255, 255, 255));
+        txtEmail.setForeground(new java.awt.Color(0, 51, 51));
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
@@ -188,9 +182,8 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         lbAddress.setText("Dirección:");
         getContentPane().add(lbAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
 
-        txtAddress.setBackground(new java.awt.Color(0, 51, 51));
         txtAddress.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtAddress.setForeground(new java.awt.Color(255, 255, 255));
+        txtAddress.setForeground(new java.awt.Color(0, 51, 51));
         getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 390, 30));
 
         lbPhoneNumber.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -198,9 +191,8 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         lbPhoneNumber.setText("Número telfónico:");
         getContentPane().add(lbPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
 
-        txtPhoneNumber.setBackground(new java.awt.Color(0, 51, 51));
         txtPhoneNumber.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtPhoneNumber.setForeground(new java.awt.Color(255, 255, 255));
+        txtPhoneNumber.setForeground(new java.awt.Color(0, 51, 51));
         getContentPane().add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 213, 290, 30));
 
         lbBackground.setBackground(new java.awt.Color(0, 102, 102));

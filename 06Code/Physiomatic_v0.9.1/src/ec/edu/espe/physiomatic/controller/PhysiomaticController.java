@@ -10,19 +10,10 @@ import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.FileManager;
 import ec.edu.espe.physiomatic.model.Appointment;
 import ec.edu.espe.physiomatic.model.Bill;
-import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.physiomatic.model.Physioterapist;
-import static ec.edu.espe.physiomatic.model.Physioterapist.retrievePatient;
 import ec.edu.espe.utils.LoginMenu;
 import ec.edu.espe.utils.Validation;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -166,7 +157,5 @@ public class PhysiomaticController {
         appointment = gson.fromJson(dataFile, Appointment.class);;
         return appointment;
 
-    }
-    
-    
+    }   
 }

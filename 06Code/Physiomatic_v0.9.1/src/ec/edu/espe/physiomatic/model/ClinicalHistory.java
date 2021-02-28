@@ -14,22 +14,29 @@ import java.util.ArrayList;
  * @author pzeadrian
  */
 public class ClinicalHistory {
-    
+
     private Patient patient;
     private String birthDate;
     private float weight;
-    private float height;  
-    private ArrayList<Diagnostic> diagnostics=new ArrayList<>();
+    private float height;
+    private ArrayList<Diagnostic> diagnostics = new ArrayList<>();
     private String familiyBackground;
+    private String bloodType;
+    private String allergy;
 
-    
-    public ClinicalHistory(Patient patient, String birthDate, float weight, float height, ArrayList<Diagnostic> diagnostics, String familiyBackground) {
+    public static Diagnostic createDiagnostic() {
+        Diagnostic diagnostic = ClinicalHistoryController.createDiagnostic();
+        return diagnostic;
+    }
+
+    public ClinicalHistory(Patient patient, String birthDate, float weight, float height, String familiyBackground, String bloodType, String allergy) {
         this.patient = patient;
         this.birthDate = birthDate;
         this.weight = weight;
         this.height = height;
-        this.diagnostics = diagnostics;
         this.familiyBackground = familiyBackground;
+        this.bloodType = bloodType;
+        this.allergy = allergy;
     }
 
     /**
@@ -115,9 +122,33 @@ public class ClinicalHistory {
     public void setFamiliyBackground(String familiyBackground) {
         this.familiyBackground = familiyBackground;
     }
-    
-    public static Diagnostic createDiagnostic() {
-        Diagnostic diagnostic = ClinicalHistoryController.createDiagnostic();
-        return diagnostic;
-    }    
+
+    /**
+     * @return the bloodType
+     */
+    public String getBloodType() {
+        return bloodType;
+    }
+
+    /**
+     * @param bloodType the bloodType to set
+     */
+    public void setBloodType(String bloodType) {
+        this.bloodType = bloodType;
+    }
+
+    /**
+     * @return the allergy
+     */
+    public String getAllergy() {
+        return allergy;
+    }
+
+    /**
+     * @param allergy the allergy to set
+     */
+    public void setAllergy(String allergy) {
+        this.allergy = allergy;
+    }
+
 }

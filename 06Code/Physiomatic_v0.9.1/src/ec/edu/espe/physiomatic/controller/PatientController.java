@@ -20,12 +20,13 @@ import java.util.Scanner;
  *
  * @author Acer
  * @author pzeadrian
+ * @author Yulliana Roman ESPE-DCCO
  */
 public class PatientController {
+
     public static ClinicalHistory createClinicalHistory() {
         Scanner scanner = new Scanner(System.in);
-        long idPatient=LoginMenu.validateId();
-
+        long idPatient = LoginMenu.validateId();
 
         Patient patient;
         patient = retrievePatient(idPatient);
@@ -40,7 +41,7 @@ public class PatientController {
         System.out.println("INGRESE LA ALTURA (cm): ");
         float height = scanner.nextFloat();
         scanner.nextLine();
-        
+
         ArrayList<Diagnostic> diagnostics = new ArrayList<>();
 
         System.out.println("INGRESE LOS ANTECEDENTES FAMILIARES: ");
@@ -50,10 +51,16 @@ public class PatientController {
             familyBackground = scanner.nextLine();
         }
 
-        ClinicalHistory clinicalHistory = new ClinicalHistory(patient, birthDate, weight, height, diagnostics, familyBackground);
+        System.out.println("INGRESE LAS ARGIAS: ");
+        String allergy = scanner.nextLine();
 
+        System.out.println("INGRESE EL TIPO DE SANGRE: ");
+        String bloodType = scanner.nextLine();
+
+        ClinicalHistory clinicalHistory = new ClinicalHistory(patient, birthDate, weight, height, familyBackground, bloodType, allergy);
         return clinicalHistory;
     }
+
     public static ClinicalHistory retrieveClinicalHistory(long idPatient) {
         Gson gson = new Gson();
         String dataFile;
@@ -63,6 +70,7 @@ public class PatientController {
         return clinicalHistory;
 
     }
+
     public static void updateClinicalHistory(long idPatient) {
 
         Gson gson = new Gson();
