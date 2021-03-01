@@ -31,10 +31,6 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         lbTittle = new javax.swing.JLabel();
         lbName = new javax.swing.JLabel();
-        lbName2 = new javax.swing.JLabel();
-        lbName3 = new javax.swing.JLabel();
-        lbName4 = new javax.swing.JLabel();
-        lbName5 = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         btnBack = new javax.swing.JToggleButton();
         lbBackground = new javax.swing.JLabel();
@@ -62,57 +58,38 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbTittle.setFont(new java.awt.Font("Tahoma", 3, 48)); // NOI18N
-        lbTittle.setForeground(new java.awt.Color(0, 51, 51));
-        lbTittle.setText("PHYSIOMATIC");
-        getContentPane().add(lbTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 430, 110));
+        lbTittle.setFont(new java.awt.Font("Arial", 3, 60)); // NOI18N
+        lbTittle.setForeground(new java.awt.Color(254, 254, 254));
+        lbTittle.setText("PHYSIOMATIC v1.0");
+        getContentPane().add(lbTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 680, 70));
 
-        lbName.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbName.setFont(new java.awt.Font("Arial", 2, 25)); // NOI18N
         lbName.setForeground(new java.awt.Color(255, 255, 255));
-        lbName.setText("ROMAN YULLIANA");
-        getContentPane().add(lbName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
-
-        lbName2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lbName2.setForeground(new java.awt.Color(255, 255, 255));
-        lbName2.setText("PAEZ ADRIAN");
-        getContentPane().add(lbName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, -1, -1));
-
-        lbName3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lbName3.setForeground(new java.awt.Color(255, 255, 255));
-        lbName3.setText("PAGUAY ALEX");
-        getContentPane().add(lbName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, -1, -1));
-
-        lbName4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lbName4.setForeground(new java.awt.Color(255, 255, 255));
-        lbName4.setText("PATIÑO BRYAN");
-        getContentPane().add(lbName4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, -1, -1));
-
-        lbName5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        lbName5.setForeground(new java.awt.Color(255, 255, 255));
-        lbName5.setText("RISUEÑO SANTIAGO");
-        getContentPane().add(lbName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, -1, -1));
+        lbName.setText("Powered By SDC Team");
+        getContentPane().add(lbName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(0, 51, 51));
-        btnExit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnExit.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnExit.setForeground(new java.awt.Color(255, 255, 255));
-        btnExit.setText("SALIR");
+        btnExit.setText("Salir");
+        btnExit.setActionCommand("Salir");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 490, -1, -1));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 80, -1));
 
         btnBack.setBackground(new java.awt.Color(0, 51, 51));
-        btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
-        btnBack.setText("ATRÁS");
+        btnBack.setText("Atrás");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, -1, -1));
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 80, -1));
 
         lbBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
         lbBackground.setText("jLabel1");
@@ -341,10 +318,6 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JLabel lbBackground;
     private javax.swing.JLabel lbName;
-    private javax.swing.JLabel lbName2;
-    private javax.swing.JLabel lbName3;
-    private javax.swing.JLabel lbName4;
-    private javax.swing.JLabel lbName5;
     private javax.swing.JLabel lbTittle;
     private javax.swing.JMenuBar mbrPhysioterapistMenu;
     private javax.swing.JMenuItem mitmAddAppoinment;
