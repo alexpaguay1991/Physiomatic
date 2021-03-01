@@ -3,4 +3,10 @@
 {"name":"Alex","lastName":"Paguay","username":"aspaguay","password":"resende1A"}
 {"userName":"jvargas","password":"jvargas2001.","id":1711671626,"address":"Ambato","name":"Juan","lastName":"Vargas","email":"jvargas@yah"}
 {"userName":"iyroman","password":"ivettev","id":0,"address":"5 esquinas","name":"Yulliana","lastName":"Roman","email":"iyroman@gmail.com","phoneNumber":"0958881920"}
+<<<<<<< HEAD
 {"userName":"iyroman","password":"ivettev","id":1724701402,"address":"juan de alcazar","name":"Yulliana","lastName":"Roman","email":"yulianaroman376@gmail.com","phoneNumber":"0958881920"}
+=======
+{"userName":"aspaguay","password":"resende1A","id":1718605155,"address":"Colibri","name":"Alex","lastName":"Paguay","email":"aspaguay@gmail.com","phoneNumber":"0996631431"}
+{"userName":"spaguay","password":"resende1A","id":1718605155,"address":"Chillogallo","name":"Santiago","lastName":"Paguay","email":"aspaguay@espe.edu.ec","phoneNumber":"0996631431"}
+{"userName":"aspaguay","password":"resende1A","id":1718605155,"address":"Chillogallo","name":"Alex","lastName":"Paguay","email":"aspaguay@gmail.com","phoneNumber":"0996631431"}
+>>>>>>> 140c52992bdb760526f80b7bd42a4b013848ec4a

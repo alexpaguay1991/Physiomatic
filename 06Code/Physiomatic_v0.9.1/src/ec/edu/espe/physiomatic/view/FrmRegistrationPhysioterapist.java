@@ -8,6 +8,7 @@ package ec.edu.espe.physiomatic.view;
 import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.FileManager;
 import ec.edu.espe.physiomatic.model.Physioterapist;
+import ec.edu.espe.utils.Conection;
 import javax.swing.JOptionPane;
 
 /**
@@ -251,6 +252,7 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         frmPhysiomaticMagament.setVisible(true);
     }
 
+    Conection conection;
     public void emptyFields() {
         txtLastName.setText("");
         txtName.setText("");
@@ -264,6 +266,8 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
 
     public void register() {
         Gson gson = new Gson();
+        conection=new Conection("physioterapist");
+        conection.insertPhysioterapist(create());
         FileManager.save("physioterapist.json", gson.toJson(create()));
     }    
 
