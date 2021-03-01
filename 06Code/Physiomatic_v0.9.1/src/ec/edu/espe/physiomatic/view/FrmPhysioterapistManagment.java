@@ -115,8 +115,8 @@ public class FrmPhysioterapistManagment extends javax.swing.JFrame {
     private void minLoginPhyisioterapistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minLoginPhyisioterapistActionPerformed
 
         this.setVisible(false);
-        FrmLoginPhysioterapist frmLoginPhysioterapist = new FrmLoginPhysioterapist();
-        frmLoginPhysioterapist.setVisible(true);
+        FrmLogin frmLogin = new FrmLogin();
+        frmLogin.setVisible(true);
     }//GEN-LAST:event_minLoginPhyisioterapistActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed

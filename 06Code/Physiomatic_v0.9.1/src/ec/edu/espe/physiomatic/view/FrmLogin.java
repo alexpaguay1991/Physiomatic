@@ -5,9 +5,12 @@
  */
 package ec.edu.espe.physiomatic.view;
 
+import ec.edu.espe.physiomatic.model.Physioterapist;
+import ec.edu.espe.utils.Conection;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,7 +39,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         tfUser = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        tfpassword = new javax.swing.JPasswordField();
         btnAccept = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -67,7 +70,7 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 160, 20));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 120, 20));
+        getContentPane().add(tfpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 120, 20));
 
         btnAccept.setText("Atrás");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
@@ -104,11 +107,22 @@ public class FrmLogin extends javax.swing.JFrame {
         frmPhysioterapistManagment.setVisible(true);
     }//GEN-LAST:event_btnAcceptActionPerformed
 
+    Conection conection;
+    String username;
+    String password;
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        try {
-            LoginPhysioterapist.login();
-        } catch (ParseException ex) {
-            Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
+       conection =new Conection("physioterapist");
+        Physioterapist physioterapist;
+        username=tfUser.getText();
+        password= tfpassword.getText();
+        physioterapist=conection.retrievePhysioterapist(username, password);
+        if (username.contentEquals(physioterapist.getUserName()) && password.contentEquals(physioterapist.getPassword())){
+            FrmMenuPhysioterapist frmMenuPhyisioterapist = new FrmMenuPhysioterapist();
+            this.setVisible(false);
+            frmMenuPhyisioterapist.setVisible(true);
+        }else{
+            JOptionPane.showConfirmDialog(null, "USUARIO Y CONTRASEÑA INVÁLIDOS", "ERROR DE AUTENTICACIÓN" + "\nGuardado", JOptionPane.INFORMATION_MESSAGE);
+           
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
@@ -161,8 +175,8 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel lbBackground;
     private javax.swing.JTextField tfUser;
+    private javax.swing.JPasswordField tfpassword;
     // End of variables declaration//GEN-END:variables
 }
