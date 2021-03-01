@@ -12,6 +12,7 @@ import ec.edu.espe.utils.Conection;
  *
  * @author Acer
  * @author Yulliana Roman ESPE-DCCO
+ * @author pzeadrian
  */
 public class FrmLoginPhysioterapist extends javax.swing.JFrame {
 
@@ -49,20 +50,24 @@ public class FrmLoginPhysioterapist extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbTitle.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        lbTitle.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         lbTitle.setForeground(new java.awt.Color(255, 255, 255));
         lbTitle.setText("INICIAR SESIÓN");
-        getContentPane().add(lbTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+        getContentPane().add(lbTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
-        lbUserName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbUserName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbUserName.setForeground(new java.awt.Color(255, 255, 255));
         lbUserName.setText("USUARIO:");
         getContentPane().add(lbUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 120, 30));
 
-        lbPassword.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbPassword.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbPassword.setForeground(new java.awt.Color(255, 255, 255));
         lbPassword.setText("CONTRASEÑA:");
+<<<<<<< HEAD
         getContentPane().add(lbPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+=======
+        getContentPane().add(lbPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, 30));
+>>>>>>> 33d0c016c8c3d4499462f3a6dbb6eb4fdca4d77a
 
         txtUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtUser.addActionListener(new java.awt.event.ActionListener() {
@@ -70,13 +75,20 @@ public class FrmLoginPhysioterapist extends javax.swing.JFrame {
                 txtUserActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 180, 30));
 
         pwdPassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(pwdPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 150, 30));
+=======
+        getContentPane().add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 180, 30));
+
+        pwdPassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(pwdPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 220, 30));
+>>>>>>> 33d0c016c8c3d4499462f3a6dbb6eb4fdca4d77a
 
         btnAccept.setBackground(new java.awt.Color(0, 51, 51));
-        btnAccept.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnAccept.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnAccept.setForeground(new java.awt.Color(255, 255, 255));
         btnAccept.setText("Atrás");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
@@ -84,10 +96,14 @@ public class FrmLoginPhysioterapist extends javax.swing.JFrame {
                 btnAcceptActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 100, 30));
+=======
+        getContentPane().add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 120, 40));
+>>>>>>> 33d0c016c8c3d4499462f3a6dbb6eb4fdca4d77a
 
         btnNext.setBackground(new java.awt.Color(0, 51, 51));
-        btnNext.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnNext.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnNext.setForeground(new java.awt.Color(255, 255, 255));
         btnNext.setText("Siguiente");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
@@ -95,10 +111,19 @@ public class FrmLoginPhysioterapist extends javax.swing.JFrame {
                 btnNextActionPerformed(evt);
             }
         });
+<<<<<<< HEAD
         getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 120, 30));
+=======
+        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 120, 40));
+>>>>>>> 33d0c016c8c3d4499462f3a6dbb6eb4fdca4d77a
 
         lbIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/userIcon.png"))); // NOI18N
-        getContentPane().add(lbIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
+        lbIcon.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                lbIconFocusGained(evt);
+            }
+        });
+        getContentPane().add(lbIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 200, 220));
 
         lblErrorMessage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background2.jpg"))); // NOI18N
         getContentPane().add(lblErrorMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 392, 529));
@@ -134,6 +159,10 @@ public class FrmLoginPhysioterapist extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnNextActionPerformed
+
+    private void lbIconFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lbIconFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lbIconFocusGained
 
     /**
      * @param args the command line arguments
@@ -174,8 +203,13 @@ public class FrmLoginPhysioterapist extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccept;
     private javax.swing.JButton btnNext;
+<<<<<<< HEAD
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbIcon;
+=======
+    private javax.swing.JLabel lbBackground;
+    public javax.swing.JLabel lbIcon;
+>>>>>>> 33d0c016c8c3d4499462f3a6dbb6eb4fdca4d77a
     private javax.swing.JLabel lbPassword;
     private javax.swing.JLabel lbTitle;
     private javax.swing.JLabel lbUserName;
