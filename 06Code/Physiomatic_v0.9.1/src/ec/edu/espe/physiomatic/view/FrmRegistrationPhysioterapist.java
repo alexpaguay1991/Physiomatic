@@ -59,6 +59,7 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         lbBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbTitle.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
