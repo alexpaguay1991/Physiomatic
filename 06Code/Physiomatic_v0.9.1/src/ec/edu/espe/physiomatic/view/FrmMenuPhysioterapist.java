@@ -57,6 +57,7 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         jMenu4.setText("jMenu4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbTittle.setFont(new java.awt.Font("Arial", 3, 60)); // NOI18N
@@ -73,13 +74,12 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         btnExit.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnExit.setForeground(new java.awt.Color(255, 255, 255));
         btnExit.setText("Salir");
-        btnExit.setActionCommand("Salir");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 80, -1));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 80, -1));
 
         btnBack.setBackground(new java.awt.Color(0, 51, 51));
         btnBack.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
@@ -90,7 +90,7 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, 80, -1));
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 80, -1));
 
         lbBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
         lbBackground.setText("jLabel1");
