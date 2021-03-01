@@ -133,11 +133,9 @@ public class Conection {
         mongo.close();
 
     }
-    public void insertPatient() {
-        Patient patient;
-        patient = Physioterapist.generatePatient();
+    public void insertPatient(Patient patient) {
         Document admin;
-        admin = new Document("idPatient", patient.getIdPatient());
+        admin = new Document("id", patient.getId());
         admin.append("name", patient.getName());
         admin.append("lastName", patient.getLastName());
         admin.append("contactPatient", patient.getContactPatient());
