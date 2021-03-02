@@ -145,6 +145,7 @@ public class Connection {
         admin.append("name", patient.getName());
         admin.append("lastName", patient.getLastName());
         admin.append("email", patient.getEmail());
+        admin.append("address", patient.getAddress());
         admin.append("phoneNumber", patient.getPhoneNumber());
               
         collection.insertOne(admin);
