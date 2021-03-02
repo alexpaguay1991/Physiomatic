@@ -50,8 +50,15 @@ public class Patient {
     }
 
     public Patient(long id, String name, String lastName, String email, String address, String phoneNumber) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
     }
+
+    
 
     /**
      * @return the name
