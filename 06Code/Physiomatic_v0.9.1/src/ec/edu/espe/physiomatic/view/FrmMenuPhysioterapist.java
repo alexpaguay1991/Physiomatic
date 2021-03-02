@@ -267,9 +267,9 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
     }//GEN-LAST:event_mitmShowBillActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        FrmLoginPhysioterapist frmLoginPhysioterapist = new FrmLoginPhysioterapist();
+        FrmLogin frmLogin = new FrmLogin();
         this.setVisible(false);
-        frmLoginPhysioterapist.setVisible(true);
+        frmLogin.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
