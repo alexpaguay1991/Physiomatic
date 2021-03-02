@@ -8,6 +8,7 @@ package ec.edu.espe.physiomatic.view;
 import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.FileManager;
 import ec.edu.espe.physiomatic.model.Physioterapist;
+import ec.edu.espe.utils.Connection;
 import javax.swing.JOptionPane;
 
 /**
@@ -58,18 +59,19 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         lbBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbTitle.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        lbTitle.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         lbTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lbTitle.setText("REGISTRO DEL FISIOTERAPISTA");
-        getContentPane().add(lbTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 600, 50));
+        lbTitle.setText("Registrar Fisioterapeuta");
+        getContentPane().add(lbTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 630, 50));
 
         lbName.setBackground(new java.awt.Color(255, 255, 255));
-        lbName.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbName.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         lbName.setForeground(new java.awt.Color(255, 255, 255));
         lbName.setText("Nombre:");
-        getContentPane().add(lbName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 150, 30));
+        getContentPane().add(lbName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 150, 30));
 
         txtName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtName.setForeground(new java.awt.Color(0, 51, 51));
@@ -78,12 +80,12 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
                 txtNameActionPerformed(evt);
             }
         });
-        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 410, 30));
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 500, 30));
 
-        lbLastName.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbLastName.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         lbLastName.setForeground(new java.awt.Color(255, 255, 255));
         lbLastName.setText("Apellido:");
-        getContentPane().add(lbLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 150, 30));
+        getContentPane().add(lbLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 150, 30));
 
         txtLastName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtLastName.setForeground(new java.awt.Color(0, 51, 51));
@@ -92,12 +94,12 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
                 txtLastNameActionPerformed(evt);
             }
         });
-        getContentPane().add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 410, 30));
+        getContentPane().add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 500, 30));
 
-        lbUserName.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbUserName.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         lbUserName.setForeground(new java.awt.Color(255, 255, 255));
         lbUserName.setText("Usuario:");
-        getContentPane().add(lbUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, -1));
+        getContentPane().add(lbUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
 
         txtUser.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtUser.setForeground(new java.awt.Color(0, 51, 51));
@@ -106,21 +108,21 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
                 txtUserActionPerformed(evt);
             }
         });
-        getContentPane().add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 410, 30));
+        getContentPane().add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 500, 30));
 
-        lbPassword.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbPassword.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         lbPassword.setForeground(new java.awt.Color(255, 255, 255));
         lbPassword.setText("Contraseña:");
-        getContentPane().add(lbPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, -1, -1));
+        getContentPane().add(lbPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
 
         pwdConfirmPassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pwdConfirmPassword.setForeground(new java.awt.Color(0, 51, 51));
-        getContentPane().add(pwdConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, 320, 30));
+        getContentPane().add(pwdConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, 350, 30));
 
-        lbConfirmPassword.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lbConfirmPassword.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         lbConfirmPassword.setForeground(new java.awt.Color(255, 255, 255));
         lbConfirmPassword.setText("Confirmar contraseña:");
-        getContentPane().add(lbConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, -1, 30));
+        getContentPane().add(lbConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, -1, 30));
 
         pwdPassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pwdPassword.setForeground(new java.awt.Color(0, 51, 51));
@@ -129,10 +131,10 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
                 pwdPasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(pwdPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 380, 30));
+        getContentPane().add(pwdPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 460, 30));
 
         btnNext.setBackground(new java.awt.Color(0, 51, 51));
-        btnNext.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnNext.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnNext.setForeground(new java.awt.Color(255, 255, 255));
         btnNext.setText("Guardar");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
@@ -140,33 +142,33 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
                 btnNextActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 510, 140, 40));
+        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 480, 110, 40));
 
         btnBack.setBackground(new java.awt.Color(0, 51, 51));
-        btnBack.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
-        btnBack.setText("Atrás");
+        btnBack.setText("Cancelar");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 110, 40));
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 480, 110, 40));
 
         lbId.setBackground(new java.awt.Color(0, 51, 51));
-        lbId.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbId.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         lbId.setForeground(new java.awt.Color(255, 255, 255));
         lbId.setText("C.I:");
-        getContentPane().add(lbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
+        getContentPane().add(lbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
 
         txtId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtId.setForeground(new java.awt.Color(0, 51, 51));
-        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 470, 30));
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 550, 30));
 
-        lbEmail.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbEmail.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         lbEmail.setForeground(new java.awt.Color(255, 255, 255));
         lbEmail.setText("Email:");
-        getContentPane().add(lbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
+        getContentPane().add(lbEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
 
         txtEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(0, 51, 51));
@@ -175,25 +177,25 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
                 txtEmailActionPerformed(evt);
             }
         });
-        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 440, 30));
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 520, 30));
 
-        lbAddress.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbAddress.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         lbAddress.setForeground(new java.awt.Color(255, 255, 255));
         lbAddress.setText("Dirección:");
-        getContentPane().add(lbAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
+        getContentPane().add(lbAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
 
         txtAddress.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtAddress.setForeground(new java.awt.Color(0, 51, 51));
-        getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 390, 30));
+        getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 480, 30));
 
-        lbPhoneNumber.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbPhoneNumber.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         lbPhoneNumber.setForeground(new java.awt.Color(255, 255, 255));
-        lbPhoneNumber.setText("Número telfónico:");
-        getContentPane().add(lbPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
+        lbPhoneNumber.setText("Número de teléfono:");
+        getContentPane().add(lbPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
         txtPhoneNumber.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtPhoneNumber.setForeground(new java.awt.Color(0, 51, 51));
-        getContentPane().add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 213, 290, 30));
+        getContentPane().add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 370, 30));
 
         lbBackground.setBackground(new java.awt.Color(0, 102, 102));
         lbBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background2.jpg"))); // NOI18N
@@ -251,6 +253,7 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         frmPhysiomaticMagament.setVisible(true);
     }
 
+    Connection conection;
     public void emptyFields() {
         txtLastName.setText("");
         txtName.setText("");
@@ -264,6 +267,8 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
 
     public void register() {
         Gson gson = new Gson();
+        conection=new Connection("physioterapist");
+        conection.insertPhysioterapist(create());
         FileManager.save("physioterapist.json", gson.toJson(create()));
     }    
 

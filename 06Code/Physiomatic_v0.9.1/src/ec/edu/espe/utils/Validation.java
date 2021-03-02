@@ -10,6 +10,7 @@ import java.util.Scanner;
 /**
  *
  * @author Santiago Risueño ESPE-DCCO
+ * @author pzeadrian
  */
 public class Validation {
     /**
