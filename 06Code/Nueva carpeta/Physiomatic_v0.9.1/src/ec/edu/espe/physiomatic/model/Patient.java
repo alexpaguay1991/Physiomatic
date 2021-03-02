@@ -58,7 +58,7 @@ public class Patient extends Person{
     
     @Override
     public void createAPerson() {
-        PhysiomaticController.createPatient(0, address, name, lastName, email, phoneNumber);
+        PhysiomaticController.createPatient(id, address, name, lastName, email, phoneNumber);
         
     }
 

@@ -20,7 +20,7 @@ public abstract class Person {
      * @param email saves the email of patient or physioterapist 
      * @param phoneNumber saves the phone number of patient or physioterapist 
      */
-    private long id;
+    long id;
     String address;
     String name;
     String lastName;

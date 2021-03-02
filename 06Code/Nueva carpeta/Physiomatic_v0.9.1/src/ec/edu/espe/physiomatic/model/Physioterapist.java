@@ -135,7 +135,7 @@ public class Physioterapist extends Person {
     @Override
     public void createAPerson() {
        
-        PhysiomaticController.createPhysioterapist(userName, password, 0, userName, userName, userName, userName, userName);
+        PhysiomaticController.createPhysioterapist(userName, password, id, userName, userName, userName, userName, userName);
         
     }
 
