@@ -57,7 +57,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("USUARIO:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 74, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 74, 20));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -69,9 +69,11 @@ public class FrmLogin extends javax.swing.JFrame {
                 tfUserActionPerformed(evt);
             }
         });
-        getContentPane().add(tfUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 160, 20));
-        getContentPane().add(tfpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 120, 20));
+        getContentPane().add(tfUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 160, 30));
+        getContentPane().add(tfpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 130, 30));
 
+        btnAccept.setBackground(new java.awt.Color(0, 51, 51));
+        btnAccept.setForeground(new java.awt.Color(255, 255, 255));
         btnAccept.setText("Atrás");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +82,8 @@ public class FrmLogin extends javax.swing.JFrame {
         });
         getContentPane().add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 91, -1));
 
+        btnNext.setBackground(new java.awt.Color(0, 51, 51));
+        btnNext.setForeground(new java.awt.Color(255, 255, 255));
         btnNext.setText("Siguiente");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
