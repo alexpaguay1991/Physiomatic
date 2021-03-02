@@ -12,7 +12,7 @@ import ec.edu.espe.physiomatic.controller.PhysiomaticController;
  * @author Yulliana Roman ESPE-DCCO
  * @author pzeadrian
  */
-public class Person {
+public abstract class Person {
 
     /**
      * @param id saves the id of patient or physioterapist 
@@ -130,4 +130,6 @@ public class Person {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+    
+    public abstract void register(Person person);
 }

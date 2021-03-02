@@ -21,141 +21,32 @@ import java.util.Scanner;
  * @author Santiago Risueño ESPE-DCCO
  * @author pzeadrian
  */
-public class Patient {
+public class Patient extends Person {
 
-    private long id;
-    private String name;
-    private String lastName;
-    private String email;
-    private String address;
-    private String phoneNumber;
-
-    
-    public static ClinicalHistory createClinicalHistory() {
-        
-        ClinicalHistory clinicalHistory = PatientController.createClinicalHistory();
-        return clinicalHistory;
-    }
-
-    public static void updateClinicalHistory(long idPatient) {
-
-        PatientController.updateClinicalHistory(idPatient);
-    }
-    public static ClinicalHistory retrieveClinicalHistory(long idPatient) {
-       
-        ClinicalHistory clinicalHistory;
-        clinicalHistory=PatientController.retrieveClinicalHistory(idPatient);
-        return clinicalHistory;
-
-    }
-
-    public Patient(long id, String name, String lastName, String email, String address, String phoneNumber) {
-        this.id = id;
-        this.name = name;
-        this.lastName = lastName;
-        this.email = email;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
+    public Patient(long id, String address, String name, String lastname, String email, String phoneNumber) {
+        super(id, address, name, lastname, email, phoneNumber);
     }
 
     
 
-    /**
-     * @return the name
-     */
-    public String getName() {
-        return name;
-    }
+    
+   
 
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
+    
+   
 
-    /**
-     * @return the lastName
-     */
-    public String getLastName() {
-        return lastName;
-    }
+    
 
-    /**
-     * @param lastName the lastName to set
-     */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    /**
-     * @return the address
-     */
-    public String getAddress() {
-        return address;
-    }
-
-    /**
-     * @param address the address to set
-     */
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    /**
-     * @return the phoneNumber
-     */
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    /**
-     * @param phoneNumber the phoneNumber to set
-     */
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    /**
-     * @return the id
-     */
-    public long getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Patient(String name, String lastName, String email, String address, String phoneNumber, long id) {
-        this.name = name;
-        this.lastName = lastName;
-        this.email = email;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.id = id;
-    }
+   
 
     @Override
     public String toString() {
         return "Patient{" + "name=" + name + ", lastName=" + lastName + ", email=" + email + ", address=" + address + ", phoneNumber=" + phoneNumber + ", id=" + id + '}';
+    }
+
+    @Override
+    public void register(Person person) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 
