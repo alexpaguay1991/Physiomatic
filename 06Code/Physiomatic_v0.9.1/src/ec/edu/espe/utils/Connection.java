@@ -133,13 +133,20 @@ public class Connection {
         mongo.close();
 
     }
+    long id;
+    String name;
+    String lastName;
+    String email;
+    String address;
+    String phoneNumber;
     public void insertPatient(Patient patient) {
         Document admin;
         admin = new Document("id", patient.getId());
         admin.append("name", patient.getName());
         admin.append("lastName", patient.getLastName());
-        admin.append("contactPatient", patient.getContactPatient());
-        
+        admin.append("email", patient.getEmail());
+        admin.append("phoneNumber", patient.getPhoneNumber());
+              
         collection.insertOne(admin);
         mongo.close();
 
