@@ -38,7 +38,7 @@ import org.bson.Document;
  *
  * @author Acer
  */
-public class Conection {
+public class Connection {
 
     MongoDatabase baseDatos;
     //DBCollection collection;
@@ -49,7 +49,7 @@ public class Conection {
 
     Gson gson = new Gson();
 
-    public Conection(String nameCollection) {
+    public Connection(String nameCollection) {
         try {
             this.nameCollection = nameCollection;
             String data;
