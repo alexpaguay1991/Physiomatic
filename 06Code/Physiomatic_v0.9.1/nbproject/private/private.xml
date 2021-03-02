@@ -2,34 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/model/Physioterapist.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/model/ClinicalHistory.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/SystemView2.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/controller/PhysiomaticController.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/model/Bill.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/utils/Validation.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/model/Appointment.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/model/Person.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/FrmCreateDiagnostic.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/LoginPhysioterapist.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/controller/ClinicalHistoryController.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/FrmCreateClinicalHistory.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/FrmPhysioterapistManagment.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/FrmPatientTable.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/controller/PatientController.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/model/Patient.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/PatientManagment.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/FrmMenuPhysioterapist.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/utils/LoginMenu.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/RegistrationPhysiotepaist.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/FrmLogin.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/FrmCreatePatient.java</file>
-            <file>file:/C:/Users/User/Documents/Espe/SII-NOV20-ABRIL21/Programacion%20O.O/GitHub/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/FrmRegistrationPhysioterapist.java</file>
+            <file>file:/home/pzeadrian/ESPE%20-%20Segundo%20Semestre/PROGRAMACIÓN%20ORIENTADA%20A%20OBJETOS/prjctx/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/FrmPhysioterapistManagment.java</file>
+            <file>file:/home/pzeadrian/ESPE%20-%20Segundo%20Semestre/PROGRAMACIÓN%20ORIENTADA%20A%20OBJETOS/prjctx/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/LoginPhysioterapist.java</file>
+            <file>file:/home/pzeadrian/ESPE%20-%20Segundo%20Semestre/PROGRAMACIÓN%20ORIENTADA%20A%20OBJETOS/prjctx/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/FrmCreatePatient.java</file>
+            <file>file:/home/pzeadrian/ESPE%20-%20Segundo%20Semestre/PROGRAMACIÓN%20ORIENTADA%20A%20OBJETOS/prjctx/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/FrmCreateDiagnostic.java</file>
+            <file>file:/home/pzeadrian/ESPE%20-%20Segundo%20Semestre/PROGRAMACIÓN%20ORIENTADA%20A%20OBJETOS/prjctx/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/FrmLogin.java</file>
+            <file>file:/home/pzeadrian/ESPE%20-%20Segundo%20Semestre/PROGRAMACIÓN%20ORIENTADA%20A%20OBJETOS/prjctx/Physiomatic/06Code/Physiomatic_v0.9.1/src/ec/edu/espe/physiomatic/view/FrmMenuPhysioterapist.java</file>
         </group>
->>>>>>> 927236445c190bcb61729dc4399564f4aa74d8b1
     </open-files>
 </project-private>
