@@ -209,7 +209,7 @@ public class FrmCreatePatient extends javax.swing.JFrame {
      public void register() {
         Gson gson = new Gson();
         conection=new Connection("patients");
-        conection.insertPhysioterapist(create());
+        conection.insertPatient(create());
         FileManager.save("physioterapist.json", gson.toJson(create()));
     } 
     long id;
