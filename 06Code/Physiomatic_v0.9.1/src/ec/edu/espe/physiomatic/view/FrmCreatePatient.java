@@ -9,7 +9,7 @@ import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.FileManager;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.physiomatic.model.Physioterapist;
-import ec.edu.espe.utils.Conection;
+import ec.edu.espe.utils.Connection;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,7 +21,7 @@ public class FrmCreatePatient extends javax.swing.JFrame {
     /**
      * Creates new form FrmCreatePatient
      */
-    Conection conection;
+    Connection conection;
     public FrmCreatePatient() {
         initComponents();
     }
@@ -166,7 +166,7 @@ public class FrmCreatePatient extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,7 +178,7 @@ public class FrmCreatePatient extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addComponent(buttonSaved)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         pack();
@@ -189,7 +189,6 @@ public class FrmCreatePatient extends javax.swing.JFrame {
         int selection = JOptionPane.showConfirmDialog(null, null, "¿DESEA REGISTRAR EL PACIENTE?", JOptionPane.YES_NO_CANCEL_OPTION);
         if (selection == 0) {
             JOptionPane.showMessageDialog(null, "SU INFORMACIÓN HA SIDO GUARDADA CON ÉXITO", txtLastName + "PACIENTE REGISTRADO", JOptionPane.INFORMATION_MESSAGE);
-            register();
             emptyFields();
                           
         } else if (selection == 1) {
@@ -209,7 +208,7 @@ public class FrmCreatePatient extends javax.swing.JFrame {
     }
      public void register() {
         Gson gson = new Gson();
-        conection=new Conection("patients");
+        conection=new Connection("patients");
         conection.insertPatient(create());
         FileManager.save("physioterapist.json", gson.toJson(create()));
     } 

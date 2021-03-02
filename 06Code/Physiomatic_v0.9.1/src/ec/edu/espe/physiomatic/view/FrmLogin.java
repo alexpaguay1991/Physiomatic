@@ -6,7 +6,7 @@
 package ec.edu.espe.physiomatic.view;
 
 import ec.edu.espe.physiomatic.model.Physioterapist;
-import ec.edu.espe.utils.Conection;
+import ec.edu.espe.utils.Connection;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -107,11 +107,11 @@ public class FrmLogin extends javax.swing.JFrame {
         frmPhysioterapistManagment.setVisible(true);
     }//GEN-LAST:event_btnAcceptActionPerformed
 
-    Conection conection;
+    Connection conection;
     String username;
     String password;
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-       conection =new Conection("physioterapist");
+       conection =new Connection("physioterapist");
         Physioterapist physioterapist;
         username=tfUser.getText();
         password= tfpassword.getText();
