@@ -87,58 +87,46 @@ public class Connection {
         mongo.close();
 
     }
-    public void insertAppointment() {
-        Appointment appointment;
-        appointment = Physioterapist.generateAppointment();
+
+    public void insertAppointment(Appointment appointment) {
+
         BSONObject bson;
         Document admin;
         admin = new Document("dateOfAppointment", appointment.getDateOfAppointment());
         admin.append("hour", appointment.getHour());
         bson = (BSONObject) com.mongodb.util.JSON.parse(gson.toJson(appointment.getPatient()));
-        admin.append("products", bson);
+        admin.append("patient", bson);
         collection.insertOne(admin);
         mongo.close();
 
     }
-    public void insertClinicalHistory() {
-        ClinicalHistory clinicalHistory;
-        clinicalHistory = Physioterapist.createClinicalHistory();
+
+    public void insertClinicalHistory(ClinicalHistory clinicalHistory) {
+
         BSONObject bson = (BSONObject) com.mongodb.util.JSON.parse(gson.toJson(clinicalHistory.getPatient()));
         Document admin;
         admin = new Document("patient", bson);
         admin.append("birthDate", clinicalHistory.getBirthDate());
         admin.append("weight", clinicalHistory.getWeight());
         admin.append("height", clinicalHistory.getHeight());
-        admin.append("addressPatient", clinicalHistory.getAddressPatient());
-        admin.append("emailPatient", clinicalHistory.getEmailPatient());
+        admin.append("familiyBackground", clinicalHistory.getFamiliyBackground());
+        admin.append("bloodType", clinicalHistory.getBloodType());
+        admin.append("allergy", clinicalHistory.getAllergy());
         bson = (BSONObject) com.mongodb.util.JSON.parse(gson.toJson(clinicalHistory.getDiagnostics()));
         admin.append("diagnostics", bson);
-        admin.append("familiyBackground", clinicalHistory.getFamiliyBackground());
         collection.insertOne(admin);
         mongo.close();
 
     }
+
     public void insertPhysioterapist(Physioterapist physioterapist) {
-       
-        Document admin;
-        admin = new Document("userName", physioterapist.getUserName());
-        admin.append("password", physioterapist.getPassword());
-        admin.append("id", physioterapist.getId());
-        admin.append("address", physioterapist.getAddress());
-        admin.append("name", physioterapist.getName());
-        admin.append("lastname", physioterapist.getLastname());
-        admin.append("email", physioterapist.getEmail());
-        admin.append("phoneNumber", physioterapist.getPhoneNumber());
+
+        Document admin=generatePhysioterapistDocument(physioterapist);
         collection.insertOne(admin);
         mongo.close();
 
     }
-    long id;
-    String name;
-    String lastName;
-    String email;
-    String address;
-    String phoneNumber;
+
     public void insertPatient(Patient patient) {
         Document admin;
         admin = new Document("id", patient.getId());
@@ -147,19 +135,20 @@ public class Connection {
         admin.append("email", patient.getEmail());
         admin.append("address", patient.getAddress());
         admin.append("phoneNumber", patient.getPhoneNumber());
-              
+
         collection.insertOne(admin);
         mongo.close();
 
     }
+
     public void mostrar() {
         Patient patient1;
-        ConectionPatient conectionPatient=new ConectionPatient("patients");
-        patient1=conectionPatient.retrievePatient(2101044556);
-        System.out.println("-------"+patient1.getName());
-         System.out.println("-------"+patient1.getIdPatient());
-          System.out.println("-------"+patient1.getLastName());
-           System.out.println("-------"+patient1.getContactPatient());
+        ConectionPatient conectionPatient = new ConectionPatient("patients");
+        patient1 = conectionPatient.retrievePatient(2101044556);
+        System.out.println("-------" + patient1.getName());
+        System.out.println("-------" + patient1.getIdPatient());
+        System.out.println("-------" + patient1.getLastName());
+        System.out.println("-------" + patient1.getContactPatient());
         MongoCursor<Document> resultDocument = collection.find().iterator();
         String jsonResult;
         float price;
@@ -187,86 +176,463 @@ public class Connection {
 
         }
     }
-    public Physioterapist retrievePhysioterapist( String username,String password) {
+
+    public Physioterapist retrievePhysioterapist(String username, String password) {
         Physioterapist physioterapist;
-        MongoCursor<Document> resultDocument = collection.find().iterator(); 
-       String userName1;
-       String password1;
-       long id;
-       String address;
-       String name;
-       String lastname;
-       String email;
-       String phoneNumber;
-        
-        Physioterapist physioterapistRetrieved=new Physioterapist("username"," password", 0, "name", "name", "lastName", "name", "username1");
+        MongoCursor<Document> resultDocument = collection.find().iterator();
+        String userName1;
+        String password1;
+        long id;
+        String address;
+        String name;
+        String lastname;
+        String email;
+        String phoneNumber;
+
+        Physioterapist physioterapistRetrieved = new Physioterapist("username", " password", 0, "name", "name", "lastName", "name", "username1");
         while (resultDocument.hasNext()) {
             Document theObj = resultDocument.next();
-            userName1=gson.toJson(theObj.get("userName")).replace("\"", "");
-            password1=gson.toJson(theObj.get("password")).replace("\"", "");
-            id=Long.parseLong(gson.toJson(theObj.get("id")));
-            address=gson.toJson(theObj.get("address")).replace("\"", "");
-            name=gson.toJson(theObj.get("name")).replace("\"", "");
-            lastname=gson.toJson(theObj.get("lastname")).replace("\"", "");
-            email=gson.toJson(theObj.get("email")).replace("\"", "");
-            phoneNumber=gson.toJson(theObj.get("phoneNumber")).replace("\"", "");
-            physioterapist=new Physioterapist(userName1,password1,id,address,name,lastname,email,phoneNumber);
-           
-            
-            if (username.contentEquals(physioterapist.getUserName()) && password.contentEquals(physioterapist.getPassword())){
-                physioterapistRetrieved=physioterapist;
+            userName1 = gson.toJson(theObj.get("userName")).replace("\"", "");
+            password1 = gson.toJson(theObj.get("password")).replace("\"", "");
+            id = Long.parseLong(gson.toJson(theObj.get("id")));
+            address = gson.toJson(theObj.get("address")).replace("\"", "");
+            name = gson.toJson(theObj.get("name")).replace("\"", "");
+            lastname = gson.toJson(theObj.get("lastname")).replace("\"", "");
+            email = gson.toJson(theObj.get("email")).replace("\"", "");
+            phoneNumber = gson.toJson(theObj.get("phoneNumber")).replace("\"", "");
+            physioterapist = new Physioterapist(userName1, password1, id, address, name, lastname, email, phoneNumber);
+
+            if (username.contentEquals(physioterapist.getUserName()) && password.contentEquals(physioterapist.getPassword())) {
+                physioterapistRetrieved = physioterapist;
             }
-            
+
         }
         return physioterapistRetrieved;
-        
+
     }
-    public void showSpecificBill(String idPatient) {
-        /*Patient patient1;
-        DBCursor cursor=coleccion.find();
-        //DBObject cursor1=coleccion.;
-         //System.out.println("cursor1"+cursor1);
-         System.out.println("-----------");
-        while(cursor.hasNext()){
-            DBObject theObj = cursor.next();
-            BasicDBObject bill = ( BasicDBObject) theObj;
-            String price=bill.getString("price");
-            String patient=bill.getString("patient");
-            String products=bill.getString("products");
-            String name=bill.getString("name");
-            
-           
-           
-            patient1 = gson.fromJson(patient, Patient.class);
-            System.out.println("Nombre: "+patient1.getName());
-            String[] products1=products.replace("[", "").replace("]", "").split("}");
-            String line;
-            ArrayList<Product> products3=new ArrayList<>();
-            Product eachProduct;
-            for(int i=0;i<=products1.length-1;i=i+1){
-                line=products1[0]+"}";
-                eachProduct=gson.fromJson(line, Product.class);
-                products3.add(eachProduct);
-                System.out.println("--"+line);
+
+    public ClinicalHistory retrieveClinicalHistory(Patient patient) {
+        ClinicalHistory clinicalHistory;
+        MongoCursor<Document> resultDocument = collection.find().iterator();
+        String birthDate;
+        float weight;
+        float height;
+        ArrayList<Diagnostic> diagnostics = new ArrayList<>();
+        String familiyBackground;
+        String bloodType;
+        String allergy;
+        Patient patientNull = new Patient(0, "null", "null", "null", "null", "null");
+
+        ClinicalHistory clinicalHistoryRetrieved = new ClinicalHistory(patientNull, "null", 0, 0, "null", "null", "null", diagnostics);
+        while (resultDocument.hasNext()) {
+            Document theObj = resultDocument.next();
+            birthDate = gson.toJson(theObj.get("birthDate")).replace("\"", "");
+            weight = Float.parseFloat(gson.toJson(theObj.get("weight")));
+            height = Float.parseFloat(gson.toJson(theObj.get("height")));
+            familiyBackground = gson.toJson(theObj.get("familiyBackground")).replace("\"", "");
+            bloodType = gson.toJson(theObj.get("bloodType")).replace("\"", "");
+            allergy = gson.toJson(theObj.get("allergy")).replace("\"", "");
+            String diagnostics1 = gson.toJson(theObj.get("diagnostics"));
+            String patient1 = gson.toJson(theObj.get("patient"));
+            Patient patient2 = gson.fromJson(patient1, Patient.class);
+            diagnostics = gson.fromJson(diagnostics1, new TypeToken<List<Diagnostic>>() {
+            }.getType());
+            clinicalHistory = new ClinicalHistory(patient2, birthDate, weight, height, familiyBackground, bloodType, allergy, diagnostics);
+
+            if (patient.getId() == clinicalHistory.getPatient().getId()) {
+                clinicalHistoryRetrieved = clinicalHistory;
             }
-            Bill billfinal;
-            billfinal=new Bill(Float.parseFloat(price),patient1,products3);
-            SystemView2 bill12 = new SystemView2(billfinal.getPatient());
-            bill12.displayBill();*/
+
+        }
+        return clinicalHistoryRetrieved;
 
     }
 
-    /*public boolean actualizar(String accionVieja,String accionNueva){
-        document.put("accion",accionVieja);
-        BasicDBObject documentNuevo=new BasicDBObject();
-        documentNuevo.put("accion", accionNueva);
-        coleccion.findAndModify(document, documentNuevo);
-        return true;
+    public ArrayList<ClinicalHistory> retrieveClinicalHistories() {
+        ArrayList<ClinicalHistory> clinicalHistories = new ArrayList<>();
+        ClinicalHistory clinicalHistory;
+        MongoCursor<Document> resultDocument = collection.find().iterator();
+        String birthDate;
+        float weight;
+        float height;
+        ArrayList<Diagnostic> diagnostics = new ArrayList<>();
+        String familiyBackground;
+        String bloodType;
+        String allergy;
+        Patient patientNull = new Patient(0, "null", "null", "null", "null", "null");
+
+        ClinicalHistory clinicalHistoryRetrieved = new ClinicalHistory(patientNull, "null", 0, 0, "null", "null", "null", diagnostics);
+        while (resultDocument.hasNext()) {
+            Document theObj = resultDocument.next();
+            birthDate = gson.toJson(theObj.get("birthDate")).replace("\"", "");
+            weight = Float.parseFloat(gson.toJson(theObj.get("weight")));
+            height = Float.parseFloat(gson.toJson(theObj.get("height")));
+            familiyBackground = gson.toJson(theObj.get("familiyBackground")).replace("\"", "");
+            bloodType = gson.toJson(theObj.get("bloodType")).replace("\"", "");
+            allergy = gson.toJson(theObj.get("allergy")).replace("\"", "");
+            String diagnostics1 = gson.toJson(theObj.get("diagnostics"));
+            String patient1 = gson.toJson(theObj.get("patient"));
+            Patient patient2 = gson.fromJson(patient1, Patient.class);
+            diagnostics = gson.fromJson(diagnostics1, new TypeToken<List<Diagnostic>>() {
+            }.getType());
+            clinicalHistory = new ClinicalHistory(patient2, birthDate, weight, height, familiyBackground, bloodType, allergy, diagnostics);
+
+            clinicalHistories.add(clinicalHistory);
+
+        }
+        return clinicalHistories;
+
     }
-    public boolean eliminar(String accion){
-        document.put("accion",accion);
-        coleccion.remove(document);
-        return true;
+
+    public Bill retrieveBill(Patient patient) {
+        Bill bill;
+        MongoCursor<Document> resultDocument = collection.find().iterator();
+
+        float price;
+        ArrayList<Product> products = new ArrayList<>();
+        Patient patientNull = new Patient(0, "null", "null", "null", "null", "null");
+
+        Bill billRetrieved = new Bill(0, patientNull, products);
+
+        while (resultDocument.hasNext()) {
+            Document theObj = resultDocument.next();
+            String billprobe = gson.toJson(theObj.get("patient"));
+
+            Patient patient1 = gson.fromJson(billprobe, Patient.class);
+
+            billprobe = gson.toJson(theObj.get("products"));
+
+            ArrayList<Product> products3 = gson.fromJson(billprobe, new TypeToken<List<Product>>() {
+            }.getType());
+            billprobe = gson.toJson(theObj.get("price"));
+            price = Float.parseFloat(billprobe);
+            bill = new Bill(price, patient1, products3);
+            if (patient.getId() == bill.getPatient().getId()) {
+                billRetrieved = bill;
+            }
+
+        }
+        return billRetrieved;
+
     }
-     */
+
+    public ArrayList<Bill> retrieveBills(Patient patient) {
+        ArrayList<Bill> bills = new ArrayList<>();
+        Bill bill;
+        MongoCursor<Document> resultDocument = collection.find().iterator();
+
+        float price;
+        ArrayList<Product> products = new ArrayList<>();
+        Patient patientNull = new Patient(0, "null", "null", "null", "null", "null");
+
+        Bill billRetrieved = new Bill(0, patientNull, products);
+
+        while (resultDocument.hasNext()) {
+            Document theObj = resultDocument.next();
+            String billprobe = gson.toJson(theObj.get("patient"));
+
+            Patient patient1 = gson.fromJson(billprobe, Patient.class);
+
+            billprobe = gson.toJson(theObj.get("products"));
+
+            ArrayList<Product> products3 = gson.fromJson(billprobe, new TypeToken<List<Product>>() {
+            }.getType());
+            billprobe = gson.toJson(theObj.get("price"));
+            price = Float.parseFloat(billprobe);
+            bill = new Bill(price, patient1, products3);
+            if (patient.getId() == bill.getPatient().getId()) {
+                bills.add(bill);
+            }
+
+        }
+        return bills;
+
+    }
+
+    public Appointment retrieveAppointment(Patient patient) {
+        Appointment appointment;
+        MongoCursor<Document> resultDocument = collection.find().iterator();
+
+        String dateOfAppointment;
+        String hour;
+        Patient patientNull = new Patient(0, "null", "null", "null", "null", "null");
+
+        Appointment appointmentRetrieved = new Appointment("null", "null", patientNull);
+        while (resultDocument.hasNext()) {
+            Document theObj = resultDocument.next();
+            dateOfAppointment = gson.toJson(theObj.get("dateOfAppointment")).replace("\"", "");
+            hour = gson.toJson(theObj.get("hour")).replace("\"", "");
+            String patient1 = gson.toJson(theObj.get("patient"));
+            Patient patient2 = gson.fromJson(patient1, Patient.class);
+
+            appointment = new Appointment(dateOfAppointment, hour, patient2);
+
+            if (patient.getId() == appointment.getPatient().getId()) {
+                appointmentRetrieved = appointment;
+            }
+
+        }
+        return appointmentRetrieved;
+
+    }
+
+    public ArrayList<Appointment> retrieveAppointments(Patient patient) {
+        ArrayList<Appointment> appointments = new ArrayList<>();
+        Appointment appointment;
+        MongoCursor<Document> resultDocument = collection.find().iterator();
+
+        String dateOfAppointment;
+        String hour;
+        Patient patientNull = new Patient(0, "null", "null", "null", "null", "null");
+
+        Appointment appointmentRetrieved = new Appointment("null", "null", patientNull);
+        while (resultDocument.hasNext()) {
+            Document theObj = resultDocument.next();
+            dateOfAppointment = gson.toJson(theObj.get("dateOfAppointment")).replace("\"", "");
+            hour = gson.toJson(theObj.get("hour")).replace("\"", "");
+            String patient1 = gson.toJson(theObj.get("patient"));
+            Patient patient2 = gson.fromJson(patient1, Patient.class);
+
+            appointment = new Appointment(dateOfAppointment, hour, patient2);
+
+            if (patient.getId() == appointment.getPatient().getId()) {
+                appointments.add(appointment);
+            }
+
+        }
+        return appointments;
+
+    }
+
+    public Patient retrievePatient(long idPatient) {
+        Patient patient;
+        MongoCursor<Document> resultDocument = collection.find().iterator();
+        long id;
+        String name;
+        String lastName;
+        String email;
+        String address;
+        String phoneNumber;
+
+        Patient patientRetrieved = new Patient(0, "null", "null", "null", "null", "null");
+        while (resultDocument.hasNext()) {
+            Document theObj = resultDocument.next();
+            id = Long.parseLong(gson.toJson(theObj.get("id")));
+            address = gson.toJson(theObj.get("address")).replace("\"", "");
+            name = gson.toJson(theObj.get("name")).replace("\"", "");
+            lastName = gson.toJson(theObj.get("lastName")).replace("\"", "");
+            email = gson.toJson(theObj.get("email")).replace("\"", "");
+            phoneNumber = gson.toJson(theObj.get("phoneNumber")).replace("\"", "");
+            patient = new Patient(id, name, lastName, email, address, phoneNumber);
+
+            if (idPatient == patient.getId()) {
+                patientRetrieved = patient;
+            }
+
+        }
+        return patientRetrieved;
+
+    }
+
+    public ArrayList<Patient> retrievePatients() {
+        ArrayList<Patient> patients = new ArrayList<>();
+        MongoCursor<Document> resultDocument = collection.find().iterator();
+        long id;
+        String name;
+        String lastName;
+        String email;
+        String address;
+        String phoneNumber;
+        Patient patient;
+
+        while (resultDocument.hasNext()) {
+            Document theObj = resultDocument.next();
+            id = Long.parseLong(gson.toJson(theObj.get("id")));
+            address = gson.toJson(theObj.get("address")).replace("\"", "");
+            name = gson.toJson(theObj.get("name")).replace("\"", "");
+            lastName = gson.toJson(theObj.get("lastName")).replace("\"", "");
+            email = gson.toJson(theObj.get("email")).replace("\"", "");
+            phoneNumber = gson.toJson(theObj.get("phoneNumber")).replace("\"", "");
+            patient = new Patient(id, name, lastName, email, address, phoneNumber);
+            patients.add(patient);
+
+        }
+        return patients;
+
+    }
+
+    public Document generatePatientDocument(Patient patient) {
+        Document admin;
+        admin = new Document("id", patient.getId());
+        admin.append("name", patient.getName());
+        admin.append("lastName", patient.getLastName());
+        admin.append("email", patient.getEmail());
+        admin.append("address", patient.getAddress());
+        admin.append("phoneNumber", patient.getPhoneNumber());
+
+        return admin;
+    }
+
+    public Document generatePhysioterapistDocument(Physioterapist physioterapist) {
+        Document admin;
+        admin = new Document("userName", physioterapist.getUserName());
+        admin.append("password", physioterapist.getPassword());
+        admin.append("id", physioterapist.getId());
+        admin.append("address", physioterapist.getAddress());
+        admin.append("name", physioterapist.getName());
+        admin.append("lastname", physioterapist.getLastname());
+        admin.append("email", physioterapist.getEmail());
+        admin.append("phoneNumber", physioterapist.getPhoneNumber());
+
+        return admin;
+    }
+
+    public Document generateBillDocument(Bill bill) {
+        Document admin;
+        admin = new Document("price", bill.getPrice());
+        BSONObject bson = (BSONObject) com.mongodb.util.JSON.parse(gson.toJson(bill.getPatient()));
+        admin.append("patient", bson);
+        bson = (BSONObject) com.mongodb.util.JSON.parse(gson.toJson(bill.getProducts()));
+        admin.append("products", bson);
+
+        return admin;
+    }
+
+    public Document generateAppointmentDocument(Appointment appointment) {
+        BSONObject bson;
+        Document admin;
+        admin = new Document("dateOfAppointment", appointment.getDateOfAppointment());
+        admin.append("hour", appointment.getHour());
+        bson = (BSONObject) com.mongodb.util.JSON.parse(gson.toJson(appointment.getPatient()));
+        admin.append("patient", bson);
+
+        return admin;
+    }
+    
+    public Document generateClinicalHistoryDocument(ClinicalHistory clinicalHistory) {
+        BSONObject bson = (BSONObject) com.mongodb.util.JSON.parse(gson.toJson(clinicalHistory.getPatient()));
+        Document admin;
+        admin = new Document("patient", bson);
+        admin.append("birthDate", clinicalHistory.getBirthDate());
+        admin.append("weight", clinicalHistory.getWeight());
+        admin.append("height", clinicalHistory.getHeight());
+        admin.append("familiyBackground", clinicalHistory.getFamiliyBackground());
+        admin.append("bloodType", clinicalHistory.getBloodType());
+        admin.append("allergy", clinicalHistory.getAllergy());
+        bson = (BSONObject) com.mongodb.util.JSON.parse(gson.toJson(clinicalHistory.getDiagnostics()));
+        admin.append("diagnostics", bson);
+
+        return admin;
+    }
+    public void deleteClinicalHistory(ClinicalHistory clinicalHistory) {
+
+        try {
+
+            Document findDocument = generateClinicalHistoryDocument(clinicalHistory);
+            collection.findOneAndDelete(findDocument);
+        } catch (Exception e) {
+            Document findDocument = generateClinicalHistoryDocument(clinicalHistory);
+            collection.findOneAndDelete(findDocument);
+        }
+    }
+    public void deletePatient(Patient oldPatient) {
+
+        try {
+
+            Document findDocument = generatePatientDocument(oldPatient);
+            collection.findOneAndDelete(findDocument);
+        } catch (Exception e) {
+            Document findDocument = generatePatientDocument(oldPatient);
+            collection.findOneAndDelete(findDocument);
+        }
+    }
+    public void deleteAppointment(Appointment appointment) {
+
+        try {
+
+            Document findDocument = generateAppointmentDocument(appointment);
+            collection.findOneAndDelete(findDocument);
+        } catch (Exception e) {
+            Document findDocument = generateAppointmentDocument(appointment);
+            collection.findOneAndDelete(findDocument);
+        }
+    }
+
+    public void deleteBill(Bill bill) {
+
+        try {
+
+            Document findDocument = generateBillDocument(bill);
+            collection.findOneAndDelete(findDocument);
+        } catch (Exception e) {
+            Document findDocument = generateBillDocument(bill);
+            collection.findOneAndDelete(findDocument);
+        }
+    }
+
+    public void deletePhysioterapist(Physioterapist oldPhysioterapist) {
+
+        try {
+
+            Document findDocument = generatePhysioterapistDocument(oldPhysioterapist);
+            collection.findOneAndDelete(findDocument);
+        } catch (Exception e) {
+            Document findDocument = generatePhysioterapistDocument(oldPhysioterapist);
+            collection.findOneAndDelete(findDocument);
+        }
+    }
+
+    public void updatePatient(Patient patientOld, Patient patientNew) {
+
+        try {
+
+            Document findDocument = generatePatientDocument(patientOld);
+            Document updateDocument = generatePatientDocument(patientNew);
+            collection.findOneAndUpdate(findDocument, updateDocument);
+        } catch (Exception e) {
+            Document findDocument = generatePatientDocument(patientOld);
+            Document updateDocument = generatePatientDocument(patientNew);
+            collection.findOneAndUpdate(findDocument, updateDocument);
+        }
+    }
+     public void updateClinicalHistory(ClinicalHistory clinicalHistoryOld, ClinicalHistory clinicalHistoryNew) {
+
+        try {
+
+            Document findDocument = generateClinicalHistoryDocument(clinicalHistoryOld);
+            Document updateDocument = generateClinicalHistoryDocument(clinicalHistoryNew);
+            collection.findOneAndUpdate(findDocument, updateDocument);
+        } catch (Exception e) {
+             Document findDocument = generateClinicalHistoryDocument(clinicalHistoryOld);
+            Document updateDocument = generateClinicalHistoryDocument(clinicalHistoryNew);
+            collection.findOneAndUpdate(findDocument, updateDocument);
+        }
+    }
+
+    public void updateBill(Bill billOld, Bill billNew) {
+
+        try {
+
+            Document findDocument = generateBillDocument(billOld);
+            Document updateDocument = generateBillDocument(billNew);
+            collection.findOneAndUpdate(findDocument, updateDocument);
+        } catch (Exception e) {
+            Document findDocument = generateBillDocument(billOld);
+            Document updateDocument = generateBillDocument(billNew);
+            collection.findOneAndUpdate(findDocument, updateDocument);
+        }
+    }
+    public void updateAppointment(Appointment appointmentOld, Appointment appointmentNew) {
+
+        try {
+
+            Document findDocument = generateAppointmentDocument(appointmentOld);
+            Document updateDocument = generateAppointmentDocument(appointmentNew);
+            collection.findOneAndUpdate(findDocument, updateDocument);
+        } catch (Exception e) {
+             Document findDocument = generateAppointmentDocument(appointmentOld);
+            Document updateDocument = generateAppointmentDocument(appointmentNew);
+            collection.findOneAndUpdate(findDocument, updateDocument);
+        }
+    }
 }
