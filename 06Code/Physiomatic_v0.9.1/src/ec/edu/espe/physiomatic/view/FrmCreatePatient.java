@@ -189,6 +189,7 @@ public class FrmCreatePatient extends javax.swing.JFrame {
         int selection = JOptionPane.showConfirmDialog(null, null, "¿DESEA REGISTRAR EL PACIENTE?", JOptionPane.YES_NO_CANCEL_OPTION);
         if (selection == 0) {
             JOptionPane.showMessageDialog(null, "SU INFORMACIÓN HA SIDO GUARDADA CON ÉXITO", txtLastName + "PACIENTE REGISTRADO", JOptionPane.INFORMATION_MESSAGE);
+            register();
             emptyFields();
                           
         } else if (selection == 1) {
