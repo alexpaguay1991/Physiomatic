@@ -77,6 +77,14 @@ public class PhysiomaticController {
         //return physioterapist;
 
     }
+    public static void createAppoinment(String date, String time, long id) {
+        Patient patient;
+        Connection conection=new Connection("patients");
+        patient = conection.retrievePatient(id);
+        Appointment appointment = new Appointment(date, time, patient);
+        conection=new Connection("appointments");
+        conection.insertAppointment(appointment);
+    }
      public static Patient retrievePatient(long idPatient) {
         Gson gson = new Gson();
         String dataFile;
