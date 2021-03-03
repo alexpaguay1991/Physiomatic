@@ -9,7 +9,9 @@ import com.toedter.calendar.JDayChooser;
 import ec.edu.espe.physiomatic.controller.PatientController;
 import ec.edu.espe.physiomatic.model.Diagnostic;
 import ec.edu.espe.physiomatic.model.Patient;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -64,6 +66,7 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
         chkOtherDisease = new javax.swing.JCheckBox();
         txtOtherDisease = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         lbBrackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,7 +88,7 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("FECHA DE NACIMIENTO:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, -1, -1));
 
         jLabel5.setText("Year");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 83, -1, 0));
@@ -107,20 +110,20 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("PESO:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 300, -1, -1));
 
         spnWeight.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         spnWeight.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), Float.valueOf(0.0f), Float.valueOf(200.0f), Float.valueOf(1.0f)));
-        getContentPane().add(spnWeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, 70, 30));
+        getContentPane().add(spnWeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, 70, 30));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("ESTATURA:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, -1, -1));
 
         spnHeight.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         spnHeight.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), Float.valueOf(0.0f), Float.valueOf(200.0f), Float.valueOf(1.0f)));
-        getContentPane().add(spnHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 70, 30));
+        getContentPane().add(spnHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 70, 30));
 
         lbAllergy.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbAllergy.setForeground(new java.awt.Color(255, 255, 255));
@@ -234,35 +237,57 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, -1, -1));
+        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 190, 30));
 
         lbBrackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
         lbBrackground.setPreferredSize(new java.awt.Dimension(151, 25));
-        getContentPane().add(lbBrackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 530));
+        getContentPane().add(lbBrackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
-        String dataToSave = "This is the information we are saving" + "\n" + txtId.getText() + cmbBloodType.getSelectedItem();
+        String dataToSave = "La información que se guardara es" + "\n" + txtId.getText() + cmbBloodType.getSelectedItem();
         int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Patient Information", JOptionPane.YES_NO_CANCEL_OPTION);
         if (selection == 0) {
-            JOptionPane.showMessageDialog(null, "The information was saved", "Saved", JOptionPane.INFORMATION_MESSAGE);
-            
-                try{
-                    long id = Long.parseLong(txtId.getText());
-                
+            JOptionPane.showMessageDialog(null, "La información fue guardada", "Guardar", JOptionPane.INFORMATION_MESSAGE);
+            try {
+                long id = Long.parseLong(txtId.getText());
                 float height = (float) spnHeight.getValue();
                 float weight = (float) spnWeight.getValue();
                 String bloodType = (String) cmbBloodType.getSelectedItem();
-                String familyBackground = chkAntibiotic.getName() + " " + chkAsthma.getName();
-                String birthDate = jCalendar1.getDayChooser()+"";
-                
-                PatientController.createClinicalHistory(id, birthDate, weight, height, familyBackground, bloodType, bloodType);
+                String asthma = "", bronquitis = "", cancer = "";
+                if (chkAsthma.isSelected()) {
+                    asthma = chkAsthma.getName();
+                }
+                if (chkBronchitis.isSelected()) {
+                    bronquitis = chkBronchitis.getName();
+                }
+                if (chkCancer.isSelected()) {
+                    bronquitis = chkBronchitis.getName();
+                }
+                String familyBackground = asthma + bronquitis + cancer;
+                String food = "", medicine = "", antibiotic = "";
+                if (chkAntibiotic.isSelected()) {
+                    antibiotic = chkAntibiotic.getName();
+                }
+                if (chkFood.isSelected()) {
+                    food = chkFood.getName();
+                }
+                if (chkMedicine.isSelected()) {
+                    medicine = chkMedicine.getName();
+                }
+                String allergy = food + medicine + antibiotic;
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                Date date = jDateChooser1.getDate();
+                String birthDate = sdf.format(date);                               
+                System.out.println(birthDate);
+                PatientController.createClinicalHistory(id, birthDate, weight, height, familyBackground, bloodType, allergy);
                 emptyFields();
             } catch (Exception e) {
                 JOptionPane.showConfirmDialog(null, "No se guardó la información debe ingresar solo digitos numéricos en el id", "Registro de Fisioterapista", JOptionPane.ERROR_MESSAGE);
- }
+            }
             emptyFields();
         } else if (selection == 1) {
             JOptionPane.showMessageDialog(null, "Information was NOT saved", "NOT saved", JOptionPane.INFORMATION_MESSAGE);
@@ -271,7 +296,7 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Action was canceled", "Cancelled", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnSaveActionPerformed
-    public void emptyFields() {        
+    public void emptyFields() {
         spnWeight.setValue(0);
         spnHeight.setValue(0);
         cmbBloodType.setSelectedIndex(0);
@@ -388,6 +413,7 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkOthers;
     private javax.swing.JComboBox<String> cmbBloodType;
     private javax.swing.JComboBox<String> cmbDocument;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;

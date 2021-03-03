@@ -35,8 +35,6 @@ public class Physioterapist extends Person {
      *
      * @return
      */
-    
-
     public static Patient retrievePatient(long idPatient) {
         Patient patient = PhysiomaticController.retrievePatient(idPatient);
         return patient;
@@ -91,7 +89,7 @@ public class Physioterapist extends Person {
         }
         scanner.nextLine();
     }
-    
+
     public static String[][] showTable() {
         ArrayList<Patient> patients = new ArrayList<Patient>();
         Connection conection = new Connection("patients");
@@ -102,7 +100,7 @@ public class Physioterapist extends Person {
         }
         String matrix[][] = new String[patients.size()][6];
         for (int i = 0; i < patients.size(); i++) {
-            matrix[i][0] = patients.get(i).getId()+"";
+            matrix[i][0] = patients.get(i).getId() + "";
             matrix[i][1] = patients.get(i).getName();
             matrix[i][2] = patients.get(i).getLastName();
             matrix[i][3] = patients.get(i).getAddress();
@@ -111,19 +109,20 @@ public class Physioterapist extends Person {
         }
         return matrix;
     }
+
     public static String[][] showTableClinicalHistory() {
         ArrayList<ClinicalHistory> clinicaHistories = new ArrayList<>();
-        Connection conection = new Connection("clinicalHistory");                
+        Connection conection = new Connection("clinicalHistory");
         clinicaHistories = conection.retrieveClinicalHistories();
-        String matrix[][] = new String[clinicaHistories.size()][7];
+        String matrix[][] = new String[clinicaHistories.size()][8];
         for (int i = 0; i < clinicaHistories.size(); i++) {
-            matrix[i][0] = clinicaHistories.get(i).getAllergy();
+            matrix[i][5] = clinicaHistories.get(i).getAllergy();
             matrix[i][1] = clinicaHistories.get(i).getBirthDate();
-            matrix[i][2] = clinicaHistories.get(i).getBloodType();
-            matrix[i][3] = clinicaHistories.get(i).getPatient().getId()+"";
-            matrix[i][4] = clinicaHistories.get(i).getFamiliyBackground();
-            matrix[i][5] = clinicaHistories.get(i).getPatient().getName();
-            matrix[i][5] = clinicaHistories.get(i).getPatient().getLastName();
+            matrix[i][6] = clinicaHistories.get(i).getBloodType();
+            matrix[i][0] = clinicaHistories.get(i).getPatient().getId() + "";
+            matrix[i][7] = clinicaHistories.get(i).getFamiliyBackground();
+            matrix[i][1] = clinicaHistories.get(i).getPatient().getName();
+            matrix[i][2] = clinicaHistories.get(i).getPatient().getLastName();            
         }
         return matrix;
     }
@@ -143,8 +142,6 @@ public class Physioterapist extends Person {
     public String toString() {
         return "Physioterapist{" + "userName=" + userName + ", password=" + password + '}';
     }
-
-    
 
     /**
      * @return the userName
@@ -176,11 +173,9 @@ public class Physioterapist extends Person {
 
     @Override
     public void createAPerson() {
-       
-        PhysiomaticController.createPhysioterapist(userName, password, id, userName, userName, userName, userName, userName);
-        
-    }
 
-    
+        PhysiomaticController.createPhysioterapist(userName, password, id, userName, userName, userName, userName, userName);
+
+    }
 
 }
