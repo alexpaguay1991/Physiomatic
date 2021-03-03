@@ -43,16 +43,6 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         mnuClinicalHistory = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         mitmShowClinicalHistory = new javax.swing.JMenuItem();
-        mnuModify = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        mitmCreateDiagnotic = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        mnuBill = new javax.swing.JMenu();
-        mitmCreateBill = new javax.swing.JMenuItem();
-        mitmShowBill = new javax.swing.JMenuItem();
 
         jMenu4.setText("jMenu4");
 
@@ -160,91 +150,7 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         });
         mnuClinicalHistory.add(mitmShowClinicalHistory);
 
-        mnuModify.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        mnuModify.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/modifyIcon.png"))); // NOI18N
-        mnuModify.setText("Modificar");
-
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/heigthIcon.jpeg"))); // NOI18N
-        jMenuItem6.setText("Estatura");
-        mnuModify.add(jMenuItem6);
-
-        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/weightIcon.jpg"))); // NOI18N
-        jMenuItem7.setText("Peso");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
-            }
-        });
-        mnuModify.add(jMenuItem7);
-
-        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/addressIcon.jpg"))); // NOI18N
-        jMenuItem8.setText("Dirección");
-        mnuModify.add(jMenuItem8);
-
-        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/phoneIcon.jpg"))); // NOI18N
-        jMenuItem9.setText("Número telefónico");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        mnuModify.add(jMenuItem9);
-
-        mitmCreateDiagnotic.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK));
-        mitmCreateDiagnotic.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        mitmCreateDiagnotic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/diagnosticIcon.png"))); // NOI18N
-        mitmCreateDiagnotic.setText("Crear diagnóstico");
-        mitmCreateDiagnotic.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mitmCreateDiagnoticActionPerformed(evt);
-            }
-        });
-        mnuModify.add(mitmCreateDiagnotic);
-
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/emailIcon.png"))); // NOI18N
-        jMenuItem5.setText("Email");
-        mnuModify.add(jMenuItem5);
-
-        mnuClinicalHistory.add(mnuModify);
-
         mbrPhysioterapistMenu.add(mnuClinicalHistory);
-
-        mnuBill.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
-        mnuBill.setText("Facturas");
-
-        mitmCreateBill.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.ALT_MASK));
-        mitmCreateBill.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        mitmCreateBill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/billIcon.jpg"))); // NOI18N
-        mitmCreateBill.setText("Generar");
-        mitmCreateBill.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mitmCreateBillActionPerformed(evt);
-            }
-        });
-        mnuBill.add(mitmCreateBill);
-
-        mitmShowBill.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.ALT_MASK));
-        mitmShowBill.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        mitmShowBill.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/mostrar.png"))); // NOI18N
-        mitmShowBill.setText("Mostrar");
-        mitmShowBill.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mitmShowBillActionPerformed(evt);
-            }
-        });
-        mnuBill.add(mitmShowBill);
-
-        mbrPhysioterapistMenu.add(mnuBill);
 
         setJMenuBar(mbrPhysioterapistMenu);
 
@@ -256,24 +162,6 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         this.setVisible(false);
         frmAppointmentDisplay.setVisible(true);
     }//GEN-LAST:event_mitmShowAppoinmentActionPerformed
-
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
-
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
-
-    private void mitmCreateDiagnoticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitmCreateDiagnoticActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mitmCreateDiagnoticActionPerformed
-
-    private void mitmShowBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitmShowBillActionPerformed
-        FrmBillDisplay frmBillDisplay = new FrmBillDisplay();
-        this.setVisible(false);
-        frmBillDisplay.setVisible(true);
-    }//GEN-LAST:event_mitmShowBillActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         FrmLogin frmLogin = new FrmLogin();
@@ -291,10 +179,6 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         frmTable.setVisible(true);
     }//GEN-LAST:event_mitmShowActionPerformed
 
-    private void mitmCreateBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitmCreateBillActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mitmCreateBillActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         FrmCreateClinicalHistory frmCreateClinicalHistory = new FrmCreateClinicalHistory();
         this.setVisible(false);
@@ -302,7 +186,7 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void mitmShowClinicalHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitmShowClinicalHistoryActionPerformed
-        FrmClinicalHistoryDisplay frmClinicalHistoryDisplay = new FrmClinicalHistoryDisplay();
+        FrmClinicalHistoryTable frmClinicalHistoryDisplay = new FrmClinicalHistoryTable();
         this.setVisible(false);
         frmClinicalHistoryDisplay.setVisible(true);
     }//GEN-LAST:event_mitmShowClinicalHistoryActionPerformed
@@ -347,26 +231,16 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JLabel lbBackground;
     private javax.swing.JLabel lbName;
     private javax.swing.JLabel lbTittle;
     private javax.swing.JMenuBar mbrPhysioterapistMenu;
     private javax.swing.JMenuItem mitmAddAppoinment;
-    private javax.swing.JMenuItem mitmCreateBill;
-    private javax.swing.JMenuItem mitmCreateDiagnotic;
     private javax.swing.JMenuItem mitmShow;
     private javax.swing.JMenuItem mitmShowAppoinment;
-    private javax.swing.JMenuItem mitmShowBill;
     private javax.swing.JMenuItem mitmShowClinicalHistory;
     private javax.swing.JMenu mnuAppointment;
-    private javax.swing.JMenu mnuBill;
     private javax.swing.JMenu mnuClinicalHistory;
-    private javax.swing.JMenu mnuModify;
     private javax.swing.JMenu mnuPatient;
     // End of variables declaration//GEN-END:variables
 }
