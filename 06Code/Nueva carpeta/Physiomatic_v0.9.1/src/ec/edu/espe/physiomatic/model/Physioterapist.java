@@ -111,6 +111,27 @@ public class Physioterapist extends Person {
         }
         return matrix;
     }
+    public static String[][] showTableClinicalHistory() {
+        ArrayList<ClinicalHistory> clinicaHistories = new ArrayList<>();
+        Connection conection = new Connection("clinicalHistory");                
+        clinicaHistories = conection.retrieveClinicalHistories();
+        String matrix[][] = new String[clinicaHistories.size()][7];
+        for (int i = 0; i < clinicaHistories.size(); i++) {
+            matrix[i][0] = clinicaHistories.get(i).getAllergy();
+            matrix[i][1] = clinicaHistories.get(i).getBirthDate();
+            matrix[i][2] = clinicaHistories.get(i).getBloodType();
+            matrix[i][3] = clinicaHistories.get(i).getPatient().getId()+"";
+            matrix[i][4] = clinicaHistories.get(i).getFamiliyBackground();
+            matrix[i][5] = clinicaHistories.get(i).getPatient().getName();
+            matrix[i][5] = clinicaHistories.get(i).getPatient().getLastName();
+        }
+        return matrix;
+    }
+//    public static String[][] createDiagnosticTable(){
+//        ArrayList<Diagnostic> diagnostics = new ArrayList<Diagnostic>();
+//        Connection conection = new Connection("diagnostics");
+//        
+//    }
 
     public Physioterapist(String userName, String password, long id, String address, String name, String lastname, String email, String phoneNumber) {
         super(id, address, name, lastname, email, phoneNumber);

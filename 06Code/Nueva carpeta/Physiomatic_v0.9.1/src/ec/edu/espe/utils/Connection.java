@@ -140,43 +140,7 @@ public class Connection {
         mongo.close();
 
     }
-
-    public void mostrar() {
-        Patient patient1;
-        ConectionPatient conectionPatient = new ConectionPatient("patients");
-        patient1 = conectionPatient.retrievePatient(2101044556);
-        System.out.println("-------" + patient1.getName());
-        System.out.println("-------" + patient1.getIdPatient());
-        System.out.println("-------" + patient1.getLastName());
-        System.out.println("-------" + patient1.getContactPatient());
-        MongoCursor<Document> resultDocument = collection.find().iterator();
-        String jsonResult;
-        float price;
-        Bill bill1;
-
-        while (resultDocument.hasNext()) {
-            Document theObj = resultDocument.next();
-            String billprobe = gson.toJson(theObj.get("patient"));
-            System.out.println("-----" + billprobe);
-            patient1 = gson.fromJson(billprobe, Patient.class);
-            //patient = gson.fromJson(dataFile, Patient.class);
-            billprobe = gson.toJson(theObj.get("products"));
-
-            ArrayList<Product> products3 = gson.fromJson(billprobe, new TypeToken<List<Product>>() {
-            }.getType());
-            for (Product producta : products3) {
-                System.out.println("---" + producta.getDescription());
-            }
-            billprobe = gson.toJson(theObj.get("price"));
-            price = Float.parseFloat(billprobe);
-            bill1 = new Bill(price, patient1, products3);
-
-            SystemView2 bill12 = new SystemView2(bill1.getPatient());
-            bill12.displayBill();
-
-        }
-    }
-
+    
     public Physioterapist retrievePhysioterapist(String username, String password) {
         Physioterapist physioterapist;
         MongoCursor<Document> resultDocument = collection.find().iterator();

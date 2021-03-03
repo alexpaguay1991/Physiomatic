@@ -11,6 +11,7 @@ import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Diagnostic;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.physiomatic.model.Physioterapist;
+import ec.edu.espe.utils.Connection;
 import ec.edu.espe.utils.LoginMenu;
 import ec.edu.espe.utils.Validation;
 import java.text.ParseException;
@@ -31,14 +32,19 @@ public class ClinicalHistoryView {
     public static void manageClinicalHistory() throws ParseException {
         Scanner scanner = new Scanner(System.in);
         Gson gson = new Gson();
-        LoginMenu.logClinicalHistoryMenu();   
+        LoginMenu.logClinicalHistoryMenu();
         int option = LoginMenu.validateOption();
 
         while (option < 5 || option > 0) {
 
             switch (option) {
                 case 1:
-                    FileManager.save("ClinicalHistory.json", gson.toJson(Patient.createClinicalHistory()));
+                    Patient.createClinicalHistory();
+                    Connection connection = new Connection("patients");
+                    Patient patient = new Patient(0, "", "", "", "", "");
+                    connection.insertPatient(patient);
+                    patient = connection.retrievePatient(0);
+                    FileManager.save("ClinicalHistory.json", gson.toJson(patient));
 
                     break;
                 case 2:
@@ -57,8 +63,7 @@ public class ClinicalHistoryView {
                     try {
                         System.out.println("INGRESE EL No. DE CÉDULA DEL PACIENTE: ");
                         long idPatient = scanner.nextLong();
-                        scanner.nextLine();
-                        Patient patient;
+                        scanner.nextLine();                        
                         patient = Physioterapist.retrievePatient(idPatient);
                         SystemView2 clinicalHistory = new SystemView2(patient);
                         clinicalHistory.displayClinicalHistory();

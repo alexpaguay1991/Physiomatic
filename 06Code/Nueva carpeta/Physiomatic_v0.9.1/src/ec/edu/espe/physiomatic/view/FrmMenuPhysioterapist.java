@@ -153,6 +153,11 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         mitmShowClinicalHistory.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         mitmShowClinicalHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/mostrar.png"))); // NOI18N
         mitmShowClinicalHistory.setText("Mostrar");
+        mitmShowClinicalHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mitmShowClinicalHistoryActionPerformed(evt);
+            }
+        });
         mnuClinicalHistory.add(mitmShowClinicalHistory);
 
         mnuModify.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
@@ -247,7 +252,9 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mitmShowAppoinmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitmShowAppoinmentActionPerformed
-        // TODO add your handling code here:
+        FrmAppointmentDisplay frmAppointmentDisplay = new FrmAppointmentDisplay();
+        this.setVisible(false);
+        frmAppointmentDisplay.setVisible(true);
     }//GEN-LAST:event_mitmShowAppoinmentActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -263,7 +270,9 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
     }//GEN-LAST:event_mitmCreateDiagnoticActionPerformed
 
     private void mitmShowBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitmShowBillActionPerformed
-        // TODO add your handling code here:
+        FrmBillDisplay frmBillDisplay = new FrmBillDisplay();
+        this.setVisible(false);
+        frmBillDisplay.setVisible(true);
     }//GEN-LAST:event_mitmShowBillActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -291,6 +300,12 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         this.setVisible(false);
         frmCreateClinicalHistory.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void mitmShowClinicalHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitmShowClinicalHistoryActionPerformed
+        FrmClinicalHistoryDisplay frmClinicalHistoryDisplay = new FrmClinicalHistoryDisplay();
+        this.setVisible(false);
+        frmClinicalHistoryDisplay.setVisible(true);
+    }//GEN-LAST:event_mitmShowClinicalHistoryActionPerformed
 
     /**
      * @param args the command line arguments
