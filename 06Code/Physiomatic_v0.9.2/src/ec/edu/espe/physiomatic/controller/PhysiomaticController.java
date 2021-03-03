@@ -131,5 +131,5 @@ public class PhysiomaticController {
         appointment = gson.fromJson(dataFile, Appointment.class);;
         return appointment;
 
-    }   
+    }        
 }
