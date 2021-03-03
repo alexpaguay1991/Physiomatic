@@ -387,7 +387,7 @@ public class Connection {
             lastName = gson.toJson(theObj.get("lastName")).replace("\"", "");
             email = gson.toJson(theObj.get("email")).replace("\"", "");
             phoneNumber = gson.toJson(theObj.get("phoneNumber")).replace("\"", "");
-            patient = new Patient(id, name, lastName, email, address, phoneNumber);
+            patient = new Patient(id, address, name, lastName, email, phoneNumber);
 
             if (idPatient == patient.getId()) {
                 patientRetrieved = patient;

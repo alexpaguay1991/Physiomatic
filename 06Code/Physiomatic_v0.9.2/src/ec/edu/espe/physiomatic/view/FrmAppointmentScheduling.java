@@ -5,6 +5,13 @@
  */
 package ec.edu.espe.physiomatic.view;
 
+import ec.edu.espe.physiomatic.controller.PatientController;
+import ec.edu.espe.physiomatic.controller.PhysiomaticController;
+import ec.edu.espe.physiomatic.model.Patient;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -27,17 +34,21 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDayChooser1 = new com.toedter.calendar.JDayChooser();
+        dcsDate = new com.toedter.calendar.JDateChooser();
         lblTitle = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtTime = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(dcsDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 110, 20));
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -48,27 +59,70 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
         lblTime.setForeground(new java.awt.Color(255, 255, 255));
         lblTime.setText("Hora:");
         getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 130, -1));
+        getContentPane().add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 130, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Fecha: ");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 130, 20));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Cedula del paciente: ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 140, -1));
+        txtId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 140, -1));
+
+        jToggleButton1.setText("Guardar");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, -1, -1));
+
+        jToggleButton2.setText("Atrás");
+        getContentPane().add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 300));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        String dataToSave = "La información que se guardara es" + "\n" + txtId.getText() + txtTime.getText();
+        int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Citas medicas", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (selection == 0) {
+            JOptionPane.showMessageDialog(null, "La información fue guardada", "Guardar", JOptionPane.INFORMATION_MESSAGE);
+            try {
+                long id = Long.parseLong(txtId.getText());
+                Patient patient;
+                patient = PhysiomaticController.retrievePatient(id);
+                String time = txtTime.getText();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                Date date = dcsDate.getDate();
+                String dateOfAppointment = sdf.format(date);
+                System.out.println(dateOfAppointment);
+                PhysiomaticController.createAppoinment(dateOfAppointment, time, id);
+                emptyFields();
+            } catch (Exception e) {
+                JOptionPane.showConfirmDialog(null, "No se guardó la información debe ingresar solo digitos numéricos en el id", "Registro de Fisioterapista", JOptionPane.ERROR_MESSAGE);
+            }
+            emptyFields();
+        } else if (selection == 1) {
+            JOptionPane.showMessageDialog(null, "Information was NOT saved", "NOT saved", JOptionPane.INFORMATION_MESSAGE);
+            emptyFields();
+        } else {
+            JOptionPane.showMessageDialog(null, "Action was canceled", "Cancelled", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    public void emptyFields() {
+        txtId.setText("");
+        txtTime.setText("");
+        dcsDate.setCalendar(null);
+    }
 
     /**
      * @param args the command line arguments
@@ -106,13 +160,16 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser dcsDate;
+    private com.toedter.calendar.JDayChooser jDayChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtTime;
     // End of variables declaration//GEN-END:variables
 }

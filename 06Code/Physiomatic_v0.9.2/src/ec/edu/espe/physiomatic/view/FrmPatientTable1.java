@@ -8,13 +8,23 @@ package ec.edu.espe.physiomatic.view;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.physiomatic.model.Physioterapist;
 import ec.edu.espe.utils.Connection;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import static java.awt.print.Printable.NO_SUCH_PAGE;
+import static java.awt.print.Printable.PAGE_EXISTS;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Roman Yulliana ESPE-DCCO
  */
-public class FrmPatientTable1 extends javax.swing.JFrame {
+public class FrmPatientTable1 extends javax.swing.JFrame implements Printable {
+
     ArrayList<Patient> patients = new ArrayList<Patient>();
     Connection conection = new Connection("patients");
 
@@ -24,12 +34,12 @@ public class FrmPatientTable1 extends javax.swing.JFrame {
     public FrmPatientTable1() {
         initComponents();
         this.setLocationRelativeTo(null);
-        String [][] matrix;
+        String[][] matrix;
         matrix = Physioterapist.showTable();
         tblPatient.setModel(new javax.swing.table.DefaultTableModel(
                 matrix,
                 new String[]{
-                    "C.I","Nombre", "Apellido", "Direccion", "Email", "Numero de teléfono"
+                    "C.I", "Nombre", "Apellido", "Direccion", "Email", "Numero de teléfono"
                 }
         ));
     }
@@ -43,6 +53,7 @@ public class FrmPatientTable1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonPrint = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPatient = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
@@ -53,6 +64,14 @@ public class FrmPatientTable1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        buttonPrint.setText("Imprimir");
+        buttonPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPrintActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, -1, -1));
 
         tblPatient.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tblPatient.setModel(new javax.swing.table.DefaultTableModel(
@@ -110,6 +129,23 @@ public class FrmPatientTable1 extends javax.swing.JFrame {
         frmMenu.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void buttonPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPrintActionPerformed
+        PrinterJob job = PrinterJob.getPrinterJob();
+
+        job.setPrintable(this);
+
+        if (job.printDialog()) {
+            try {
+                job.print();
+
+            } catch (PrinterException ex) {
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "La impresion se canceló");
+        }
+    }//GEN-LAST:event_buttonPrintActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -148,9 +184,20 @@ public class FrmPatientTable1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton buttonPrint;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblPatient;
     // End of variables declaration//GEN-END:variables
+public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+        if (pageIndex == 0) {
+            Graphics2D graphics2d = (Graphics2D) graphics;
+            graphics2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
+            printAll(graphics2d);
+            return PAGE_EXISTS;
+        } else {
+            return NO_SUCH_PAGE;
+        }
+    }
 }
