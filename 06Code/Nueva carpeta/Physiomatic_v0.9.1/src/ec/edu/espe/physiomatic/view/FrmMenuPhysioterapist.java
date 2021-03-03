@@ -277,7 +277,9 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void mitmShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitmShowActionPerformed
-        // TODO add your handling code here:
+        FrmPatientTable1 frmTable =  new FrmPatientTable1();
+        this.setVisible(false);
+        frmTable.setVisible(true);
     }//GEN-LAST:event_mitmShowActionPerformed
 
     private void mitmCreateBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitmCreateBillActionPerformed

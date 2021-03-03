@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import ec.edu.espe.filemanager.utils.FileManager;
 import ec.edu.espe.physiomatic.controller.PhysiomaticController;
 import ec.edu.espe.physiomatic.view.SystemView2;
+import ec.edu.espe.utils.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -89,6 +90,26 @@ public class Physioterapist extends Person {
             view.displayPatient();
         }
         scanner.nextLine();
+    }
+    
+    public static String[][] showTable() {
+        ArrayList<Patient> patients = new ArrayList<Patient>();
+        Connection conection = new Connection("patients");
+
+        patients = conection.retrievePatients();
+        for (Patient patiens1 : patients) {
+            System.out.println(patiens1.getName());
+        }
+        String matrix[][] = new String[patients.size()][6];
+        for (int i = 0; i < patients.size(); i++) {
+            matrix[i][0] = patients.get(i).getId()+"";
+            matrix[i][1] = patients.get(i).getName();
+            matrix[i][2] = patients.get(i).getLastName();
+            matrix[i][3] = patients.get(i).getAddress();
+            matrix[i][4] = patients.get(i).getEmail();
+            matrix[i][5] = patients.get(i).getPhoneNumber();
+        }
+        return matrix;
     }
 
     public Physioterapist(String userName, String password, long id, String address, String name, String lastname, String email, String phoneNumber) {
