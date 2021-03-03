@@ -252,7 +252,7 @@ public class FrmCreateDiagnostic extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSavedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSavedActionPerformed
-        int selection = JOptionPane.showConfirmDialog(null, null, "¿DESEA REGISTRAR EL PACIENTE?", JOptionPane.YES_NO_CANCEL_OPTION);
+        int selection = JOptionPane.showConfirmDialog(null, null, "¿DESEA REGISTRAR AL PACIENTE?", JOptionPane.YES_NO_CANCEL_OPTION);
         if (selection == 0) {
             JOptionPane.showMessageDialog(null, "SU INFORMACIÓN HA SIDO GUARDADA CON ÉXITO", null + "PACIENTE REGISTRADO", JOptionPane.INFORMATION_MESSAGE);
             emptyFields();
@@ -261,7 +261,7 @@ public class FrmCreateDiagnostic extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "SU INFORMACIÓN NO HA SIDO GUARDADA", null + "NO SE HA REGISTRADO EL PACIENTE", JOptionPane.ERROR_MESSAGE);
             emptyFields();
         } else {
-            JOptionPane.showMessageDialog(null, "LA ACCIÓN FUE CANCELADA", null + "USTED HA CANCELADO LA ACCIÓN", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "LA ACCIÓN FUE CANCELADA", null , JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButtonSavedActionPerformed
 

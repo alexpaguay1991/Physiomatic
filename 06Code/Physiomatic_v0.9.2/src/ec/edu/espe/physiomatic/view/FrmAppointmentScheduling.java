@@ -30,7 +30,6 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -47,7 +46,6 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
         lblTime.setText("Hora:");
         getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 100, -1));
-        getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 410, 200));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -96,7 +94,6 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
