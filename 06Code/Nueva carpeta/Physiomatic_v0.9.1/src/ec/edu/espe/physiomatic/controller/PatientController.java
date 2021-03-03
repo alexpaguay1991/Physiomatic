@@ -11,8 +11,10 @@ import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Diagnostic;
 import ec.edu.espe.physiomatic.model.Patient;
 import static ec.edu.espe.physiomatic.model.Physioterapist.retrievePatient;
+import ec.edu.espe.utils.Connection;
 import ec.edu.espe.utils.LoginMenu;
 import ec.edu.espe.utils.Validation;
+import java.net.ConnectException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,43 +26,49 @@ import java.util.Scanner;
  */
 public class PatientController {
 
-    public static ClinicalHistory createClinicalHistory() {
-        Scanner scanner = new Scanner(System.in);
-        long idPatient = LoginMenu.validateId();
-
-        Patient patient;
-        patient = retrievePatient(idPatient);
-
-        System.out.println("INGRESE LA FECHA DE NACIMIENTO: ");
-        String birthDate = scanner.nextLine();
-
-        System.out.println("INGRESE EL PESO (Kg): ");
-        float weight = scanner.nextFloat();
-        scanner.nextLine();
-
-        System.out.println("INGRESE LA ALTURA (cm): ");
-        float height = scanner.nextFloat();
-        scanner.nextLine();
-
-        ArrayList<Diagnostic> diagnostics = new ArrayList<>();
-
-        System.out.println("INGRESE LOS ANTECEDENTES FAMILIARES: ");
-        String familyBackground = scanner.nextLine();
-        while (!Validation.validateLetters(familyBackground)) {
-            System.out.println("INGRESE ÚNICAMENTE LETRAS:  ");
-            familyBackground = scanner.nextLine();
-        }
-
-        System.out.println("INGRESE LAS ARGIAS: ");
-        String allergy = scanner.nextLine();
-
-        System.out.println("INGRESE EL TIPO DE SANGRE: ");
-        String bloodType = scanner.nextLine();
+    public static void createClinicalHistory(long idPatient, String birthDate, float weight, float height, String familiyBackground, String bloodType, String allergy) {
+        Connection connection = new Connection("patients");
+        Patient patient = connection.retrievePatient(idPatient);
+        connection = new Connection("clinicalHistory");  
+        ArrayList <Diagnostic> diagnostics = new ArrayList<>();
+        ClinicalHistory clinicalHistory = new ClinicalHistory(patient, birthDate, weight, height, familiyBackground, bloodType, allergy, diagnostics );
+        connection.insertClinicalHistory(clinicalHistory);
         
-       
-
-        ClinicalHistory clinicalHistory = new ClinicalHistory(patient, birthDate, weight, height, familyBackground, bloodType, allergy,diagnostics);
-        return clinicalHistory;
+//        Scanner scanner = new Scanner(System.in);
+//        long idPatient = LoginMenu.validateId();
+//
+//        Patient patient;
+//        patient = retrievePatient(idPatient);
+//
+//        System.out.println("INGRESE LA FECHA DE NACIMIENTO: ");
+//        String birthDate = scanner.nextLine();
+//
+//        System.out.println("INGRESE EL PESO (Kg): ");
+//        float weight = scanner.nextFloat();
+//        scanner.nextLine();
+//
+//        System.out.println("INGRESE LA ALTURA (cm): ");
+//        float height = scanner.nextFloat();
+//        scanner.nextLine();
+//
+//        ArrayList<Diagnostic> diagnostics = new ArrayList<>();
+//
+//        System.out.println("INGRESE LOS ANTECEDENTES FAMILIARES: ")
+//        String familyBackground = scanner.nextLine();
+//        while (!Validation.validateLetters(familyBackground)) {
+//            System.out.println("INGRESE ÚNICAMENTE LETRAS:  ");
+//            familyBackground = scanner.nextLine();
+//        }
+//
+//        System.out.println("INGRESE LAS ARGIAS: ");
+//        String allergy = scanner.nextLine();
+//
+//        System.out.println("INGRESE EL TIPO DE SANGRE: ");
+//        String bloodType = scanner.nextLine();
+//        
+//       
+//
+//        ClinicalHistory clinicalHistory = new ClinicalHistory(patient, birthDate, weight, height, familyBackground, bloodType, allergy,diagnostics);        
     }
 
     public static ClinicalHistory retrieveClinicalHistory(long idPatient) {

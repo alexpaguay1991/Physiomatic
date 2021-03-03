@@ -20,13 +20,11 @@ public class Diagnostic {
     private String pathology;
     private String treatment;
     private String symptoms;
-    private String allergies;
-    private String dateOfDiagnostic;
-    LocalDate dateOfDianosticc;
+    private String dateOfDiagnostic;    
 
     @Override
     public String toString() {
-        return "DIAGNÓSTICO {" + "PATOLOGÍA = " + pathology + ", TRATAMIENTO = " + treatment + ", SÍNTOMAS = " + symptoms + ", ALERGIAS = " + allergies + ", FECHA DEL DIAGNÓSTICO = " + dateOfDiagnostic + '}';
+        return "DIAGNÓSTICO {" + "PATOLOGÍA = " + pathology + ", TRATAMIENTO = " + treatment + ", SÍNTOMAS = " + symptoms + ", FECHA DEL DIAGNÓSTICO = " + dateOfDiagnostic + '}';
     }
 
     /**
@@ -37,11 +35,10 @@ public class Diagnostic {
      * @param allergies, saves allergies to account for in diagnosis.
      * @param dateOfDiagnostic, saves the date of appointment.
      */
-    public Diagnostic(String pathology, String treatment, String symptoms, String allergies, String dateOfDiagnostic) {
+    public Diagnostic(String pathology, String treatment, String symptoms, String dateOfDiagnostic) {
         this.pathology = pathology;
         this.treatment = treatment;
         this.symptoms = symptoms;
-        this.allergies = allergies;
         this.dateOfDiagnostic = dateOfDiagnostic;
     }
 
@@ -85,20 +82,6 @@ public class Diagnostic {
      */
     public void setSymptoms(String symptoms) {
         this.symptoms = symptoms;
-    }
-
-    /**
-     * @return the allergies
-     */
-    public String getAllergies() {
-        return allergies;
-    }
-
-    /**
-     * @param allergies the allergies to set
-     */
-    public void setAllergies(String allergies) {
-        this.allergies = allergies;
     }
 
     /**

@@ -69,7 +69,7 @@ public class SystemView2 {
         int counter = 1;
         for (Diagnostic diagnostic : clinicalHistory.getDiagnostics()) {
             System.out.println(counter + " .- PATOLOGÍA : " + diagnostic.getPathology() + " TRATAMIENTO: " + diagnostic.getTreatment() + " SÍNTOMAS: " + diagnostic.getSymptoms());
-            System.out.println("      ALERGÍAS : " + diagnostic.getAllergies() + " FECHA DEL DIAGNÓSTICO : " + diagnostic.getDateOfDiagnostic());
+            System.out.println( " FECHA DEL DIAGNÓSTICO : " + diagnostic.getDateOfDiagnostic());
             counter = counter + 1;
         }
 

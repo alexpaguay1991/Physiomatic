@@ -24,13 +24,8 @@ import java.util.Scanner;
  */
 public class Patient extends Person{
 
-   
-
-    
-    public static ClinicalHistory createClinicalHistory() {
-        
-        ClinicalHistory clinicalHistory = PatientController.createClinicalHistory();
-        return clinicalHistory;
+    public static void createClinicalHistory() {        
+       PatientController.createClinicalHistory(10, "", 0, 0, "", "", "");        
     }
 
     public static void updateClinicalHistory(long idPatient) {

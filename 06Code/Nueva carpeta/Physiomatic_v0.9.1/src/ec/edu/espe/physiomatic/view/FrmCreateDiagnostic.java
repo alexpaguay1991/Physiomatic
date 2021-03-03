@@ -309,9 +309,9 @@ public class FrmCreateDiagnostic extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> DayBox;
-    private javax.swing.JComboBox<String> MonthBox;
-    private javax.swing.JComboBox<String> YearBox;
+    public static javax.swing.JComboBox<String> DayBox;
+    public static javax.swing.JComboBox<String> MonthBox;
+    public static javax.swing.JComboBox<String> YearBox;
     private javax.swing.JButton jButtonSaved;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -329,9 +329,9 @@ public class FrmCreateDiagnostic extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JRadioButton jrbNo;
     private javax.swing.JRadioButton jrbYes;
-    private javax.swing.JList<String> listSymphtoms;
+    public static javax.swing.JList<String> listSymphtoms;
     private javax.swing.JTextArea txaAlergy;
-    private javax.swing.JTextArea txaTreatment;
-    private javax.swing.JTextField txtPatology;
+    public static javax.swing.JTextArea txaTreatment;
+    public static javax.swing.JTextField txtPatology;
     // End of variables declaration//GEN-END:variables
 }
