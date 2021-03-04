@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.physiomatic.view;
 
+import ec.edu.espe.physiomatic.controller.PhysiomaticController;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.physiomatic.model.Physioterapist;
 import ec.edu.espe.utils.Connection;
@@ -35,7 +36,7 @@ public class FrmClinicalHistoryTable extends javax.swing.JFrame implements Print
         initComponents();
         this.setLocationRelativeTo(null);
         String[][] matrix;
-        matrix = Physioterapist.showTableClinicalHistory();
+        matrix = PhysiomaticController.showTableClinicalHistories();
         tblPatient.setModel(new javax.swing.table.DefaultTableModel(
                 matrix,
                 new String[]{
@@ -65,13 +66,16 @@ public class FrmClinicalHistoryTable extends javax.swing.JFrame implements Print
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        buttonPrint.setBackground(new java.awt.Color(0, 51, 51));
+        buttonPrint.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        buttonPrint.setForeground(new java.awt.Color(255, 255, 255));
         buttonPrint.setText("Imprimir");
         buttonPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonPrintActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 520, -1, -1));
+        getContentPane().add(buttonPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 30, -1, -1));
 
         tblPatient.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tblPatient.setModel(new javax.swing.table.DefaultTableModel(
@@ -84,10 +88,10 @@ public class FrmClinicalHistoryTable extends javax.swing.JFrame implements Print
         ));
         jScrollPane1.setViewportView(tblPatient);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 760, 340));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 1030, 340));
 
         btnBack.setBackground(new java.awt.Color(0, 51, 51));
-        btnBack.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Atrás");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +102,7 @@ public class FrmClinicalHistoryTable extends javax.swing.JFrame implements Print
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(0, 51, 51));
-        btnExit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnExit.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btnExit.setForeground(new java.awt.Color(255, 255, 255));
         btnExit.setText("Salir");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -106,15 +110,15 @@ public class FrmClinicalHistoryTable extends javax.swing.JFrame implements Print
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 460, -1, -1));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 470, -1, -1));
 
         lblTitle.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
-        lblTitle.setText("PACIENTES REGISTRADOS");
-        getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+        lblTitle.setText("HISTORIAS CLINICAS");
+        getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
 
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
-        getContentPane().add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 570));
+        getContentPane().add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

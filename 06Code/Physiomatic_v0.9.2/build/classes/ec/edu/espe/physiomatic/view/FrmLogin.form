@@ -75,11 +75,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="tfUser">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="99" red="0" type="rgb"/>
-        </Property>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfUserActionPerformed"/>
       </Events>
@@ -90,11 +85,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JPasswordField" name="tfpassword">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="99" red="0" type="rgb"/>
-        </Property>
-      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="170" y="380" width="160" height="30"/>
@@ -107,7 +97,7 @@
           <Color blue="33" green="33" red="0" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="11" style="0"/>
+          <Font name="Dialog" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -129,7 +119,7 @@
           <Color blue="33" green="33" red="0" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="11" style="0"/>
+          <Font name="Dialog" size="14" style="1"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -141,7 +131,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="250" y="440" width="91" height="-1"/>
+          <AbsoluteConstraints x="230" y="440" width="-1" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -160,7 +150,7 @@
     <Component class="javax.swing.JLabel" name="lbBackground">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/ec/edu/espe/pictures/background2.jpg"/>
+          <Image iconType="3" name="/ec/edu/espe/pictures/background.jpg"/>
         </Property>
       </Properties>
       <Constraints>

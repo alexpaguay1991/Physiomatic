@@ -22,6 +22,7 @@ public class FrmCreatePatient extends javax.swing.JFrame {
     Connection conection;
     public FrmCreatePatient() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /** This method is called from within the constructor to
@@ -69,18 +70,27 @@ public class FrmCreatePatient extends javax.swing.JFrame {
         jPanel1.add(tfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 350, -1));
         jPanel1.add(tfAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 320, -1));
 
+        buttonCancel.setBackground(new java.awt.Color(0, 51, 51));
         buttonCancel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        buttonCancel.setText("CANCELAR");
-        jPanel1.add(buttonCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 100, 30));
+        buttonCancel.setForeground(new java.awt.Color(255, 255, 255));
+        buttonCancel.setText("ATRÁS");
+        buttonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelActionPerformed(evt);
+            }
+        });
+        jPanel1.add(buttonCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 100, 30));
 
+        buttonSaved.setBackground(new java.awt.Color(0, 51, 51));
         buttonSaved.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        buttonSaved.setForeground(new java.awt.Color(255, 255, 255));
         buttonSaved.setText("GUARDAR");
         buttonSaved.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSavedActionPerformed(evt);
             }
         });
-        jPanel1.add(buttonSaved, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 100, 30));
+        jPanel1.add(buttonSaved, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 100, 30));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -157,12 +167,12 @@ public class FrmCreatePatient extends javax.swing.JFrame {
                 String address = tfAddress.getText();
                 String phoneNumber = txtContact.getText();
 
-                Patient patient = new Patient(id, name, lastName, email, address, phoneNumber);
+                Patient patient = new Patient(id, address, name, lastName, email, phoneNumber);
                 patient.createAPerson();
                 emptyFields();
                
             } catch (Exception e) {
-                JOptionPane.showConfirmDialog(null, "No se guardó la información debe ingresar solo digitos numéricos en el id", "Registro de Fisioterapista", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "No se guardó la información debe ingresar solo digitos numéricos en el id", "Registro de Fisioterapista", JOptionPane.ERROR_MESSAGE);
 
             }
 
@@ -173,6 +183,12 @@ public class FrmCreatePatient extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "LA ACCIÓN FUE CANCELADA", txtLastName + "USTED HA CANCELADO LA ACCIÓN", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_buttonSavedActionPerformed
+
+    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+        FrmPhysioterapistManagment frmPhysioterapistManagment = new FrmPhysioterapistManagment();
+        this.setVisible(false);
+        frmPhysioterapistManagment.setVisible(true);
+    }//GEN-LAST:event_buttonCancelActionPerformed
 
      public void emptyFields() {
         txtId.setText("");

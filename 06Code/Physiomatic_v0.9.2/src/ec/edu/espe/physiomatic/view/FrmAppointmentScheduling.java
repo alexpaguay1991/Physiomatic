@@ -42,24 +42,24 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
+        tbnExit = new javax.swing.JToggleButton();
+        btnBack = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(dcsDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 110, 20));
+        getContentPane().add(dcsDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 140, 30));
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Agendar Cita");
-        getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
+        getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
 
         lblTime.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblTime.setForeground(new java.awt.Color(255, 255, 255));
         lblTime.setText("Hora:");
         getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
-        getContentPane().add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 130, -1));
+        getContentPane().add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 120, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -72,18 +72,24 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
         txtId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 140, -1));
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 53, 160, 30));
 
-        jToggleButton1.setText("Guardar");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        tbnExit.setBackground(new java.awt.Color(0, 51, 51));
+        tbnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tbnExit.setForeground(new java.awt.Color(255, 255, 255));
+        tbnExit.setText("Guardar");
+        tbnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                tbnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, -1, -1));
+        getContentPane().add(tbnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, -1, -1));
 
-        jToggleButton2.setText("Atrás");
-        getContentPane().add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
+        btnBack.setBackground(new java.awt.Color(0, 51, 51));
+        btnBack.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("Atrás");
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 300));
@@ -91,7 +97,7 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void tbnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnExitActionPerformed
         String dataToSave = "La información que se guardara es" + "\n" + txtId.getText() + txtTime.getText();
         int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Citas medicas", JOptionPane.YES_NO_CANCEL_OPTION);
         if (selection == 0) {
@@ -117,7 +123,7 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Action was canceled", "Cancelled", JOptionPane.WARNING_MESSAGE);
         }
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_tbnExitActionPerformed
     public void emptyFields() {
         txtId.setText("");
         txtTime.setText("");
@@ -160,15 +166,15 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnBack;
     private com.toedter.calendar.JDateChooser dcsDate;
     private com.toedter.calendar.JDayChooser jDayChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JLabel lblTime;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JToggleButton tbnExit;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtTime;
     // End of variables declaration//GEN-END:variables

@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.physiomatic.view;
 
+import ec.edu.espe.physiomatic.controller.PhysiomaticController;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.physiomatic.model.Physioterapist;
 import ec.edu.espe.utils.Connection;
@@ -23,7 +24,7 @@ import javax.swing.JOptionPane;
  *
  * @author Roman Yulliana ESPE-DCCO
  */
-public class FrmPatientTable1 extends javax.swing.JFrame implements Printable {
+public class FrmPatientTable extends javax.swing.JFrame implements Printable {
 
     ArrayList<Patient> patients = new ArrayList<Patient>();
     Connection conection = new Connection("patients");
@@ -31,11 +32,11 @@ public class FrmPatientTable1 extends javax.swing.JFrame implements Printable {
     /**
      * Creates new form FrmPatientTable1
      */
-    public FrmPatientTable1() {
+    public FrmPatientTable() {
         initComponents();
         this.setLocationRelativeTo(null);
         String[][] matrix;
-        matrix = Physioterapist.showTable();
+        matrix = PhysiomaticController.showTable();
         tblPatient.setModel(new javax.swing.table.DefaultTableModel(
                 matrix,
                 new String[]{
@@ -65,13 +66,16 @@ public class FrmPatientTable1 extends javax.swing.JFrame implements Printable {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        buttonPrint.setBackground(new java.awt.Color(0, 51, 51));
+        buttonPrint.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        buttonPrint.setForeground(new java.awt.Color(255, 255, 255));
         buttonPrint.setText("Imprimir");
         buttonPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonPrintActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, -1, -1));
+        getContentPane().add(buttonPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, -1, -1));
 
         tblPatient.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tblPatient.setModel(new javax.swing.table.DefaultTableModel(
@@ -163,20 +167,21 @@ public class FrmPatientTable1 extends javax.swing.JFrame implements Printable {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmPatientTable1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPatientTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmPatientTable1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPatientTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmPatientTable1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPatientTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmPatientTable1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPatientTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmPatientTable1().setVisible(true);
+                new FrmPatientTable().setVisible(true);
             }
         });
     }

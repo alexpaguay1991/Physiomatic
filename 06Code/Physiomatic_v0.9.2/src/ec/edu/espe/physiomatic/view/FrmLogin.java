@@ -64,19 +64,16 @@ public class FrmLogin extends javax.swing.JFrame {
         jLabel3.setText("CONTRASEÑA:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 130, 30));
 
-        tfUser.setBackground(new java.awt.Color(0, 153, 153));
         tfUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfUserActionPerformed(evt);
             }
         });
         getContentPane().add(tfUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 160, 30));
-
-        tfpassword.setBackground(new java.awt.Color(0, 153, 153));
         getContentPane().add(tfpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, 160, 30));
 
         btnAccept.setBackground(new java.awt.Color(0, 51, 51));
-        btnAccept.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        btnAccept.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnAccept.setForeground(new java.awt.Color(255, 255, 255));
         btnAccept.setText("Atrás");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +84,7 @@ public class FrmLogin extends javax.swing.JFrame {
         getContentPane().add(btnAccept, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, 91, -1));
 
         btnNext.setBackground(new java.awt.Color(0, 51, 51));
-        btnNext.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        btnNext.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         btnNext.setForeground(new java.awt.Color(255, 255, 255));
         btnNext.setText("Siguiente");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
@@ -95,12 +92,12 @@ public class FrmLogin extends javax.swing.JFrame {
                 btnNextActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 91, -1));
+        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, -1, 30));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/userIcon.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 200, 220));
 
-        lbBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background2.jpg"))); // NOI18N
+        lbBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
         getContentPane().add(lbBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 392, 529));
 
         pack();

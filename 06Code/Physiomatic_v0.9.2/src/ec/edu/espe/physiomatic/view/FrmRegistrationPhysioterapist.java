@@ -162,7 +162,6 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         getContentPane().add(lbId, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
 
         txtId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtId.setForeground(new java.awt.Color(0, 51, 51));
         getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 550, 30));
 
         lbEmail.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N

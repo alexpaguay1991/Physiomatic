@@ -20,12 +20,8 @@ public class Diagnostic {
     private String pathology;
     private String treatment;
     private String symptoms;
-    private String dateOfDiagnostic;    
-
-    @Override
-    public String toString() {
-        return "DIAGNÓSTICO {" + "PATOLOGÍA = " + pathology + ", TRATAMIENTO = " + treatment + ", SÍNTOMAS = " + symptoms + ", FECHA DEL DIAGNÓSTICO = " + dateOfDiagnostic + '}';
-    }
+    private String dateOfDiagnostic;
+    private String allergy;
 
     /**
      * 
@@ -35,11 +31,13 @@ public class Diagnostic {
      * @param allergies, saves allergies to account for in diagnosis.
      * @param dateOfDiagnostic, saves the date of appointment.
      */
-    public Diagnostic(String pathology, String treatment, String symptoms, String dateOfDiagnostic) {
+    
+    public Diagnostic(String pathology, String treatment, String symptoms, String dateOfDiagnostic, String allergy) {
         this.pathology = pathology;
         this.treatment = treatment;
         this.symptoms = symptoms;
         this.dateOfDiagnostic = dateOfDiagnostic;
+        this.allergy = allergy;
     }
 
     /**
@@ -96,6 +94,20 @@ public class Diagnostic {
      */
     public void setDateOfDiagnostic(String dateOfDiagnostic) {
         this.dateOfDiagnostic = dateOfDiagnostic;
+    }
+
+    /**
+     * @return the allergy
+     */
+    public String getAllergy() {
+        return allergy;
+    }
+
+    /**
+     * @param allergy the allergy to set
+     */
+    public void setAllergy(String allergy) {
+        this.allergy = allergy;
     }
    
 }

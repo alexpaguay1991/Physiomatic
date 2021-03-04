@@ -50,7 +50,7 @@ public class ClinicalHistoryController {
         }
         
 
-        Diagnostic diagnostic = new Diagnostic(pathology, treatment, symptoms, dateOfDiagnostic);
+        Diagnostic diagnostic = new Diagnostic(pathology, treatment, symptoms, dateOfDiagnostic, "");
 
         return diagnostic;
     }

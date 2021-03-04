@@ -90,48 +90,6 @@ public class Physioterapist extends Person {
         scanner.nextLine();
     }
 
-    public static String[][] showTable() {
-        ArrayList<Patient> patients = new ArrayList<Patient>();
-        Connection conection = new Connection("patients");
-
-        patients = conection.retrievePatients();
-        for (Patient patiens1 : patients) {
-            System.out.println(patiens1.getName());
-        }
-        String matrix[][] = new String[patients.size()][6];
-        for (int i = 0; i < patients.size(); i++) {
-            matrix[i][0] = patients.get(i).getId() + "";
-            matrix[i][1] = patients.get(i).getName();
-            matrix[i][2] = patients.get(i).getLastName();
-            matrix[i][3] = patients.get(i).getAddress();
-            matrix[i][4] = patients.get(i).getEmail();
-            matrix[i][5] = patients.get(i).getPhoneNumber();
-        }
-        return matrix;
-    }
-
-    public static String[][] showTableClinicalHistory() {
-        ArrayList<ClinicalHistory> clinicaHistories = new ArrayList<>();
-        Connection conection = new Connection("clinicalHistory");
-        clinicaHistories = conection.retrieveClinicalHistories();
-        String matrix[][] = new String[clinicaHistories.size()][8];
-        for (int i = 0; i < clinicaHistories.size(); i++) {
-            matrix[i][5] = clinicaHistories.get(i).getAllergy();
-            matrix[i][1] = clinicaHistories.get(i).getBirthDate();
-            matrix[i][6] = clinicaHistories.get(i).getBloodType();
-            matrix[i][0] = clinicaHistories.get(i).getPatient().getId() + "";
-            matrix[i][7] = clinicaHistories.get(i).getFamiliyBackground();
-            matrix[i][1] = clinicaHistories.get(i).getPatient().getName();
-            matrix[i][2] = clinicaHistories.get(i).getPatient().getLastName();            
-        }
-        return matrix;
-    }
-//    public static String[][] createDiagnosticTable(){
-//        ArrayList<Diagnostic> diagnostics = new ArrayList<Diagnostic>();
-//        Connection conection = new Connection("diagnostics");
-//        
-//    }
-
     public Physioterapist(String userName, String password, long id, String address, String name, String lastname, String email, String phoneNumber) {
         super(id, address, name, lastname, email, phoneNumber);
         this.userName = userName;

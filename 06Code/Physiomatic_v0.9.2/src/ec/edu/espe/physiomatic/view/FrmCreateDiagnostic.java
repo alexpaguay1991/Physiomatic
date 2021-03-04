@@ -18,6 +18,7 @@ public class FrmCreateDiagnostic extends javax.swing.JFrame {
      */
     public FrmCreateDiagnostic() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -29,248 +30,90 @@ public class FrmCreateDiagnostic extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txtPatology = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listSymphtoms = new javax.swing.JList<>();
-        jLabel4 = new javax.swing.JLabel();
-        jrbYes = new javax.swing.JRadioButton();
-        jrbNo = new javax.swing.JRadioButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txaAlergy = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        lblPathology = new javax.swing.JLabel();
+        txtPathology = new javax.swing.JTextField();
+        lblSymptoms = new javax.swing.JLabel();
+        txtaSymptoms = new javax.swing.JScrollPane();
+        txtSymptom = new javax.swing.JTextArea();
+        lblTreatment = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txaTreatment = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
-        MonthBox = new javax.swing.JComboBox<>();
-        YearBox = new javax.swing.JComboBox<>();
-        DayBox = new javax.swing.JComboBox<>();
-        jPanel2 = new javax.swing.JPanel();
-        jButtonSaved = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        dcsDate = new com.toedter.calendar.JDateChooser();
+        btnSave = new javax.swing.JToggleButton();
+        btnBack = new javax.swing.JToggleButton();
+        lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Patología:");
+        lblTitle.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lblTitle.setText("DIAGNÓSTICO");
+        getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
 
-        jLabel3.setText("Síntomas:");
+        lblPathology.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblPathology.setForeground(new java.awt.Color(255, 255, 255));
+        lblPathology.setText("Patología:");
+        getContentPane().add(lblPathology, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
-        listSymphtoms.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Síntoma 1.", "Síntoma 2.", "Síntoma 3.", "Síntoma 4.", "Síntoma 5." };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(listSymphtoms);
+        txtPathology.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        getContentPane().add(txtPathology, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 400, -1));
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel4.setText("¿El paciente tiene alguna alergia?");
+        lblSymptoms.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblSymptoms.setForeground(new java.awt.Color(255, 255, 255));
+        lblSymptoms.setText("Síntomas:");
+        getContentPane().add(lblSymptoms, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
-        jrbYes.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jrbYes.setText("Si");
+        txtSymptom.setColumns(20);
+        txtSymptom.setFont(new java.awt.Font("Monospaced", 0, 16)); // NOI18N
+        txtSymptom.setRows(5);
+        txtaSymptoms.setViewportView(txtSymptom);
 
-        jrbNo.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jrbNo.setText("No");
+        getContentPane().add(txtaSymptoms, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 400, 100));
 
-        txaAlergy.setColumns(20);
-        txaAlergy.setRows(5);
-        txaAlergy.setToolTipText("Si la respuesta fue afirmativa, describas las alergias del paciente, caso contrario, deje este campo vacío.");
-        jScrollPane2.setViewportView(txaAlergy);
-
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel5.setText("Fecha de registro:");
-
-        jLabel6.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel6.setText("Día:");
-
-        jLabel7.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel7.setText("Mes:");
-
-        jLabel8.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel8.setText("Tratamiento:");
+        lblTreatment.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        lblTreatment.setForeground(new java.awt.Color(255, 255, 255));
+        lblTreatment.setText("Tratamiento:");
+        getContentPane().add(lblTreatment, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
 
         txaTreatment.setColumns(20);
         txaTreatment.setRows(5);
         jScrollPane3.setViewportView(txaTreatment);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
-        jLabel1.setText("Año:");
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 390, 90));
 
-        MonthBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+        lblDate.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblDate.setForeground(new java.awt.Color(255, 255, 255));
+        lblDate.setText("Fecha del diagnóstico:");
+        getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
+        getContentPane().add(dcsDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 170, 30));
 
-        YearBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995", "1994", "1993", "1992", "1991", "1990", "1989", "1988", "1987", "1986", "1985", "1984", "1983", "1982", "1981", "1980", "1979", "1978", "1977", "1976", "1975", "1974", "1973", "1972", "1971", "1970", "1969", "1968", "1967", "1966", "1965", "1964", "1963", "1962", "1961", "1960", "1959", "1958", "1957", "1956", "1955", "1954", "1953", "1952", "1951", "1950", "1949", "1948", "1947", "1946", "1945", "1944", "1943", "1942", "1941", "1940", "1939", "1938", "1937", "1936", "1935", "1934", "1933", "1932", "1931", "1930", "1929", "1928", "1927", "1926", "1925", "1924", "1923", "1922", "1921", "1920" }));
+        btnSave.setBackground(new java.awt.Color(0, 51, 51));
+        btnSave.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Guardar");
+        getContentPane().add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, -1, -1));
 
-        DayBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        btnBack.setBackground(new java.awt.Color(0, 51, 51));
+        btnBack.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("Atrás");
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPatology, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel6)
-                                .addGap(4, 4, 4)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jrbYes)
-                                .addGap(69, 69, 69)
-                                .addComponent(jrbNo))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(DayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(47, 47, 47)
-                                .addComponent(jLabel7)
-                                .addGap(1, 1, 1)
-                                .addComponent(MonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1)
-                                .addGap(2, 2, 2)
-                                .addComponent(YearBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3)))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtPatology, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jrbYes)
-                    .addComponent(jrbNo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(jLabel6)
-                        .addComponent(jLabel7)
-                        .addComponent(MonthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(DayBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(YearBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jButtonSaved.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonSaved.setText("Guardar");
-        jButtonSaved.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSavedActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(257, 257, 257)
-                .addComponent(jButtonSaved)
-                .addContainerGap(319, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addComponent(jButtonSaved)
-                .addContainerGap())
-        );
-
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
-        jLabel9.setText("DIAGNÓSTICO");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(221, 221, 221))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
+        lblBackground.setText("jLabel10");
+        getContentPane().add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonSavedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSavedActionPerformed
-        int selection = JOptionPane.showConfirmDialog(null, null, "¿DESEA REGISTRAR AL PACIENTE?", JOptionPane.YES_NO_CANCEL_OPTION);
-        if (selection == 0) {
-            JOptionPane.showMessageDialog(null, "SU INFORMACIÓN HA SIDO GUARDADA CON ÉXITO", null + "PACIENTE REGISTRADO", JOptionPane.INFORMATION_MESSAGE);
-            emptyFields();
-                          
-        } else if (selection == 1) {
-            JOptionPane.showMessageDialog(null, "SU INFORMACIÓN NO HA SIDO GUARDADA", null + "NO SE HA REGISTRADO EL PACIENTE", JOptionPane.ERROR_MESSAGE);
-            emptyFields();
-        } else {
-            JOptionPane.showMessageDialog(null, "LA ACCIÓN FUE CANCELADA", null , JOptionPane.WARNING_MESSAGE);
-        }
-    }//GEN-LAST:event_jButtonSavedActionPerformed
-
     public void emptyFields() {
-        txtPatology.setText("");
-        txaAlergy.setText("");
+        txtPathology.setText("");        
         txaTreatment.setText("");
-        listSymphtoms.setToolTipText("");
-   
+        txtSymptom.setText("");
+        dcsDate.setCalendar(null);
     }
     
     /**
@@ -309,29 +152,19 @@ public class FrmCreateDiagnostic extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static javax.swing.JComboBox<String> DayBox;
-    public static javax.swing.JComboBox<String> MonthBox;
-    public static javax.swing.JComboBox<String> YearBox;
-    private javax.swing.JButton jButtonSaved;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JToggleButton btnBack;
+    private javax.swing.JToggleButton btnSave;
+    private com.toedter.calendar.JDateChooser dcsDate;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JRadioButton jrbNo;
-    private javax.swing.JRadioButton jrbYes;
-    public static javax.swing.JList<String> listSymphtoms;
-    private javax.swing.JTextArea txaAlergy;
+    private javax.swing.JLabel lblBackground;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblPathology;
+    private javax.swing.JLabel lblSymptoms;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblTreatment;
     public static javax.swing.JTextArea txaTreatment;
-    public static javax.swing.JTextField txtPatology;
+    private javax.swing.JTextField txtPathology;
+    private javax.swing.JTextArea txtSymptom;
+    private javax.swing.JScrollPane txtaSymptoms;
     // End of variables declaration//GEN-END:variables
 }
