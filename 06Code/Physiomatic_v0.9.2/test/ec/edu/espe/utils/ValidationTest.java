@@ -5,51 +5,53 @@
  */
 package ec.edu.espe.utils;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
- * @author Santiago Risueño ESPE-DCCO
+ * @author Daniel
  */
-public class ValidationIT {
+public class ValidationTest {
     
-    public ValidationIT() {
+    public ValidationTest() {
     }
     
-    @BeforeClass
+    @BeforeAll
     public static void setUpClass() {
     }
     
-    @AfterClass
+    @AfterAll
     public static void tearDownClass() {
     }
     
-    @Before
+    @BeforeEach
     public void setUp() {
     }
     
-    @After
+    @AfterEach
     public void tearDown() {
     }
 
-//    /**
-//     * Test of validateEntries method, of class Validation.
-//     */
-//    @Test
-//    public void testValidateEntries() {
-//        System.out.println("validateEntries");
-//        String newEntrie = "algo";
-//        boolean expResult = false;
-//        boolean result = Validation.validateEntries(newEntrie);
-//        assertEquals(expResult, result);
-//    }
-    
     /**
+     * Test of validateEntries method, of class Validation.
+     */
+    @Test
+    public void testValidateEntries() {
+        System.out.println("validateEntries");
+        String newEntrie = "";
+        boolean expResult = false;
+        boolean result = Validation.validateEntries(newEntrie);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+   /**
      * Test of validateLetters method, of class Validation.
      */
     @Test
@@ -70,7 +72,7 @@ public class ValidationIT {
         String letters = "perro";
         boolean expResult = true;
         boolean result = Validation.validateLetters(letters);
-        assertEquals(expResult, result);
+        assertEquals(expResult, result); 
     }
     
     /**
@@ -1257,5 +1259,6 @@ public class ValidationIT {
         boolean result = Validation.isFloat(string);
         assertEquals(expResult, result);
     }
+
     
 }
