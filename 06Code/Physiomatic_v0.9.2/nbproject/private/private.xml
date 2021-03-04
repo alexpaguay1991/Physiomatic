@@ -3,14 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/Physiomatic_v0.9.2/src/ec/edu/espe/physiomatic/view/FrmPhysioterapistManagment.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/Physiomatic_v0.9.2/src/ec/edu/espe/physiomatic/view/FrmRegistrationPhysioterapist.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/Physiomatic_v0.9.2/test/ec/edu/espe/utils/ValidationTest.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/Physiomatic_v0.9.2/src/ec/edu/espe/physiomatic/view/FrmClinicalHistoryDisplay.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/Physiomatic_v0.9.2/test/ec/edu/espe/utils/UnitTestValidation.txt</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/Physiomatic_v0.9.2/src/ec/edu/espe/physiomatic/view/FrmPatientTable.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/Physiomatic_v0.9.2/src/ec/edu/espe/physiomatic/view/FrmCreateDiagnostic.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/Physiomatic_v0.9.2/src/ec/edu/espe/physiomatic/view/FrmMenuPhysioterapist.java</file>
+            <file>file:/run/media/pzeadrian/disk%20R/espe/level2/poo3248/prjctx/Physiomatic/06Code/Physiomatic_v0.9.2/src/ec/edu/espe/physiomatic/controller/PhysiomaticController.java</file>
+            <file>file:/run/media/pzeadrian/disk%20R/espe/level2/poo3248/prjctx/Physiomatic/06Code/Physiomatic_v0.9.2/src/ec/edu/espe/utils/Connection.java</file>
+            <file>file:/run/media/pzeadrian/disk%20R/espe/level2/poo3248/prjctx/Physiomatic/06Code/Physiomatic_v0.9.2/src/ec/edu/espe/physiomatic/view/FrmClinicalHistoryDisplay.java</file>
+            <file>file:/run/media/pzeadrian/disk%20R/espe/level2/poo3248/prjctx/Physiomatic/06Code/Physiomatic_v0.9.2/src/ec/edu/espe/utils/Validation.java</file>
         </group>
     </open-files>
 </project-private>

@@ -315,7 +315,7 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
                     }
             ));
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "El paciente no está registrado", "Historia Clinica", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "El paciente no está registrado", "Historia Clínica", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnExitActionPerformed
 
