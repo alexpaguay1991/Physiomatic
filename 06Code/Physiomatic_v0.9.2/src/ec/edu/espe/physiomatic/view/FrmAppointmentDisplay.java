@@ -8,6 +8,14 @@ package ec.edu.espe.physiomatic.view;
 import ec.edu.espe.physiomatic.controller.PhysiomaticController;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.utils.Connection;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import static java.awt.print.Printable.NO_SUCH_PAGE;
+import static java.awt.print.Printable.PAGE_EXISTS;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 
@@ -15,7 +23,7 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class FrmAppointmentDisplay extends javax.swing.JFrame {
+public class FrmAppointmentDisplay extends javax.swing.JFrame implements Printable {
 
     Connection connection = new Connection("patients");
     Patient patient;
@@ -36,6 +44,7 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonPrint = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         lblName = new javax.swing.JLabel();
@@ -54,6 +63,15 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        buttonPrint.setForeground(new java.awt.Color(255, 255, 255));
+        buttonPrint.setText("Imprimir");
+        buttonPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPrintActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 440, -1, -1));
 
         lblTitle.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -112,31 +130,23 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame {
         btnBack.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Atrás");
-<<<<<<< HEAD
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, -1));
-=======
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, -1, -1));
->>>>>>> 8af7d89dfa292b95218b4d06403e1039e77e9c3a
 
         btnExit.setBackground(new java.awt.Color(0, 51, 51));
         btnExit.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         btnExit.setForeground(new java.awt.Color(255, 255, 255));
         btnExit.setText("Salir");
-<<<<<<< HEAD
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, -1, -1));
-=======
         getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 440, -1, -1));
->>>>>>> 8af7d89dfa292b95218b4d06403e1039e77e9c3a
 
         tblAppointment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -172,7 +182,7 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame {
     }//GEN-LAST:event_txtLastNameActionPerformed
 
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
-        
+
         try {
             patient = connection.retrievePatient(Long.parseLong(txtId.getText()));
             txtName.setText(patient.getName());
@@ -201,6 +211,23 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void buttonPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPrintActionPerformed
+        PrinterJob job = PrinterJob.getPrinterJob();
+
+        job.setPrintable(this);
+
+        if (job.printDialog()) {
+            try {
+                job.print();
+
+            } catch (PrinterException ex) {
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "La impresion se canceló");
+        }
+    }//GEN-LAST:event_buttonPrintActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,6 +271,7 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnShow;
+    private javax.swing.JButton buttonPrint;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblId;
@@ -257,4 +285,15 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame {
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhoneNumber;
     // End of variables declaration//GEN-END:variables
+@Override
+    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+        if (pageIndex == 0) {
+            Graphics2D graphics2d = (Graphics2D) graphics;
+            graphics2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
+            printAll(graphics2d);
+            return PAGE_EXISTS;
+        } else {
+            return NO_SUCH_PAGE;
+        }
+    }
 }

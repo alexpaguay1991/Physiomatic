@@ -9,13 +9,21 @@ import ec.edu.espe.physiomatic.controller.PhysiomaticController;
 import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.utils.Connection;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import static java.awt.print.Printable.NO_SUCH_PAGE;
+import static java.awt.print.Printable.PAGE_EXISTS;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author User
  */
-public class FrmClinicalHistoryDisplay extends javax.swing.JFrame {
+public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Printable {
 
     ClinicalHistory clinicalHistory;
     Patient patient;
@@ -38,6 +46,7 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonPrint = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         lblPersonalInformation = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
@@ -75,6 +84,15 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        buttonPrint.setForeground(new java.awt.Color(255, 255, 255));
+        buttonPrint.setText("Imprimir");
+        buttonPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPrintActionPerformed(evt);
+            }
+        });
+        getContentPane().add(buttonPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 690, -1, -1));
 
         lblTitle.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -311,6 +329,23 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void buttonPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPrintActionPerformed
+        PrinterJob job = PrinterJob.getPrinterJob();
+
+        job.setPrintable(this);
+
+        if (job.printDialog()) {
+            try {
+                job.print();
+
+            } catch (PrinterException ex) {
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "La impresion se canceló");
+        }
+    }//GEN-LAST:event_buttonPrintActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -352,6 +387,7 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton buttonPrint;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -384,4 +420,15 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame {
     public javax.swing.JTextField txtWeight;
     public javax.swing.JTextArea txtaFamilyBackground;
     // End of variables declaration//GEN-END:variables
+    @Override
+    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+        if (pageIndex == 0) {
+            Graphics2D graphics2d = (Graphics2D) graphics;
+            graphics2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
+            printAll(graphics2d);
+            return PAGE_EXISTS;
+        } else {
+            return NO_SUCH_PAGE;
+        }
+    }
 }
