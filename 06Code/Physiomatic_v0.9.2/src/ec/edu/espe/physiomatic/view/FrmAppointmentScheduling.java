@@ -50,29 +50,29 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(dcsDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 140, 30));
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Agendar Cita");
-        getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
+        getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
 
-        lblTime.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblTime.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblTime.setForeground(new java.awt.Color(255, 255, 255));
         lblTime.setText("Hora:");
-        getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
-        getContentPane().add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 120, 30));
+        getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, -1, 30));
+        getContentPane().add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 120, 30));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Fecha: ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, 30));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Cedula del paciente: ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, 30));
 
         txtId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 53, 160, 30));
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 160, 30));
 
         tbnExit.setBackground(new java.awt.Color(0, 51, 51));
         tbnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

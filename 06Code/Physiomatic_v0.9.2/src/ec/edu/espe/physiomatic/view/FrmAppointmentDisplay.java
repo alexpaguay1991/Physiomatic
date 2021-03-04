@@ -55,26 +55,26 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("Cita Médica");
-        getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 150, -1));
+        getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
 
         txtName.setEditable(false);
         txtName.setBackground(new java.awt.Color(0, 153, 153));
         txtName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtName.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 290, 30));
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 290, 30));
 
-        lblName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblName.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("Nombre:");
-        getContentPane().add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+        getContentPane().add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, 30));
 
-        lblLastName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblLastName.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblLastName.setForeground(new java.awt.Color(255, 255, 255));
         lblLastName.setText("Apellido:");
-        getContentPane().add(lblLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+        getContentPane().add(lblLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, 30));
 
         txtLastName.setEditable(false);
         txtLastName.setBackground(new java.awt.Color(0, 153, 153));
@@ -85,40 +85,40 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame {
                 txtLastNameActionPerformed(evt);
             }
         });
-        getContentPane().add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 290, 30));
+        getContentPane().add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 290, 30));
 
-        lblPhoneNumber.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblPhoneNumber.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblPhoneNumber.setForeground(new java.awt.Color(255, 255, 255));
         lblPhoneNumber.setText("Número telefónico:");
-        getContentPane().add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        getContentPane().add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, 30));
 
         txtPhoneNumber.setEditable(false);
         txtPhoneNumber.setBackground(new java.awt.Color(0, 153, 153));
         txtPhoneNumber.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtPhoneNumber.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 220, 30));
+        getContentPane().add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 220, 30));
 
-        lblId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblId.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         lblId.setForeground(new java.awt.Color(255, 255, 255));
-        lblId.setText("Cedula de identidad:");
-        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+        lblId.setText("Cédula de identidad:");
+        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, 30));
 
         txtId.setBackground(new java.awt.Color(0, 153, 153));
         txtId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtId.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 170, 30));
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 170, 30));
 
         btnBack.setBackground(new java.awt.Color(0, 51, 51));
-        btnBack.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Atrás");
-        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, -1));
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(0, 51, 51));
-        btnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnExit.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         btnExit.setForeground(new java.awt.Color(255, 255, 255));
         btnExit.setText("Salir");
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, -1, -1));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 440, -1, -1));
 
         tblAppointment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,10 +130,10 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblAppointment);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 670, 150));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 670, 150));
 
         btnShow.setBackground(new java.awt.Color(0, 51, 51));
-        btnShow.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnShow.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnShow.setForeground(new java.awt.Color(255, 255, 255));
         btnShow.setText("Mostrar");
         btnShow.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +141,7 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame {
                 btnShowActionPerformed(evt);
             }
         });
-        getContentPane().add(btnShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, -1, -1));
+        getContentPane().add(btnShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, -1));
 
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
         getContentPane().add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 490));
