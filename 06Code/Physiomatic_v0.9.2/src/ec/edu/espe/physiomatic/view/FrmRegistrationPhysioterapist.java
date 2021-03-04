@@ -134,7 +134,7 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         getContentPane().add(pwdPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 460, 30));
 
         btnNext.setBackground(new java.awt.Color(0, 51, 51));
-        btnNext.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnNext.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         btnNext.setForeground(new java.awt.Color(255, 255, 255));
         btnNext.setText("Guardar");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
@@ -145,9 +145,9 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
         getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 480, 110, 40));
 
         btnBack.setBackground(new java.awt.Color(0, 51, 51));
-        btnBack.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
-        btnBack.setText("Cancelar");
+        btnBack.setText("Regresar");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -217,27 +217,28 @@ public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        String dataToSave = "Desea guardar esta información?\n" + txtName.getText() + "\n" + txtLastName.getText() + "\n" + txtUser.getText() + "\n" + pwdPassword.getText();
-        int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Registro de Fisioterapista", JOptionPane.YES_NO_CANCEL_OPTION);
+        String dataToSave = "¿Desea guardar esta información?" + "\n" + "ID: " +  txtId.getText() + "\n" + "NOMBRE: " + txtName.getText() + "\n" + "USUARIO: " + txtUser.getText() + "\n";
+        int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Nuevo Fisioterapeuta", JOptionPane.YES_NO_CANCEL_OPTION);
         if (selection == 0) {
-            JOptionPane.showConfirmDialog(null, "Se guardó la información", "Registro de Fisioterapista" + "\nGuardado", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La información está siendo guardada. Presione OK para continuar.");
             try{
                 long idPhysioterapist=Long.parseLong(txtId.getText());
                 Physioterapist physioterapist=new Physioterapist(txtUser.getText(),pwdConfirmPassword.getText(),idPhysioterapist,txtAddress.getText(),txtName.getText(),txtLastName.getText(),txtEmail.getText(),txtPhoneNumber.getText());
-           physioterapist.createAPerson();
+                physioterapist.createAPerson();
             }catch(Exception e){
-                JOptionPane.showConfirmDialog(null, "NO Se guardó la información debe ingresar solo digitos numéricos en el id", "Registro de Fisioterapista", JOptionPane.ERROR_MESSAGE);
-
+                JOptionPane.showMessageDialog(null, "La información no pudo ser guardada. Ingrese solo dígitos en el campo ID.");
             }
-            
+            this.setVisible(false);
+            FrmRegistrationPhysioterapist resetRegistry = new FrmRegistrationPhysioterapist();
+            resetRegistry.setVisible(true);
             
         }
         if (selection == 1) {
-            JOptionPane.showConfirmDialog(null, "NO Se guardó la información", "Registro de Fisioterapista", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La información no pudo ser guardada.");
 
         }
         if (selection == 2) {
-            JOptionPane.showConfirmDialog(null, "La acción fue cancelada", "Registro de Fisioterapista", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La operación fue cancelada.");
             
         }
     }//GEN-LAST:event_btnNextActionPerformed
