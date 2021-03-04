@@ -39,10 +39,13 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         mitmShow = new javax.swing.JMenuItem();
         mnuAppointment = new javax.swing.JMenu();
         mitmAddAppoinment = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
         mitmShowAppoinment = new javax.swing.JMenuItem();
         mnuClinicalHistory = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mitmShowClinicalHistory = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
@@ -92,7 +95,7 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         mnuPatient.setText("Pacientes");
 
         mitmShow.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        mitmShow.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        mitmShow.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         mitmShow.setForeground(new java.awt.Color(0, 51, 51));
         mitmShow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/mostrar.png"))); // NOI18N
         mitmShow.setText("Mostrar");
@@ -109,7 +112,7 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         mnuAppointment.setText("Citas");
 
         mitmAddAppoinment.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        mitmAddAppoinment.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        mitmAddAppoinment.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         mitmAddAppoinment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/appointmentIcon.png"))); // NOI18N
         mitmAddAppoinment.setText("Generar");
         mitmAddAppoinment.addActionListener(new java.awt.event.ActionListener() {
@@ -118,9 +121,10 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
             }
         });
         mnuAppointment.add(mitmAddAppoinment);
+        mnuAppointment.add(jSeparator3);
 
         mitmShowAppoinment.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
-        mitmShowAppoinment.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        mitmShowAppoinment.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         mitmShowAppoinment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/mostrar.png"))); // NOI18N
         mitmShowAppoinment.setText("Mostrar");
         mitmShowAppoinment.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +145,7 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         });
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jMenuItem1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/ClinicalHistoryIcon_1.png"))); // NOI18N
         jMenuItem1.setText("Generar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -150,9 +154,10 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
             }
         });
         mnuClinicalHistory.add(jMenuItem1);
+        mnuClinicalHistory.add(jSeparator1);
 
         mitmShowClinicalHistory.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK));
-        mitmShowClinicalHistory.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        mitmShowClinicalHistory.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         mitmShowClinicalHistory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/mostrar.png"))); // NOI18N
         mitmShowClinicalHistory.setText("Mostrar");
         mitmShowClinicalHistory.addActionListener(new java.awt.event.ActionListener() {
@@ -161,8 +166,9 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
             }
         });
         mnuClinicalHistory.add(mitmShowClinicalHistory);
+        mnuClinicalHistory.add(jSeparator2);
 
-        jMenuItem3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jMenuItem3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/searchIcon.png"))); // NOI18N
         jMenuItem3.setText("Buscar");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -276,6 +282,9 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JLabel lbBackground;
     private javax.swing.JLabel lbName;
     private javax.swing.JLabel lbTittle;
