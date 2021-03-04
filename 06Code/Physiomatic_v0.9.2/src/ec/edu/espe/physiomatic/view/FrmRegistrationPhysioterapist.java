@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author Acer
  * @author Yulliana Roman ESPE-DCCO
+ * @author pzeadrian
  */
 public class FrmRegistrationPhysioterapist extends javax.swing.JFrame {
 

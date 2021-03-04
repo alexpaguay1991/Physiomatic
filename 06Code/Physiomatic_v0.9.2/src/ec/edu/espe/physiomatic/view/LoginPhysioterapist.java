@@ -12,6 +12,7 @@ import java.util.Scanner;
 /**
  *
  * @author Acer
+ * @author pzeadrian
  */
 public class LoginPhysioterapist {
 
