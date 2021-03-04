@@ -74,8 +74,8 @@ public class FrmPhysioterapistManagment extends javax.swing.JFrame {
         mnuLogin.setText("INICIAR SESIÓN");
 
         minLoginPhyisioterapist.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
+        minLoginPhyisioterapist.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         minLoginPhyisioterapist.setText("Fisioterapeuta");
-        minLoginPhyisioterapist.setActionCommand("Fisioterapeuta");
         minLoginPhyisioterapist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 minLoginPhyisioterapistActionPerformed(evt);
@@ -88,6 +88,7 @@ public class FrmPhysioterapistManagment extends javax.swing.JFrame {
         mnuRegister.setText("REGISTRARSE");
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK));
+        jMenuItem1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jMenuItem1.setText("Paciente");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +98,7 @@ public class FrmPhysioterapistManagment extends javax.swing.JFrame {
         mnuRegister.add(jMenuItem1);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_MASK));
+        jMenuItem2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jMenuItem2.setText("Fisioterapeuta");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
