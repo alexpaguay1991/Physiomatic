@@ -14,10 +14,12 @@ import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Diagnostic;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.physiomatic.model.Physioterapist;
+import ec.edu.espe.physiomatic.model.Product;
 import ec.edu.espe.utils.Connection;
 import ec.edu.espe.utils.LoginMenu;
 import ec.edu.espe.utils.Validation;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -45,21 +47,19 @@ public class PhysiomaticController {
         return matrix;
     }
 
-    public static void showTableClinicalHistory() {
-        ArrayList<ClinicalHistory> clinicalHistories = new ArrayList<>();
-        ArrayList<Diagnostic> diagnostics = new ArrayList<Diagnostic>();
-        Connection conection = new Connection("clinicalHistory");
-        clinicalHistories = conection.retrieveClinicalHistories();
-
-        String[][] matrix = new String[clinicalHistories.size()][5];
-        for (int i = 0; i < clinicalHistories.size(); i++) {
-            diagnostics = clinicalHistories.get(0).getDiagnostics();
-            matrix[i][0] = diagnostics.get(i).getDateOfDiagnostic();
-            matrix[i][1] = diagnostics.get(i).getSymptoms();
-            matrix[i][2] = diagnostics.get(i).getTreatment();
-            matrix[i][3] = diagnostics.get(i).getPathology();
-            matrix[i][4] = diagnostics.get(i).getAllergy();
+    public static String[][] showTableClinicalHistory(long id) {
+        Connection conection = new Connection("patients");
+        Patient patient = conection.retrievePatient(id);
+        Connection conection2 = new Connection("clinicalHistory");
+        ClinicalHistory clinicalHistory = conection2.retrieveClinicalHistory(patient);
+        String[][] matrix = new String[clinicalHistory.getDiagnostics().size()][4];
+        for (int i = 0; i < clinicalHistory.getDiagnostics().size(); i++) {
+            matrix[i][0] = clinicalHistory.getDiagnostics().get(i).getDateOfDiagnostic();
+            matrix[i][1] = clinicalHistory.getDiagnostics().get(i).getSymptoms();
+            matrix[i][2] = clinicalHistory.getDiagnostics().get(i).getTreatment();
+            matrix[i][3] = clinicalHistory.getDiagnostics().get(i).getPathology();
         }
+        return matrix;
     }
 
     public static String[][] showTable() {
@@ -81,6 +81,17 @@ public class PhysiomaticController {
         return matrix;
     }
 
+    public static void addDiagnostic(long id, String symptom, String pathology, String treatment, String date) {
+        Diagnostic diagnostic = new Diagnostic(pathology, treatment, symptom, date);
+        Connection connection = new Connection("patients");
+        Patient patient = connection.retrievePatient(id);
+        Connection connection2 = new Connection("clinicalHistory");
+        ClinicalHistory clinicalHistory = connection2.retrieveClinicalHistory(patient);
+        ClinicalHistory newClinicalHistory = clinicalHistory;
+        newClinicalHistory.getDiagnostics().add(diagnostic);
+        connection2.updateClinicalHistory(clinicalHistory, newClinicalHistory);
+    }
+
     public static String[][] showAppointmentTable(long id) {
         ArrayList<Appointment> appointments = new ArrayList<Appointment>();
         Connection connection = new Connection("patients");
@@ -89,8 +100,8 @@ public class PhysiomaticController {
         appointments = connection.retrieveAppointments(patient);
         String[][] matrix = new String[appointments.size()][3];
         for (int i = 0; i < appointments.size(); i++) {
-            matrix[i][0] = appointments.get(i).getHour();
-            matrix[i][1] = appointments.get(i).getDateOfAppointment();
+            matrix[i][1] = appointments.get(i).getHour();
+            matrix[i][0] = appointments.get(i).getDateOfAppointment();
         }
         return matrix;
     }
@@ -158,7 +169,7 @@ public class PhysiomaticController {
         conection = new Connection("appointments");
         conection.insertAppointment(appointment);
     }
-
+    
     public static Patient retrievePatient(long idPatient) {
         Gson gson = new Gson();
         String dataFile;
@@ -166,7 +177,6 @@ public class PhysiomaticController {
         Patient patient;
         patient = gson.fromJson(dataFile, Patient.class);;
         return patient;
-
     }
 
     public static Appointment generateAppointment() {

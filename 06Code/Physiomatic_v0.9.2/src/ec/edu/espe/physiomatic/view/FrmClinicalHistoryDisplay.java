@@ -5,6 +5,7 @@
  */
 package ec.edu.espe.physiomatic.view;
 
+import ec.edu.espe.physiomatic.controller.PhysiomaticController;
 import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.utils.Connection;
@@ -18,14 +19,14 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame {
 
     ClinicalHistory clinicalHistory;
     Patient patient;
-    Connection conection = new Connection("patients");    
+    Connection conection = new Connection("patients");
 
     /**
      * Creates new form FrmPatientDisplay
      */
     public FrmClinicalHistoryDisplay() {
         initComponents();
-        this.setLocationRelativeTo(null);        
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -275,6 +276,7 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         try {
             patient = conection.retrievePatient(Long.parseLong(txtId.getText()));
+            conection = new Connection("clinicalHistories");
             clinicalHistory = conection.retrieveClinicalHistory(patient);
             txtName.setText(patient.getName());
             txtLastName.setText(patient.getLastName());
@@ -286,12 +288,14 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame {
             txtWeight.setText(clinicalHistory.getWeight() + "");
             txtPhoneNumber.setText(clinicalHistory.getPatient().getPhoneNumber());
             txtaFamilyBackground.setText(clinicalHistory.getFamiliyBackground());
-//            tblDiagnostic.setModel(new javax.swing.table.DefaultTableModel(
-//                    new Object[][]{},
-//                    new String[]{
-//                        "Fecha del diagnóstico", "Patología", "Sintomas", "Tratamiento", "Alergias"
-//                    }
-//            ));
+            String[][] matrix;
+            matrix = PhysiomaticController.showTableClinicalHistory(patient.getId());
+            tblDiagnostic.setModel(new javax.swing.table.DefaultTableModel(
+                    matrix,
+                    new String[]{
+                        "Fecha del diagnóstico", "Patología", "Sintomas", "Tratamiento", "Alergias"
+                    }
+            ));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "El paciente no está registrado", "Historia Clinica", JOptionPane.ERROR_MESSAGE);
         }

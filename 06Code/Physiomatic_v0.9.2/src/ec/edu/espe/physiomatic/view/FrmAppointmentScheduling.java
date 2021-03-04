@@ -89,6 +89,11 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Atrás");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
@@ -124,6 +129,12 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Action was canceled", "Cancelled", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_tbnExitActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        FrmMenuPhysioterapist frmMenuPhysioterapist = new FrmMenuPhysioterapist();
+        this.setVisible(false);
+        frmMenuPhysioterapist.setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
     public void emptyFields() {
         txtId.setText("");
         txtTime.setText("");

@@ -20,8 +20,7 @@ public class Diagnostic {
     private String pathology;
     private String treatment;
     private String symptoms;
-    private String dateOfDiagnostic;
-    private String allergy;
+    private String dateOfDiagnostic;  
 
     /**
      * 
@@ -32,12 +31,11 @@ public class Diagnostic {
      * @param dateOfDiagnostic, saves the date of appointment.
      */
     
-    public Diagnostic(String pathology, String treatment, String symptoms, String dateOfDiagnostic, String allergy) {
+    public Diagnostic(String pathology, String treatment, String symptoms, String dateOfDiagnostic) {
         this.pathology = pathology;
         this.treatment = treatment;
         this.symptoms = symptoms;
-        this.dateOfDiagnostic = dateOfDiagnostic;
-        this.allergy = allergy;
+        this.dateOfDiagnostic = dateOfDiagnostic;      
     }
 
     /**
@@ -95,19 +93,4 @@ public class Diagnostic {
     public void setDateOfDiagnostic(String dateOfDiagnostic) {
         this.dateOfDiagnostic = dateOfDiagnostic;
     }
-
-    /**
-     * @return the allergy
-     */
-    public String getAllergy() {
-        return allergy;
-    }
-
-    /**
-     * @param allergy the allergy to set
-     */
-    public void setAllergy(String allergy) {
-        this.allergy = allergy;
-    }
-   
 }

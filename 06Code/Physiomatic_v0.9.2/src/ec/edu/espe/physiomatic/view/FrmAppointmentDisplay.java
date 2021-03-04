@@ -112,12 +112,22 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame {
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Atrás");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(0, 51, 51));
         btnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnExit.setForeground(new java.awt.Color(255, 255, 255));
         btnExit.setText("Salir");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, -1, -1));
 
         tblAppointment.setModel(new javax.swing.table.DefaultTableModel(
@@ -173,6 +183,16 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El paciente no está registrado", "Cita médica", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnShowActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        FrmMenuPhysioterapist frmMenuPhysioterapist = new FrmMenuPhysioterapist();
+        this.setVisible(false);
+        frmMenuPhysioterapist.setAlwaysOnTop(true);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments

@@ -44,6 +44,7 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         mitmShowClinicalHistory = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         jMenu4.setText("jMenu4");
 
@@ -133,6 +134,11 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
 
         mnuClinicalHistory.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
         mnuClinicalHistory.setText("Historiales Médicos");
+        mnuClinicalHistory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuClinicalHistoryActionPerformed(evt);
+            }
+        });
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -165,6 +171,9 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
             }
         });
         mnuClinicalHistory.add(jMenuItem3);
+
+        jMenuItem2.setText("Añadir diagnóstico");
+        mnuClinicalHistory.add(jMenuItem2);
 
         mbrPhysioterapistMenu.add(mnuClinicalHistory);
 
@@ -219,6 +228,12 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         frmClinicalHistoryDisplay.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void mnuClinicalHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuClinicalHistoryActionPerformed
+        FrmCreateDiagnostic frmCreateDiagnostic = new FrmCreateDiagnostic();
+        this.setVisible(false);
+        frmCreateDiagnostic.setVisible(true);
+    }//GEN-LAST:event_mnuClinicalHistoryActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -259,6 +274,7 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JLabel lbBackground;
     private javax.swing.JLabel lbName;

@@ -7,19 +7,12 @@ package ec.edu.espe.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
-import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
-import ec.edu.espe.physiomatic.controller.PhysiomaticController;
 import ec.edu.espe.physiomatic.model.Appointment;
 import ec.edu.espe.physiomatic.model.Bill;
 import ec.edu.espe.physiomatic.model.ClinicalHistory;
@@ -29,8 +22,6 @@ import ec.edu.espe.physiomatic.model.Physioterapist;
 import ec.edu.espe.physiomatic.model.Product;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.function.Consumer;
 import org.bson.BSONObject;
 import org.bson.Document;
 
@@ -73,9 +64,7 @@ public class Connection {
      *
      * @param bill
      */
-    public void insertBill() {
-        Bill bill;
-        bill = Physioterapist.generateBill();
+    public void insertBill(Bill bill) {                
         BSONObject bson = (BSONObject) com.mongodb.util.JSON.parse(gson.toJson(bill));
         Document admin;
         admin = new Document("price", bill.getPrice());
@@ -565,7 +554,8 @@ public class Connection {
 
             Document findDocument = generateClinicalHistoryDocument(clinicalHistoryOld);
             Document updateDocument = generateClinicalHistoryDocument(clinicalHistoryNew);
-            collection.findOneAndUpdate(findDocument, updateDocument);
+            collection.deleteOne(findDocument);
+            collection.insertOne(updateDocument);
         } catch (Exception e) {
              Document findDocument = generateClinicalHistoryDocument(clinicalHistoryOld);
             Document updateDocument = generateClinicalHistoryDocument(clinicalHistoryNew);
@@ -578,8 +568,9 @@ public class Connection {
         try {
 
             Document findDocument = generateBillDocument(billOld);
-            Document updateDocument = generateBillDocument(billNew);
-            collection.findOneAndUpdate(findDocument, updateDocument);
+            Document updateDocument = generateBillDocument(billNew);            
+            collection.deleteOne(findDocument);
+            collection.insertOne(updateDocument);
         } catch (Exception e) {
             Document findDocument = generateBillDocument(billOld);
             Document updateDocument = generateBillDocument(billNew);
