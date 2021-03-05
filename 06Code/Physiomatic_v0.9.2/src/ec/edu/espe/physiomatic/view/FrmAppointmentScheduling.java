@@ -103,7 +103,7 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnExitActionPerformed
-        String dataToSave = "La información que se guardara es" + "\n" + txtId.getText() + txtTime.getText();
+        String dataToSave = "La información que se guardara es" + "\n" + txtId.getText() +" "+ txtTime.getText();
         int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Citas medicas", JOptionPane.YES_NO_CANCEL_OPTION);
         if (selection == 0) {
             JOptionPane.showMessageDialog(null, "La información fue guardada", "Guardar", JOptionPane.INFORMATION_MESSAGE);
@@ -114,7 +114,7 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
                 String time = txtTime.getText();
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
                 Date date = dcsDate.getDate();
-                String dateOfAppointment = sdf.format(date);
+                String dateOfAppointment = sdf.format(date)+"";
                 System.out.println(dateOfAppointment);
                 PhysiomaticController.createAppoinment(dateOfAppointment, time, id);
                 emptyFields();
