@@ -99,7 +99,7 @@ public class FrmClinicalHistoryTable extends javax.swing.JFrame implements Print
                 btnBackActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, -1, -1));
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 480, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(0, 51, 51));
         btnExit.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -110,7 +110,7 @@ public class FrmClinicalHistoryTable extends javax.swing.JFrame implements Print
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 490, -1, -1));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 480, -1, -1));
 
         lblTitle.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));

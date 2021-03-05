@@ -28,6 +28,9 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         txtOther.setVisible(false);
         txtOtherDisease.setVisible(false);
+        Date d = new Date();
+        d.setTime(d.getTime());
+        dcsDate.getJCalendar().setMaxSelectableDate(d);  
     }
 
     /**
@@ -66,7 +69,7 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
         chkOtherDisease = new javax.swing.JCheckBox();
         txtOtherDisease = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        dcsDate = new com.toedter.calendar.JDateChooser();
         lbBrackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -237,7 +240,7 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 480, -1, -1));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 190, 30));
+        getContentPane().add(dcsDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 190, 30));
 
         lbBrackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
         lbBrackground.setPreferredSize(new java.awt.Dimension(151, 25));
@@ -254,47 +257,51 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "La información fue guardada", "Guardar", JOptionPane.INFORMATION_MESSAGE);
             try {
                 long id = Long.parseLong(txtId.getText());
+                spnHeight.commitEdit();
                 float height = (float) spnHeight.getValue();
+                System.out.println(height);
+                spnWeight.commitEdit();
                 float weight = (float) spnWeight.getValue();
                 String bloodType = (String) cmbBloodType.getSelectedItem();
                 String asthma = "", bronquitis = "", cancer = "", diabetes = "", epilepsy = "", otherDisease = "";
                 if (chkAsthma.isSelected()) {
-                    asthma = chkAsthma.getName();
+                    asthma = chkAsthma.getText();
+                    System.out.println(asthma);
                 }
                 if (chkBronchitis.isSelected()) {
-                    bronquitis = chkBronchitis.getName();
+                    bronquitis = chkBronchitis.getText();
                 }
                 if (chkCancer.isSelected()) {
-                    cancer = chkCancer.getName();
+                    cancer = chkCancer.getText();
                 }
                 if (chkEpilepsy.isSelected()) {
-                    epilepsy = chkEpilepsy.getName();
+                    epilepsy = chkEpilepsy.getText();
                 }
                 if (chkDiabetes.isSelected()) {
-                    diabetes = chkDiabetes.getName();
+                    diabetes = chkDiabetes.getText();
                 }
                 if (chkOtherDisease.isSelected()) {
                     otherDisease = txtOtherDisease.getText();
                 }
                 String familyBackground = asthma + bronquitis + cancer + diabetes + epilepsy + otherDisease;
+                System.out.println(familyBackground);
                 String food = "", medicine = "", antibiotic = "", otherAllergy = "";
                 if (chkAntibiotic.isSelected()) {
-                    antibiotic = chkAntibiotic.getName();
+                    antibiotic = chkAntibiotic.getText();
                 }
                 if (chkFood.isSelected()) {
-                    food = chkFood.getName();
+                    food = chkFood.getText();
                 }
                 if (chkMedicine.isSelected()) {
-                    medicine = chkMedicine.getName();
+                    medicine = chkMedicine.getText();
                 }
                 if (chkOthers.isSelected()) {
                     otherAllergy = txtOther.getText();
                 }
                 String allergy = food + medicine + antibiotic + otherAllergy;
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-                Date date = jDateChooser1.getDate();
-                String birthDate = sdf.format(date);
-                System.out.println(birthDate);
+                Date date = dcsDate.getDate();
+                String birthDate = sdf.format(date);                
                 PatientController.createClinicalHistory(id, birthDate, weight, height, familyBackground, bloodType, allergy);
                 emptyFields();
             } catch (Exception e) {
@@ -425,7 +432,7 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkOthers;
     private javax.swing.JComboBox<String> cmbBloodType;
     private javax.swing.JComboBox<String> cmbDocument;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser dcsDate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
