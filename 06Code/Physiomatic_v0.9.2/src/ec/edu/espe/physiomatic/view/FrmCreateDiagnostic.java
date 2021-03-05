@@ -110,6 +110,11 @@ public class FrmCreateDiagnostic extends javax.swing.JFrame {
         btnBack.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Atrás");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, -1, -1));
 
         lblId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -137,6 +142,12 @@ public class FrmCreateDiagnostic extends javax.swing.JFrame {
         String treatment = txaTreatment.getText();
         PhysiomaticController.addDiagnostic(id, Symptom, pathology, treatment, treatment);
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        FrmMenuPhysioterapist frmMenuPhysioterapist = new FrmMenuPhysioterapist();
+        this.setVisible(false);
+        frmMenuPhysioterapist.setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     public void emptyFields() {
         txtPathology.setText("");

@@ -23,6 +23,9 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
      */
     public FrmAppointmentScheduling() {
         initComponents();
+        Date d = new Date();
+        d.setTime(d.getTime());
+        dcsDate.getJCalendar().setMinSelectableDate(d);      
     }
 
     /**
@@ -59,7 +62,7 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
         lblTime.setForeground(new java.awt.Color(255, 255, 255));
         lblTime.setText("Hora:");
         getContentPane().add(lblTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, -1, 30));
-        getContentPane().add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 120, 30));
+        getContentPane().add(txtTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, 120, 30));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,7 +106,7 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnExitActionPerformed
-        String dataToSave = "La información que se guardara es" + "\n" + txtId.getText() + txtTime.getText();
+        String dataToSave = "La información que se guardara es" + "\n" + txtId.getText() + " " + txtTime.getText();
         int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Citas medicas", JOptionPane.YES_NO_CANCEL_OPTION);
         if (selection == 0) {
             JOptionPane.showMessageDialog(null, "La información fue guardada", "Guardar", JOptionPane.INFORMATION_MESSAGE);
@@ -114,7 +117,7 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
                 String time = txtTime.getText();
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
                 Date date = dcsDate.getDate();
-                String dateOfAppointment = sdf.format(date);
+                String dateOfAppointment = sdf.format(date) + "";
                 System.out.println(dateOfAppointment);
                 PhysiomaticController.createAppoinment(dateOfAppointment, time, id);
                 emptyFields();
