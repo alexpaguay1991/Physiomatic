@@ -205,7 +205,7 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame implements Printab
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         FrmMenuPhysioterapist frmMenuPhysioterapist = new FrmMenuPhysioterapist();
         this.setVisible(false);
-        frmMenuPhysioterapist.setAlwaysOnTop(true);
+        frmMenuPhysioterapist.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed

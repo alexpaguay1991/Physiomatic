@@ -68,8 +68,8 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
         txtBirthDate = new javax.swing.JTextField();
         lblWeight = new javax.swing.JLabel();
         txtWeight = new javax.swing.JTextField();
-        lblHeight = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        lblText = new javax.swing.JLabel();
+        txtHeight = new javax.swing.JTextField();
         lblFamilyBackground = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtaFamilyBackground = new javax.swing.JTextArea();
@@ -79,12 +79,16 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
         btnBack = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        txtHeight = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtAllergys = new javax.swing.JTextArea();
+        lblHeight = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        buttonPrint.setBackground(new java.awt.Color(0, 51, 51));
         buttonPrint.setForeground(new java.awt.Color(255, 255, 255));
         buttonPrint.setText("Imprimir");
         buttonPrint.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +96,7 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
                 buttonPrintActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 690, -1, -1));
+        getContentPane().add(buttonPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 700, -1, -1));
 
         lblTitle.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -199,20 +203,20 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
         txtWeight.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(txtWeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 70, 30));
 
-        lblHeight.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        lblHeight.setForeground(new java.awt.Color(255, 255, 255));
-        lblHeight.setText("Estatura:");
-        getContentPane().add(lblHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, -1, -1));
+        lblText.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblText.setForeground(new java.awt.Color(255, 255, 255));
+        lblText.setText("Estatura:");
+        getContentPane().add(lblText, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(0, 153, 153));
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtHeight.setBackground(new java.awt.Color(0, 153, 153));
+        txtHeight.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtHeight.setForeground(new java.awt.Color(255, 255, 255));
+        txtHeight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtHeightActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 340, 70, 30));
+        getContentPane().add(txtHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 340, 70, 30));
 
         lblFamilyBackground.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblFamilyBackground.setForeground(new java.awt.Color(255, 255, 255));
@@ -226,24 +230,24 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
         txtaFamilyBackground.setRows(5);
         jScrollPane1.setViewportView(txtaFamilyBackground);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 430, 80));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 340, 50));
 
         tblDiagnostic.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Fecha del diagnóstico", "Patología", "Sintomas", "Tratamiento", "Alergias"
+                "Fecha del diagnóstico", "Patología", "Sintomas", "Tratamiento"
             }
         ));
         jScrollPane2.setViewportView(tblDiagnostic);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 690, 170));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 690, 170));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Diagnóstico:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, -1, -1));
 
         btnBack.setBackground(new java.awt.Color(0, 51, 51));
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -254,7 +258,7 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
                 btnBackActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 690, -1, -1));
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 700, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(0, 51, 51));
         btnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -276,34 +280,50 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 690, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 700, -1, -1));
 
-        txtHeight.setBackground(new java.awt.Color(0, 102, 102));
-        txtHeight.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtHeight.setForeground(new java.awt.Color(255, 255, 255));
-        txtHeight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
-        getContentPane().add(txtHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 761, 740));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Alergia:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, -1, -1));
+
+        jScrollPane3.setBackground(new java.awt.Color(0, 102, 102));
+        jScrollPane3.setForeground(new java.awt.Color(0, 102, 102));
+
+        txtAllergys.setBackground(new java.awt.Color(0, 153, 153));
+        txtAllergys.setColumns(20);
+        txtAllergys.setRows(5);
+        jScrollPane3.setViewportView(txtAllergys);
+
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 310, 50));
+
+        lblHeight.setBackground(new java.awt.Color(0, 102, 102));
+        lblHeight.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblHeight.setForeground(new java.awt.Color(255, 255, 255));
+        lblHeight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
+        getContentPane().add(lblHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 761, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtHeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHeightActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtHeightActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         try {
             patient = conection.retrievePatient(Long.parseLong(txtId.getText()));
-            conection = new Connection("clinicalHistories");
-            clinicalHistory = conection.retrieveClinicalHistory(patient);
+            conection = new Connection("clinicalHistory");
+            clinicalHistory = conection.retrieveClinicalHistory(patient);                        
             txtName.setText(patient.getName());
             txtLastName.setText(patient.getLastName());
             txtAddress.setText(patient.getAddress());
             txtBirthDate.setText(clinicalHistory.getBirthDate());
             txtBloodType.setText(clinicalHistory.getBloodType());
             txtEmail.setText(clinicalHistory.getPatient().getEmail());
-            txtHeight.setText(clinicalHistory.getHeight() + "");
-            txtWeight.setText(clinicalHistory.getWeight() + "");
+            txtHeight.setText(String.valueOf(clinicalHistory.getHeight()));          
+            txtWeight.setText(String.valueOf(clinicalHistory.getWeight()));
+            txtAllergys.setText(clinicalHistory.getAllergy());
             txtPhoneNumber.setText(clinicalHistory.getPatient().getPhoneNumber());
             txtaFamilyBackground.setText(clinicalHistory.getFamiliyBackground());
             String[][] matrix;
@@ -315,7 +335,7 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
                     }
             ));
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "El paciente no está registrado", "Historia Clinica", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "El paciente no está registrado", "Historia Clínica", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnExitActionPerformed
 
@@ -390,9 +410,10 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
     private javax.swing.JButton buttonPrint;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblBirthDate;
     private javax.swing.JLabel lblBloodType;
@@ -405,14 +426,16 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPersonalInformation;
     private javax.swing.JLabel lblPhoneNumber;
+    private javax.swing.JLabel lblText;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblWeight;
     public javax.swing.JTable tblDiagnostic;
     public javax.swing.JTextField txtAddress;
+    private javax.swing.JTextArea txtAllergys;
     public javax.swing.JTextField txtBirthDate;
     public javax.swing.JTextField txtBloodType;
     public javax.swing.JTextField txtEmail;
-    private javax.swing.JLabel txtHeight;
+    public javax.swing.JTextField txtHeight;
     public javax.swing.JTextField txtId;
     public javax.swing.JTextField txtLastName;
     public javax.swing.JTextField txtName;

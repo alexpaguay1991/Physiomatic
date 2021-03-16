@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Date;
 import java.util.InputMismatchException;
 
 /**
@@ -28,7 +29,7 @@ public class PhysioterapistManagment {
 //        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         System.out.println("");
         Scanner scanner = new Scanner(System.in);
-        PhysiomaticController controller = new PhysiomaticController();
+        PhysiomaticController controller = new PhysiomaticController();                
         RegistrationPhysiotepaist registration = new RegistrationPhysiotepaist();
         LoginMenu.logLoginMenu();
 

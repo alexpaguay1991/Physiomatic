@@ -64,7 +64,7 @@ public class Connection {
      *
      * @param bill
      */
-    public void insertBill(Bill bill) {                
+    public void insertBill(Bill bill) {
         BSONObject bson = (BSONObject) com.mongodb.util.JSON.parse(gson.toJson(bill));
         Document admin;
         admin = new Document("price", bill.getPrice());
@@ -110,7 +110,7 @@ public class Connection {
 
     public void insertPhysioterapist(Physioterapist physioterapist) {
 
-        Document admin=generatePhysioterapistDocument(physioterapist);
+        Document admin = generatePhysioterapistDocument(physioterapist);
         collection.insertOne(admin);
         mongo.close();
 
@@ -129,7 +129,7 @@ public class Connection {
         mongo.close();
 
     }
-    
+
     public Physioterapist retrievePhysioterapist(String username, String password) {
         Physioterapist physioterapist;
         MongoCursor<Document> resultDocument = collection.find().iterator();
@@ -370,19 +370,26 @@ public class Connection {
         Patient patientRetrieved = new Patient(0, "null", "null", "null", "null", "null");
         while (resultDocument.hasNext()) {
             Document theObj = resultDocument.next();
-            id = Long.parseLong(gson.toJson(theObj.get("id")));
-            address = gson.toJson(theObj.get("address")).replace("\"", "");
-            name = gson.toJson(theObj.get("name")).replace("\"", "");
-            lastName = gson.toJson(theObj.get("lastName")).replace("\"", "");
-            email = gson.toJson(theObj.get("email")).replace("\"", "");
-            phoneNumber = gson.toJson(theObj.get("phoneNumber")).replace("\"", "");
-            patient = new Patient(id, address, name, lastName, email, phoneNumber);
+            try {
+                id = Long.parseLong(gson.toJson(theObj.get("id")).replace("\"", ""));
+                address = gson.toJson(theObj.get("address")).replace("\"", "");
+                name = gson.toJson(theObj.get("name")).replace("\"", "");
+                lastName = gson.toJson(theObj.get("lastName")).replace("\"", "");
+                email = gson.toJson(theObj.get("email")).replace("\"", "");
+                phoneNumber = gson.toJson(theObj.get("phoneNumber")).replace("\"", "");
+                patient = new Patient(id, address, name, lastName, email, phoneNumber);
+                
+                if (idPatient == patient.getId()) {
+                    patientRetrieved = patient;
+                    System.out.println("si entra aqui");
+                }
+                
+            } catch (Exception e) {
 
-            if (idPatient == patient.getId()) {
-                patientRetrieved = patient;
             }
 
         }
+        
         return patientRetrieved;
 
     }
@@ -461,7 +468,7 @@ public class Connection {
 
         return admin;
     }
-    
+
     public Document generateClinicalHistoryDocument(ClinicalHistory clinicalHistory) {
         BSONObject bson = (BSONObject) com.mongodb.util.JSON.parse(gson.toJson(clinicalHistory.getPatient()));
         Document admin;
@@ -477,6 +484,7 @@ public class Connection {
 
         return admin;
     }
+
     public void deleteClinicalHistory(ClinicalHistory clinicalHistory) {
 
         try {
@@ -488,6 +496,7 @@ public class Connection {
             collection.findOneAndDelete(findDocument);
         }
     }
+
     public void deletePatient(Patient oldPatient) {
 
         try {
@@ -499,6 +508,7 @@ public class Connection {
             collection.findOneAndDelete(findDocument);
         }
     }
+
     public void deleteAppointment(Appointment appointment) {
 
         try {
@@ -548,7 +558,8 @@ public class Connection {
             collection.findOneAndUpdate(findDocument, updateDocument);
         }
     }
-     public void updateClinicalHistory(ClinicalHistory clinicalHistoryOld, ClinicalHistory clinicalHistoryNew) {
+
+    public void updateClinicalHistory(ClinicalHistory clinicalHistoryOld, ClinicalHistory clinicalHistoryNew) {
 
         try {
 
@@ -557,7 +568,7 @@ public class Connection {
             collection.deleteOne(findDocument);
             collection.insertOne(updateDocument);
         } catch (Exception e) {
-             Document findDocument = generateClinicalHistoryDocument(clinicalHistoryOld);
+            Document findDocument = generateClinicalHistoryDocument(clinicalHistoryOld);
             Document updateDocument = generateClinicalHistoryDocument(clinicalHistoryNew);
             collection.findOneAndUpdate(findDocument, updateDocument);
         }
@@ -568,7 +579,7 @@ public class Connection {
         try {
 
             Document findDocument = generateBillDocument(billOld);
-            Document updateDocument = generateBillDocument(billNew);            
+            Document updateDocument = generateBillDocument(billNew);
             collection.deleteOne(findDocument);
             collection.insertOne(updateDocument);
         } catch (Exception e) {
@@ -577,6 +588,7 @@ public class Connection {
             collection.findOneAndUpdate(findDocument, updateDocument);
         }
     }
+
     public void updateAppointment(Appointment appointmentOld, Appointment appointmentNew) {
 
         try {
@@ -585,12 +597,10 @@ public class Connection {
             Document updateDocument = generateAppointmentDocument(appointmentNew);
             collection.findOneAndUpdate(findDocument, updateDocument);
         } catch (Exception e) {
-             Document findDocument = generateAppointmentDocument(appointmentOld);
+            Document findDocument = generateAppointmentDocument(appointmentOld);
             Document updateDocument = generateAppointmentDocument(appointmentNew);
             collection.findOneAndUpdate(findDocument, updateDocument);
         }
     }
 
-
-    
 }
