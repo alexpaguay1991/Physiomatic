@@ -9,6 +9,7 @@ import com.toedter.calendar.JDayChooser;
 import ec.edu.espe.physiomatic.controller.PatientController;
 import ec.edu.espe.physiomatic.model.Diagnostic;
 import ec.edu.espe.physiomatic.model.Patient;
+import ec.edu.espe.utils.Connection;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -247,9 +248,11 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-
+        
         String dataToSave = "La información que se guardara es" + "\n" + txtId.getText() + cmbBloodType.getSelectedItem();
         int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Historia Clinica", JOptionPane.YES_NO_CANCEL_OPTION);
+        Connection connection2 =  new Connection(dataToSave);
+        
         if (selection == 0) {
             JOptionPane.showMessageDialog(null, "La información fue guardada", "Guardar", JOptionPane.INFORMATION_MESSAGE);
             try {

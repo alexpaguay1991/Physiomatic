@@ -34,6 +34,8 @@ public class PatientController {
         ClinicalHistory clinicalHistory = new ClinicalHistory(patient, birthDate, weight, height, familiyBackground, bloodType, allergy, diagnostics );
         connection.insertClinicalHistory(clinicalHistory);
         
+        
+        
 //        Scanner scanner = new Scanner(System.in);
 //        long idPatient = LoginMenu.validateId();
 //

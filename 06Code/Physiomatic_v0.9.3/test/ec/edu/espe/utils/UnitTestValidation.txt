@@ -1,0 +1,131 @@
+
+Validation:
+///////////////////////
+letters(String letters)
+
+        INPUT               ExpectedResult
+
+1.  45563                       FALSE
+2.  perro                       TRUE      
+3.  ANIMALES                    TRUE
+4.  GUITIERREZ14022001          FALSE
+5.  ToXiC-593                   FALSE
+6.  velocidad por tiempo        TRUE
+7.  minusculas con 159357       FALSE
+8.  velocidad * tiempo          FALSE
+9.  CON MAS de tres ESPACIOS    TRUE - unexpected error
+10. CADA PASO                   TRUE - unexpected error
+11.  todosevale                 TRUE
+12.  UNPASOALAVEZ               TRUE      
+13.  ANIMALES-SALVAJES          FALSE
+14.  que pas0                   FALSE
+15.  3sc1b4m0s                  FALSE
+16.  reconoce espacios?         FALSE
+17.  deberia reconocer espacios TRUE - unexpected error, does not recognize scapces.
+18.   TODO                      TRUE - does not recognize start with space.
+19.  tílde                      TRUE - unexpected error, does not recognize tildes.
+20. CADA PASO                   TRUE - unexpected error
+
+///////////////////////
+numbers(String numbers)
+
+        INPUT               ExpectedResult
+
+1.  5938754                     TRUE
+2.  593-412-789                 FALSE      
+3.  442 852                     TRUE - Unexpected error, does not recognize spaces.
+4.  Doce                        FALSE
+5.  *** 10 ***                  FALSE
+6.  1800 444 555                TRUE - Unexpected error, does not recognize spaces.
+7.  -9000000                    TRUE 
+8.  -250,34                     TRUE - The error is that the function validates only positive input values, we need a function to detect float data and with negatives values.
+9.  12,52                       TRUE - We need a function to detect float data to.
+10. 8000000                     TRUE
+11. 200000                      TRUE
+12. 12-53                       FALSE      
+13. 1800 200                    TRUE - Unexpected error, does not recognize spaces.
+14. docientos                   FALSE
+15. 8+5                         FALSE
+16. 512-A                       FALSE
+17. -1                          TRUE 
+18. -1.1                        TRUE - The error is that the function validates only positive input values, we need a function to detect float data and with negatives values.
+19. 100                         TRUE
+20. 16                          TRUE
+
+/////////////////////
+isLong(String string)
+
+        INPUT               ExpectedResult
+
+1.  1230000                       TRUE
+2.  -2000000                      TRUE      
+3.  98215486287                   TRUE
+4.  999999999                     TRUE
+5.  84532645127.25                FALSE 
+6.  15321568                      TRUE
+7.  15987216548                   TRUE
+8.  15987216548                   TRUE
+9.  -999999999                    TRUE 
+10. -14587856256                  TRUE
+11.  100001                       TRUE
+12.  -2000.23                     TRUE - error, does not recognize float data      
+13.  777777                       TRUE
+14.  520                          TRUE
+15.  long                         FALSE 
+16.  123456789                    TRUE
+17.  002                          TRUE
+18.  -00004                       TRUE
+19.  -4421                        TRUE 
+20. 100000000                     TRUE
+
+////////////////////////
+isNumeric(String string)
+
+        INPUT               ExpectedResult
+
+1.      0                       TRUE
+2.      2                       TRUE      
+3.      a                       FALSE
+4.      -3                      TRUE
+5.      -800                    TRUE 
+6.      *                       FALSE
+7.      NULL                    FALSE
+8.       5                      FALSE - Unexpected error, does not recognize spaces.
+9.      @                       FALSE 
+10.     .                       FALSE
+11.     0120                    TRUE
+12.     80                      TRUE      
+13.     AIR                     FALSE
+14.     -48                     TRUE
+15.     200                     TRUE 
+16.     ¿                       FALSE
+17.     number                  FALSE
+18.     00002.2                 FALSE 
+19.     =                       FALSE 
+20.     +                       FALSE
+
+//////////////////////
+isFloat(String string)
+
+        INPUT               ExpectedResult
+
+1.  a2.b                       FALSE
+2.  -2000000                      TRUE      
+3.  98215486287                   TRUE
+4.  999999999                     TRUE
+5.  84532645127.25                TRUE 
+6.  15321568                      TRUE
+7.  15987216548                   TRUE
+8.  15987216548                   FALSE
+9.  -999999999                    TRUE 
+10. -14587856256                  TRUE
+11.  48.5x                        FALSE
+12.  16.16                        TRUE      
+13.  2021.1                       TRUE
+14.  -41.73                       TRUE
+15.  -0.3                         TRUE 
+16.  900.9                        TRUE
+17.  -10101.1                     TRUE
+18.  4862'25''                    FALSE
+19.  20.3F                        TRUE 
+20.  x=12.5                       TRUE
