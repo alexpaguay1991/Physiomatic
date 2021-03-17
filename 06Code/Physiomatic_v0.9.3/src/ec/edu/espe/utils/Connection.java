@@ -29,7 +29,7 @@ import org.bson.Document;
  *
  * @author Acer
  */
-public class Connection {
+public class Connection extends Persistence{
 
     MongoDatabase baseDatos;
     //DBCollection collection;
@@ -601,6 +601,36 @@ public class Connection {
             Document updateDocument = generateAppointmentDocument(appointmentNew);
             collection.findOneAndUpdate(findDocument, updateDocument);
         }
+    }
+
+    @Override
+    public void save(String fileName, String data, String objectType) {
+        Patient patient = gson.fromJson(data, Patient.class);        
+        Document admin;        
+        admin = new Document("id", patient.getId());
+        admin.append("name", patient.getName());
+        admin.append("lastName", patient.getLastName());
+        admin.append("email", patient.getEmail());
+        admin.append("address", patient.getAddress());
+        admin.append("phoneNumber", patient.getPhoneNumber());
+
+        collection.insertOne(admin);
+        mongo.close();
+    }
+
+    @Override
+    public String find(String fileName, String dataToFind) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(String fileName, String datatodelete) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(String fileName, String dataToFind, String datatoUpdate) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

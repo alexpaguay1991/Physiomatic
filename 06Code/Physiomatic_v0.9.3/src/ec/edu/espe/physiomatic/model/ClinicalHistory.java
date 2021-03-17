@@ -5,7 +5,6 @@
  */
 package ec.edu.espe.physiomatic.model;
 
-import ec.edu.espe.physiomatic.controller.ClinicalHistoryController;
 import java.util.ArrayList;
 
 /**
@@ -24,11 +23,6 @@ public class ClinicalHistory {
     private String bloodType;
     private String allergy;
 
-//    public static Diagnostic createDiagnostic() {
-//        Diagnostic diagnostic = ClinicalHistoryController.createDiagnostic();
-//        return diagnostic;
-//    }
-
    
     public ClinicalHistory(Patient patient, String birthDate, float weight, float height, String familiyBackground, String bloodType, String allergy, ArrayList<Diagnostic> diagnostics) {
         this.patient = patient;
@@ -40,11 +34,6 @@ public class ClinicalHistory {
         this.allergy = allergy;
         this.diagnostics = diagnostics;
     }
-
-    
-    
-
-    
 
     /**
      * @return the patient

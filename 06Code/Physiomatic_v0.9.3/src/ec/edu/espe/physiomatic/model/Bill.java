@@ -5,10 +5,7 @@
  */
 package ec.edu.espe.physiomatic.model;
 
-import ec.edu.espe.physiomatic.controller.BillController;
-//import ec.edu.espe.utils.Validation;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *
@@ -74,12 +71,5 @@ public class Bill {
     public void setProducts(ArrayList<Product> products) {
         this.products = products;
     }
-//    public static Product generateProduct() {      
-//        Product product = BillController.generateProduct();
-//        return product;
-//
-//    }
-    
-    
     
 }

@@ -5,14 +5,7 @@
  */
 package ec.edu.espe.physiomatic.model;
 
-import com.google.gson.Gson;
-import ec.edu.espe.filemanager.utils.FileManager;
 import ec.edu.espe.physiomatic.controller.PhysiomaticController;
-//import ec.edu.espe.physiomatic.view.SystemView2;
-import ec.edu.espe.utils.Connection;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 /**
  *
@@ -30,66 +23,7 @@ public class Physioterapist extends Person {
      */
     private String userName;
     private String password;
-
-    /**
-     *
-     * @return
-     */
-//    public static Patient retrievePatient(long idPatient) {
-//        Patient patient = PhysiomaticController.retrievePatient(idPatient);
-//        return patient;
-//
-//    }
-//
-//    public static Appointment generateAppointment() {
-//
-//        Appointment appointment = PhysiomaticController.generateAppointment();
-//
-//        return appointment;
-//
-//    }
-
-//    public static Bill generateBill() {
-//
-//        Bill bill = PhysiomaticController.generateBill();
-//
-//        return bill;
-//
-//    }
-
-//    public static Bill retrieveBill(long idPatient) {
-//
-//        Bill bill;
-//        bill = PhysiomaticController.retrieveBill(idPatient);
-//        return bill;
-//
-//    }
-
-//    public static Appointment retrieveAppointment(long idPatient) {
-//        Appointment appointment;
-//        appointment = PhysiomaticController.retrieveAppointment(idPatient);
-//        return appointment;
-//    }
-
-//    public static void printAllPatients() {
-//        Gson gson = new Gson();
-//        Scanner scanner = new Scanner(System.in);
-//        List<Patient> patients1;
-//        patients1 = new ArrayList();
-//        String[] patients;
-//        patients = FileManager.findAll("patients.json");
-//        Patient eachPatient;
-//        for (String line : patients) {
-//            eachPatient = gson.fromJson(line, Patient.class);
-//            patients1.add(eachPatient);
-//        }
-//        for (Patient patient : patients1) {
-//            SystemView2 view = new SystemView2(patient);
-//            view.displayPatient();
-//        }
-//        scanner.nextLine();
-//    }
-
+    
     public Physioterapist(String userName, String password, long id, String address, String name, String lastname, String email, String phoneNumber) {
         super(id, address, name, lastname, email, phoneNumber);
         this.userName = userName;
