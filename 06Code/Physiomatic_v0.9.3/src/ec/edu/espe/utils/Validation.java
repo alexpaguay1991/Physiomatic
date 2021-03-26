@@ -76,4 +76,50 @@ public class Validation {
             return false;
         }
     }
+    
+    //Implemented code from Argenis
+    public static boolean validateId(String id) {
+        boolean correctId = false;
+
+        try {
+
+            if (id.length() == 10) 
+            {
+                int thirdDigit = Integer.parseInt(id.substring(2, 3));
+                if (thirdDigit < 6) {
+
+                    int[] coefValId = {2, 1, 2, 1, 2, 1, 2, 1, 2};
+                    int verifier = Integer.parseInt(id.substring(9, 10));
+                    int sum = 0;
+                    int digit = 0;
+                    for (int i = 0; i < (id.length() - 1); i++) {
+                        digit = Integer.parseInt(id.substring(i, i + 1)) * coefValId[i];
+                        sum += ((digit % 10) + (digit / 10));
+                    }
+
+                    if ((sum % 10 == 0) && (sum % 10 == verifier)) {
+                        correctId = true;
+                    } else if ((10 - (sum % 10)) == verifier) {
+                        correctId = true;
+                    } else {
+                        correctId = false;
+                    }
+                } else {
+                    correctId = false;
+                }
+            } else {
+                correctId = false;
+            }
+        } catch (NumberFormatException nfe) {
+            correctId = false;
+        } catch (Exception err) {
+            //System.out.println("Una excepcion ocurrio en el proceso de validadcion");
+            correctId = false;
+        }
+
+        if (!correctId) {
+            //System.out.println("La Cédula ingresada es Incorrecta");
+        }
+        return correctId;
+    }
 }
