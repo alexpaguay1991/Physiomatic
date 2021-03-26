@@ -140,7 +140,7 @@ public class FrmCreateDiagnostic extends javax.swing.JFrame {
         Date date = dcsDate.getDate();
         String dateOfAppointment = sdf.format(date);
         String treatment = txaTreatment.getText();
-        PhysiomaticController.addDiagnostic(id, Symptom, pathology, treatment, treatment);
+        PhysiomaticController.addDiagnostic(id, Symptom, pathology, treatment, dateOfAppointment);
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

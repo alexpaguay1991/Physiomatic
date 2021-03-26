@@ -60,6 +60,7 @@ public class PhysiomaticController {
             matrix[i][1] = clinicalHistory.getDiagnostics().get(i).getSymptoms();
             matrix[i][2] = clinicalHistory.getDiagnostics().get(i).getTreatment();
             matrix[i][3] = clinicalHistory.getDiagnostics().get(i).getPathology();
+            //
         }
         return matrix;
     }
@@ -81,14 +82,11 @@ public class PhysiomaticController {
 
     public static void addDiagnostic(long id, String symptom, String pathology, String treatment, String date) {
         Diagnostic diagnostic = new Diagnostic(pathology, treatment, symptom, date);
-        Patient patient = retrievePatient(id);
-       //Connection connection2 = new Connection("clinicalHistory");
-        //ClinicalHistory clinicalHistory = connection2.retrieveClinicalHistory(patient);
+        Patient patient = retrievePatient(id);    
         ClinicalHistory clinicalHistory =retrieveClinicalHistory(patient);
         ClinicalHistory newClinicalHistory = clinicalHistory;
         newClinicalHistory.getDiagnostics().add(diagnostic);
-        mongo.update("clinicalHistory", gson.toJson(clinicalHistory), gson.toJson(newClinicalHistory));
-        //connection2.updateClinicalHistory(clinicalHistory, newClinicalHistory);
+        mongo.update("clinicalHistory", gson.toJson(clinicalHistory), gson.toJson(newClinicalHistory)); 
     }
 
     public static String[][] showAppointmentTable(long id) {

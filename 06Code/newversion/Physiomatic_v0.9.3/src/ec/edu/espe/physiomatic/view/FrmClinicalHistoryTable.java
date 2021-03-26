@@ -26,8 +26,6 @@ import javax.swing.JOptionPane;
  */
 public class FrmClinicalHistoryTable extends javax.swing.JFrame implements Printable {
 
-    ArrayList<Patient> patients = new ArrayList<Patient>();
-    Connection conection = new Connection("patients");
 
     /**
      * Creates new form FrmPatientTable1

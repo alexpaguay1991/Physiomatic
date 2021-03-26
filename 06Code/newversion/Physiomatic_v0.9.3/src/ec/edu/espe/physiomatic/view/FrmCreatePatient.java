@@ -20,7 +20,6 @@ import javax.swing.JOptionPane;
 public class FrmCreatePatient extends javax.swing.JFrame {
 
     /** Creates new form FrmCreatePatient */
-    Connection conection;
     public FrmCreatePatient() {
         initComponents();
         this.setLocationRelativeTo(null);

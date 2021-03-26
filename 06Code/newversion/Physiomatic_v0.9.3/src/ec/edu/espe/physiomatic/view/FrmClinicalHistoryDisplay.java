@@ -25,9 +25,7 @@ import javax.swing.JOptionPane;
  */
 public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Printable {
 
-    ClinicalHistory clinicalHistory;
-    Patient patient;
-    Connection conection = new Connection("patients");
+
 
     /**
      * Creates new form FrmPatientDisplay
@@ -312,9 +310,8 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         try {
-            patient = conection.retrievePatient(Long.parseLong(txtId.getText()));
-            conection = new Connection("clinicalHistory");
-            clinicalHistory = conection.retrieveClinicalHistory(patient);                        
+            Patient patient = PhysiomaticController.retrievePatient(Long.parseLong(txtId.getText()));           
+            ClinicalHistory clinicalHistory = PhysiomaticController.retrieveClinicalHistory(patient);                        
             txtName.setText(patient.getName());
             txtLastName.setText(patient.getLastName());
             txtAddress.setText(patient.getAddress());
@@ -331,7 +328,7 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
             tblDiagnostic.setModel(new javax.swing.table.DefaultTableModel(
                     matrix,
                     new String[]{
-                        "Fecha del diagnóstico", "Patología", "Sintomas", "Tratamiento", "Alergias"
+                        "Fecha del diagnóstico", "Síntomas", "Tratamiento", "Patología"
                     }
             ));
         } catch (Exception e) {

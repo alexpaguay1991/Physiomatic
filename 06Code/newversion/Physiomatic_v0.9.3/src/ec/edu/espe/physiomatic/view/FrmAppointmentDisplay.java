@@ -25,8 +25,7 @@ import javax.swing.JOptionPane;
  */
 public class FrmAppointmentDisplay extends javax.swing.JFrame implements Printable {
 
-    Connection connection = new Connection("patients");
-    Patient patient;
+
 
     /**
      * Creates new form FrmAppoinmentDisplay
@@ -184,7 +183,7 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame implements Printab
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
 
         try {
-            patient = connection.retrievePatient(Long.parseLong(txtId.getText()));
+            Patient patient = PhysiomaticController.retrievePatient(Long.parseLong(txtId.getText()));
             txtName.setText(patient.getName());
             txtLastName.setText(patient.getLastName());
             txtPhoneNumber.setText(patient.getPhoneNumber());
