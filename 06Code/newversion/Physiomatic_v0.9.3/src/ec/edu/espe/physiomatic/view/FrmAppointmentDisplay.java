@@ -63,6 +63,8 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame implements Printab
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        buttonPrint.setBackground(new java.awt.Color(0, 51, 51));
+        buttonPrint.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         buttonPrint.setForeground(new java.awt.Color(255, 255, 255));
         buttonPrint.setText("Imprimir");
         buttonPrint.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +128,7 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame implements Printab
         getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 170, 30));
 
         btnBack.setBackground(new java.awt.Color(0, 51, 51));
-        btnBack.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        btnBack.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Atrás");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +139,7 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame implements Printab
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(0, 51, 51));
-        btnExit.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        btnExit.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         btnExit.setForeground(new java.awt.Color(255, 255, 255));
         btnExit.setText("Salir");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
