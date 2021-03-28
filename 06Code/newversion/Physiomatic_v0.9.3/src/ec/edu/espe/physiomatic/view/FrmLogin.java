@@ -7,6 +7,8 @@ package ec.edu.espe.physiomatic.view;
 
 import ec.edu.espe.physiomatic.model.Physioterapist;
 import ec.edu.espe.utils.Connection;
+import ec.edu.espe.utils.PhysiomaticException;
+import ec.edu.espe.utils.Validation;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -113,22 +115,20 @@ public class FrmLogin extends javax.swing.JFrame {
         frmPhysioterapistManagment.setVisible(true);
     }//GEN-LAST:event_btnAcceptActionPerformed
 
-    Connection conection;
     String username;
     String password;
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-       conection =new Connection("physioterapist");
-        Physioterapist physioterapist;
-        username=tfUser.getText();
-        password= tfpassword.getText();
-        physioterapist=conection.retrievePhysioterapist(username, password);
-        if (username.contentEquals(physioterapist.getUserName()) && password.contentEquals(physioterapist.getPassword())){
+        username = tfUser.getText();
+        password = tfpassword.getText();
+        try {
+            Validation.login(username, password);
             FrmMenuPhysioterapist frmMenuPhyisioterapist = new FrmMenuPhysioterapist();
             this.setVisible(false);
             frmMenuPhyisioterapist.setVisible(true);
-        }else{
-            JOptionPane.showConfirmDialog(null, "USUARIO Y CONTRASEÑA INVÁLIDOS", "ERROR DE AUTENTICACIÓN" + "\nGuardado", JOptionPane.INFORMATION_MESSAGE);
-           
+
+        } catch (PhysiomaticException e) {
+            JOptionPane.showConfirmDialog(null, e.getMessage(), "ERROR DE AUTENTICACIÓN", JOptionPane.INFORMATION_MESSAGE);
+
         }
     }//GEN-LAST:event_btnNextActionPerformed
 

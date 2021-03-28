@@ -39,8 +39,9 @@ public class MongoDBManager extends Persistence{
     String nameCollection;
 
     Gson gson = new Gson();
+    private static MongoDBManager instance;
 
-    public MongoDBManager() {
+    private MongoDBManager() {
         try {
             String data;
             data = "mongodb+srv://AlexPaguay:resende1A@physiomatic.ths5b.mongodb.net/Physiomatic?retryWrites=true&w=majority";
@@ -52,6 +53,12 @@ public class MongoDBManager extends Persistence{
         } catch (Exception e) {
             System.out.println("no ingresa");
         }
+    }
+    
+    public static MongoDBManager getInstance() {
+        if(instance==null)
+            instance=new MongoDBManager();
+        return instance;
     }
 
     public int countLines(String collectionName) {
@@ -71,7 +78,7 @@ public class MongoDBManager extends Persistence{
         admin=Document.parse(data);
         collection = baseDatos.getCollection(fileName);
         collection.insertOne(admin);
-        mongo.close();
+        
     }
 
     @Override
@@ -101,7 +108,7 @@ public class MongoDBManager extends Persistence{
         Document admin;     
         admin=Document.parse(datatodelete);
         collection.findOneAndDelete(admin);
-        //mongo.close();   
+        
     }
 
     @Override
@@ -112,7 +119,7 @@ public class MongoDBManager extends Persistence{
         collection = baseDatos.getCollection(fileName);
         collection.deleteOne( adminOld);
         collection.insertOne(adminNew);
-        //mongo.close();
+        
     }
 
     @Override

@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.utils;
 
+import com.google.gson.Gson;
+import ec.edu.espe.filemanager.utils.FileManager;
+import ec.edu.espe.physiomatic.model.Physioterapist;
 import java.util.Scanner;
 
 /**
@@ -52,6 +55,28 @@ public class Validation {
             return false;
         }
     }
+    
+     public static void login(String username, String password) throws PhysiomaticException {
+
+        Gson gson = new Gson();
+
+        String physioterapist1 = FileManager.find("physioterapists.json", username);
+        Physioterapist physioterapist; 
+        try {
+            physioterapist = gson.fromJson(physioterapist1, Physioterapist.class);
+            if (!(physioterapist.getUserName().contentEquals(username) && physioterapist.getPassword().contentEquals(password))) {
+                throw new PhysiomaticException("USUARIO Y CONTRASEÑA INCORRECTOS");
+            }
+
+        } catch (Exception e) {
+            physioterapist = new Physioterapist("null", "null", 0, "null", "null", "null", "null", "null");
+            if (!(physioterapist.getUserName().contentEquals(username) && physioterapist.getPassword().contentEquals(password))) {
+                throw new PhysiomaticException("USUARIO Y CONTRASEÑA INCORRECTOS");
+            }
+        }
+
+    }
+     
     public static boolean isNumeric(String string) {
         try {
             Integer.parseInt(string);

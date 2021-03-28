@@ -24,7 +24,7 @@ import java.util.ArrayList;
  */
 public class PatientController {
     static Gson gson = new Gson();
-    static MongoDBManager mongo =new MongoDBManager();
+    static MongoDBManager mongo =MongoDBManager.getInstance();
     static DataTranslation translation =new DataTranslation();
     public static void createClinicalHistory(long idPatient, String birthDate, float weight, float height, String familiyBackground, String bloodType, String allergy) {
         Patient patient=PhysiomaticController.retrievePatient(idPatient);

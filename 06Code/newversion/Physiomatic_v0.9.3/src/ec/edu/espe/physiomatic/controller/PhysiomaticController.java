@@ -27,15 +27,15 @@ import org.codehaus.jackson.map.ObjectMapper;
  * @author pzeadrian
  */
 public class PhysiomaticController {
+
     static Gson gson = new Gson();
-    static MongoDBManager mongo =new MongoDBManager();
+    static MongoDBManager mongo = MongoDBManager.getInstance();
     static Persistence fileManager = new FileManager1();
-    static DataTranslation translation =new DataTranslation();
-     
+    static DataTranslation translation = new DataTranslation();
 
     public static String[][] showTableClinicalHistories() {
         ArrayList<ClinicalHistory> clinicaHistories = new ArrayList<>();
-        clinicaHistories=translation.retrieveClinicalHistories();
+        clinicaHistories = translation.retrieveClinicalHistories();
         String[][] matrix = new String[clinicaHistories.size()][8];
         for (int i = 0; i < clinicaHistories.size(); i++) {
             matrix[i][5] = clinicaHistories.get(i).getAllergy();
@@ -67,7 +67,7 @@ public class PhysiomaticController {
 
     public static String[][] showTable() {
         ArrayList<Patient> patients = new ArrayList<Patient>();
-        patients=translation.retrievePatients();
+        patients = translation.retrievePatients();
         String[][] matrix = new String[patients.size()][6];
         for (int i = 0; i < patients.size(); i++) {
             matrix[i][0] = patients.get(i).getId() + "";
@@ -82,16 +82,17 @@ public class PhysiomaticController {
 
     public static void addDiagnostic(long id, String symptom, String pathology, String treatment, String date) {
         Diagnostic diagnostic = new Diagnostic(pathology, treatment, symptom, date);
-        Patient patient = retrievePatient(id);    
-        ClinicalHistory clinicalHistory =retrieveClinicalHistory(patient);
+        Patient patient = retrievePatient(id);
+        ClinicalHistory clinicalHistory = retrieveClinicalHistory(patient);
+        mongo.delete("clinicalHistory", gson.toJson(clinicalHistory));
         ClinicalHistory newClinicalHistory = clinicalHistory;
         newClinicalHistory.getDiagnostics().add(diagnostic);
-        mongo.update("clinicalHistory", gson.toJson(clinicalHistory), gson.toJson(newClinicalHistory)); 
+        mongo.save("clinicalHistory", gson.toJson(newClinicalHistory));
     }
 
     public static String[][] showAppointmentTable(long id) {
         ArrayList<Appointment> appointments = new ArrayList<Appointment>();
-        
+
         Connection connection = new Connection("patients");
         Patient patient = connection.retrievePatient(id);
         connection = new Connection("appointments");
@@ -103,39 +104,39 @@ public class PhysiomaticController {
         }
         return matrix;
     }
+
     public void createPatient(long id, String address, String name, String lastname, String email, String phoneNumber) {
         Patient patient = new Patient(id, address, name, lastname, email, phoneNumber);
-        String data=gson.toJson(patient);
-        mongo.save("patients",data );
-        
+        String data = gson.toJson(patient);
+        mongo.save("patients", data);
 
     }
 
     public static void createPhysioterapist(String userName, String password, long id, String address, String name, String lastname, String email, String phoneNumber) {
         Physioterapist physioterapist = new Physioterapist(userName, password, id, address, name, lastname, email, phoneNumber);
-        mongo.save("physioterapist",gson.toJson(physioterapist));
-        fileManager.save("physioterapists.json", gson.toJson(physioterapist));        
+        mongo.save("physioterapist", gson.toJson(physioterapist));
+        fileManager.save("physioterapists.json", gson.toJson(physioterapist));
     }
 
     public static void createAppoinment(String date, String time, long id) {
-        Patient patient=retrievePatient(id);
+        Patient patient = retrievePatient(id);
         Appointment appointment = new Appointment(date, time, patient);
-        System.out.println("fgfg"+appointment.getPatient().getName());
-        mongo.save("appointments",gson.toJson(appointment));
+        System.out.println("fgfg" + appointment.getPatient().getName());
+        mongo.save("appointments", gson.toJson(appointment));
     }
+
     public static Patient retrievePatient(long id) {
         Patient patient;
-        String patientjson=mongo.find("patients",Long.toString(id));
-        patient=translation.retrievePatient(patientjson);
+        String patientjson = mongo.find("patients", Long.toString(id));
+        patient = translation.retrievePatient(patientjson);
         return patient;
     }
+
     public static ClinicalHistory retrieveClinicalHistory(Patient patient) {
         ClinicalHistory clinicalHistory;
-        String clinicalHistoryjson=mongo.find("clinicalHistory",Long.toString(patient.getId()));
-        clinicalHistory=translation.retrieveClinicalHistory(clinicalHistoryjson);
+        String clinicalHistoryjson = mongo.find("clinicalHistory", Long.toString(patient.getId()));
+        clinicalHistory = translation.retrieveClinicalHistory(clinicalHistoryjson);
         return clinicalHistory;
     }
-    
-    
 
 }

@@ -16,7 +16,6 @@ import com.mongodb.client.MongoDatabase;
 import ec.edu.espe.physiomatic.model.Appointment;
 import ec.edu.espe.physiomatic.model.Bill;
 import ec.edu.espe.physiomatic.model.ClinicalHistory;
-import ec.edu.espe.physiomatic.model.Consumption;
 import ec.edu.espe.physiomatic.model.Diagnostic;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.physiomatic.model.Physioterapist;
@@ -245,7 +244,7 @@ public class Connection extends Persistence{
         MongoCursor<Document> resultDocument = collection.find().iterator();
 
         float price;
-        ArrayList<Consumption> products = new ArrayList<>();
+        ArrayList<Product> products = new ArrayList<>();
         Patient patientNull = new Patient(0, "null", "null", "null", "null", "null");
 
         Bill billRetrieved = new Bill(0, patientNull, products);
@@ -258,7 +257,7 @@ public class Connection extends Persistence{
 
             billprobe = gson.toJson(theObj.get("products"));
 
-            ArrayList<Consumption> products3 = gson.fromJson(billprobe, new TypeToken<List<Product>>() {
+            ArrayList<Product> products3 = gson.fromJson(billprobe, new TypeToken<List<Product>>() {
             }.getType());
             billprobe = gson.toJson(theObj.get("price"));
             price = Float.parseFloat(billprobe);
@@ -278,7 +277,7 @@ public class Connection extends Persistence{
         MongoCursor<Document> resultDocument = collection.find().iterator();
 
         float price;
-        ArrayList<Consumption> products = new ArrayList<>();
+        ArrayList<Product> products = new ArrayList<>();
         Patient patientNull = new Patient(0, "null", "null", "null", "null", "null");
 
         Bill billRetrieved = new Bill(0, patientNull, products);
@@ -291,7 +290,7 @@ public class Connection extends Persistence{
 
             billprobe = gson.toJson(theObj.get("products"));
 
-            ArrayList<Consumption> products3 = gson.fromJson(billprobe, new TypeToken<List<Consumption>>() {
+            ArrayList<Product> products3 = gson.fromJson(billprobe, new TypeToken<List<Product>>() {
             }.getType());
             billprobe = gson.toJson(theObj.get("price"));
             price = Float.parseFloat(billprobe);

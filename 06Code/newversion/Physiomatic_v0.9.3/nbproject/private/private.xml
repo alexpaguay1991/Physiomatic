@@ -3,24 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/view/FrmClinicalHistoryTable.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/view/FrmRegistrationPhysioterapist.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/controller/PhysiomaticController.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/view/FrmCreateClinicalHistory.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/model/Bill.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/view/FrmPhysioterapistManagment.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/view/FrmCreateDiagnostic.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/utils/MongoDBManager.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/view/FrmCreatePatient.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/view/FrmClinicalHistoryDisplay.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/model/Diagnostic.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/utils/Connection.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/view/FrmLogin.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/view/FrmAppointmentDisplay.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/view/FrmAppointmentScheduling.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/model/ClinicalHistory.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/view/FrmMenuPhysioterapist.java</file>
-            <file>file:/C:/Users/Daniel/Documents/DANIEL/Segundo%20Semestre/POO/PROYECTO%20FINAL/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/view/FrmPatientTable.java</file>
+            <file>file:/D:/docs/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/utils/MongoDBManager.java</file>
+            <file>file:/D:/docs/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/utils/Connection.java</file>
+            <file>file:/D:/docs/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/controller/PatientController.java</file>
+            <file>file:/D:/docs/Physiomatic/06Code/newversion/Physiomatic_v0.9.3/src/ec/edu/espe/physiomatic/controller/PhysiomaticController.java</file>
         </group>
     </open-files>
 </project-private>
