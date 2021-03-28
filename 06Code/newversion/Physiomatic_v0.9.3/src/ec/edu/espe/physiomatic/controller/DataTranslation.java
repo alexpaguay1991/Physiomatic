@@ -166,6 +166,22 @@ public class DataTranslation {
        
         return appointments1;
     }
+     public ArrayList<Appointment> retrieveAppointmentsSpecific(Patient patient) {
+        String appointments[];
+        Appointment eachAppointment;
+        appointments=mongo.findAll("appointments");
+        ArrayList<Appointment> appointments1 = new ArrayList<Appointment>();
+        for(int i=0;i<appointments.length;i++){
+            eachAppointment=retrieveAppointment(appointments[i]);
+            if(patient.getId()==eachAppointment.getPatient().getId()){
+                appointments1.add(eachAppointment);
+            }
+            
+        }
+       
+        return appointments1;
+    }
+     
      public ArrayList<ClinicalHistory> retrieveClinicalHistories() {
         String clinicalHistories[];
         ClinicalHistory eachClinicalHistory;
