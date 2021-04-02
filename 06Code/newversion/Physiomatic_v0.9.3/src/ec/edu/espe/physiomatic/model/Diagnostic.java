@@ -23,7 +23,6 @@ public class Diagnostic {
      * @param pathology, saves patient evaluations during appointment.
      * @param treatment, saves the treatment to be followed by the patient.
      * @param symptoms, saves the symptoms before the appointment.
-     * @param allergies, saves allergies to account for in diagnosis.
      * @param dateOfDiagnostic, saves the date of appointment.
      */
     

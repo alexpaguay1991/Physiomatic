@@ -238,71 +238,71 @@ public class Connection extends Persistence{
         return clinicalHistories;
 
     }
-
-    public Bill retrieveBill(Patient patient) {
-        Bill bill;
-        MongoCursor<Document> resultDocument = collection.find().iterator();
-
-        float price;
-        ArrayList<Product> products = new ArrayList<>();
-        Patient patientNull = new Patient(0, "null", "null", "null", "null", "null");
-
-        Bill billRetrieved = new Bill(0, patientNull, products);
-
-        while (resultDocument.hasNext()) {
-            Document theObj = resultDocument.next();
-            String billprobe = gson.toJson(theObj.get("patient"));
-
-            Patient patient1 = gson.fromJson(billprobe, Patient.class);
-
-            billprobe = gson.toJson(theObj.get("products"));
-
-            ArrayList<Product> products3 = gson.fromJson(billprobe, new TypeToken<List<Product>>() {
-            }.getType());
-            billprobe = gson.toJson(theObj.get("price"));
-            price = Float.parseFloat(billprobe);
-            bill = new Bill(price, patient1, products3);
-            if (patient.getId() == bill.getPatient().getId()) {
-                billRetrieved = bill;
-            }
-
-        }
-        return billRetrieved;
-
-    }
-
-    public ArrayList<Bill> retrieveBills(Patient patient) {
-        ArrayList<Bill> bills = new ArrayList<>();
-        Bill bill;
-        MongoCursor<Document> resultDocument = collection.find().iterator();
-
-        float price;
-        ArrayList<Product> products = new ArrayList<>();
-        Patient patientNull = new Patient(0, "null", "null", "null", "null", "null");
-
-        Bill billRetrieved = new Bill(0, patientNull, products);
-
-        while (resultDocument.hasNext()) {
-            Document theObj = resultDocument.next();
-            String billprobe = gson.toJson(theObj.get("patient"));
-
-            Patient patient1 = gson.fromJson(billprobe, Patient.class);
-
-            billprobe = gson.toJson(theObj.get("products"));
-
-            ArrayList<Product> products3 = gson.fromJson(billprobe, new TypeToken<List<Product>>() {
-            }.getType());
-            billprobe = gson.toJson(theObj.get("price"));
-            price = Float.parseFloat(billprobe);
-            bill = new Bill(price, patient1, products3);
-            if (patient.getId() == bill.getPatient().getId()) {
-                bills.add(bill);
-            }
-
-        }
-        return bills;
-
-    }
+//
+//    public Bill retrieveBill(Patient patient) {
+//        Bill bill;
+//        MongoCursor<Document> resultDocument = collection.find().iterator();
+//
+//        float price;
+//        ArrayList<Product> products = new ArrayList<>();
+//        Patient patientNull = new Patient(0, "null", "null", "null", "null", "null");
+//
+//        Bill billRetrieved = new Bill(0, patientNull, products);
+//
+//        while (resultDocument.hasNext()) {
+//            Document theObj = resultDocument.next();
+//            String billprobe = gson.toJson(theObj.get("patient"));
+//
+//            Patient patient1 = gson.fromJson(billprobe, Patient.class);
+//
+//            billprobe = gson.toJson(theObj.get("products"));
+//
+//            ArrayList<Product> products3 = gson.fromJson(billprobe, new TypeToken<List<Product>>() {
+//            }.getType());
+//            billprobe = gson.toJson(theObj.get("price"));
+//            price = Float.parseFloat(billprobe);
+//            bill = new Bill(price, patient1, products3);
+//            if (patient.getId() == bill.getPatient().getId()) {
+//                billRetrieved = bill;
+//            }
+//
+//        }
+//        return billRetrieved;
+//
+//    }
+//
+//    public ArrayList<Bill> retrieveBills(Patient patient) {
+//        ArrayList<Bill> bills = new ArrayList<>();
+//        Bill bill;
+//        MongoCursor<Document> resultDocument = collection.find().iterator();
+//
+//        float price;
+//        ArrayList<Product> products = new ArrayList<>();
+//        Patient patientNull = new Patient(0, "null", "null", "null", "null", "null");
+//
+//        Bill billRetrieved = new Bill(0, patientNull, products);
+//
+//        while (resultDocument.hasNext()) {
+//            Document theObj = resultDocument.next();
+//            String billprobe = gson.toJson(theObj.get("patient"));
+//
+//            Patient patient1 = gson.fromJson(billprobe, Patient.class);
+//
+//            billprobe = gson.toJson(theObj.get("products"));
+//
+//            ArrayList<Product> products3 = gson.fromJson(billprobe, new TypeToken<List<Product>>() {
+//            }.getType());
+//            billprobe = gson.toJson(theObj.get("price"));
+//            price = Float.parseFloat(billprobe);
+//            bill = new Bill(price, patient1, products3);
+//            if (patient.getId() == bill.getPatient().getId()) {
+//                bills.add(bill);
+//            }
+//
+//        }
+//        return bills;
+//
+//    }
 
     public Appointment retrieveAppointment(Patient patient) {
         Appointment appointment;

@@ -8,7 +8,6 @@ package ec.edu.espe.physiomatic.view;
 import ec.edu.espe.physiomatic.controller.PhysiomaticController;
 import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Patient;
-import ec.edu.espe.utils.Connection;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.print.PageFormat;

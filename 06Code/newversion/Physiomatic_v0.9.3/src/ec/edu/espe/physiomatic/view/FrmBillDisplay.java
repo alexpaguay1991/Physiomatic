@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.physiomatic.view;
 
+import ec.edu.espe.physiomatic.controller.PhysiomaticController;
+import ec.edu.espe.physiomatic.model.Bill;
+
 /**
  *
  * @author User
@@ -41,10 +44,18 @@ public class FrmBillDisplay extends javax.swing.JFrame {
         lblPhoneNumber = new javax.swing.JLabel();
         txtPhoneNumber = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblBill = new javax.swing.JTable();
+        tblConsumptions = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        txtPrice = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        txtIva = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        txtTotal = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtDate = new javax.swing.JTextField();
         lblBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,23 +91,23 @@ public class FrmBillDisplay extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Dirección:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
         txtAddress.setEditable(false);
         txtAddress.setBackground(new java.awt.Color(0, 153, 153));
         txtAddress.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 270, 30));
+        getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 270, 30));
 
         lblEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(255, 255, 255));
         lblEmail.setText("Email:");
-        getContentPane().add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, -1, -1));
+        getContentPane().add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, -1));
 
         txtEmail.setEditable(false);
         txtEmail.setBackground(new java.awt.Color(0, 153, 153));
         txtEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 180, 230, 30));
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 230, 30));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,25 +122,25 @@ public class FrmBillDisplay extends javax.swing.JFrame {
         lblPhoneNumber.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblPhoneNumber.setForeground(new java.awt.Color(255, 255, 255));
         lblPhoneNumber.setText("Número telefónico:");
-        getContentPane().add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+        getContentPane().add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
         txtPhoneNumber.setEditable(false);
         txtPhoneNumber.setBackground(new java.awt.Color(0, 153, 153));
         txtPhoneNumber.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtPhoneNumber.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 190, 30));
+        getContentPane().add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 190, 30));
 
-        tblBill.setModel(new javax.swing.table.DefaultTableModel(
+        tblConsumptions.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Ord.", "Descripción", "Cantidad", "V.Unitario", "V.Total"
+                "Ord.", "Cantidad", "Descripción", "V.Unitario", "V.Total"
             }
         ));
-        jScrollPane1.setViewportView(tblBill);
+        jScrollPane1.setViewportView(tblConsumptions);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 640, 230));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 720, 210));
 
         btnBack.setBackground(new java.awt.Color(0, 51, 51));
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -140,7 +151,7 @@ public class FrmBillDisplay extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, -1, -1));
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 590, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(0, 51, 51));
         btnExit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -151,16 +162,57 @@ public class FrmBillDisplay extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 510, -1, -1));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 590, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 51, 51));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("MOSTRAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, -1));
 
+        jTextField1.setEditable(false);
+        jTextField1.setBackground(new java.awt.Color(204, 204, 255));
+        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField1.setText("Precio sin IVA");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 460, 30));
+        getContentPane().add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 480, 260, 30));
+
+        jTextField3.setEditable(false);
+        jTextField3.setBackground(new java.awt.Color(204, 204, 255));
+        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField3.setText("IVA 12%");
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 510, 460, 30));
+        getContentPane().add(txtIva, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, 260, 30));
+
+        jTextField2.setEditable(false);
+        jTextField2.setBackground(new java.awt.Color(204, 204, 255));
+        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField2.setText("Total a pagar");
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, 460, 30));
+        getContentPane().add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 540, 260, 30));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Fecha:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, -1));
+
+        txtDate.setBackground(new java.awt.Color(0, 153, 153));
+        txtDate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtDate.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(txtDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 230, 30));
+
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
-        getContentPane().add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 560));
+        getContentPane().add(lblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 670));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -174,6 +226,35 @@ public class FrmBillDisplay extends javax.swing.JFrame {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String id = txtId.getText();
+        long idPatient = Long.valueOf(id);
+        PhysiomaticController.createBill(idPatient);
+        Bill bill = PhysiomaticController.retrieveBill(idPatient);
+        txtAddress.setText(bill.getPatient().getAddress());
+        txtEmail.setText(bill.getPatient().getEmail());
+        txtLastName.setText(bill.getPatient().getLastName());
+        txtName.setText(bill.getPatient().getName());
+        txtPhoneNumber.setText(bill.getPatient().getPhoneNumber());
+        txtDate.setText(bill.getDate());
+        txtPrice.setText(bill.getPrice() + "");
+        float total = PhysiomaticController.calculateTax(bill.getPrice());
+        txtTotal.setText(total + "");
+        txtIva.setText("12%");
+        String[][] matrix = PhysiomaticController.showBillTable(idPatient);
+
+        tblConsumptions.setModel(new javax.swing.table.DefaultTableModel(
+                matrix,
+                new String[]{
+                    "Ord.", "Cantidad", "Descripción", "V.Unitario", "V.Total"
+                }
+        ));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,19 +298,27 @@ public class FrmBillDisplay extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblLastName;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPhoneNumber;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTable tblBill;
+    private javax.swing.JTable tblConsumptions;
     private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtIva;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPhoneNumber;
+    private javax.swing.JTextField txtPrice;
+    private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }

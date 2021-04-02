@@ -11,6 +11,8 @@ import ec.edu.espe.filemanager.utils.FileManager;
 import ec.edu.espe.physiomatic.controller.PhysiomaticController;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.utils.Connection;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +20,7 @@ import javax.swing.JOptionPane;
  * @author Daniel
  */
 public class FrmCreatePatient extends javax.swing.JFrame {
+    long id;
 
     /** Creates new form FrmCreatePatient */
     public FrmCreatePatient() {
@@ -157,23 +160,21 @@ public class FrmCreatePatient extends javax.swing.JFrame {
     private void buttonSavedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSavedActionPerformed
         int selection = JOptionPane.showConfirmDialog(null, null, "¿DESEA REGISTRAR EL PACIENTE?", JOptionPane.YES_NO_CANCEL_OPTION);
         if (selection == 0) {
-            JOptionPane.showMessageDialog(null, "SU INFORMACIÓN HA SIDO GUARDADA CON ÉXITO", txtLastName + "PACIENTE REGISTRADO", JOptionPane.INFORMATION_MESSAGE);
-             
-            
-                long id = Long.parseLong(txtId.getText());
+            JOptionPane.showMessageDialog(null, "SU INFORMACIÓN HA SIDO GUARDADA CON ÉXITO", txtLastName + "PACIENTE REGISTRADO", JOptionPane.INFORMATION_MESSAGE);            
+                id = Long.parseLong(txtId.getText());
                 String name = txtName.getText();
                 String lastName = txtLastName.getText();
                 String email = tfEmail.getText();
                 String address = tfAddress.getText();
                 String phoneNumber = txtContact.getText();
-
                 Patient patient = new Patient(id, address, name, lastName, email, phoneNumber);
                 PhysiomaticController controller=new PhysiomaticController();
                 controller.createPatient(id, address, name, lastName, email, phoneNumber);
-               
+                FrmFirstAppointment frmmAppointment = new FrmFirstAppointment();                                
+                frmmAppointment.setVisible(true);
+                this.setVisible(false);
+                this.setVisible(true);
                 emptyFields();
-               
-           
 
         } else if (selection == 1) {
             JOptionPane.showMessageDialog(null, "SU INFORMACIÓN NO HA SIDO GUARDADA", txtLastName + "NO SE HA REGISTRADO EL PACIENTE", JOptionPane.ERROR_MESSAGE);
@@ -183,6 +184,12 @@ public class FrmCreatePatient extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_buttonSavedActionPerformed
 
+    public long getId() {
+        return id;
+    }
+    
+    
+    
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
         FrmPhysioterapistManagment frmPhysioterapistManagment = new FrmPhysioterapistManagment();
         this.setVisible(false);

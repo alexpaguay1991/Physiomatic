@@ -5,9 +5,7 @@
  */
 package ec.edu.espe.physiomatic.view;
 
-import ec.edu.espe.physiomatic.controller.PatientController;
 import ec.edu.espe.physiomatic.controller.PhysiomaticController;
-import ec.edu.espe.physiomatic.model.Patient;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -25,7 +23,7 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
         initComponents();
         Date d = new Date();
         d.setTime(d.getTime());
-        dcsDate.getJCalendar().setMinSelectableDate(d);      
+        dcsDate.getJCalendar().setMinSelectableDate(d);
     }
 
     /**
@@ -110,17 +108,17 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
         int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Citas medicas", JOptionPane.YES_NO_CANCEL_OPTION);
         if (selection == 0) {
             JOptionPane.showMessageDialog(null, "La información fue guardada", "Guardar", JOptionPane.INFORMATION_MESSAGE);
-            //try {
+            try {
                 long id = Long.parseLong(txtId.getText());
                 String time = txtTime.getText();
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
                 Date date = dcsDate.getDate();
                 String dateOfAppointment = sdf.format(date) + "";
-                PhysiomaticController.createAppoinment(dateOfAppointment, time, id);
+                PhysiomaticController.addProductToConsumption(id, "1404", "");
                 emptyFields();
-            //} catch (Exception e) {
-                //JOptionPane.showConfirmDialog(null, "No se guardó la información debe ingresar solo digitos numéricos en el id", "Registro de Fisioterapista", JOptionPane.ERROR_MESSAGE);
-            //}
+            } catch (Exception e) {
+                JOptionPane.showConfirmDialog(null, "No se guardó la información debe ingresar solo digitos numéricos en el id", "Registro de Fisioterapista", JOptionPane.ERROR_MESSAGE);
+            }
             emptyFields();
         } else if (selection == 1) {
             JOptionPane.showMessageDialog(null, "Information was NOT saved", "NOT saved", JOptionPane.INFORMATION_MESSAGE);

@@ -5,11 +5,6 @@
  */
 package ec.edu.espe.physiomatic.model;
 
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
-import java.sql.Time;
-import java.util.Date;
-
 /**
  *
  * @author Acer

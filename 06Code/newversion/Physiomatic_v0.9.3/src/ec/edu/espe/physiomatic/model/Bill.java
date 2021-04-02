@@ -17,6 +17,7 @@ public class Bill {
     private float price;
     private Patient patient;
     private ArrayList<Product> products;
+    private String date;
 
     /**
      * @return the price
@@ -52,10 +53,11 @@ public class Bill {
      * @param patient, receive a patient Patient.
      * @param products, receive an ArrayList of products.
      */
-    public Bill(float price, Patient patient, ArrayList<Product> products) {
+    public Bill(float price, Patient patient, ArrayList<Product> products, String date) {    
         this.price = price;
         this.patient = patient;
         this.products = products;
+        this.date = date;
     }
 
     /**
@@ -70,6 +72,20 @@ public class Bill {
      */
     public void setProducts(ArrayList<Product> products) {
         this.products = products;
+    }
+
+    /**
+     * @return the date
+     */
+    public String getDate() {
+        return date;
+    }
+
+    /**
+     * @param date the date to set
+     */
+    public void setDate(String date) {
+        this.date = date;
     }
     
 }

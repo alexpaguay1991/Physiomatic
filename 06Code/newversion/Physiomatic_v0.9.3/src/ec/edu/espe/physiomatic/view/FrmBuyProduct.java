@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.physiomatic.view;
 
+import ec.edu.espe.physiomatic.controller.PhysiomaticController;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -16,6 +19,7 @@ public class FrmBuyProduct extends javax.swing.JFrame {
      */
     public FrmBuyProduct() {
         initComponents();
+        table();
     }
 
     /**
@@ -29,7 +33,7 @@ public class FrmBuyProduct extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblProducts = new javax.swing.JTable();
         btnBuy = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -45,8 +49,8 @@ public class FrmBuyProduct extends javax.swing.JFrame {
         jLabel2.setText("COMPRAR ");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
 
-        jTable1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblProducts.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tblProducts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -54,7 +58,7 @@ public class FrmBuyProduct extends javax.swing.JFrame {
                 "Código", "Cant. Disponible", "Descripción", "Precio"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblProducts);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 510, 210));
 
@@ -62,12 +66,22 @@ public class FrmBuyProduct extends javax.swing.JFrame {
         btnBuy.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnBuy.setForeground(new java.awt.Color(255, 255, 255));
         btnBuy.setText("COMPRAR");
+        btnBuy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuyActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnBuy, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, -1, -1));
 
         btnBack.setBackground(new java.awt.Color(0, 51, 51));
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("SALIR");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
@@ -88,6 +102,50 @@ public class FrmBuyProduct extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuyActionPerformed
+        int selection = JOptionPane.showConfirmDialog(null, "Esta seguro de relizar la compra.", "Compra", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (selection == 0) {
+            JOptionPane.showMessageDialog(null, "La información fue guardada", "Guardar", JOptionPane.INFORMATION_MESSAGE);
+            String id = txtId.getText();
+            long idPatient = Long.valueOf(id);
+            int index = tblProducts.getSelectedRow();
+            String idProduct = (String) tblProducts.getValueAt(index, 0);
+            String amount = JOptionPane.showInputDialog("Ingrese la cantidad:");
+            float quantity = Float.parseFloat(amount);            
+            PhysiomaticController.addProductToConsumption(idPatient, idProduct, amount);
+            PhysiomaticController.updateProduct(idProduct, quantity);            
+            table();
+            emptyFields();
+        } else if (selection == 1) {
+            JOptionPane.showMessageDialog(null, "La información no se guardo", "Error", JOptionPane.INFORMATION_MESSAGE);
+            emptyFields();
+        } else {
+            JOptionPane.showMessageDialog(null, "La acción fue cancelada", "Cancelar", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnBuyActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackActionPerformed
+    public void emptyFields() {
+        txtId.setText("");
+    }
+
+    public void enterAmount(String idProduct) {
+        String amount = JOptionPane.showInputDialog("Ingrese la cantidad:");
+        float quantity = Float.parseFloat(amount);
+        PhysiomaticController.updateProduct(idProduct, quantity);
+    }
+    public void table(){
+        String[][] matrix = PhysiomaticController.showTableProduct();
+        tblProducts.setModel(new javax.swing.table.DefaultTableModel(
+                matrix,
+                new String[]{
+                    "Código", "Cant. Disponible", "Descripción", "Precio"
+                }
+        ));
+    }
 
     /**
      * @param args the command line arguments
@@ -132,7 +190,7 @@ public class FrmBuyProduct extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblProducts;
     private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables
 }

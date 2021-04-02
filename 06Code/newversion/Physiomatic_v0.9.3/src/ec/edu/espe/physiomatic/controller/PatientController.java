@@ -6,13 +6,9 @@
 package ec.edu.espe.physiomatic.controller;
 
 import com.google.gson.Gson;
-import static ec.edu.espe.physiomatic.controller.PhysiomaticController.gson;
-import static ec.edu.espe.physiomatic.controller.PhysiomaticController.mongo;
-import ec.edu.espe.physiomatic.model.Appointment;
 import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Diagnostic;
 import ec.edu.espe.physiomatic.model.Patient;
-import ec.edu.espe.utils.Connection;
 import ec.edu.espe.utils.MongoDBManager;
 import java.util.ArrayList;
 

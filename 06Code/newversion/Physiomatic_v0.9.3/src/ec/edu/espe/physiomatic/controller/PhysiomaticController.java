@@ -6,19 +6,23 @@
 package ec.edu.espe.physiomatic.controller;
 
 import com.google.gson.Gson;
-import ec.edu.espe.filemanager.utils.FileManager;
 import ec.edu.espe.physiomatic.model.Appointment;
+import ec.edu.espe.physiomatic.model.Bill;
 import ec.edu.espe.physiomatic.model.ClinicalHistory;
+import ec.edu.espe.physiomatic.model.Consumption;
 import ec.edu.espe.physiomatic.model.Diagnostic;
 import ec.edu.espe.physiomatic.model.Patient;
 import ec.edu.espe.physiomatic.model.Physioterapist;
+import ec.edu.espe.physiomatic.model.Product;
+import ec.edu.espe.physiomatic.model.Tax;
 import ec.edu.espe.utils.Connection;
 import ec.edu.espe.utils.MongoDBManager;
 import ec.edu.espe.utils.FileManager1;
 import ec.edu.espe.utils.Persistence;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import org.bson.Document;
-import org.codehaus.jackson.map.ObjectMapper;
+import java.util.Arrays;
+import java.util.Date;
 
 /**
  *
@@ -66,7 +70,7 @@ public class PhysiomaticController {
     }
 
     public static String[][] showTable() {
-        ArrayList<Patient> patients = new ArrayList<Patient>();
+        ArrayList<Patient> patients = new ArrayList<>();
         patients = translation.retrievePatients();
         String[][] matrix = new String[patients.size()][6];
         for (int i = 0; i < patients.size(); i++) {
@@ -76,6 +80,52 @@ public class PhysiomaticController {
             matrix[i][3] = patients.get(i).getAddress();
             matrix[i][4] = patients.get(i).getEmail();
             matrix[i][5] = patients.get(i).getPhoneNumber();
+        }
+        return matrix;
+    }
+
+    public static String[][] showTableProduct() {
+        ArrayList<Product> products = new ArrayList<>();
+        products = translation.retrieveProducts();
+        String[][] matrix = new String[products.size() - 1][4];
+        System.out.println(matrix.length);
+        for (int i = 1; i < products.size(); i++) {
+            matrix[i - 1][0] = products.get(i).getId();
+            matrix[i - 1][1] = products.get(i).getStock() + "";
+            matrix[i - 1][2] = products.get(i).getDescription();
+            matrix[i - 1][3] = products.get(i).getUnitPrice() + "";
+        }
+        return matrix;
+    }
+
+    public static String[][] showAppointmentTable(long id) {
+        ArrayList<Appointment> appointments = new ArrayList<>();
+        Connection connection = new Connection("patients");
+        Patient patient = connection.retrievePatient(id);
+        connection = new Connection("appointments");
+        appointments = connection.retrieveAppointments(patient);
+        String[][] matrix = new String[appointments.size()][3];
+        for (int i = 0; i < appointments.size(); i++) {
+            matrix[i][1] = appointments.get(i).getHour();
+            matrix[i][0] = appointments.get(i).getDateOfAppointment();
+        }
+        return matrix;
+    }
+
+    public static String[][] showBillTable(long id) {
+        Bill bill = retrieveBill(id);
+        ArrayList<Product> products = new ArrayList<>();
+        products = bill.getProducts();
+        String[][] matrix = new String[products.size()][5];
+        for (int i = 0; i < products.size(); i++) {
+            matrix[i][0] = (i + 1) + "";
+            matrix[i][1] = products.get(i).getAmount() + "";
+            matrix[i][2] = products.get(i).getDescription();
+            matrix[i][3] = products.get(i).getUnitPrice() + "";
+            matrix[i][4] = products.get(i).getAmount() * products.get(i).getUnitPrice()+ "";
+        }
+        for (int i = 0; i < products.size(); i++) {
+            System.out.println(Arrays.toString(matrix[i]));
         }
         return matrix;
     }
@@ -90,26 +140,39 @@ public class PhysiomaticController {
         mongo.save("clinicalHistory", gson.toJson(newClinicalHistory));
     }
 
-    public static String[][] showAppointmentTable(long id) {
-        ArrayList<Appointment> appointments = new ArrayList<Appointment>();
+    public static void createProduct(String description, float quantity, float unitPrice, String idProduct) {
+        Product product = new Product(description, quantity, unitPrice, idProduct, 4);
+        String data = gson.toJson(product);
+        mongo.save("products", data);
+    }
 
-        Connection connection = new Connection("patients");
-        Patient patient = connection.retrievePatient(id);
-        connection = new Connection("appointments");
-        appointments = connection.retrieveAppointments(patient);
-        String[][] matrix = new String[appointments.size()][3];
-        for (int i = 0; i < appointments.size(); i++) {
-            matrix[i][1] = appointments.get(i).getHour();
-            matrix[i][0] = appointments.get(i).getDateOfAppointment();
-        }
-        return matrix;
+    public static void updateProduct(String idProduct, float quantity) {
+        Product product = retrieveProduct(idProduct);
+        Product newProduct = product;
+        mongo.delete("products", gson.toJson(product));
+        float stock = product.getStock();
+        stock = stock - quantity;
+        newProduct.setStock(stock);
+        mongo.save("products", gson.toJson(newProduct));
     }
 
     public void createPatient(long id, String address, String name, String lastname, String email, String phoneNumber) {
         Patient patient = new Patient(id, address, name, lastname, email, phoneNumber);
         String data = gson.toJson(patient);
         mongo.save("patients", data);
+    }
 
+    public static void createBill(long id) {
+        Patient patient = retrievePatient(id);
+        ArrayList<Product> products = retrieveConsumption(patient).getProducts();
+        float total = calculateTotal(id);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date();
+        String dateOfAppointment = sdf.format(date) + "";
+        System.out.println(date);
+        Bill bill = new Bill(total, patient, products, dateOfAppointment);
+        String data = gson.toJson(bill);
+        mongo.save("bills", data);
     }
 
     public static void createPhysioterapist(String userName, String password, long id, String address, String name, String lastname, String email, String phoneNumber) {
@@ -123,6 +186,45 @@ public class PhysiomaticController {
         Appointment appointment = new Appointment(date, time, patient);
         System.out.println("fgfg" + appointment.getPatient().getName());
         mongo.save("appointments", gson.toJson(appointment));
+    }
+
+    public static void createConsumption(long idPatient, String idProduct) {
+        Patient patient = PhysiomaticController.retrievePatient(idPatient);
+        ArrayList<Product> products = new ArrayList<>();
+        Consumption consumption = new Consumption(patient, products);
+        consumption.getProducts().add(retrieveProduct(idProduct));
+        mongo.save("consumptions", gson.toJson(consumption));
+    }
+
+    public static float calculateTotal(long idPatient) {
+        Patient patient = PhysiomaticController.retrievePatient(idPatient);
+        Consumption consumption = PhysiomaticController.retrieveConsumption(patient);
+        ArrayList<Product> products = new ArrayList<>();
+        products = consumption.getProducts();
+        float total = 0;
+        for (int i = 0; i < products.size(); i++) {
+            total += products.get(i).getUnitPrice();
+        }
+        return total;
+    }
+
+    public static void addProductToConsumption(long id, String idProduct, String amount) {
+        Product product = retrieveProduct(idProduct);
+        product.setAmount(Float.valueOf(amount));
+        Patient patient = retrievePatient(id);
+        System.out.println(patient.getAddress());
+        Consumption consumption = retrieveConsumption(patient);
+        mongo.delete("consumptions", gson.toJson(consumption));
+        Consumption newConsumption = consumption;
+        newConsumption.getProducts().add(product);
+        mongo.save("consumptions", gson.toJson(newConsumption));
+    }
+
+    public static Product retrieveProduct(String id) {
+        Product product;
+        String productJson = mongo.find("products", id);
+        product = translation.retrieveProduct(productJson);
+        return product;
     }
 
     public static Patient retrievePatient(long id) {
@@ -139,4 +241,24 @@ public class PhysiomaticController {
         return clinicalHistory;
     }
 
+    public static Consumption retrieveConsumption(Patient patient) {
+        Consumption consumption;
+        String consumptionJson = mongo.find("consumptions", Long.toString(patient.getId()));
+        consumption = translation.retrieveConsumption(consumptionJson);
+        return consumption;
+    }
+
+    public static Bill retrieveBill(long id) {
+        Bill bill;
+        String billJson = mongo.find("bills", Long.toString(id));
+        bill = translation.retrieveBill(billJson);
+        return bill;
+    }
+
+    public static float calculateTax(Float value) {
+        float total;
+        Tax tax = Tax.getInstance(value);
+        total = tax.salesTotal(tax);
+        return total;
+    }
 }

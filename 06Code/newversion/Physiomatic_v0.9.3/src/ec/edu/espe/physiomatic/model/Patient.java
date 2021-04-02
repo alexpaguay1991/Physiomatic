@@ -5,8 +5,6 @@
  */
 package ec.edu.espe.physiomatic.model;
 
-import ec.edu.espe.physiomatic.controller.PhysiomaticController;
-
 /**
  *
  * @author Acer

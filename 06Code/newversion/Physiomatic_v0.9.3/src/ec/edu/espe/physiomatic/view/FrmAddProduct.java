@@ -5,6 +5,9 @@
  */
 package ec.edu.espe.physiomatic.view;
 
+import ec.edu.espe.physiomatic.controller.PhysiomaticController;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -80,6 +83,11 @@ public class FrmAddProduct extends javax.swing.JFrame {
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("ATRÁS");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
 
         spnPrice.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -87,7 +95,7 @@ public class FrmAddProduct extends javax.swing.JFrame {
         getContentPane().add(spnPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 80, 30));
 
         spnQuantity.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        spnQuantity.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        spnQuantity.setModel(new javax.swing.SpinnerNumberModel(0.0f, 0.0f, null, 1.0f));
         getContentPane().add(spnQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 80, 30));
 
         txtDescription.setColumns(20);
@@ -115,13 +123,35 @@ public class FrmAddProduct extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        String id = txtId.getText();
-        String description = txtDescription.getText();
-        Float price = (Float) spnPrice.getValue();
-        int quantity = (int) spnQuantity.getValue();
-        
-        
+        int selection = JOptionPane.showConfirmDialog(null, null, "¿DESEA REGISTRAR EL PACIENTE?", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (selection == 0) {
+            JOptionPane.showMessageDialog(null, "SU INFORMACIÓN HA SIDO GUARDADA CON ÉXITO", "PACIENTE REGISTRADO", JOptionPane.INFORMATION_MESSAGE);
+            String id = txtId.getText();
+            String description = txtDescription.getText();
+            float price = (float) spnPrice.getValue();
+            float quantity = (float) spnQuantity.getValue();
+            PhysiomaticController.createProduct(description, quantity, price, id);
+            emptyFields();
+        } else if (selection == 1) {
+            JOptionPane.showMessageDialog(null, "SU INFORMACIÓN NO HA SIDO GUARDADA", "NO SE HA REGISTRADO EL PACIENTE", JOptionPane.ERROR_MESSAGE);
+            emptyFields();
+        } else {
+            JOptionPane.showMessageDialog(null, "LA ACCIÓN FUE CANCELADA", "USTED HA CANCELADO LA ACCIÓN", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        FrmMenuPhysioterapist frmMenu = new FrmMenuPhysioterapist();
+        frmMenu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    public void emptyFields() {
+        txtDescription.setText("");
+        txtId.setText("");
+        spnPrice.setValue(0);
+        spnQuantity.setValue(0);
+    }
 
     /**
      * @param args the command line arguments

@@ -12,9 +12,10 @@ package ec.edu.espe.physiomatic.model;
 public class Product {
 
     private String description;
-    private int quantity;
+    private float stock;    
     private float unitPrice;
     private String id;
+    private float amount;
 
     /**
      * @return the description
@@ -31,17 +32,17 @@ public class Product {
     }
 
     /**
-     * @return the quantity
+     * @return the stock
      */
-    public int getQuantity() {
-        return quantity;
+    public float getStock() {
+        return stock;
     }
 
     /**
-     * @param quantity the quantity to set
+     * @param stock the stock to set
      */
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setStock(float stock) {
+        this.stock = stock;
     }
 
     /**
@@ -75,15 +76,31 @@ public class Product {
     /**
      *
      * @param description, saves the product catacteristics.
-     * @param quantity, saves the number of products stock.
+     * @param amount, saves the quantity of products purchased.
+     * @param stock, saves the number of products stock.
      * @param unitPrice , save the cost per unit of each product.
      * @param id, save the product id.
      */
-    public Product(String description, int quantity, float unitPrice, String id) {
+    public Product(String description, float stock, float unitPrice, String id, float amount) {    
         this.description = description;
-        this.quantity = quantity;
+        this.stock = stock;
         this.unitPrice = unitPrice;
         this.id = id;
+        this.amount = amount;
+    }
+
+    /**
+     * @return the amount
+     */
+    public float getAmount() {
+        return amount;
+    }
+
+    /**
+     * @param amount the amount to set
+     */
+    public void setAmount(float amount) {
+        this.amount = amount;
     }
 
 }

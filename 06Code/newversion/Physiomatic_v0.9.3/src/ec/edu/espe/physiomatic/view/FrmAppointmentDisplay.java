@@ -7,7 +7,6 @@ package ec.edu.espe.physiomatic.view;
 
 import ec.edu.espe.physiomatic.controller.PhysiomaticController;
 import ec.edu.espe.physiomatic.model.Patient;
-import ec.edu.espe.utils.Connection;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.print.PageFormat;
@@ -16,7 +15,6 @@ import static java.awt.print.Printable.NO_SUCH_PAGE;
 import static java.awt.print.Printable.PAGE_EXISTS;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /**
