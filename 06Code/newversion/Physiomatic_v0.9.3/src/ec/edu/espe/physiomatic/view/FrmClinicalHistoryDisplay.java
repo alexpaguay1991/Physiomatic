@@ -86,6 +86,7 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         buttonPrint.setBackground(new java.awt.Color(0, 51, 51));
+        buttonPrint.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         buttonPrint.setForeground(new java.awt.Color(255, 255, 255));
         buttonPrint.setText("Imprimir");
         buttonPrint.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +94,7 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
                 buttonPrintActionPerformed(evt);
             }
         });
-        getContentPane().add(buttonPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 700, -1, -1));
+        getContentPane().add(buttonPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 660, -1, -1));
 
         lblTitle.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,107 +104,107 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
         lblPersonalInformation.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblPersonalInformation.setForeground(new java.awt.Color(255, 255, 255));
         lblPersonalInformation.setText("Información Personal");
-        getContentPane().add(lblPersonalInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        getContentPane().add(lblPersonalInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
         lblName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblName.setForeground(new java.awt.Color(255, 255, 255));
         lblName.setText("Nombre: ");
-        getContentPane().add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        getContentPane().add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         txtName.setBackground(new java.awt.Color(0, 153, 153));
         txtName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtName.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 250, 30));
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 250, 30));
 
         lblLastName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblLastName.setForeground(new java.awt.Color(255, 255, 255));
         lblLastName.setText("Apellido:");
-        getContentPane().add(lblLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, -1, -1));
+        getContentPane().add(lblLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, -1, -1));
 
         txtLastName.setBackground(new java.awt.Color(0, 153, 153));
         txtLastName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtLastName.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 250, 30));
+        getContentPane().add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 110, 250, 30));
 
         txtId.setBackground(new java.awt.Color(0, 153, 153));
         txtId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtId.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 180, 30));
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 180, 30));
 
         lblId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblId.setForeground(new java.awt.Color(255, 255, 255));
         lblId.setText("Cedula de identidad: ");
-        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         lblAddress.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblAddress.setForeground(new java.awt.Color(255, 255, 255));
         lblAddress.setText("Dirección: ");
-        getContentPane().add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+        getContentPane().add(lblAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
         txtAddress.setBackground(new java.awt.Color(0, 153, 153));
         txtAddress.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtAddress.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 250, 30));
+        getContentPane().add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 250, 30));
 
         lblEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblEmail.setForeground(new java.awt.Color(255, 255, 255));
         lblEmail.setText("Correo electrónico:");
-        getContentPane().add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+        getContentPane().add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
 
         txtEmail.setBackground(new java.awt.Color(0, 153, 153));
         txtEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 230, 30));
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 190, 30));
 
         lblPhoneNumber.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblPhoneNumber.setForeground(new java.awt.Color(255, 255, 255));
         lblPhoneNumber.setText("Número telefónico:");
-        getContentPane().add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 210, -1, -1));
+        getContentPane().add(lblPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, -1));
 
         txtPhoneNumber.setBackground(new java.awt.Color(0, 153, 153));
         txtPhoneNumber.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtPhoneNumber.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 150, 30));
+        getContentPane().add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 160, 170, 30));
 
         lblMedicalInformation.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblMedicalInformation.setForeground(new java.awt.Color(255, 255, 255));
         lblMedicalInformation.setText("Información Médica");
-        getContentPane().add(lblMedicalInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
+        getContentPane().add(lblMedicalInformation, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
         lblBloodType.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblBloodType.setForeground(new java.awt.Color(255, 255, 255));
         lblBloodType.setText("Tipo de Sangre: ");
-        getContentPane().add(lblBloodType, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
+        getContentPane().add(lblBloodType, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
         txtBloodType.setBackground(new java.awt.Color(0, 153, 153));
         txtBloodType.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtBloodType.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtBloodType, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 80, 30));
+        getContentPane().add(txtBloodType, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 80, 30));
 
         lblBirthDate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblBirthDate.setForeground(new java.awt.Color(255, 255, 255));
         lblBirthDate.setText("Fecha de Nacimiento:");
-        getContentPane().add(lblBirthDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, -1, 20));
+        getContentPane().add(lblBirthDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, -1, 20));
 
         txtBirthDate.setBackground(new java.awt.Color(0, 153, 153));
         txtBirthDate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtBirthDate.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtBirthDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 150, 30));
+        getContentPane().add(txtBirthDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 200, 180, 30));
 
         lblWeight.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblWeight.setForeground(new java.awt.Color(255, 255, 255));
         lblWeight.setText("Peso: ");
-        getContentPane().add(lblWeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, -1, -1));
+        getContentPane().add(lblWeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, -1, -1));
 
         txtWeight.setBackground(new java.awt.Color(0, 153, 153));
         txtWeight.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtWeight.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(txtWeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 70, 30));
+        getContentPane().add(txtWeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 70, 30));
 
         lblText.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblText.setForeground(new java.awt.Color(255, 255, 255));
         lblText.setText("Estatura:");
-        getContentPane().add(lblText, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, -1, -1));
+        getContentPane().add(lblText, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 280, -1, -1));
 
         txtHeight.setBackground(new java.awt.Color(0, 153, 153));
         txtHeight.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -213,12 +214,12 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
                 txtHeightActionPerformed(evt);
             }
         });
-        getContentPane().add(txtHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 340, 70, 30));
+        getContentPane().add(txtHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 70, 30));
 
         lblFamilyBackground.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblFamilyBackground.setForeground(new java.awt.Color(255, 255, 255));
         lblFamilyBackground.setText("Antecedentes Familiares:");
-        getContentPane().add(lblFamilyBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
+        getContentPane().add(lblFamilyBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
 
         txtaFamilyBackground.setEditable(false);
         txtaFamilyBackground.setBackground(new java.awt.Color(0, 153, 153));
@@ -227,7 +228,7 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
         txtaFamilyBackground.setRows(5);
         jScrollPane1.setViewportView(txtaFamilyBackground);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 340, 50));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 340, 50));
 
         tblDiagnostic.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -239,12 +240,12 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
         ));
         jScrollPane2.setViewportView(tblDiagnostic);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 690, 170));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 690, 170));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Diagnóstico:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, -1, -1));
 
         btnBack.setBackground(new java.awt.Color(0, 51, 51));
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -255,7 +256,7 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
                 btnBackActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 700, -1, -1));
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 660, -1, -1));
 
         btnExit.setBackground(new java.awt.Color(0, 51, 51));
         btnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -266,7 +267,7 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 51, 51));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -277,12 +278,12 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 700, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 660, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Alergia:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, -1));
 
         jScrollPane3.setBackground(new java.awt.Color(0, 102, 102));
         jScrollPane3.setForeground(new java.awt.Color(0, 102, 102));
@@ -292,7 +293,7 @@ public class FrmClinicalHistoryDisplay extends javax.swing.JFrame implements Pri
         txtAllergys.setRows(5);
         jScrollPane3.setViewportView(txtAllergys);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 310, 50));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 310, 50));
 
         lblHeight.setBackground(new java.awt.Color(0, 102, 102));
         lblHeight.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

@@ -5,8 +5,9 @@
  */
 package ec.edu.espe.physiomatic.view;
 
-import com.toedter.calendar.JDayChooser;
 import ec.edu.espe.physiomatic.controller.PatientController;
+import ec.edu.espe.physiomatic.controller.PhysiomaticController;
+import ec.edu.espe.physiomatic.model.ClinicalHistory;
 import ec.edu.espe.physiomatic.model.Diagnostic;
 import ec.edu.espe.physiomatic.model.Patient;
 import java.text.SimpleDateFormat;
@@ -30,7 +31,7 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
         txtOtherDisease.setVisible(false);
         Date d = new Date();
         d.setTime(d.getTime());
-        dcsDate.getJCalendar().setMaxSelectableDate(d);  
+        dcsDate.getJCalendar().setMaxSelectableDate(d);
     }
 
     /**
@@ -43,8 +44,6 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        cmbDocument = new javax.swing.JComboBox<>();
-        txtId = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -80,18 +79,11 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
         jLabel1.setText("INFORMACIÓN PERSONAL DEL PACIENTE");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 520, -1));
 
-        cmbDocument.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        cmbDocument.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "C.I", "Pasaporte" }));
-        getContentPane().add(cmbDocument, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 150, 30));
-
-        txtId.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 220, 30));
-
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("FECHA DE NACIMIENTO:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jLabel5.setText("Year");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 83, -1, 0));
@@ -99,7 +91,7 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("TIPO DE SANGRE:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, 30));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, 30));
 
         cmbBloodType.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         cmbBloodType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "O+", "O-", "AB+", "" }));
@@ -108,35 +100,35 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
                 cmbBloodTypeActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbBloodType, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 60, 30));
+        getContentPane().add(cmbBloodType, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 60, 30));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("PESO:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, -1, -1));
 
         spnWeight.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         spnWeight.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), Float.valueOf(0.0f), Float.valueOf(200.0f), Float.valueOf(1.0f)));
-        getContentPane().add(spnWeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 210, 70, 30));
+        getContentPane().add(spnWeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 70, 30));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("ESTATURA:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, -1, -1));
 
         spnHeight.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         spnHeight.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.0f), Float.valueOf(0.0f), Float.valueOf(200.0f), Float.valueOf(1.0f)));
-        getContentPane().add(spnHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 70, 30));
+        getContentPane().add(spnHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, 70, 30));
 
         lbAllergy.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbAllergy.setForeground(new java.awt.Color(255, 255, 255));
         lbAllergy.setText("Alergias:");
-        getContentPane().add(lbAllergy, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 90, 30));
+        getContentPane().add(lbAllergy, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 90, 30));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Enfermedades:");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
         btnSave.setBackground(new java.awt.Color(0, 51, 51));
         btnSave.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -152,12 +144,12 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
         chkCancer.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         chkCancer.setForeground(new java.awt.Color(255, 255, 255));
         chkCancer.setText("Cancer");
-        getContentPane().add(chkCancer, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
+        getContentPane().add(chkCancer, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
         chkDiabetes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         chkDiabetes.setForeground(new java.awt.Color(255, 255, 255));
         chkDiabetes.setText("Diabetes");
-        getContentPane().add(chkDiabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, -1, -1));
+        getContentPane().add(chkDiabetes, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, -1, -1));
 
         chkAsthma.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         chkAsthma.setForeground(new java.awt.Color(255, 255, 255));
@@ -167,12 +159,12 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
                 chkAsthmaActionPerformed(evt);
             }
         });
-        getContentPane().add(chkAsthma, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, -1, -1));
+        getContentPane().add(chkAsthma, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, -1, -1));
 
         chkFood.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         chkFood.setForeground(new java.awt.Color(255, 255, 255));
         chkFood.setText("Comida");
-        getContentPane().add(chkFood, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+        getContentPane().add(chkFood, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
 
         chkAntibiotic.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         chkAntibiotic.setForeground(new java.awt.Color(255, 255, 255));
@@ -182,12 +174,12 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
                 chkAntibioticActionPerformed(evt);
             }
         });
-        getContentPane().add(chkAntibiotic, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, -1, -1));
+        getContentPane().add(chkAntibiotic, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
 
         chkMedicine.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         chkMedicine.setForeground(new java.awt.Color(255, 255, 255));
         chkMedicine.setText("Medicinas");
-        getContentPane().add(chkMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, -1, -1));
+        getContentPane().add(chkMedicine, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
 
         chkOthers.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         chkOthers.setForeground(new java.awt.Color(255, 255, 255));
@@ -197,7 +189,7 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
                 chkOthersActionPerformed(evt);
             }
         });
-        getContentPane().add(chkOthers, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+        getContentPane().add(chkOthers, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
         txtOther.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtOther.addActionListener(new java.awt.event.ActionListener() {
@@ -205,17 +197,17 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
                 txtOtherActionPerformed(evt);
             }
         });
-        getContentPane().add(txtOther, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 240, -1));
+        getContentPane().add(txtOther, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 240, 30));
 
         chkBronchitis.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         chkBronchitis.setForeground(new java.awt.Color(255, 255, 255));
         chkBronchitis.setText("Bronquitis");
-        getContentPane().add(chkBronchitis, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, -1, -1));
+        getContentPane().add(chkBronchitis, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, -1, -1));
 
         chkEpilepsy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         chkEpilepsy.setForeground(new java.awt.Color(255, 255, 255));
         chkEpilepsy.setText("Epilepsia");
-        getContentPane().add(chkEpilepsy, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, -1, -1));
+        getContentPane().add(chkEpilepsy, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, -1, -1));
 
         chkOtherDisease.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         chkOtherDisease.setForeground(new java.awt.Color(255, 255, 255));
@@ -225,10 +217,10 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
                 chkOtherDiseaseActionPerformed(evt);
             }
         });
-        getContentPane().add(chkOtherDisease, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
+        getContentPane().add(chkOtherDisease, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
 
         txtOtherDisease.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(txtOtherDisease, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, 230, -1));
+        getContentPane().add(txtOtherDisease, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 230, 30));
 
         btnBack.setBackground(new java.awt.Color(0, 51, 51));
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -240,7 +232,7 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 480, -1, -1));
-        getContentPane().add(dcsDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 190, 30));
+        getContentPane().add(dcsDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 190, 30));
 
         lbBrackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
         lbBrackground.setPreferredSize(new java.awt.Dimension(151, 25));
@@ -251,79 +243,34 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
-        String dataToSave = "La información que se guardara es" + "\n" + txtId.getText() + cmbBloodType.getSelectedItem();
-        int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Historia Clinica", JOptionPane.YES_NO_CANCEL_OPTION);
+        int selection = JOptionPane.showConfirmDialog(null, "Desea guardar esta información? ", "Historia Clinica", JOptionPane.YES_NO_CANCEL_OPTION);
         if (selection == 0) {
             JOptionPane.showMessageDialog(null, "La información fue guardada", "Guardar", JOptionPane.INFORMATION_MESSAGE);
             try {
-                long id = Long.parseLong(txtId.getText());
-                spnHeight.commitEdit();
-                float height = (float) spnHeight.getValue();
-                System.out.println(height);
-                spnWeight.commitEdit();
-                float weight = (float) spnWeight.getValue();
-                String bloodType = (String) cmbBloodType.getSelectedItem();
-                String asthma = "", bronquitis = "", cancer = "", diabetes = "", epilepsy = "", otherDisease = "";
-                if (chkAsthma.isSelected()) {
-                    asthma = chkAsthma.getText();
-                    System.out.println(asthma);
-                }
-                if (chkBronchitis.isSelected()) {
-                    bronquitis = chkBronchitis.getText();
-                }
-                if (chkCancer.isSelected()) {
-                    cancer = chkCancer.getText();
-                }
-                if (chkEpilepsy.isSelected()) {
-                    epilepsy = chkEpilepsy.getText();
-                }
-                if (chkDiabetes.isSelected()) {
-                    diabetes = chkDiabetes.getText();
-                }
-                if (chkOtherDisease.isSelected()) {
-                    otherDisease = txtOtherDisease.getText();
-                }
-                String familyBackground = asthma + bronquitis + cancer + diabetes + epilepsy + otherDisease;
-                System.out.println(familyBackground);
-                String food = "", medicine = "", antibiotic = "", otherAllergy = "";
-                if (chkAntibiotic.isSelected()) {
-                    antibiotic = chkAntibiotic.getText();
-                }
-                if (chkFood.isSelected()) {
-                    food = chkFood.getText();
-                }
-                if (chkMedicine.isSelected()) {
-                    medicine = chkMedicine.getText();
-                }
-                if (chkOthers.isSelected()) {
-                    otherAllergy = txtOther.getText();
-                }
-                String allergy = food + medicine + antibiotic + otherAllergy;
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-                Date date = dcsDate.getDate();
-                String birthDate = sdf.format(date);                
-                PatientController.createClinicalHistory(id, birthDate, weight, height, familyBackground, bloodType, allergy);
+                ClinicalHistory clinicalHistory = getData();
+                PatientController.createClinicalHistory(clinicalHistory);
                 emptyFields();
+                FrmFirstAppointment frmFirstAppointment = new FrmFirstAppointment();
+                frmFirstAppointment.setVisible(true);
+                this.setVisible(false);                
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "No se guardó la información debe ingresar solo digitos numéricos en el id", "Registro de Fisioterapista", JOptionPane.ERROR_MESSAGE);
-            }
-            emptyFields();
+            }            
         } else if (selection == 1) {
-            JOptionPane.showMessageDialog(null, "La información no se guardo", "Erro", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "La información no se guardo", "Error", JOptionPane.INFORMATION_MESSAGE);
             emptyFields();
         } else {
             JOptionPane.showMessageDialog(null, "La acción fue cancelada", "Cancelar", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnSaveActionPerformed
+    
     public void emptyFields() {
         spnWeight.setValue(0);
         spnHeight.setValue(0);
         cmbBloodType.setSelectedIndex(0);
-        cmbDocument.setSelectedIndex(0);
         chkAsthma.setSelected(false);
         chkCancer.setSelected(false);
         chkDiabetes.setSelected(false);
-        txtId.setText("");
         chkBronchitis.setSelected(false);
         chkFood.setSelected(false);
         chkMedicine.setSelected(false);
@@ -337,6 +284,60 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
         txtOtherDisease.setVisible(false);
     }
 
+    public ClinicalHistory getData() {        
+        FrmCreatePatient frmPatient = new FrmCreatePatient();
+        long id = frmPatient.getId();
+        Patient patient = PhysiomaticController.retrievePatient(id);
+//        spnHeight.commitEdit();
+        float height = (float) spnHeight.getValue();
+        System.out.println(height);
+//        spnWeight.commitEdit();
+        float weight = (float) spnWeight.getValue();
+        String bloodType = (String) cmbBloodType.getSelectedItem();
+        String asthma = "", bronquitis = "", cancer = "", diabetes = "", epilepsy = "", otherDisease = "";
+        if (chkAsthma.isSelected()) {
+            asthma = chkAsthma.getText();
+            System.out.println(asthma);
+        }
+        if (chkBronchitis.isSelected()) {
+            bronquitis = chkBronchitis.getText();
+        }
+        if (chkCancer.isSelected()) {
+            cancer = chkCancer.getText();
+        }
+        if (chkEpilepsy.isSelected()) {
+            epilepsy = chkEpilepsy.getText();
+        }
+        if (chkDiabetes.isSelected()) {
+            diabetes = chkDiabetes.getText();
+        }
+        if (chkOtherDisease.isSelected()) {
+            otherDisease = txtOtherDisease.getText();
+        }
+        String familyBackground = asthma + bronquitis + cancer + diabetes + epilepsy + otherDisease;
+        System.out.println(familyBackground);
+        String food = "", medicine = "", antibiotic = "", otherAllergy = "";
+        if (chkAntibiotic.isSelected()) {
+            antibiotic = chkAntibiotic.getText();
+        }
+        if (chkFood.isSelected()) {
+            food = chkFood.getText();
+        }
+        if (chkMedicine.isSelected()) {
+            medicine = chkMedicine.getText();
+        }
+        if (chkOthers.isSelected()) {
+            otherAllergy = txtOther.getText();
+        }
+        String allergy = food + medicine + antibiotic + otherAllergy;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        Date date = dcsDate.getDate();
+        String birthDate = sdf.format(date);
+        ArrayList<Diagnostic> diagnostics = new ArrayList<>();
+        ClinicalHistory clinicalHistory = new ClinicalHistory(patient, birthDate, weight, height, familyBackground, bloodType, allergy, diagnostics);
+        return clinicalHistory;
+    }
+    
     private void chkAsthmaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkAsthmaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chkAsthmaActionPerformed
@@ -431,7 +432,6 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkOtherDisease;
     private javax.swing.JCheckBox chkOthers;
     private javax.swing.JComboBox<String> cmbBloodType;
-    private javax.swing.JComboBox<String> cmbDocument;
     private com.toedter.calendar.JDateChooser dcsDate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -444,7 +444,6 @@ public class FrmCreateClinicalHistory extends javax.swing.JFrame {
     private javax.swing.JLabel lbBrackground;
     private javax.swing.JSpinner spnHeight;
     private javax.swing.JSpinner spnWeight;
-    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtOther;
     private javax.swing.JTextField txtOtherDisease;
     // End of variables declaration//GEN-END:variables

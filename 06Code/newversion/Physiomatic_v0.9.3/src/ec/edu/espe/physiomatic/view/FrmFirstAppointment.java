@@ -21,6 +21,9 @@ public class FrmFirstAppointment extends javax.swing.JFrame {
      */
     public FrmFirstAppointment() {
         initComponents();
+        Date d = new Date();
+        d.setTime(d.getTime());
+        dcsDate.getJCalendar().setMinSelectableDate(d);
     }
 
     /**
@@ -100,10 +103,12 @@ public class FrmFirstAppointment extends javax.swing.JFrame {
                 String dateOfAppointment = sdf.format(date) + "";
                 FrmCreatePatient frmPatient = new FrmCreatePatient();
                 long id = frmPatient.getId();
-                System.out.println(id);
                 PhysiomaticController.createConsumption(id, "1404");
                 PhysiomaticController.createAppoinment(dateOfAppointment, time, id);
                 emptyFields();
+                FrmCreatePatient frmCreatePatient = new FrmCreatePatient();
+                frmCreatePatient.setVisible(true);
+                this.setVisible(false);
             } catch (Exception e) {
                 JOptionPane.showConfirmDialog(null, "No se guardó la información debe ingresar solo digitos numéricos en el id", "Registro de Fisioterapista", JOptionPane.ERROR_MESSAGE);
             }

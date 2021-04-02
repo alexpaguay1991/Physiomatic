@@ -23,8 +23,6 @@ import javax.swing.JOptionPane;
  */
 public class FrmAppointmentDisplay extends javax.swing.JFrame implements Printable {
 
-
-
     /**
      * Creates new form FrmAppoinmentDisplay
      */
@@ -181,26 +179,28 @@ public class FrmAppointmentDisplay extends javax.swing.JFrame implements Printab
     }//GEN-LAST:event_txtLastNameActionPerformed
 
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
-
         try {
-            Patient patient = PhysiomaticController.retrievePatient(Long.parseLong(txtId.getText()));
-            txtName.setText(patient.getName());
-            txtLastName.setText(patient.getLastName());
-            txtPhoneNumber.setText(patient.getPhoneNumber());
-            txtId.setText(patient.getId() + "");
-            String[][] matrix;
-            matrix = PhysiomaticController.showAppointmentTable(Long.parseLong(txtId.getText()));
-            tblAppointment.setModel(new javax.swing.table.DefaultTableModel(
-                    matrix,
-                    new String[]{
-                        "Fecha ", "Hora"
-                    }
-            ));
+            setData();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "El paciente no está registrado", "Cita médica", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnShowActionPerformed
 
+    public void setData() {
+        Patient patient = PhysiomaticController.retrievePatient(Long.parseLong(txtId.getText()));
+        txtName.setText(patient.getName());
+        txtLastName.setText(patient.getLastName());
+        txtPhoneNumber.setText(patient.getPhoneNumber());
+        txtId.setText(patient.getId() + "");
+        String[][] matrix;
+        matrix = PhysiomaticController.showAppointmentTable(Long.parseLong(txtId.getText()));
+        tblAppointment.setModel(new javax.swing.table.DefaultTableModel(
+                matrix,
+                new String[]{
+                    "Fecha ", "Hora"
+                }
+        ));
+    }
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         FrmMenuPhysioterapist frmMenuPhysioterapist = new FrmMenuPhysioterapist();
         this.setVisible(false);

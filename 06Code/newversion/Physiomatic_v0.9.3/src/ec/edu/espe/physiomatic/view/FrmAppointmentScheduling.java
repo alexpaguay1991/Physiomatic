@@ -105,26 +105,27 @@ public class FrmAppointmentScheduling extends javax.swing.JFrame {
 
     private void tbnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnExitActionPerformed
         String dataToSave = "La información que se guardara es" + "\n" + txtId.getText() + " " + txtTime.getText();
-        int selection = JOptionPane.showConfirmDialog(null, dataToSave, "Citas medicas", JOptionPane.YES_NO_CANCEL_OPTION);
+        int selection = JOptionPane.showConfirmDialog(null, dataToSave, "CITAS MÉDICAS", JOptionPane.YES_NO_CANCEL_OPTION);
         if (selection == 0) {
-            JOptionPane.showMessageDialog(null, "La información fue guardada", "Guardar", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "SE GUARDO LA INFORMACIÓN", "GUARDAR", JOptionPane.INFORMATION_MESSAGE);
             try {
                 long id = Long.parseLong(txtId.getText());
                 String time = txtTime.getText();
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
                 Date date = dcsDate.getDate();
                 String dateOfAppointment = sdf.format(date) + "";
-                PhysiomaticController.addProductToConsumption(id, "1404", "");
+                PhysiomaticController.createAppoinment(dateOfAppointment, time, id);
+                PhysiomaticController.addProductToConsumption(id, "1404", "1");
                 emptyFields();
             } catch (Exception e) {
                 JOptionPane.showConfirmDialog(null, "No se guardó la información debe ingresar solo digitos numéricos en el id", "Registro de Fisioterapista", JOptionPane.ERROR_MESSAGE);
             }
             emptyFields();
         } else if (selection == 1) {
-            JOptionPane.showMessageDialog(null, "Information was NOT saved", "NOT saved", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "LA INFORMACIÓN NO SE GUARDÓ", "NO GUARDAR", JOptionPane.INFORMATION_MESSAGE);
             emptyFields();
         } else {
-            JOptionPane.showMessageDialog(null, "Action was canceled", "Cancelled", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ACCIÓN CANCELADA", "CANCELAR", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_tbnExitActionPerformed
 

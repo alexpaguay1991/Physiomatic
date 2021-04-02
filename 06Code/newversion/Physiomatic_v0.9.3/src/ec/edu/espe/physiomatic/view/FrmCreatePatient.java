@@ -170,10 +170,9 @@ public class FrmCreatePatient extends javax.swing.JFrame {
                 Patient patient = new Patient(id, address, name, lastName, email, phoneNumber);
                 PhysiomaticController controller=new PhysiomaticController();
                 controller.createPatient(id, address, name, lastName, email, phoneNumber);
-                FrmFirstAppointment frmmAppointment = new FrmFirstAppointment();                                
-                frmmAppointment.setVisible(true);
+                FrmCreateClinicalHistory frmClinical = new FrmCreateClinicalHistory();
+                frmClinical.setVisible(true);
                 this.setVisible(false);
-                this.setVisible(true);
                 emptyFields();
 
         } else if (selection == 1) {
@@ -186,10 +185,7 @@ public class FrmCreatePatient extends javax.swing.JFrame {
 
     public long getId() {
         return id;
-    }
-    
-    
-    
+    }        
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
         FrmPhysioterapistManagment frmPhysioterapistManagment = new FrmPhysioterapistManagment();
         this.setVisible(false);

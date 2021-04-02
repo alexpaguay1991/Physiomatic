@@ -6,6 +6,7 @@
 package ec.edu.espe.physiomatic.view;
 
 import ec.edu.espe.physiomatic.controller.PhysiomaticController;
+import ec.edu.espe.physiomatic.model.Product;
 import javax.swing.JOptionPane;
 
 /**
@@ -123,17 +124,14 @@ public class FrmAddProduct extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        int selection = JOptionPane.showConfirmDialog(null, null, "¿DESEA REGISTRAR EL PACIENTE?", JOptionPane.YES_NO_CANCEL_OPTION);
+        int selection = JOptionPane.showConfirmDialog(null, null, "¿DESEA REGISTRAR EL PRODUCTO?", JOptionPane.YES_NO_CANCEL_OPTION);
         if (selection == 0) {
-            JOptionPane.showMessageDialog(null, "SU INFORMACIÓN HA SIDO GUARDADA CON ÉXITO", "PACIENTE REGISTRADO", JOptionPane.INFORMATION_MESSAGE);
-            String id = txtId.getText();
-            String description = txtDescription.getText();
-            float price = (float) spnPrice.getValue();
-            float quantity = (float) spnQuantity.getValue();
-            PhysiomaticController.createProduct(description, quantity, price, id);
+            JOptionPane.showMessageDialog(null, "SU INFORMACIÓN HA SIDO GUARDADA CON ÉXITO", "PRODUCTO REGISTRADO", JOptionPane.INFORMATION_MESSAGE);
+            Product product = getData();
+            PhysiomaticController.createProduct(product);
             emptyFields();
         } else if (selection == 1) {
-            JOptionPane.showMessageDialog(null, "SU INFORMACIÓN NO HA SIDO GUARDADA", "NO SE HA REGISTRADO EL PACIENTE", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "SU INFORMACIÓN NO HA SIDO GUARDADA", "NO SE HA REGISTRADO EL PRODUCTO", JOptionPane.ERROR_MESSAGE);
             emptyFields();
         } else {
             JOptionPane.showMessageDialog(null, "LA ACCIÓN FUE CANCELADA", "USTED HA CANCELADO LA ACCIÓN", JOptionPane.WARNING_MESSAGE);
@@ -151,6 +149,15 @@ public class FrmAddProduct extends javax.swing.JFrame {
         txtId.setText("");
         spnPrice.setValue(0);
         spnQuantity.setValue(0);
+    }
+
+    public Product getData() {
+        String id = txtId.getText();
+        String description = txtDescription.getText();
+        float price = (float) spnPrice.getValue();
+        float quantity = (float) spnQuantity.getValue();
+        Product product= new Product(description, quantity, price, id, 4);
+        return product;
     }
 
     /**

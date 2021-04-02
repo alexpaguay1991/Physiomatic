@@ -50,7 +50,6 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         mitmShowAppoinment = new javax.swing.JMenuItem();
         mnuClinicalHistory = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mitmShowClinicalHistory = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
@@ -172,17 +171,6 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
                 mnuClinicalHistoryActionPerformed(evt);
             }
         });
-
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/ClinicalHistoryIcon_1.png"))); // NOI18N
-        jMenuItem1.setText("Generar");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        mnuClinicalHistory.add(jMenuItem1);
         mnuClinicalHistory.add(jSeparator1);
 
         mitmShowClinicalHistory.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK));
@@ -209,6 +197,7 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         mnuClinicalHistory.add(jMenuItem3);
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/diagnosticIcon1.png"))); // NOI18N
         jMenuItem2.setText("Añadir diagnóstico");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -222,6 +211,7 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
 
         jMenu7.setText("Productos");
 
+        jMenuItem7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/buy.png"))); // NOI18N
         jMenuItem7.setText("Añadir");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
@@ -231,6 +221,7 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         });
         jMenu7.add(jMenuItem7);
 
+        jMenuItem6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/addProduct.png"))); // NOI18N
         jMenuItem6.setText("Comprar");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
@@ -242,9 +233,10 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
 
         mbrPhysioterapistMenu.add(jMenu7);
 
-        jMenu8.setText("Bill");
+        jMenu8.setText("Factura");
 
         jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItem5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/billIcon.jpg"))); // NOI18N
         jMenuItem5.setText("Mostrar");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -282,12 +274,6 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
         this.setVisible(false);
         frmTable.setVisible(true);
     }//GEN-LAST:event_mitmShowActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        FrmCreateClinicalHistory frmCreateClinicalHistory = new FrmCreateClinicalHistory();
-        this.setVisible(false);
-        frmCreateClinicalHistory.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void mitmShowClinicalHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitmShowClinicalHistoryActionPerformed
         FrmClinicalHistoryTable frmClinicalHistoryDisplay = new FrmClinicalHistoryTable();
@@ -385,7 +371,6 @@ public class FrmMenuPhysioterapist extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

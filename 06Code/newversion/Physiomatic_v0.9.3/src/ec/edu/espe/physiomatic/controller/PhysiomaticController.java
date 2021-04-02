@@ -88,7 +88,6 @@ public class PhysiomaticController {
         ArrayList<Product> products = new ArrayList<>();
         products = translation.retrieveProducts();
         String[][] matrix = new String[products.size() - 1][4];
-        System.out.println(matrix.length);
         for (int i = 1; i < products.size(); i++) {
             matrix[i - 1][0] = products.get(i).getId();
             matrix[i - 1][1] = products.get(i).getStock() + "";
@@ -122,10 +121,7 @@ public class PhysiomaticController {
             matrix[i][1] = products.get(i).getAmount() + "";
             matrix[i][2] = products.get(i).getDescription();
             matrix[i][3] = products.get(i).getUnitPrice() + "";
-            matrix[i][4] = products.get(i).getAmount() * products.get(i).getUnitPrice()+ "";
-        }
-        for (int i = 0; i < products.size(); i++) {
-            System.out.println(Arrays.toString(matrix[i]));
+            matrix[i][4] = products.get(i).getAmount() * products.get(i).getUnitPrice() + "";
         }
         return matrix;
     }
@@ -140,8 +136,7 @@ public class PhysiomaticController {
         mongo.save("clinicalHistory", gson.toJson(newClinicalHistory));
     }
 
-    public static void createProduct(String description, float quantity, float unitPrice, String idProduct) {
-        Product product = new Product(description, quantity, unitPrice, idProduct, 4);
+    public static void createProduct(Product product) {        
         String data = gson.toJson(product);
         mongo.save("products", data);
     }
@@ -201,9 +196,14 @@ public class PhysiomaticController {
         Consumption consumption = PhysiomaticController.retrieveConsumption(patient);
         ArrayList<Product> products = new ArrayList<>();
         products = consumption.getProducts();
+        float[] precioRow;
+        precioRow = new float[products.size()];
         float total = 0;
         for (int i = 0; i < products.size(); i++) {
-            total += products.get(i).getUnitPrice();
+            precioRow[i] = (products.get(i).getAmount() * products.get(i).getUnitPrice());
+        }
+        for (int i = 0; i < precioRow.length; i++) {
+            total += precioRow[i];
         }
         return total;
     }
@@ -212,7 +212,6 @@ public class PhysiomaticController {
         Product product = retrieveProduct(idProduct);
         product.setAmount(Float.valueOf(amount));
         Patient patient = retrievePatient(id);
-        System.out.println(patient.getAddress());
         Consumption consumption = retrieveConsumption(patient);
         mongo.delete("consumptions", gson.toJson(consumption));
         Consumption newConsumption = consumption;

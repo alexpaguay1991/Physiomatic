@@ -81,7 +81,6 @@ public class DataTranslation {
     public Physioterapist retrievePhysioterapist(String physioterapistDocument) {
         Physioterapist physioterapist = new Physioterapist("username", " password", 0, "name", "name", "lastName", "name", "username1");
         try {
-            //doc = mapper.readValue(physioterapistDocument, Document.class);
             doc = gson.fromJson(physioterapistDocument, Document.class);
             String userName1 = gson.toJson(doc.get("userName")).replace("\"", "");
             String password1 = gson.toJson(doc.get("password")).replace("\"", "");
@@ -122,8 +121,7 @@ public class DataTranslation {
         Bill bill = new Bill(0, patient1, products, "null");
         try {
             doc = mapper.readValue(billDocument, Document.class);
-            String patient = gson.toJson(doc.get("patient"));
-            
+            String patient = gson.toJson(doc.get("patient"));            
             patient1 = gson.fromJson(patient, Patient.class);
             String products1 = gson.toJson(doc.get("products"));
             products = gson.fromJson(products1, new TypeToken<List<Product>>() {
@@ -220,7 +218,6 @@ public class DataTranslation {
     }
 
     public Consumption retrieveConsumption(String consumptionDocument) {
-        System.out.println("retrieveConsumption");
         ArrayList<Product> products = new ArrayList<>();
         Patient patientNull = new Patient(0, "null", "null", "null", "null", "null");
         Consumption consumption = new Consumption(patientNull, products);
@@ -229,7 +226,6 @@ public class DataTranslation {
             String products1 = gson.toJson(doc.get("products"));
             String patient1 = gson.toJson(doc.get("patient"));
             Patient patient2 = gson.fromJson(patient1, Patient.class);
-            System.out.println(patient2.getName());
             products = gson.fromJson(products1, new TypeToken<List<Product>>() {
             }.getType());
             consumption = new Consumption(patient2, products);

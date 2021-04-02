@@ -56,44 +56,44 @@ public class FrmCreateDiagnostic extends javax.swing.JFrame {
         lblTitle.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblTitle.setText("DIAGNÓSTICO");
-        getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+        getContentPane().add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
 
         lblPathology.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblPathology.setForeground(new java.awt.Color(255, 255, 255));
         lblPathology.setText("Patología:");
-        getContentPane().add(lblPathology, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
+        getContentPane().add(lblPathology, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         txtPathology.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        getContentPane().add(txtPathology, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 400, -1));
+        getContentPane().add(txtPathology, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 390, 30));
 
         lblSymptoms.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblSymptoms.setForeground(new java.awt.Color(255, 255, 255));
         lblSymptoms.setText("Síntomas:");
-        getContentPane().add(lblSymptoms, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        getContentPane().add(lblSymptoms, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         txtSymptom.setColumns(20);
         txtSymptom.setFont(new java.awt.Font("Monospaced", 0, 16)); // NOI18N
         txtSymptom.setRows(5);
         txtaSymptoms.setViewportView(txtSymptom);
 
-        getContentPane().add(txtaSymptoms, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 400, 100));
+        getContentPane().add(txtaSymptoms, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 390, 100));
 
         lblTreatment.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         lblTreatment.setForeground(new java.awt.Color(255, 255, 255));
         lblTreatment.setText("Tratamiento:");
-        getContentPane().add(lblTreatment, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        getContentPane().add(lblTreatment, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
         txaTreatment.setColumns(20);
         txaTreatment.setRows(5);
         jScrollPane3.setViewportView(txaTreatment);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 390, 90));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 390, 90));
 
         lblDate.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         lblDate.setForeground(new java.awt.Color(255, 255, 255));
         lblDate.setText("Fecha del diagnóstico:");
-        getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
-        getContentPane().add(dcsDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 170, 30));
+        getContentPane().add(lblDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, -1, -1));
+        getContentPane().add(dcsDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 170, 30));
 
         btnSave.setBackground(new java.awt.Color(0, 51, 51));
         btnSave.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -104,7 +104,7 @@ public class FrmCreateDiagnostic extends javax.swing.JFrame {
                 btnSaveActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 370, -1, -1));
+        getContentPane().add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, -1, -1));
 
         btnBack.setBackground(new java.awt.Color(0, 51, 51));
         btnBack.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -115,15 +115,15 @@ public class FrmCreateDiagnostic extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, -1, -1));
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, -1, -1));
 
         lblId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblId.setForeground(new java.awt.Color(255, 255, 255));
         lblId.setText("C.I:");
-        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        txtId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 260, 20));
+        txtId.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 270, 30));
 
         lblBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/pictures/background.jpg"))); // NOI18N
         lblBackground.setText("jLabel10");
@@ -134,7 +134,7 @@ public class FrmCreateDiagnostic extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         String pathology = txtPathology.getText();
-        String Symptom = txtSymptom.getText();
+        String Symptom = txtSymptom.getText();       
         long id = Long.parseLong(txtId.getText());
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         Date date = dcsDate.getDate();

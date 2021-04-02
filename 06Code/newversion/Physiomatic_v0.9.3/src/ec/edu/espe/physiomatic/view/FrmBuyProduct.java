@@ -76,7 +76,7 @@ public class FrmBuyProduct extends javax.swing.JFrame {
         btnBack.setBackground(new java.awt.Color(0, 51, 51));
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
-        btnBack.setText("SALIR");
+        btnBack.setText("ATRÁS");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -126,7 +126,9 @@ public class FrmBuyProduct extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuyActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
+        FrmMenuPhysioterapist frmMenu = new FrmMenuPhysioterapist();
+        frmMenu.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
     public void emptyFields() {
         txtId.setText("");
