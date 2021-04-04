@@ -32,8 +32,10 @@ import java.util.Date;
  */
 public class PhysiomaticController {
 
+    static String data = "mongodb+srv://AlexPaguay:resende1A@physiomatic.ths5b.mongodb.net/Physiomatic?retryWrites=true&w=majority";
+    static String dataBase = "Physiomatic";
     static Gson gson = new Gson();
-    static MongoDBManager mongo = MongoDBManager.getInstance();
+    static MongoDBManager mongo = MongoDBManager.getInstance(data, dataBase);
     static Persistence fileManager = new FileManager1();
     static DataTranslation translation = new DataTranslation();
 
@@ -55,16 +57,14 @@ public class PhysiomaticController {
 
     public static String[][] showTableClinicalHistory(long id) {
         Connection conection = new Connection("patients");
-        Patient patient = conection.retrievePatient(id);
-        Connection conection2 = new Connection("clinicalHistory");
-        ClinicalHistory clinicalHistory = conection2.retrieveClinicalHistory(patient);
+        Patient patient = retrievePatient(id);
+        ClinicalHistory clinicalHistory = retrieveClinicalHistory(patient);
         String[][] matrix = new String[clinicalHistory.getDiagnostics().size()][4];
         for (int i = 0; i < clinicalHistory.getDiagnostics().size(); i++) {
             matrix[i][0] = clinicalHistory.getDiagnostics().get(i).getDateOfDiagnostic();
             matrix[i][1] = clinicalHistory.getDiagnostics().get(i).getSymptoms();
             matrix[i][2] = clinicalHistory.getDiagnostics().get(i).getTreatment();
-            matrix[i][3] = clinicalHistory.getDiagnostics().get(i).getPathology();
-            //
+            matrix[i][3] = clinicalHistory.getDiagnostics().get(i).getPathology();           
         }
         return matrix;
     }
@@ -99,10 +99,8 @@ public class PhysiomaticController {
 
     public static String[][] showAppointmentTable(long id) {
         ArrayList<Appointment> appointments = new ArrayList<>();
-        Connection connection = new Connection("patients");
-        Patient patient = connection.retrievePatient(id);
-        connection = new Connection("appointments");
-        appointments = connection.retrieveAppointments(patient);
+        Patient patient = retrievePatient(id);        
+        appointments = translation.retrieveAppointments();
         String[][] matrix = new String[appointments.size()][3];
         for (int i = 0; i < appointments.size(); i++) {
             matrix[i][1] = appointments.get(i).getHour();
@@ -136,7 +134,7 @@ public class PhysiomaticController {
         mongo.save("clinicalHistory", gson.toJson(newClinicalHistory));
     }
 
-    public static void createProduct(Product product) {        
+    public static void createProduct(Product product) {
         String data = gson.toJson(product);
         mongo.save("products", data);
     }
@@ -145,9 +143,11 @@ public class PhysiomaticController {
         Product product = retrieveProduct(idProduct);
         Product newProduct = product;
         mongo.delete("products", gson.toJson(product));
+        System.out.println(gson.toJson(product));
         float stock = product.getStock();
         stock = stock - quantity;
         newProduct.setStock(stock);
+        System.out.println("Entra aqui");
         mongo.save("products", gson.toJson(newProduct));
     }
 

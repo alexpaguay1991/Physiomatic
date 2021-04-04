@@ -17,8 +17,10 @@ import ec.edu.espe.utils.MongoDBManager;
  */
 public class PatientController {
 
+    static String data = "mongodb+srv://AlexPaguay:resende1A@physiomatic.ths5b.mongodb.net/Physiomatic?retryWrites=true&w=majority";
+    static String dataBase = "Physiomatic";
     static Gson gson = new Gson();
-    static MongoDBManager mongo = MongoDBManager.getInstance();
+    static MongoDBManager mongo = MongoDBManager.getInstance(data, dataBase);
     static DataTranslation translation = new DataTranslation();
 
     public static void createClinicalHistory(ClinicalHistory clinicalHistory) {
