@@ -10,11 +10,11 @@ package ec.edu.espe.utils;
  * @author Alex Paguay
  */
 public class PhysiomaticException extends Exception {
-    
+
     public static final long serialVersionUID = 700L;
 
     public PhysiomaticException(String message) {
         super(message);
     }
-    
+
 }

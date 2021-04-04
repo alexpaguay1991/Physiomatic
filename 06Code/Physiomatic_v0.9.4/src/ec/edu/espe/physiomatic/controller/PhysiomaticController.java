@@ -21,7 +21,6 @@ import ec.edu.espe.utils.FileManager1;
 import ec.edu.espe.utils.Persistence;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 
 /**
