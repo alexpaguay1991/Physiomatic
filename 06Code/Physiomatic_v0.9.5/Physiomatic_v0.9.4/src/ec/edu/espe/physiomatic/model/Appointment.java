@@ -12,7 +12,6 @@ package ec.edu.espe.physiomatic.model;
  */
 public class Appointment {
 
-   
     private String dateOfAppointment;
     private String hour;
     private Patient patient;
@@ -58,8 +57,9 @@ public class Appointment {
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
+
     /**
-     * 
+     *
      * @param dateOfAppointment, save the date of the medical appointment.
      * @param hour, save the appointment time.
      * @param patient, recieve a Patient patient.

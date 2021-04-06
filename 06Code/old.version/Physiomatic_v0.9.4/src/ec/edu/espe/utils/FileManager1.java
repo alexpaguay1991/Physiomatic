@@ -5,9 +5,6 @@
  */
 package ec.edu.espe.utils;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;

@@ -26,13 +26,11 @@ import org.bson.BSONObject;
 import org.bson.Document;
 import org.codehaus.jackson.map.ObjectMapper;
 
-
-
 /**
  *
  * @author Acer
  */
-public class Connection extends Persistence{
+public class Connection extends Persistence {
 
     MongoDatabase baseDatos;
     //DBCollection collection;
@@ -191,7 +189,8 @@ public class Connection extends Persistence{
             String diagnostics1 = gson.toJson(theObj.get("diagnostics"));
             String patient1 = gson.toJson(theObj.get("patient"));
             Patient patient2 = gson.fromJson(patient1, Patient.class);
-            diagnostics = gson.fromJson(diagnostics1, new TypeToken<List<Diagnostic>>() {}.getType());
+            diagnostics = gson.fromJson(diagnostics1, new TypeToken<List<Diagnostic>>() {
+            }.getType());
             clinicalHistory = new ClinicalHistory(patient2, birthDate, weight, height, familiyBackground, bloodType, allergy, diagnostics);
 
             if (patient.getId() == clinicalHistory.getPatient().getId()) {
@@ -261,7 +260,7 @@ public class Connection extends Persistence{
             }.getType());
             billprobe = gson.toJson(theObj.get("price"));
             price = Float.parseFloat(billprobe);
-            bill = new Bill(price, patient1, products3,"14/04/2021");
+            bill = new Bill(price, patient1, products3, "14/04/2021");
             if (patient.getId() == bill.getPatient().getId()) {
                 billRetrieved = bill;
             }
@@ -280,7 +279,7 @@ public class Connection extends Persistence{
         ArrayList<Product> products = new ArrayList<>();
         Patient patientNull = new Patient(0, "null", "null", "null", "null", "null");
 
-        Bill billRetrieved = new Bill(0, patientNull, products,"null");
+        Bill billRetrieved = new Bill(0, patientNull, products, "null");
 
         while (resultDocument.hasNext()) {
             Document theObj = resultDocument.next();
@@ -294,7 +293,7 @@ public class Connection extends Persistence{
             }.getType());
             billprobe = gson.toJson(theObj.get("price"));
             price = Float.parseFloat(billprobe);
-            bill = new Bill(price, patient1, products3,"null");
+            bill = new Bill(price, patient1, products3, "null");
             if (patient.getId() == bill.getPatient().getId()) {
                 bills.add(bill);
             }
@@ -372,12 +371,10 @@ public class Connection extends Persistence{
         Patient patientRetrieved = new Patient(0, "null", "null", "null", "null", "null");
         while (resultDocument.hasNext()) {
             Document theObj = resultDocument.next();
-           
-            System.out.println("documento "+theObj.get("_id"));
+
+            System.out.println("documento " + theObj.get("_id"));
             ObjectMapper mapper = new ObjectMapper();
-            
-            
-           
+
             try {
                 id = Long.parseLong(gson.toJson(theObj.get("id")).replace("\"", ""));
                 address = gson.toJson(theObj.get("address")).replace("\"", "");
@@ -386,18 +383,18 @@ public class Connection extends Persistence{
                 email = gson.toJson(theObj.get("email")).replace("\"", "");
                 phoneNumber = gson.toJson(theObj.get("phoneNumber")).replace("\"", "");
                 patient = new Patient(id, address, name, lastName, email, phoneNumber);
-                
+
                 if (idPatient == patient.getId()) {
                     patientRetrieved = patient;
                     System.out.println("si entra aqui");
                 }
-                
+
             } catch (Exception e) {
 
             }
 
         }
-        
+
         return patientRetrieved;
 
     }
@@ -613,8 +610,8 @@ public class Connection extends Persistence{
 
     @Override
     public void save(String fileName, String data) {
-        Patient patient = gson.fromJson(data, Patient.class);        
-        Document admin;        
+        Patient patient = gson.fromJson(data, Patient.class);
+        Document admin;
         admin = new Document("id", patient.getId());
         admin.append("name", patient.getName());
         admin.append("lastName", patient.getLastName());
@@ -651,5 +648,4 @@ public class Connection extends Persistence{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
 }

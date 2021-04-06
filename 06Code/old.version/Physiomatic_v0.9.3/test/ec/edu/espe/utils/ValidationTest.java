@@ -33,484 +33,484 @@ public class ValidationTest {
     }
 
    /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters() {
         System.out.println("validateLetters");
         String letters = "45563";
         boolean expResult = false;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters2() {
         System.out.println("validateLetters");
         String letters = "perro";
         boolean expResult = true;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result); 
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters3() {
         System.out.println("validateLetters");
         String letters = "ANIMALES";
         boolean expResult = true;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters4() {
         System.out.println("validateLetters");
         String letters = "GUITIERREZ14022001";
         boolean expResult = false;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters5() {
         System.out.println("validateLetters");
         String letters = "ToXiC-593";
         boolean expResult = false;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters6() {
         System.out.println("validateLetters");
         String letters = "velocidad por tiempo";
         boolean expResult = false;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters7() {
         System.out.println("validateLetters");
         String letters = "minusculas con 159357";
         boolean expResult = false;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters8() {
         System.out.println("validateLetters");
         String letters = "velocidad * tiempo";
         boolean expResult = false;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters9() {
         System.out.println("validateLetters");
         String letters = "CON MAS de tres ESPACIOS";
         boolean expResult = true;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters10() {
         System.out.println("validateLetters");
         String letters = "CADA PASO";
         boolean expResult = true;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters11() {
         System.out.println("validateLetters");
         String letters = "todosevale";
         boolean expResult = true;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters12() {
         System.out.println("validateLetters");
         String letters = "UNPASOALAVEZ";
         boolean expResult = true;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters13() {
         System.out.println("validateLetters");
         String letters = "ANIMALES-SALVAJES";
         boolean expResult = false;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters14() {
         System.out.println("validateLetters");
         String letters = "que pas0";
         boolean expResult = false;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters15() {
         System.out.println("validateLetters");
         String letters = "3sc1b4m0s";
         boolean expResult = false;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters16() {
         System.out.println("validateLetters");
         String letters = "reconoce espacios?";
         boolean expResult = false;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters17() {
         System.out.println("validateLetters");
         String letters = "deberia reconocer espacios";
         boolean expResult = true;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters18() {
         System.out.println("validateLetters");
         String letters = " TODO ";
         boolean expResult = true;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters19() {
         System.out.println("validateLetters");
         String letters = "tílde";
         boolean expResult = true;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateLetters method, of class Validation.
+     * Test of letters method, of class Validation.
      */
     @Test
     public void testValidateLetters20() {
         System.out.println("validateLetters");
         String letters = "ANOTHER DAY";
         boolean expResult = true;
-        boolean result = Validation.validateLetters(letters);
+        boolean result = Validation.letters(letters);
         assertEquals(expResult, result);
     }
     
     //******************************************************
 
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers() {
         System.out.println("validateNumbers");
         String numbers = "5938754";
         boolean expResult = true;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers2() {
         System.out.println("validateNumbers");
         String numbers = "593-412-789";
         boolean expResult = false;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers3() {
         System.out.println("validateNumbers");
         String numbers = "442 852";
         boolean expResult = true;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers4() {
         System.out.println("validateNumbers");
         String numbers = "Doce";
         boolean expResult = false;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers5() {
         System.out.println("validateNumbers");
         String numbers = "*** 10 ***";
         boolean expResult = false;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers6() {
         System.out.println("validateNumbers");
         String numbers = "1800 444 555";
         boolean expResult = true;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers7() {
         System.out.println("validateNumbers");
         String numbers = "-9000000";
         boolean expResult = true;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers8() {
         System.out.println("validateNumbers");
         String numbers = "-250,34";
         boolean expResult = true;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers9() {
         System.out.println("validateNumbers");
         String numbers = "12,52";
         boolean expResult = true;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers10() {
         System.out.println("validateNumbers");
         String numbers = "8000000";
         boolean expResult = true;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers11() {
         System.out.println("validateNumbers");
         String numbers = "200000";
         boolean expResult = true;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers12() {
         System.out.println("validateNumbers");
         String numbers = "12-53";
         boolean expResult = false;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers13() {
         System.out.println("validateNumbers");
         String numbers = "1800 200";
         boolean expResult = true;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers14() {
         System.out.println("validateNumbers");
         String numbers = "docientos";
         boolean expResult = false;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers15() {
         System.out.println("validateNumbers");
         String numbers = "8+5";
         boolean expResult = false;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers16() {
         System.out.println("validateNumbers");
         String numbers = "512-A";
         boolean expResult = false;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers17() {
         System.out.println("validateNumbers");
         String numbers = "-1";
         boolean expResult = true;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers18() {
         System.out.println("validateNumbers");
         String numbers = "-1.1";
         boolean expResult = true;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers19() {
         System.out.println("validateNumbers");
         String numbers = "100";
         boolean expResult = true;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     
     /**
-     * Test of validateNumbers method, of class Validation.
+     * Test of numbers method, of class Validation.
      */
     @Test
     public void testValidateNumbers20() {
         System.out.println("validateNumbers");
         String numbers = "16";
         boolean expResult = true;
-        boolean result = Validation.validateNumbers(numbers);
+        boolean result = Validation.numbers(numbers);
         assertEquals(expResult, result);
     }
     

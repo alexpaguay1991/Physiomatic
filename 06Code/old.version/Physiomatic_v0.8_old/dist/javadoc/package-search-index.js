@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"ec.edu.espe.physiomatic.controller"},{"l":"ec.edu.espe.physiomatic.model"},{"l":"ec.edu.espe.physiomatic.view"},{"l":"ec.edu.espe.utils"}]

@@ -12,11 +12,11 @@ package ec.edu.espe.utils;
 public abstract class Persistence {
 
     public abstract void save(String fileName, String data);
-    
+
     public abstract String[] read(String fileName);
 
     public abstract String find(String fileName, String dataToFind);
-     
+
     public abstract String[] findAll(String fileName);
 
     public abstract void delete(String fileName, String datatodelete);

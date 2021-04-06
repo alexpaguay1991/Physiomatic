@@ -121,7 +121,7 @@ public class DataTranslation {
         Bill bill = new Bill(0, patient1, products, "null");
         try {
             doc = mapper.readValue(billDocument, Document.class);
-            String patient = gson.toJson(doc.get("patient"));            
+            String patient = gson.toJson(doc.get("patient"));
             patient1 = gson.fromJson(patient, Patient.class);
             String products1 = gson.toJson(doc.get("products"));
             products = gson.fromJson(products1, new TypeToken<List<Product>>() {
@@ -202,7 +202,7 @@ public class DataTranslation {
         Product product = new Product("null", 0, 0, "", 0);
         try {
             doc = gson.fromJson(document, Document.class);
-            String id = gson.toJson(doc.get("id")).replace("\"","");
+            String id = gson.toJson(doc.get("id")).replace("\"", "");
             String description = gson.toJson(doc.get("description")).replace("\"", "");
             String quantity = gson.toJson(doc.get("stock")).replace("/", "");
             String unitPrice = gson.toJson(doc.get("unitPrice")).replace("/", "");

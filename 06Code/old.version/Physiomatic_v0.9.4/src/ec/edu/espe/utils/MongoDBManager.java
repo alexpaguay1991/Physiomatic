@@ -6,23 +6,12 @@
 package ec.edu.espe.utils;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
-import ec.edu.espe.physiomatic.model.Appointment;
-import ec.edu.espe.physiomatic.model.Bill;
-import ec.edu.espe.physiomatic.model.ClinicalHistory;
-import ec.edu.espe.physiomatic.model.Diagnostic;
-import ec.edu.espe.physiomatic.model.Patient;
-import ec.edu.espe.physiomatic.model.Physioterapist;
-import ec.edu.espe.physiomatic.model.Product;
-import java.util.ArrayList;
-import java.util.List;
-import org.bson.BSONObject;
 import org.bson.Document;
 
 /**
